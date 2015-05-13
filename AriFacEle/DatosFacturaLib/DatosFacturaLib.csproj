@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D46B1236-226C-4C8E-AE12-515BFEB96CA4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DatosFacturaLib</RootNamespace>
+    <AssemblyName>DatosFacturaLib</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MySql.Data, Version=6.6.5.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Telerik.OpenAccess, Version=2013.2.702.1, Culture=neutral, PublicKeyToken=7ce17eeaf1d59342">
+      <HintPath>C:\Program Files (x86)\Telerik\OpenAccess ORM\bin\Telerik.OpenAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.OpenAccess.35.Extensions, Version=2013.2.702.1, Culture=neutral, PublicKeyToken=7ce17eeaf1d59342">
+      <HintPath>C:\Program Files (x86)\Telerik\OpenAccess ORM\bin\Telerik.OpenAccess.35.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.OpenAccess.40.Extensions, Version=2013.2.702.1, Culture=neutral, PublicKeyToken=7ce17eeaf1d59342">
+      <HintPath>C:\Program Files (x86)\Telerik\OpenAccess ORM\bin\Telerik.OpenAccess.40.Extensions.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Cau_FIN_FACEInvoiceHeader.generated.cs">
+      <DependentUpon>EntitiesModel1.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="Cau_FIN_FACEInvoiceLine.generated.cs">
+      <DependentUpon>EntitiesModel1.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="Cau_FIN_FACEInvoiceTax.generated.cs">
+      <DependentUpon>EntitiesModel1.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="Cliente.generated.cs">
+      <DependentUpon>EntityDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="CntLib.cs" />
+    <Compile Include="Departamento.generated.cs">
+      <DependentUpon>EntityDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="Empresa.generated.cs">
+      <DependentUpon>EntityDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="EntitiesModel1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EntitiesModel1.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="EntityDiagrams.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EntityDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="Factura.generated.cs">
+      <DependentUpon>EntityDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="ficherosLib.cs" />
+    <Compile Include="Firma.generated.cs">
+      <DependentUpon>EntityDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="Nifbase.generated.cs">
+      <DependentUpon>EntityDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="Plantilla.generated.cs">
+      <DependentUpon>EntityDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositorio.generated.cs">
+      <DependentUpon>EntityDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="Sistema.generated.cs">
+      <DependentUpon>EntityDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="Superusuario.generated.cs">
+      <DependentUpon>EntityDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="Unidad.generated.cs">
+      <DependentUpon>EntityDiagrams.rlinq</DependentUpon>
+    </Compile>
+    <Compile Include="Usuario.generated.cs">
+      <DependentUpon>EntityDiagrams.rlinq</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="EntitiesModel1.rlinq.diagram">
+      <DependentUpon>EntitiesModel1.rlinq</DependentUpon>
+    </None>
+    <OpenAccessDeploy Include="EntitiesModel1.rlinq">
+      <Generator>MetaModelCodeGenerator</Generator>
+      <LastGenOutput>EntitiesModel1.cs</LastGenOutput>
+    </OpenAccessDeploy>
+    <OpenAccessDeploy Include="EntityDiagrams.rlinq">
+      <Generator>MetaModelCodeGenerator</Generator>
+      <LastGenOutput>EntityDiagrams.cs</LastGenOutput>
+    </OpenAccessDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AriAgroModel\AriAgroModel.csproj">
+      <Project>{1065FF41-D215-4A01-A709-6A352958461C}</Project>
+      <Name>AriAgroModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AriFacElec\AriFacElec.csproj">
+      <Project>{7742DEC6-D095-43F4-9F24-81BF070B4B5D}</Project>
+      <Name>AriFacElec</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AriGasolModel\AriGasolModel.csproj">
+      <Project>{05112523-7ED6-4744-812F-F55C5F9B9301}</Project>
+      <Name>AriGasolModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AriTaxiModel\AriTaxiModel.csproj">
+      <Project>{120701E0-B389-4AED-9D35-6248712C2FDA}</Project>
+      <Name>AriTaxiModel</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Facelec_ariadnaConnection%282013-01-07 12-07-36%29.rlinq.sql" />
+    <Content Include="SQLs\mod_AnyadeSocioFacelec_ariadnaConnection%282013-03-08 18-30-45%29.rlinq.sql" />
+    <Content Include="SQLs\mod_AritaxiFacelec_ariadnaConnection%282013-04-09 13-17-04%29.rlinq.sql" />
+    <Content Include="SQLs\mod_AritaxiFacelec_ariadnaConnection%282013-04-12 18-10-18%29.rlinq.sql" />
+    <Content Include="SQLs\mod_ClienAriges2Facelec_ariadnaConnection%282013-04-09 10-45-15%29.rlinq.sql" />
+    <Content Include="SQLs\mod_CodsocioArigeroFacelec_ariadnaConnection%282013-03-15 12-10-04%29.rlinq.sql" />
+    <Content Include="SQLs\mod_Facelec_ariadnaConnection%282013-03-04 17-12-49%29.rlinq.sql" />
+    <Content Include="SQLs\mod_Facelec_ariadnaConnection%282013-03-04 18-00-17%29.rlinq.sql" />
+    <Content Include="SQLs\mod_Facelec_ariadnaConnection%282013-03-04 18-03-51%29.rlinq.sql" />
+    <Content Include="SQLs\mod_IdFraSocioProveedorFacelec_ariadnaConnection%282013-03-14 17-18-29%29.rlinq.sql" />
+    <Content Include="SQLs\mod_IdSistemaIdFacelec_ariadnaConnection%282013-03-14 18-13-32%29.rlinq.sql" />
+    <Content Include="SQLs\mod_ImpGastosAFOFacelec_ariadnaConnection%282013-03-15 11-10-08%29.rlinq.sql" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <Import Condition="Exists('$(MSBuildExtensionsPath)\OpenAccess.targets')" Project="$(MSBuildExtensionsPath)\OpenAccess.targets" />
+</Project>

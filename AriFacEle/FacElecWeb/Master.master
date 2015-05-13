@@ -1,0 +1,99 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Master.master.cs" Inherits="Master" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head runat="server">
+        <title>
+            Alzicoop Online
+        </title>
+        <link href="FacElecStyle.css" rel="stylesheet" type="text/css" />
+        <style type="text/css">
+            .cabCliente
+            {
+            color: #000000;
+            font-family: 'Arial Rounded MT Bold';
+            font-size:medium;
+            }
+            .style1
+            {
+            width: 467px;
+            height: 107px;
+            }
+        </style>
+        <telerik:RadStyleSheetManager id="RadStyleSheetManager1" runat="server" />
+        <asp:ContentPlaceHolder id="head" runat="server">
+        </asp:ContentPlaceHolder>
+
+    </head>
+    <body>
+        <form id="form1" runat="server">
+            <div id="StaticControls">
+                <telerik:RadSkinManager ID="RadSkinManager1" runat="server">
+                </telerik:RadSkinManager>
+                <telerik:RadScriptManager ID="RadScriptManager1" runat="server">
+                    <Scripts>
+                        <%--Needed for JavaScript IntelliSense in VS2010--%>
+                        <%--For VS2008 replace RadScriptManager with ScriptManager--%>
+                        <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.Core.js" />
+                        <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.jQuery.js" />
+                        <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.jQueryInclude.js" />
+                    </Scripts>
+                </telerik:RadScriptManager>
+                <telerik:RadInputManager ID="RadInputManager1" runat="server">
+                    <telerik:TextBoxSetting>
+                        <TargetControls>
+                            <telerik:TargetInput ControlID="txtLogin" />
+                            <telerik:TargetInput ControlID="txtPassword" />
+                        </TargetControls>
+                    </telerik:TextBoxSetting>
+                </telerik:RadInputManager>
+                <telerik:RadAjaxManager ID="RadAjaxManager1" runat="server" 
+                                        onajaxrequest="RadAjaxManager1_AjaxRequest">
+                    <AjaxSettings>
+                        <telerik:AjaxSetting AjaxControlID="RadWindowManager1">
+                        </telerik:AjaxSetting>
+                        <telerik:AjaxSetting AjaxControlID="LinkButton1">
+                        </telerik:AjaxSetting>
+                    </AjaxSettings>
+                </telerik:RadAjaxManager>
+                <telerik:RadWindowManager ID="RadWindowManager1" runat="server">
+                </telerik:RadWindowManager>
+                <telerik:RadCodeBlock runat="server">
+                    <script type="text/javascript">
+                        function confirmCallBackFn(arg) {
+                            $find("<%=RadAjaxManager1.ClientID%>").ajaxRequest(arg);
+                        }
+                    </script>
+                </telerik:RadCodeBlock>
+            </div>
+            <div>
+                <div id="banner">
+                    <table width="100%">
+                        <tr>
+                            <td>
+                                <img align="middle" alt="ariadna" longdesc="ariadna" class="style1" 
+                                     src="img/cabecera_base.png" />
+                            </td>
+                            <td>
+                                <div style="text-align:right; font-family:Verdana;">
+                                <h1>Alzicoop Online</h1>
+                                <p>Consulta de documentación electrónica</p>
+                                    </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div style="background-color: #D8E1F5; height: 50px;">
+                    <asp:Label ID="txtNomClient" CssClass="cabCliente" runat="server" Text=" "></asp:Label>
+                    <asp:ImageButton ID="imgbSalir" runat="server" 
+                                     ImageUrl="~/img/btnSalir.png" CssClass="btnSalir" ImageAlign="Right" 
+                                     onclick="imgbSalir_Click" />
+                </div>
+                <div id="cuerpo">
+                    <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+
+                    </asp:ContentPlaceHolder>
+                </div>
+            </div>
+        </form>
+    </body>
+</html>

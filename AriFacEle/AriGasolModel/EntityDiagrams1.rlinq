@@ -1,0 +1,917 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DomainModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="2.0.0.0" name="AriGasolContext" namespace="AriGasolModel" showPropertiesCompartment="true" xmlns="http://www.telerik.com/ORM">
+  <orm:orm name="AriGasolContext" backend="mysql" xmlns:orm="http://tempuri.org/ORM">
+    <orm:namespace name="AriGasolModel" default="true">
+      <orm:class name="Ssocio" uniqueId="f6df8224-305a-4a62-8bc0-3fe5b0695582">
+        <orm:table name="ssocio" />
+        <orm:identity>
+          <orm:single-field field-name="_codsocio" />
+        </orm:identity>
+        <orm:concurrency strategy="changed" />
+        <orm:field name="_codsocio" property="Codsocio" behavior="readwrite" uniqueId="7dea58b8-56f4-4455-8286-d38638fde6f0" type="System.Int32">
+          <orm:column name="codsocio" sql-type="integer" nullable="false" length="0" scale="0" primary-key="true" has-default-value="true" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="_codcoope" property="Codcoope" behavior="readwrite" uniqueId="8f1a03c3-f91c-472c-94e3-a011dc88970d" type="System.Int16">
+          <orm:column name="codcoope" sql-type="smallint" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Int16" />
+        </orm:field>
+        <orm:field name="_nomsocio" property="Nomsocio" behavior="readwrite" uniqueId="284087e9-dc00-44de-ab98-52e0f0af67d2" type="System.String">
+          <orm:column name="nomsocio" sql-type="varchar" nullable="false" length="40" scale="0" ado-type="Varchar" />
+        </orm:field>
+        <orm:field name="_domsocio" property="Domsocio" behavior="readwrite" uniqueId="f7a61bcf-8f6b-4e44-bc39-4ca2d6b4bca0" type="System.String">
+          <orm:column name="domsocio" sql-type="varchar" nullable="false" length="40" scale="0" ado-type="Varchar" />
+        </orm:field>
+        <orm:field name="_codposta" property="Codposta" behavior="readwrite" uniqueId="e3c88da0-1697-4cfa-90a4-208278076722" type="System.String">
+          <orm:column name="codposta" sql-type="varchar" nullable="false" length="6" scale="0" ado-type="Varchar" />
+        </orm:field>
+        <orm:field name="_pobsocio" property="Pobsocio" behavior="readwrite" uniqueId="f4b70864-fbee-4202-a96f-8281bb133d03" type="System.String">
+          <orm:column name="pobsocio" sql-type="varchar" nullable="false" length="35" scale="0" ado-type="Varchar" />
+        </orm:field>
+        <orm:field name="_prosocio" property="Prosocio" behavior="readwrite" uniqueId="ce3a0e2b-6c7b-417c-a71d-cd7d10d68bdf" type="System.String">
+          <orm:column name="prosocio" sql-type="varchar" nullable="false" length="35" scale="0" ado-type="Varchar" />
+        </orm:field>
+        <orm:field name="_nifsocio" property="Nifsocio" behavior="readwrite" uniqueId="1d111aaa-906b-4098-9a80-9714f7bb240a" type="System.String">
+          <orm:column name="nifsocio" sql-type="varchar" nullable="false" length="9" scale="0" ado-type="Varchar" />
+        </orm:field>
+        <orm:field name="_telsocio" property="Telsocio" behavior="readwrite" uniqueId="41788370-faa2-4593-907a-8c1a7795386e" type="System.String">
+          <orm:column name="telsocio" sql-type="varchar" nullable="true" length="10" scale="0" ado-type="Varchar" />
+        </orm:field>
+        <orm:field name="_faxsocio" property="Faxsocio" behavior="readwrite" uniqueId="b01de9a1-9995-4604-a096-a0838f8567ac" type="System.String">
+          <orm:column name="faxsocio" sql-type="varchar" nullable="true" length="10" scale="0" ado-type="Varchar" />
+        </orm:field>
+        <orm:field name="_movsocio" property="Movsocio" behavior="readwrite" uniqueId="28c8ca17-8a74-45cf-9e08-2df59989f405" type="System.String">
+          <orm:column name="movsocio" sql-type="varchar" nullable="true" length="10" scale="0" ado-type="Varchar" />
+        </orm:field>
+        <orm:field name="_maisocio" property="Maisocio" behavior="readwrite" uniqueId="d9292589-26d0-42a5-b9df-e4c9675267a8" type="System.String">
+          <orm:column name="maisocio" sql-type="varchar" nullable="true" length="40" scale="0" ado-type="Varchar" />
+        </orm:field>
+        <orm:field name="_wwwsocio" property="Wwwsocio" behavior="readwrite" uniqueId="c15a9708-d1a7-43f8-8bc4-bc59dd168a9c" type="System.String">
+          <orm:column name="wwwsocio" sql-type="varchar" nullable="true" length="40" scale="0" ado-type="Varchar" />
+        </orm:field>
+        <orm:field name="_fechaalt" property="Fechaalt" behavior="readwrite" uniqueId="2a0e4863-ac4f-4032-911d-1ea32e617875" type="System.DateTime">
+          <orm:column name="fechaalt" sql-type="date" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Date" />
+        </orm:field>
+        <orm:field name="_fechabaj" property="Fechabaj" behavior="readwrite" uniqueId="5dd24810-cc69-420e-8745-3fcf025dda6d" type="System.Nullable`1[[System.DateTime, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="fechabaj" sql-type="date" nullable="true" length="0" scale="0" ado-type="Date" />
+        </orm:field>
+        <orm:field name="_codtarif" property="Codtarif" behavior="readwrite" uniqueId="2436fb9d-85fa-4d92-9a67-0ffdb374b656" type="System.Int16">
+          <orm:column name="codtarif" sql-type="smallint" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Int16" />
+        </orm:field>
+        <orm:field name="_codbanco" property="Codbanco" behavior="readwrite" uniqueId="5e40d79e-e8c0-49d0-877c-f72bbda65a2e" type="System.String">
+          <orm:column name="codbanco" sql-type="varchar" nullable="true" length="4" scale="0" ado-type="Varchar" />
+        </orm:field>
+        <orm:field name="_codsucur" property="Codsucur" behavior="readwrite" uniqueId="a9744db8-70a2-449a-9d47-52f2dfed216c" type="System.String">
+          <orm:column name="codsucur" sql-type="varchar" nullable="true" length="4" scale="0" ado-type="Varchar" />
+        </orm:field>
+        <orm:field name="_digcontr" property="Digcontr" behavior="readwrite" uniqueId="5e6e0384-6e16-488d-8715-3a440ba4c6a5" type="System.String">
+          <orm:column name="digcontr" sql-type="char" nullable="true" length="2" scale="0" ado-type="Character" />
+        </orm:field>
+        <orm:field name="_cuentaba" property="Cuentaba" behavior="readwrite" uniqueId="9ffd45e1-ba70-493d-b519-d8e705ce855f" type="System.String">
+          <orm:column name="cuentaba" sql-type="varchar" nullable="true" length="10" scale="0" ado-type="Varchar" />
+        </orm:field>
+        <orm:field name="_impfactu" property="Impfactu" behavior="readwrite" uniqueId="4c022bb8-d904-45d7-8d6b-f38992da2271" type="System.Int16">
+          <orm:column name="impfactu" sql-type="tinyint" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Byte" />
+        </orm:field>
+        <orm:field name="_dtolitro" property="Dtolitro" behavior="readwrite" uniqueId="413415d9-4717-4e34-9a60-48827e643ac5" type="System.Decimal">
+          <orm:column name="dtolitro" sql-type="decimal" nullable="false" length="5" scale="4" has-default-value="true" ado-type="Decimal" />
+        </orm:field>
+        <orm:field name="_codforpa" property="Codforpa" behavior="readwrite" uniqueId="e8590695-5a8e-4f64-acec-5fe8a831a765" type="System.Int16">
+          <orm:column name="codforpa" sql-type="smallint" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Int16" />
+        </orm:field>
+        <orm:field name="_tipsocio" property="Tipsocio" behavior="readwrite" uniqueId="53a21bbf-34fc-4924-9263-30aa638b5566" type="System.Byte">
+          <orm:column name="tipsocio" sql-type="tinyint unsigned" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Byte" />
+        </orm:field>
+        <orm:field name="_bonifbas" property="Bonifbas" behavior="readwrite" uniqueId="d537c895-0450-4aeb-abcb-ad778e5ea20e" type="System.Int16">
+          <orm:column name="bonifbas" sql-type="tinyint" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Byte" />
+        </orm:field>
+        <orm:field name="_bonifesp" property="Bonifesp" behavior="readwrite" uniqueId="8906bc21-8915-4031-a1f5-c2da9137a4e0" type="System.Int16">
+          <orm:column name="bonifesp" sql-type="tinyint" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Byte" />
+        </orm:field>
+        <orm:field name="_codsitua" property="Codsitua" behavior="readwrite" uniqueId="c122c2b6-9b3e-453a-ba18-ed1b6ddf6d65" type="System.Int16">
+          <orm:column name="codsitua" sql-type="smallint" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Int16" />
+        </orm:field>
+        <orm:field name="_codmacta" property="Codmacta" behavior="readwrite" uniqueId="a8df2538-b508-4044-9113-7015308e23e3" type="System.String">
+          <orm:column name="codmacta" sql-type="varchar" nullable="true" length="10" scale="0" ado-type="Varchar" />
+        </orm:field>
+        <orm:field name="_obssocio" property="Obssocio" behavior="readwrite" uniqueId="74bce5b5-46ec-4bde-a9f8-c0ff66af348b" type="System.String">
+          <orm:column name="obssocio" sql-type="varchar" nullable="true" length="250" scale="0" ado-type="Varchar" />
+        </orm:field>
+        <orm:field name="_grupoestartic" property="Grupoestartic" behavior="readwrite" uniqueId="4646fa78-95d0-49eb-85bb-5cde360d97d4" type="System.Int16">
+          <orm:column name="grupoestartic" sql-type="tinyint" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Byte" />
+        </orm:field>
+        <orm:field name="_facturafp" property="Facturafp" behavior="readwrite" uniqueId="30e271cb-08b9-4e54-9fcf-d5b5b05dea34" type="System.Int16">
+          <orm:column name="facturafp" sql-type="tinyint" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Byte" />
+        </orm:field>
+        <orm:field name="_nrosocio" property="Nrosocio" behavior="readwrite" uniqueId="fce7a797-55d3-4215-9408-9fcce743d520" type="System.Nullable`1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="nrosocio" sql-type="integer" nullable="true" length="0" scale="0" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="_envfactemail" property="Envfactemail" behavior="readwrite" uniqueId="868644e3-8d93-46cd-b23c-242597a01648" type="System.Int16">
+          <orm:column name="envfactemail" sql-type="tinyint" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Byte" />
+        </orm:field>
+        <orm:field name="_schfacs" property="Schfacs" behavior="readwrite" uniqueId="382df17f-0cef-4b78-bc33-c54aad491786" type="AriGasolModel.Schfac">
+          <orm:collection element-class="AriGasolModel.Schfac" inverse-field="_ssocio" order-by="" uniqueId="7a50a1cf-42c0-4225-b57b-0f145c30ec1e" />
+        </orm:field>
+        <orm:index name="codcoope">
+          <orm:columnMapping>
+            <orm:column name="codcoope" sql-type="smallint" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Int16" />
+          </orm:columnMapping>
+        </orm:index>
+        <orm:index name="codforpa">
+          <orm:columnMapping>
+            <orm:column name="codforpa" sql-type="smallint" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Int16" />
+          </orm:columnMapping>
+        </orm:index>
+        <orm:index name="codsitua">
+          <orm:columnMapping>
+            <orm:column name="codsitua" sql-type="smallint" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Int16" />
+          </orm:columnMapping>
+        </orm:index>
+        <orm:index name="tipsocio">
+          <orm:columnMapping>
+            <orm:column name="tipsocio" sql-type="tinyint unsigned" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Byte" />
+          </orm:columnMapping>
+        </orm:index>
+      </orm:class>
+      <orm:class name="Sempre" uniqueId="dc5b8801-db69-4e7b-8635-e39a4a1f0f7b">
+        <orm:table name="sempre" />
+        <orm:identity>
+          <orm:single-field field-name="_codempre" />
+        </orm:identity>
+        <orm:concurrency strategy="changed" />
+        <orm:field name="_codempre" property="Codempre" behavior="readwrite" uniqueId="26d2f880-c77f-44fc-b34e-e3045714707e" type="System.Int16">
+          <orm:column name="codempre" sql-type="smallint" nullable="false" length="0" scale="0" primary-key="true" has-default-value="true" ado-type="Int16" />
+        </orm:field>
+        <orm:field name="_nomempre" property="Nomempre" behavior="readwrite" uniqueId="4a6295ca-7245-4165-b81b-34a47924df8a" type="System.String">
+          <orm:column name="nomempre" sql-type="varchar" nullable="false" length="40" scale="0" ado-type="Varchar" />
+        </orm:field>
+        <orm:field name="_domempre" property="Domempre" behavior="readwrite" uniqueId="68aeb6e8-6e0d-4e93-a751-9706cf768548" type="System.String">
+          <orm:column name="domempre" sql-type="varchar" nullable="false" length="40" scale="0" ado-type="Varchar" />
+        </orm:field>
+        <orm:field name="_codposta" property="Codposta" behavior="readwrite" uniqueId="3c8fc7ea-d5fb-4624-881e-018a54a837ee" type="System.String">
+          <orm:column name="codposta" sql-type="varchar" nullable="false" length="6" scale="0" ado-type="Varchar" />
+        </orm:field>
+        <orm:field name="_pobempre" property="Pobempre" behavior="readwrite" uniqueId="f94173cd-b015-4a83-94da-c3b7f32a37d0" type="System.String">
+          <orm:column name="pobempre" sql-type="varchar" nullable="false" length="35" scale="0" ado-type="Varchar" />
+        </orm:field>
+        <orm:field name="_proempre" property="Proempre" behavior="readwrite" uniqueId="e16deb3e-16aa-447e-b9f3-c1b483db9ed6" type="System.String">
+          <orm:column name="proempre" sql-type="varchar" nullable="false" length="35" scale="0" ado-type="Varchar" />
+        </orm:field>
+        <orm:field name="_nifempre" property="Nifempre" behavior="readwrite" uniqueId="95b38eaf-6f9c-4d94-8496-3b72ea947943" type="System.String">
+          <orm:column name="nifempre" sql-type="varchar" nullable="false" length="9" scale="0" ado-type="Varchar" />
+        </orm:field>
+        <orm:field name="_telempre" property="Telempre" behavior="readwrite" uniqueId="4a27d185-ea6f-450a-8fb4-9d6671407822" type="System.String">
+          <orm:column name="telempre" sql-type="varchar" nullable="true" length="10" scale="0" ado-type="Varchar" />
+        </orm:field>
+        <orm:field name="_faxempre" property="Faxempre" behavior="readwrite" uniqueId="5223957c-0fb9-4931-95e5-5557e350c26b" type="System.String">
+          <orm:column name="faxempre" sql-type="varchar" nullable="true" length="10" scale="0" ado-type="Varchar" />
+        </orm:field>
+        <orm:field name="_wwwempre" property="Wwwempre" behavior="readwrite" uniqueId="4a814ac2-9598-44a2-abc8-44742e2cc02f" type="System.String">
+          <orm:column name="wwwempre" sql-type="varchar" nullable="true" length="100" scale="0" ado-type="Varchar" />
+        </orm:field>
+        <orm:field name="_maiempre" property="Maiempre" behavior="readwrite" uniqueId="de1965ba-439c-4b35-8254-f69a8aa21110" type="System.String">
+          <orm:column name="maiempre" sql-type="varchar" nullable="true" length="100" scale="0" ado-type="Varchar" />
+        </orm:field>
+        <orm:field name="_perempre" property="Perempre" behavior="readwrite" uniqueId="c10cdd8b-3408-4185-a01e-73c76d5a2ba6" type="System.String">
+          <orm:column name="perempre" sql-type="varchar" nullable="true" length="40" scale="0" ado-type="Varchar" />
+        </orm:field>
+      </orm:class>
+      <orm:class name="Sartic" uniqueId="8ba80911-eb52-4c36-91e4-f53e9843c0f1">
+        <orm:table name="sartic" />
+        <orm:identity>
+          <orm:single-field field-name="_codartic" />
+        </orm:identity>
+        <orm:concurrency strategy="changed" />
+        <orm:field name="_codartic" property="Codartic" behavior="readwrite" uniqueId="98484b28-f672-4e00-898f-d4cb2608049f" type="System.Int32">
+          <orm:column name="codartic" sql-type="integer" nullable="false" length="0" scale="0" primary-key="true" has-default-value="true" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="_nomartic" property="Nomartic" behavior="readwrite" uniqueId="682e7a6c-5b93-4653-88df-c87b29202932" type="System.String">
+          <orm:column name="nomartic" sql-type="varchar" nullable="false" length="40" scale="0" ado-type="Varchar" />
+        </orm:field>
+        <orm:field name="_codfamia" property="Codfamia" behavior="readwrite" uniqueId="4f5a2317-e466-49b8-bcb4-60237dff0cb2" type="System.Int16">
+          <orm:column name="codfamia" sql-type="smallint" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Int16" />
+        </orm:field>
+        <orm:field name="_codigean" property="Codigean" behavior="readwrite" uniqueId="c5451e4b-0d04-4db3-a74a-a6568a2875e8" type="System.String">
+          <orm:column name="codigean" sql-type="varchar" nullable="true" length="13" scale="0" ado-type="Varchar" />
+        </orm:field>
+        <orm:field name="_numtanqu" property="Numtanqu" behavior="readwrite" uniqueId="586f302a-4471-4d81-9fc3-8673d84448c7" type="System.Nullable`1[[System.Int16, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="numtanqu" sql-type="smallint" nullable="true" length="0" scale="0" ado-type="Int16" />
+        </orm:field>
+        <orm:field name="_nummangu" property="Nummangu" behavior="readwrite" uniqueId="852cdf67-4485-4926-96ea-ca696caa757b" type="System.Nullable`1[[System.Int16, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="nummangu" sql-type="smallint" nullable="true" length="0" scale="0" ado-type="Int16" />
+        </orm:field>
+        <orm:field name="_codmacta" property="Codmacta" behavior="readwrite" uniqueId="3cb20480-924b-499a-85e7-94e0b930c3fc" type="System.String">
+          <orm:column name="codmacta" sql-type="varchar" nullable="true" length="10" scale="0" ado-type="Varchar" />
+        </orm:field>
+        <orm:field name="_codmaccl" property="Codmaccl" behavior="readwrite" uniqueId="d806b82e-c4b0-4c0c-94f1-ebd51e0e9e65" type="System.String">
+          <orm:column name="codmaccl" sql-type="varchar" nullable="true" length="10" scale="0" ado-type="Varchar" />
+        </orm:field>
+        <orm:field name="_codigiva" property="Codigiva" behavior="readwrite" uniqueId="ebfd4a7f-ac14-4740-a5e5-a43fb6853ab6" type="System.Int16">
+          <orm:column name="codigiva" sql-type="smallint" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Int16" />
+        </orm:field>
+        <orm:field name="_preventa" property="Preventa" behavior="readwrite" uniqueId="ccf424a9-75bf-48c7-ab47-e4134980b275" type="System.Decimal">
+          <orm:column name="preventa" sql-type="decimal" nullable="false" length="10" scale="3" has-default-value="true" ado-type="Decimal" />
+        </orm:field>
+        <orm:field name="_bonigral" property="Bonigral" behavior="readwrite" uniqueId="f5de1271-e798-4523-a1c3-00859eff9e2b" type="System.Decimal">
+          <orm:column name="bonigral" sql-type="decimal" nullable="false" length="5" scale="4" has-default-value="true" ado-type="Decimal" />
+        </orm:field>
+        <orm:field name="_canstock" property="Canstock" behavior="readwrite" uniqueId="cdfe7793-63c4-4be6-9b0f-d9a5a6e19085" type="System.Decimal">
+          <orm:column name="canstock" sql-type="decimal" nullable="false" length="10" scale="3" has-default-value="true" ado-type="Decimal" />
+        </orm:field>
+        <orm:field name="_stockinv" property="Stockinv" behavior="readwrite" uniqueId="08ccf101-7687-434e-908c-18d6f6e0ca8c" type="System.Nullable`1[[System.Decimal, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="stockinv" sql-type="decimal" nullable="true" length="10" scale="3" has-default-value="true" ado-type="Decimal" />
+        </orm:field>
+        <orm:field name="_fechainv" property="Fechainv" behavior="readwrite" uniqueId="ad308de9-6334-406f-8335-efb54dd077dc" type="System.Nullable`1[[System.DateTime, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="fechainv" sql-type="date" nullable="true" length="0" scale="0" ado-type="Date" />
+        </orm:field>
+        <orm:field name="_preciopmp" property="Preciopmp" behavior="readwrite" uniqueId="39af6429-e17a-41b3-8c46-4db85b4996a2" type="System.Nullable`1[[System.Decimal, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="preciopmp" sql-type="decimal" nullable="true" length="10" scale="5" ado-type="Decimal" />
+        </orm:field>
+        <orm:field name="_ultpreci" property="Ultpreci" behavior="readwrite" uniqueId="d9185f80-7840-486a-984a-2362d843bd4e" type="System.Nullable`1[[System.Decimal, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="ultpreci" sql-type="decimal" nullable="true" length="10" scale="5" ado-type="Decimal" />
+        </orm:field>
+        <orm:field name="_ultfecha" property="Ultfecha" behavior="readwrite" uniqueId="32190bb8-b926-4249-ae3c-181e3c99473e" type="System.Nullable`1[[System.DateTime, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="ultfecha" sql-type="date" nullable="true" length="0" scale="0" ado-type="Date" />
+        </orm:field>
+        <orm:field name="_impuesto" property="Impuesto" behavior="readwrite" uniqueId="e6cc7e05-3ac3-4a50-9490-1719df0cb937" type="System.Nullable`1[[System.Decimal, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="impuesto" sql-type="decimal" nullable="true" length="5" scale="4" ado-type="Decimal" />
+        </orm:field>
+        <orm:field name="_tipogaso" property="Tipogaso" behavior="readwrite" uniqueId="268232f6-0063-4eb2-9cfe-bfa84aa5c1b6" type="System.Int16">
+          <orm:column name="tipogaso" sql-type="tinyint" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Byte" />
+        </orm:field>
+        <orm:field name="_gp" property="Gp" behavior="readwrite" uniqueId="4c880f7d-8500-4980-abd2-31af299589f5" type="System.Int16">
+          <orm:column name="gp" sql-type="tinyint" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Byte" />
+        </orm:field>
+        <orm:field name="_porcbd" property="Porcbd" behavior="readwrite" uniqueId="b56d431f-7381-46d7-8469-3a01ced65114" type="System.Decimal">
+          <orm:column name="porcbd" sql-type="decimal" nullable="false" length="6" scale="2" has-default-value="true" ado-type="Decimal" />
+        </orm:field>
+        <orm:field name="_artdto" property="Artdto" behavior="readwrite" uniqueId="505064e4-5281-4fe1-b8b8-cfddab5709b3" type="System.Nullable`1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="artdto" sql-type="integer" nullable="true" length="0" scale="0" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="_ctrstock" property="Ctrstock" behavior="readwrite" uniqueId="48e69709-bcfb-4b58-b013-8189e46bb579" type="System.Int16">
+          <orm:column name="ctrstock" sql-type="tinyint" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Byte" />
+        </orm:field>
+        <orm:field name="_ctacompr" property="Ctacompr" behavior="readwrite" uniqueId="ad94f88a-e3e7-4993-a95e-22cf4592cd51" type="System.String">
+          <orm:column name="ctacompr" sql-type="varchar" nullable="true" length="10" scale="0" ado-type="Varchar" />
+        </orm:field>
+        <orm:field name="_artnuevo" property="Artnuevo" behavior="readwrite" uniqueId="8cbb77d0-0402-403a-8112-ca564282a7ca" type="System.Nullable`1[[System.Int16, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="artnuevo" sql-type="tinyint" nullable="true" length="0" scale="0" has-default-value="true" ado-type="Byte" />
+        </orm:field>
+        <orm:field name="_pesoart" property="Pesoart" behavior="readwrite" uniqueId="30d4ee5c-2765-4276-8bd8-e9ce697911bd" type="System.Nullable`1[[System.Decimal, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="pesoart" sql-type="decimal" nullable="true" length="6" scale="2" ado-type="Decimal" />
+        </orm:field>
+        <orm:field name="_precsigaus" property="Precsigaus" behavior="readwrite" uniqueId="5d9cbfcf-22c9-42b5-8890-d13aad0b98fc" type="System.Nullable`1[[System.Decimal, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="precsigaus" sql-type="decimal" nullable="true" length="8" scale="4" ado-type="Decimal" />
+        </orm:field>
+        <orm:field name="_sartic1" property="Sartic1" behavior="readwrite" uniqueId="f11ded27-268c-4377-aa74-cfcc589849da" type="AriGasolModel.Sartic">
+          <orm:reference uniqueId="90a7fbc1-9e04-417d-a843-3d04057a9efa">
+            <orm:sharedfield name="_artdto" target-class="AriGasolModel.Sartic" target-field="_codartic" />
+            <orm:constraint name="sartic_ibfk_1" destination-table="sartic" />
+          </orm:reference>
+        </orm:field>
+        <orm:field name="_sartics" property="Sartics" behavior="readwrite" uniqueId="6a1d728a-4a48-412e-aa0e-a2130474bcc0" type="AriGasolModel.Sartic">
+          <orm:collection element-class="AriGasolModel.Sartic" inverse-field="_sartic1" managed="true" order-by="" uniqueId="90a7fbc1-9e04-417d-a843-3d04057a9efa" />
+        </orm:field>
+        <orm:field name="_slhfacs" property="Slhfacs" behavior="readwrite" uniqueId="66a908b8-c02b-4a3f-9dec-fb01cb20fd31" type="AriGasolModel.Slhfac">
+          <orm:collection element-class="AriGasolModel.Slhfac" inverse-field="_sartic" order-by="" uniqueId="efce6843-c0c9-4955-85d1-9ca0d395a2bf" />
+        </orm:field>
+        <orm:index name="codfamia">
+          <orm:columnMapping>
+            <orm:column name="codfamia" sql-type="smallint" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Int16" />
+          </orm:columnMapping>
+        </orm:index>
+        <orm:index name="FK_sartic">
+          <orm:columnMapping>
+            <orm:column name="artdto" sql-type="integer" nullable="true" length="0" scale="0" ado-type="Int32" />
+          </orm:columnMapping>
+        </orm:index>
+      </orm:class>
+      <orm:class name="Schfac" uniqueId="5d904b7b-de8c-4eda-a853-54a0336848fe">
+        <orm:table name="schfac" />
+        <orm:identity>
+          <orm:multiple-field>
+            <orm:single-field field-name="_letraser" />
+            <orm:single-field field-name="_numfactu" />
+            <orm:single-field field-name="_fecfactu" />
+          </orm:multiple-field>
+        </orm:identity>
+        <orm:concurrency strategy="changed" />
+        <orm:field name="_letraser" property="Letraser" behavior="readwrite" uniqueId="923de4ea-0250-4895-ab80-670f47aa3ea2" type="System.String">
+          <orm:column name="letraser" sql-type="char" nullable="false" length="3" scale="0" primary-key="true" ado-type="StringFixedLength" />
+        </orm:field>
+        <orm:field name="_numfactu" property="Numfactu" behavior="readwrite" uniqueId="cc0f60c5-8c0e-41f1-a45a-38d0cdc97470" type="System.Int32">
+          <orm:column name="numfactu" sql-type="integer" nullable="false" length="0" scale="0" primary-key="true" has-default-value="true" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="_fecfactu" property="Fecfactu" behavior="readwrite" uniqueId="d15121e3-3c61-481f-94b9-65cc94b35f40" type="System.DateTime">
+          <orm:column name="fecfactu" sql-type="date" nullable="false" length="0" scale="0" primary-key="true" has-default-value="true" ado-type="Date" />
+        </orm:field>
+        <orm:field name="_codsocio" property="Codsocio" behavior="readwrite" uniqueId="150df4c9-5dae-4f96-98b7-31cc616efe34" type="System.Int32">
+          <orm:column name="codsocio" sql-type="integer" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="_codcoope" property="Codcoope" behavior="readwrite" uniqueId="ccd578df-ec0e-4f22-9229-130780bfb732" type="System.Int16">
+          <orm:column name="codcoope" sql-type="smallint" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Int16" />
+        </orm:field>
+        <orm:field name="_codforpa" property="Codforpa" behavior="readwrite" uniqueId="f052103e-1b49-4c7e-b7f5-d68191b94aaa" type="System.Int16">
+          <orm:column name="codforpa" sql-type="smallint" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Int16" />
+        </orm:field>
+        <orm:field name="_baseimp1" property="Baseimp1" behavior="readwrite" uniqueId="d8260bc0-8f8d-496e-858f-93a4e5133ca9" type="System.Decimal">
+          <orm:column name="baseimp1" sql-type="decimal" nullable="false" length="10" scale="2" has-default-value="true" ado-type="Decimal" />
+        </orm:field>
+        <orm:field name="_baseimp2" property="Baseimp2" behavior="readwrite" uniqueId="b897e5b4-61c6-4ec3-afc8-95179629890d" type="System.Nullable`1[[System.Decimal, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="baseimp2" sql-type="decimal" nullable="true" length="10" scale="2" has-default-value="true" ado-type="Decimal" />
+        </orm:field>
+        <orm:field name="_baseimp3" property="Baseimp3" behavior="readwrite" uniqueId="fae4877c-c9e7-4a95-a97c-1ab6edbce311" type="System.Nullable`1[[System.Decimal, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="baseimp3" sql-type="decimal" nullable="true" length="10" scale="2" has-default-value="true" ado-type="Decimal" />
+        </orm:field>
+        <orm:field name="_impoiva1" property="Impoiva1" behavior="readwrite" uniqueId="28bb0230-f11c-43ed-b7b3-2787438298d9" type="System.Decimal">
+          <orm:column name="impoiva1" sql-type="decimal" nullable="false" length="10" scale="2" has-default-value="true" ado-type="Decimal" />
+        </orm:field>
+        <orm:field name="_impoiva2" property="Impoiva2" behavior="readwrite" uniqueId="c59847c0-c22f-4155-ba22-0828fd0b64fd" type="System.Nullable`1[[System.Decimal, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="impoiva2" sql-type="decimal" nullable="true" length="10" scale="2" has-default-value="true" ado-type="Decimal" />
+        </orm:field>
+        <orm:field name="_impoiva3" property="Impoiva3" behavior="readwrite" uniqueId="7370aaf2-6a30-401b-8342-50cc2551d83c" type="System.Nullable`1[[System.Decimal, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="impoiva3" sql-type="decimal" nullable="true" length="10" scale="2" has-default-value="true" ado-type="Decimal" />
+        </orm:field>
+        <orm:field name="_tipoiva1" property="Tipoiva1" behavior="readwrite" uniqueId="e2b05026-db5e-492f-99fb-e9d8c691d0ff" type="System.Int16">
+          <orm:column name="tipoiva1" sql-type="smallint" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Int16" />
+        </orm:field>
+        <orm:field name="_tipoiva2" property="Tipoiva2" behavior="readwrite" uniqueId="916ec0f0-24dc-42a8-af93-0f44e811ccf6" type="System.Nullable`1[[System.Int16, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="tipoiva2" sql-type="smallint" nullable="true" length="0" scale="0" has-default-value="true" ado-type="Int16" />
+        </orm:field>
+        <orm:field name="_tipoiva3" property="Tipoiva3" behavior="readwrite" uniqueId="4962dd00-4ca2-4c26-b5fc-4c6099f92b16" type="System.Nullable`1[[System.Int16, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="tipoiva3" sql-type="smallint" nullable="true" length="0" scale="0" has-default-value="true" ado-type="Int16" />
+        </orm:field>
+        <orm:field name="_porciva1" property="Porciva1" behavior="readwrite" uniqueId="83bd9749-91e0-40f0-881e-f065c326856c" type="System.Decimal">
+          <orm:column name="porciva1" sql-type="decimal" nullable="false" length="4" scale="2" has-default-value="true" ado-type="Decimal" />
+        </orm:field>
+        <orm:field name="_porciva2" property="Porciva2" behavior="readwrite" uniqueId="1c76218b-98b0-4a67-99f8-06957b07951e" type="System.Nullable`1[[System.Decimal, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="porciva2" sql-type="decimal" nullable="true" length="4" scale="2" has-default-value="true" ado-type="Decimal" />
+        </orm:field>
+        <orm:field name="_porciva3" property="Porciva3" behavior="readwrite" uniqueId="e7bcdfaa-c9ab-4de2-985a-8861dda314b1" type="System.Nullable`1[[System.Decimal, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="porciva3" sql-type="decimal" nullable="true" length="4" scale="2" has-default-value="true" ado-type="Decimal" />
+        </orm:field>
+        <orm:field name="_totalfac" property="Totalfac" behavior="readwrite" uniqueId="5ad3fdd3-4b81-499c-b355-2ee2b10f29d9" type="System.Decimal">
+          <orm:column name="totalfac" sql-type="decimal" nullable="false" length="10" scale="2" has-default-value="true" ado-type="Decimal" />
+        </orm:field>
+        <orm:field name="_impuesto" property="Impuesto" behavior="readwrite" uniqueId="79639305-61cd-410f-8a7c-7a2086db84fe" type="System.Decimal">
+          <orm:column name="impuesto" sql-type="decimal" nullable="false" length="10" scale="2" has-default-value="true" ado-type="Decimal" />
+        </orm:field>
+        <orm:field name="_intconta" property="Intconta" behavior="readwrite" uniqueId="763f709b-81a7-4e5f-9d69-383b49c9bf1b" type="System.Int16">
+          <orm:column name="intconta" sql-type="tinyint" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Byte" />
+        </orm:field>
+        <orm:field name="_observac" property="Observac" behavior="readwrite" uniqueId="0c5c15fc-0c50-4f28-97a2-88c20e9d833f" type="System.String">
+          <orm:column name="observac" sql-type="varchar" nullable="true" length="72" scale="0" ado-type="StringVariableLength" />
+        </orm:field>
+        <orm:field name="_impuesigaus" property="Impuesigaus" behavior="readwrite" uniqueId="bbbb5632-b897-44bd-ab0a-7ae8daa331d0" type="System.Nullable`1[[System.Decimal, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="impuesigaus" sql-type="decimal" nullable="true" length="10" scale="2" ado-type="Decimal" />
+        </orm:field>
+        <orm:field name="_ssocio" property="Ssocio" behavior="readwrite" uniqueId="bf39ec4b-c821-4603-8991-0de5497f3516" type="AriGasolModel.Ssocio">
+          <orm:reference uniqueId="7a50a1cf-42c0-4225-b57b-0f145c30ec1e">
+            <orm:sharedfield name="_codsocio" target-class="AriGasolModel.Ssocio" target-field="_codsocio" />
+            <orm:constraint name="schfac_ibfk_1" destination-table="ssocio" />
+          </orm:reference>
+        </orm:field>
+        <orm:field name="_slhfacs" property="Slhfacs" behavior="readwrite" uniqueId="1d35c2d9-2dd7-4c7a-a71c-406363c43129" type="AriGasolModel.Slhfac">
+          <orm:collection element-class="AriGasolModel.Slhfac" inverse-field="_schfac" order-by="" uniqueId="775594af-6112-4cd7-b1a6-ddb225ea2709" />
+        </orm:field>
+        <orm:index name="codcoope">
+          <orm:columnMapping>
+            <orm:column name="codcoope" sql-type="smallint" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Int16" />
+          </orm:columnMapping>
+        </orm:index>
+        <orm:index name="FK_schfac">
+          <orm:columnMapping>
+            <orm:column name="codsocio" sql-type="integer" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Int32" />
+          </orm:columnMapping>
+        </orm:index>
+        <orm:index name="FK_schfac1">
+          <orm:columnMapping>
+            <orm:column name="codforpa" sql-type="smallint" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Int16" />
+          </orm:columnMapping>
+        </orm:index>
+      </orm:class>
+      <orm:class name="Slhfac" uniqueId="87b1211c-48a7-43df-9471-ced611a4370b">
+        <orm:table name="slhfac" />
+        <orm:identity>
+          <orm:multiple-field>
+            <orm:single-field field-name="_letraser" />
+            <orm:single-field field-name="_numfactu" />
+            <orm:single-field field-name="_fecfactu" />
+            <orm:single-field field-name="_numlinea" />
+          </orm:multiple-field>
+        </orm:identity>
+        <orm:concurrency strategy="changed" />
+        <orm:field name="_letraser" property="Letraser" behavior="readwrite" uniqueId="f85d1bd7-4fea-4f6e-9809-3cb67acd370b" type="System.String">
+          <orm:column name="letraser" sql-type="char" nullable="false" length="3" scale="0" primary-key="true" ado-type="StringFixedLength" />
+        </orm:field>
+        <orm:field name="_numfactu" property="Numfactu" behavior="readwrite" uniqueId="2f17adcc-225e-40e7-9e8a-b80b4660a093" type="System.Int32">
+          <orm:column name="numfactu" sql-type="integer" nullable="false" length="0" scale="0" primary-key="true" has-default-value="true" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="_fecfactu" property="Fecfactu" behavior="readwrite" uniqueId="f54c833c-9031-4c7f-8db2-99b146259759" type="System.DateTime">
+          <orm:column name="fecfactu" sql-type="date" nullable="false" length="0" scale="0" primary-key="true" has-default-value="true" ado-type="Date" />
+        </orm:field>
+        <orm:field name="_numlinea" property="Numlinea" behavior="readwrite" uniqueId="9b80af5d-22f6-4674-b917-ab40bf77a9b5" type="System.Int16">
+          <orm:column name="numlinea" sql-type="smallint" nullable="false" length="0" scale="0" primary-key="true" has-default-value="true" ado-type="Int16" />
+        </orm:field>
+        <orm:field name="_numalbar" property="Numalbar" behavior="readwrite" uniqueId="ad14dbf8-eb4e-4e82-9954-b2f1c1da2731" type="System.String">
+          <orm:column name="numalbar" sql-type="varchar" nullable="false" length="8" scale="0" ado-type="StringVariableLength" />
+        </orm:field>
+        <orm:field name="_fecalbar" property="Fecalbar" behavior="readwrite" uniqueId="287afa2a-44f8-47fb-8a13-90cd51e046dc" type="System.DateTime">
+          <orm:column name="fecalbar" sql-type="date" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Date" />
+        </orm:field>
+        <orm:field name="_horalbar" property="Horalbar" behavior="readwrite" uniqueId="5d22c08b-cad9-4274-aead-44b79e0844cc" type="System.DateTime">
+          <orm:column name="horalbar" sql-type="datetime" nullable="false" length="0" scale="0" has-default-value="true" ado-type="DateTime" />
+        </orm:field>
+        <orm:field name="_codturno" property="Codturno" behavior="readwrite" uniqueId="2952703f-63e4-4b2c-ba7d-e5b253f5254d" type="System.Int16">
+          <orm:column name="codturno" sql-type="smallint" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Int16" />
+        </orm:field>
+        <orm:field name="_numtarje" property="Numtarje" behavior="readwrite" uniqueId="ba96d543-db35-438b-908e-191418ea3df6" type="System.Int32">
+          <orm:column name="numtarje" sql-type="integer" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="_codartic" property="Codartic" behavior="readwrite" uniqueId="12c531e7-29a0-480a-ad83-4143c3b2327a" type="System.Int32">
+          <orm:column name="codartic" sql-type="integer" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="_cantidad" property="Cantidad" behavior="readwrite" uniqueId="ed7f0837-3338-45a7-9c0b-d9eedda04b7e" type="System.Decimal">
+          <orm:column name="cantidad" sql-type="decimal" nullable="false" length="10" scale="2" has-default-value="true" ado-type="Decimal" />
+        </orm:field>
+        <orm:field name="_preciove" property="Preciove" behavior="readwrite" uniqueId="30218d8f-b6e6-480d-bda3-6d88e50e2dab" type="System.Decimal">
+          <orm:column name="preciove" sql-type="decimal" nullable="false" length="10" scale="3" has-default-value="true" ado-type="Decimal" />
+        </orm:field>
+        <orm:field name="_implinea" property="Implinea" behavior="readwrite" uniqueId="72f467d1-994e-45a5-b750-c49445bd0142" type="System.Decimal">
+          <orm:column name="implinea" sql-type="decimal" nullable="false" length="10" scale="2" has-default-value="true" ado-type="Decimal" />
+        </orm:field>
+        <orm:field name="_matricul" property="Matricul" behavior="readwrite" uniqueId="b5e31402-2e20-4e71-89f9-4a81a3a1b7a5" type="System.String">
+          <orm:column name="matricul" sql-type="varchar" nullable="true" length="10" scale="0" ado-type="StringVariableLength" />
+        </orm:field>
+        <orm:field name="_precioinicial" property="Precioinicial" behavior="readwrite" uniqueId="a33fb6ca-2011-4c19-8619-7db5030d9dda" type="System.Nullable`1[[System.Decimal, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="precioinicial" sql-type="decimal" nullable="true" length="10" scale="5" ado-type="Decimal" />
+        </orm:field>
+        <orm:field name="_sartic" property="Sartic" behavior="readwrite" uniqueId="24009535-a0cc-47f2-807f-41747fdc17b0" type="AriGasolModel.Sartic">
+          <orm:reference uniqueId="efce6843-c0c9-4955-85d1-9ca0d395a2bf">
+            <orm:sharedfield name="_codartic" target-class="AriGasolModel.Sartic" target-field="_codartic" />
+            <orm:constraint name="slhfac_ibfk_2" destination-table="sartic" />
+          </orm:reference>
+        </orm:field>
+        <orm:field name="_schfac" property="Schfac" behavior="readwrite" uniqueId="5f297c3a-d26f-4c3c-ae04-6a55e6fbe5a5" type="AriGasolModel.Schfac">
+          <orm:reference uniqueId="775594af-6112-4cd7-b1a6-ddb225ea2709">
+            <orm:sharedfield name="_letraser" target-class="AriGasolModel.Schfac" target-field="_letraser" />
+            <orm:sharedfield name="_numfactu" target-class="AriGasolModel.Schfac" target-field="_numfactu" />
+            <orm:sharedfield name="_fecfactu" target-class="AriGasolModel.Schfac" target-field="_fecfactu" />
+            <orm:constraint name="slhfac_ibfk_3" destination-table="schfac" />
+          </orm:reference>
+        </orm:field>
+        <orm:index name="FK_slhfac">
+          <orm:columnMapping>
+            <orm:column name="codartic" sql-type="integer" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Int32" />
+          </orm:columnMapping>
+        </orm:index>
+      </orm:class>
+    </orm:namespace>
+    <orm:schema schema="">
+      <orm:table name="ssocio">
+        <orm:column name="codsocio" sql-type="integer" nullable="false" length="0" scale="0" primary-key="true" has-default-value="true" ado-type="Int32" />
+        <orm:column name="codcoope" sql-type="smallint" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Int16" />
+        <orm:column name="nomsocio" sql-type="varchar" nullable="false" length="40" scale="0" ado-type="Varchar" />
+        <orm:column name="domsocio" sql-type="varchar" nullable="false" length="40" scale="0" ado-type="Varchar" />
+        <orm:column name="codposta" sql-type="varchar" nullable="false" length="6" scale="0" ado-type="Varchar" />
+        <orm:column name="pobsocio" sql-type="varchar" nullable="false" length="35" scale="0" ado-type="Varchar" />
+        <orm:column name="prosocio" sql-type="varchar" nullable="false" length="35" scale="0" ado-type="Varchar" />
+        <orm:column name="nifsocio" sql-type="varchar" nullable="false" length="9" scale="0" ado-type="Varchar" />
+        <orm:column name="telsocio" sql-type="varchar" nullable="true" length="10" scale="0" ado-type="Varchar" />
+        <orm:column name="faxsocio" sql-type="varchar" nullable="true" length="10" scale="0" ado-type="Varchar" />
+        <orm:column name="movsocio" sql-type="varchar" nullable="true" length="10" scale="0" ado-type="Varchar" />
+        <orm:column name="maisocio" sql-type="varchar" nullable="true" length="40" scale="0" ado-type="Varchar" />
+        <orm:column name="wwwsocio" sql-type="varchar" nullable="true" length="40" scale="0" ado-type="Varchar" />
+        <orm:column name="fechaalt" sql-type="date" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Date" />
+        <orm:column name="fechabaj" sql-type="date" nullable="true" length="0" scale="0" ado-type="Date" />
+        <orm:column name="codtarif" sql-type="smallint" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Int16" />
+        <orm:column name="codbanco" sql-type="varchar" nullable="true" length="4" scale="0" ado-type="Varchar" />
+        <orm:column name="codsucur" sql-type="varchar" nullable="true" length="4" scale="0" ado-type="Varchar" />
+        <orm:column name="digcontr" sql-type="char" nullable="true" length="2" scale="0" ado-type="Character" />
+        <orm:column name="cuentaba" sql-type="varchar" nullable="true" length="10" scale="0" ado-type="Varchar" />
+        <orm:column name="impfactu" sql-type="tinyint" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Byte" />
+        <orm:column name="dtolitro" sql-type="decimal" nullable="false" length="5" scale="4" has-default-value="true" ado-type="Decimal" />
+        <orm:column name="codforpa" sql-type="smallint" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Int16" />
+        <orm:column name="tipsocio" sql-type="tinyint unsigned" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Byte" />
+        <orm:column name="bonifbas" sql-type="tinyint" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Byte" />
+        <orm:column name="bonifesp" sql-type="tinyint" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Byte" />
+        <orm:column name="codsitua" sql-type="smallint" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Int16" />
+        <orm:column name="codmacta" sql-type="varchar" nullable="true" length="10" scale="0" ado-type="Varchar" />
+        <orm:column name="obssocio" sql-type="varchar" nullable="true" length="250" scale="0" ado-type="Varchar" />
+        <orm:column name="grupoestartic" sql-type="tinyint" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Byte" />
+        <orm:column name="facturafp" sql-type="tinyint" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Byte" />
+        <orm:column name="nrosocio" sql-type="integer" nullable="true" length="0" scale="0" ado-type="Int32" />
+        <orm:column name="envfactemail" sql-type="tinyint" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Byte" />
+        <orm:index name="codcoope">
+          <orm:columnMapping>
+            <orm:column name="codcoope" sql-type="smallint" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Int16" />
+          </orm:columnMapping>
+        </orm:index>
+        <orm:index name="codforpa">
+          <orm:columnMapping>
+            <orm:column name="codforpa" sql-type="smallint" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Int16" />
+          </orm:columnMapping>
+        </orm:index>
+        <orm:index name="codsitua">
+          <orm:columnMapping>
+            <orm:column name="codsitua" sql-type="smallint" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Int16" />
+          </orm:columnMapping>
+        </orm:index>
+        <orm:index name="tipsocio">
+          <orm:columnMapping>
+            <orm:column name="tipsocio" sql-type="tinyint unsigned" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Byte" />
+          </orm:columnMapping>
+        </orm:index>
+      </orm:table>
+      <orm:table name="slhfac">
+        <orm:column name="letraser" sql-type="char" nullable="false" length="3" scale="0" primary-key="true" ado-type="StringFixedLength" />
+        <orm:column name="numfactu" sql-type="integer" nullable="false" length="0" scale="0" primary-key="true" has-default-value="true" ado-type="Int32" />
+        <orm:column name="fecfactu" sql-type="date" nullable="false" length="0" scale="0" primary-key="true" has-default-value="true" ado-type="Date" />
+        <orm:column name="numlinea" sql-type="smallint" nullable="false" length="0" scale="0" primary-key="true" has-default-value="true" ado-type="Int16" />
+        <orm:column name="numalbar" sql-type="varchar" nullable="false" length="8" scale="0" ado-type="StringVariableLength" />
+        <orm:column name="fecalbar" sql-type="date" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Date" />
+        <orm:column name="horalbar" sql-type="datetime" nullable="false" length="0" scale="0" has-default-value="true" ado-type="DateTime" />
+        <orm:column name="codturno" sql-type="smallint" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Int16" />
+        <orm:column name="numtarje" sql-type="integer" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Int32" />
+        <orm:column name="codartic" sql-type="integer" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Int32" />
+        <orm:column name="cantidad" sql-type="decimal" nullable="false" length="10" scale="2" has-default-value="true" ado-type="Decimal" />
+        <orm:column name="preciove" sql-type="decimal" nullable="false" length="10" scale="3" has-default-value="true" ado-type="Decimal" />
+        <orm:column name="implinea" sql-type="decimal" nullable="false" length="10" scale="2" has-default-value="true" ado-type="Decimal" />
+        <orm:column name="matricul" sql-type="varchar" nullable="true" length="10" scale="0" ado-type="StringVariableLength" />
+        <orm:column name="precioinicial" sql-type="decimal" nullable="true" length="10" scale="5" ado-type="Decimal" />
+        <orm:index name="FK_slhfac">
+          <orm:columnMapping>
+            <orm:column name="codartic" sql-type="integer" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Int32" />
+          </orm:columnMapping>
+        </orm:index>
+        <orm:constraint name="slhfac_ibfk_2" destination-table="sartic">
+          <orm:column name="codartic" sql-type="integer" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Int32" />
+        </orm:constraint>
+        <orm:constraint name="slhfac_ibfk_3" destination-table="schfac">
+          <orm:column name="letraser" sql-type="char" nullable="false" length="3" scale="0" primary-key="true" ado-type="StringFixedLength" />
+          <orm:column name="numfactu" sql-type="integer" nullable="false" length="0" scale="0" primary-key="true" has-default-value="true" ado-type="Int32" />
+          <orm:column name="fecfactu" sql-type="date" nullable="false" length="0" scale="0" primary-key="true" has-default-value="true" ado-type="Date" />
+        </orm:constraint>
+      </orm:table>
+      <orm:table name="sempre">
+        <orm:column name="codempre" sql-type="smallint" nullable="false" length="0" scale="0" primary-key="true" has-default-value="true" ado-type="Int16" />
+        <orm:column name="nomempre" sql-type="varchar" nullable="false" length="40" scale="0" ado-type="Varchar" />
+        <orm:column name="domempre" sql-type="varchar" nullable="false" length="40" scale="0" ado-type="Varchar" />
+        <orm:column name="codposta" sql-type="varchar" nullable="false" length="6" scale="0" ado-type="Varchar" />
+        <orm:column name="pobempre" sql-type="varchar" nullable="false" length="35" scale="0" ado-type="Varchar" />
+        <orm:column name="proempre" sql-type="varchar" nullable="false" length="35" scale="0" ado-type="Varchar" />
+        <orm:column name="nifempre" sql-type="varchar" nullable="false" length="9" scale="0" ado-type="Varchar" />
+        <orm:column name="telempre" sql-type="varchar" nullable="true" length="10" scale="0" ado-type="Varchar" />
+        <orm:column name="faxempre" sql-type="varchar" nullable="true" length="10" scale="0" ado-type="Varchar" />
+        <orm:column name="wwwempre" sql-type="varchar" nullable="true" length="100" scale="0" ado-type="Varchar" />
+        <orm:column name="maiempre" sql-type="varchar" nullable="true" length="100" scale="0" ado-type="Varchar" />
+        <orm:column name="perempre" sql-type="varchar" nullable="true" length="40" scale="0" ado-type="Varchar" />
+      </orm:table>
+      <orm:table name="schfac">
+        <orm:column name="letraser" sql-type="char" nullable="false" length="3" scale="0" primary-key="true" ado-type="StringFixedLength" />
+        <orm:column name="numfactu" sql-type="integer" nullable="false" length="0" scale="0" primary-key="true" has-default-value="true" ado-type="Int32" />
+        <orm:column name="fecfactu" sql-type="date" nullable="false" length="0" scale="0" primary-key="true" has-default-value="true" ado-type="Date" />
+        <orm:column name="codsocio" sql-type="integer" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Int32" />
+        <orm:column name="codcoope" sql-type="smallint" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Int16" />
+        <orm:column name="codforpa" sql-type="smallint" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Int16" />
+        <orm:column name="baseimp1" sql-type="decimal" nullable="false" length="10" scale="2" has-default-value="true" ado-type="Decimal" />
+        <orm:column name="baseimp2" sql-type="decimal" nullable="true" length="10" scale="2" has-default-value="true" ado-type="Decimal" />
+        <orm:column name="baseimp3" sql-type="decimal" nullable="true" length="10" scale="2" has-default-value="true" ado-type="Decimal" />
+        <orm:column name="impoiva1" sql-type="decimal" nullable="false" length="10" scale="2" has-default-value="true" ado-type="Decimal" />
+        <orm:column name="impoiva2" sql-type="decimal" nullable="true" length="10" scale="2" has-default-value="true" ado-type="Decimal" />
+        <orm:column name="impoiva3" sql-type="decimal" nullable="true" length="10" scale="2" has-default-value="true" ado-type="Decimal" />
+        <orm:column name="tipoiva1" sql-type="smallint" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Int16" />
+        <orm:column name="tipoiva2" sql-type="smallint" nullable="true" length="0" scale="0" has-default-value="true" ado-type="Int16" />
+        <orm:column name="tipoiva3" sql-type="smallint" nullable="true" length="0" scale="0" has-default-value="true" ado-type="Int16" />
+        <orm:column name="porciva1" sql-type="decimal" nullable="false" length="4" scale="2" has-default-value="true" ado-type="Decimal" />
+        <orm:column name="porciva2" sql-type="decimal" nullable="true" length="4" scale="2" has-default-value="true" ado-type="Decimal" />
+        <orm:column name="porciva3" sql-type="decimal" nullable="true" length="4" scale="2" has-default-value="true" ado-type="Decimal" />
+        <orm:column name="totalfac" sql-type="decimal" nullable="false" length="10" scale="2" has-default-value="true" ado-type="Decimal" />
+        <orm:column name="impuesto" sql-type="decimal" nullable="false" length="10" scale="2" has-default-value="true" ado-type="Decimal" />
+        <orm:column name="intconta" sql-type="tinyint" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Byte" />
+        <orm:column name="observac" sql-type="varchar" nullable="true" length="72" scale="0" ado-type="StringVariableLength" />
+        <orm:column name="impuesigaus" sql-type="decimal" nullable="true" length="10" scale="2" ado-type="Decimal" />
+        <orm:index name="codcoope">
+          <orm:columnMapping>
+            <orm:column name="codcoope" sql-type="smallint" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Int16" />
+          </orm:columnMapping>
+        </orm:index>
+        <orm:index name="FK_schfac">
+          <orm:columnMapping>
+            <orm:column name="codsocio" sql-type="integer" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Int32" />
+          </orm:columnMapping>
+        </orm:index>
+        <orm:index name="FK_schfac1">
+          <orm:columnMapping>
+            <orm:column name="codforpa" sql-type="smallint" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Int16" />
+          </orm:columnMapping>
+        </orm:index>
+        <orm:constraint name="schfac_ibfk_1" destination-table="ssocio">
+          <orm:column name="codsocio" sql-type="integer" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Int32" />
+        </orm:constraint>
+      </orm:table>
+      <orm:table name="sartic">
+        <orm:column name="codartic" sql-type="integer" nullable="false" length="0" scale="0" primary-key="true" has-default-value="true" ado-type="Int32" />
+        <orm:column name="nomartic" sql-type="varchar" nullable="false" length="40" scale="0" ado-type="Varchar" />
+        <orm:column name="codfamia" sql-type="smallint" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Int16" />
+        <orm:column name="codigean" sql-type="varchar" nullable="true" length="13" scale="0" ado-type="Varchar" />
+        <orm:column name="numtanqu" sql-type="smallint" nullable="true" length="0" scale="0" ado-type="Int16" />
+        <orm:column name="nummangu" sql-type="smallint" nullable="true" length="0" scale="0" ado-type="Int16" />
+        <orm:column name="codmacta" sql-type="varchar" nullable="true" length="10" scale="0" ado-type="Varchar" />
+        <orm:column name="codmaccl" sql-type="varchar" nullable="true" length="10" scale="0" ado-type="Varchar" />
+        <orm:column name="codigiva" sql-type="smallint" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Int16" />
+        <orm:column name="preventa" sql-type="decimal" nullable="false" length="10" scale="3" has-default-value="true" ado-type="Decimal" />
+        <orm:column name="bonigral" sql-type="decimal" nullable="false" length="5" scale="4" has-default-value="true" ado-type="Decimal" />
+        <orm:column name="canstock" sql-type="decimal" nullable="false" length="10" scale="3" has-default-value="true" ado-type="Decimal" />
+        <orm:column name="stockinv" sql-type="decimal" nullable="true" length="10" scale="3" has-default-value="true" ado-type="Decimal" />
+        <orm:column name="fechainv" sql-type="date" nullable="true" length="0" scale="0" ado-type="Date" />
+        <orm:column name="preciopmp" sql-type="decimal" nullable="true" length="10" scale="5" ado-type="Decimal" />
+        <orm:column name="ultpreci" sql-type="decimal" nullable="true" length="10" scale="5" ado-type="Decimal" />
+        <orm:column name="ultfecha" sql-type="date" nullable="true" length="0" scale="0" ado-type="Date" />
+        <orm:column name="impuesto" sql-type="decimal" nullable="true" length="5" scale="4" ado-type="Decimal" />
+        <orm:column name="tipogaso" sql-type="tinyint" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Byte" />
+        <orm:column name="gp" sql-type="tinyint" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Byte" />
+        <orm:column name="porcbd" sql-type="decimal" nullable="false" length="6" scale="2" has-default-value="true" ado-type="Decimal" />
+        <orm:column name="artdto" sql-type="integer" nullable="true" length="0" scale="0" ado-type="Int32" />
+        <orm:column name="ctrstock" sql-type="tinyint" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Byte" />
+        <orm:column name="ctacompr" sql-type="varchar" nullable="true" length="10" scale="0" ado-type="Varchar" />
+        <orm:column name="artnuevo" sql-type="tinyint" nullable="true" length="0" scale="0" has-default-value="true" ado-type="Byte" />
+        <orm:column name="pesoart" sql-type="decimal" nullable="true" length="6" scale="2" ado-type="Decimal" />
+        <orm:column name="precsigaus" sql-type="decimal" nullable="true" length="8" scale="4" ado-type="Decimal" />
+        <orm:index name="codfamia">
+          <orm:columnMapping>
+            <orm:column name="codfamia" sql-type="smallint" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Int16" />
+          </orm:columnMapping>
+        </orm:index>
+        <orm:index name="FK_sartic">
+          <orm:columnMapping>
+            <orm:column name="artdto" sql-type="integer" nullable="true" length="0" scale="0" ado-type="Int32" />
+          </orm:columnMapping>
+        </orm:index>
+        <orm:constraint name="sartic_ibfk_1" destination-table="sartic">
+          <orm:column name="artdto" sql-type="integer" nullable="true" length="0" scale="0" ado-type="Int32" />
+        </orm:constraint>
+      </orm:table>
+      <orm:table name="srecau">
+        <orm:column name="fechatur" sql-type="date" nullable="false" length="0" scale="0" primary-key="true" has-default-value="true" ado-type="Date" />
+        <orm:column name="codturno" sql-type="smallint" nullable="false" length="0" scale="0" primary-key="true" has-default-value="true" ado-type="Int16" />
+        <orm:column name="codforpa" sql-type="smallint" nullable="false" length="0" scale="0" primary-key="true" has-default-value="true" ado-type="Int16" />
+        <orm:column name="importel" sql-type="decimal" nullable="false" length="10" scale="2" has-default-value="true" ado-type="Decimal" />
+        <orm:column name="intconta" sql-type="tinyint" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Byte" />
+        <orm:index name="codforpa">
+          <orm:columnMapping>
+            <orm:column name="codforpa" sql-type="smallint" nullable="false" length="0" scale="0" primary-key="true" has-default-value="true" ado-type="Int16" />
+          </orm:columnMapping>
+        </orm:index>
+      </orm:table>
+    </orm:schema>
+  </orm:orm>
+  <ModelSettings xmlns="">
+    <AppConfigConnectionPropertyName>ArigasolConnection</AppConfigConnectionPropertyName>
+    <AppConfigConnectionString>server=localhost;user id=root;password=aritel;database=arigasol</AppConfigConnectionString>
+    <NamingSettings>
+      <ClassRules>
+        <CaseMode>PascalCase</CaseMode>
+        <PluralizationMode>Singularize</PluralizationMode>
+      </ClassRules>
+      <FieldRules>
+        <AddPrefix>_</AddPrefix>
+        <CaseMode>CamelCase</CaseMode>
+      </FieldRules>
+      <PropertyRules>
+        <CaseMode>PascalCase</CaseMode>
+      </PropertyRules>
+    </NamingSettings>
+    <CodeGenerationSettings>
+      <MappingDefinitionType>Xml</MappingDefinitionType>
+    </CodeGenerationSettings>
+    <SchemaUpdateSettings />
+    <BackendConfigurationSettings>
+      <BackendConfiguration>
+        <Backend>mysql</Backend>
+        <ProviderName>MySql.Data.MySqlClient</ProviderName>
+      </BackendConfiguration>
+    </BackendConfigurationSettings>
+  </ModelSettings>
+  <Types>
+    <DomainClass Id="f6df8224-305a-4a62-8bc0-3fe5b0695582" name="Ssocio" namespace="AriGasolModel" showPropertiesCompartment="true" concurrencyMode="Changed" showNavigationCompartment="true" showImplementationCompartment="true">
+      <Property Id="7dea58b8-56f4-4455-8286-d38638fde6f0" name="Codsocio" type="Int32" label="Codsocio : Int32" kind="Persistent" identity="true" fieldName="_codsocio" />
+      <Property Id="d537c895-0450-4aeb-abcb-ad778e5ea20e" name="Bonifbas" type="Int16" label="Bonifbas : Int16" kind="Persistent" fieldName="_bonifbas" />
+      <Property Id="8906bc21-8915-4031-a1f5-c2da9137a4e0" name="Bonifesp" type="Int16" label="Bonifesp : Int16" kind="Persistent" fieldName="_bonifesp" />
+      <Property Id="5e40d79e-e8c0-49d0-877c-f72bbda65a2e" name="Codbanco" label="Codbanco : String" kind="Persistent" fieldName="_codbanco" />
+      <Property Id="8f1a03c3-f91c-472c-94e3-a011dc88970d" name="Codcoope" type="Int16" label="Codcoope : Int16" kind="Persistent" fieldName="_codcoope" />
+      <Property Id="e8590695-5a8e-4f64-acec-5fe8a831a765" name="Codforpa" type="Int16" label="Codforpa : Int16" kind="Persistent" fieldName="_codforpa" />
+      <Property Id="a8df2538-b508-4044-9113-7015308e23e3" name="Codmacta" label="Codmacta : String" kind="Persistent" fieldName="_codmacta" />
+      <Property Id="e3c88da0-1697-4cfa-90a4-208278076722" name="Codposta" label="Codposta : String" kind="Persistent" fieldName="_codposta" />
+      <Property Id="c122c2b6-9b3e-453a-ba18-ed1b6ddf6d65" name="Codsitua" type="Int16" label="Codsitua : Int16" kind="Persistent" fieldName="_codsitua" />
+      <Property Id="a9744db8-70a2-449a-9d47-52f2dfed216c" name="Codsucur" label="Codsucur : String" kind="Persistent" fieldName="_codsucur" />
+      <Property Id="2436fb9d-85fa-4d92-9a67-0ffdb374b656" name="Codtarif" type="Int16" label="Codtarif : Int16" kind="Persistent" fieldName="_codtarif" />
+      <Property Id="9ffd45e1-ba70-493d-b519-d8e705ce855f" name="Cuentaba" label="Cuentaba : String" kind="Persistent" fieldName="_cuentaba" />
+      <Property Id="5e6e0384-6e16-488d-8715-3a440ba4c6a5" name="Digcontr" label="Digcontr : String" kind="Persistent" fieldName="_digcontr" />
+      <Property Id="f7a61bcf-8f6b-4e44-bc39-4ca2d6b4bca0" name="Domsocio" label="Domsocio : String" kind="Persistent" fieldName="_domsocio" />
+      <Property Id="413415d9-4717-4e34-9a60-48827e643ac5" name="Dtolitro" type="Decimal" label="Dtolitro : Decimal" kind="Persistent" fieldName="_dtolitro" />
+      <Property Id="868644e3-8d93-46cd-b23c-242597a01648" name="Envfactemail" type="Int16" label="Envfactemail : Int16" kind="Persistent" fieldName="_envfactemail" />
+      <Property Id="30e271cb-08b9-4e54-9fcf-d5b5b05dea34" name="Facturafp" type="Int16" label="Facturafp : Int16" kind="Persistent" fieldName="_facturafp" />
+      <Property Id="b01de9a1-9995-4604-a096-a0838f8567ac" name="Faxsocio" label="Faxsocio : String" kind="Persistent" fieldName="_faxsocio" />
+      <Property Id="2a0e4863-ac4f-4032-911d-1ea32e617875" name="Fechaalt" type="DateTime" label="Fechaalt : DateTime" kind="Persistent" fieldName="_fechaalt" />
+      <Property Id="5dd24810-cc69-420e-8745-3fcf025dda6d" name="Fechabaj" type="DateTime" label="Fechabaj : DateTime" nullable="true" kind="Persistent" fieldName="_fechabaj" />
+      <Property Id="4646fa78-95d0-49eb-85bb-5cde360d97d4" name="Grupoestartic" type="Int16" label="Grupoestartic : Int16" kind="Persistent" fieldName="_grupoestartic" />
+      <Property Id="4c022bb8-d904-45d7-8d6b-f38992da2271" name="Impfactu" type="Int16" label="Impfactu : Int16" kind="Persistent" fieldName="_impfactu" />
+      <Property Id="d9292589-26d0-42a5-b9df-e4c9675267a8" name="Maisocio" label="Maisocio : String" kind="Persistent" fieldName="_maisocio" />
+      <Property Id="28c8ca17-8a74-45cf-9e08-2df59989f405" name="Movsocio" label="Movsocio : String" kind="Persistent" fieldName="_movsocio" />
+      <Property Id="1d111aaa-906b-4098-9a80-9714f7bb240a" name="Nifsocio" label="Nifsocio : String" kind="Persistent" fieldName="_nifsocio" />
+      <Property Id="284087e9-dc00-44de-ab98-52e0f0af67d2" name="Nomsocio" label="Nomsocio : String" kind="Persistent" fieldName="_nomsocio" />
+      <Property Id="fce7a797-55d3-4215-9408-9fcce743d520" name="Nrosocio" type="Int32" label="Nrosocio : Int32" nullable="true" kind="Persistent" fieldName="_nrosocio" />
+      <Property Id="74bce5b5-46ec-4bde-a9f8-c0ff66af348b" name="Obssocio" label="Obssocio : String" kind="Persistent" fieldName="_obssocio" />
+      <Property Id="f4b70864-fbee-4202-a96f-8281bb133d03" name="Pobsocio" label="Pobsocio : String" kind="Persistent" fieldName="_pobsocio" />
+      <Property Id="ce3a0e2b-6c7b-417c-a71d-cd7d10d68bdf" name="Prosocio" label="Prosocio : String" kind="Persistent" fieldName="_prosocio" />
+      <Property Id="41788370-faa2-4593-907a-8c1a7795386e" name="Telsocio" label="Telsocio : String" kind="Persistent" fieldName="_telsocio" />
+      <Property Id="53a21bbf-34fc-4924-9263-30aa638b5566" name="Tipsocio" type="Byte" label="Tipsocio : Byte" kind="Persistent" fieldName="_tipsocio" />
+      <Property Id="c15a9708-d1a7-43f8-8bc4-bc59dd168a9c" name="Wwwsocio" label="Wwwsocio : String" kind="Persistent" fieldName="_wwwsocio" />
+      <navigationalProperties>
+        <classHasNavigationalProperties Id="e9f8ac77-7b4c-4a3f-a6be-66f9f5bbba44">
+          <NavigationalProperty Id="382df17f-0cef-4b78-bc33-c54aad491786" name="Schfacs" type="IList&lt;Schfac&gt;" label="Schfacs : IList&lt;Schfac&gt;" nullable="true" kind="Persistent" fieldName="_schfacs" isDependent="false" isManaged="false" />
+        </classHasNavigationalProperties>
+      </navigationalProperties>
+    </DomainClass>
+    <DomainClass Id="dc5b8801-db69-4e7b-8635-e39a4a1f0f7b" name="Sempre" namespace="AriGasolModel" showPropertiesCompartment="true" concurrencyMode="Changed" showNavigationCompartment="true" showImplementationCompartment="true">
+      <Property Id="26d2f880-c77f-44fc-b34e-e3045714707e" name="Codempre" type="Int16" label="Codempre : Int16" kind="Persistent" identity="true" fieldName="_codempre" />
+      <Property Id="3c8fc7ea-d5fb-4624-881e-018a54a837ee" name="Codposta" label="Codposta : String" kind="Persistent" fieldName="_codposta" />
+      <Property Id="68aeb6e8-6e0d-4e93-a751-9706cf768548" name="Domempre" label="Domempre : String" kind="Persistent" fieldName="_domempre" />
+      <Property Id="5223957c-0fb9-4931-95e5-5557e350c26b" name="Faxempre" label="Faxempre : String" kind="Persistent" fieldName="_faxempre" />
+      <Property Id="de1965ba-439c-4b35-8254-f69a8aa21110" name="Maiempre" label="Maiempre : String" kind="Persistent" fieldName="_maiempre" />
+      <Property Id="95b38eaf-6f9c-4d94-8496-3b72ea947943" name="Nifempre" label="Nifempre : String" kind="Persistent" fieldName="_nifempre" />
+      <Property Id="4a6295ca-7245-4165-b81b-34a47924df8a" name="Nomempre" label="Nomempre : String" kind="Persistent" fieldName="_nomempre" />
+      <Property Id="c10cdd8b-3408-4185-a01e-73c76d5a2ba6" name="Perempre" label="Perempre : String" kind="Persistent" fieldName="_perempre" />
+      <Property Id="f94173cd-b015-4a83-94da-c3b7f32a37d0" name="Pobempre" label="Pobempre : String" kind="Persistent" fieldName="_pobempre" />
+      <Property Id="e16deb3e-16aa-447e-b9f3-c1b483db9ed6" name="Proempre" label="Proempre : String" kind="Persistent" fieldName="_proempre" />
+      <Property Id="4a27d185-ea6f-450a-8fb4-9d6671407822" name="Telempre" label="Telempre : String" kind="Persistent" fieldName="_telempre" />
+      <Property Id="4a814ac2-9598-44a2-abc8-44742e2cc02f" name="Wwwempre" label="Wwwempre : String" kind="Persistent" fieldName="_wwwempre" />
+    </DomainClass>
+    <DomainClass Id="8ba80911-eb52-4c36-91e4-f53e9843c0f1" name="Sartic" namespace="AriGasolModel" showPropertiesCompartment="true" concurrencyMode="Changed" showNavigationCompartment="true" showImplementationCompartment="true">
+      <Property Id="98484b28-f672-4e00-898f-d4cb2608049f" name="Codartic" type="Int32" label="Codartic : Int32" kind="Persistent" identity="true" fieldName="_codartic" />
+      <Property Id="505064e4-5281-4fe1-b8b8-cfddab5709b3" name="Artdto" type="Int32" label="Artdto : Int32" nullable="true" kind="Persistent" fieldName="_artdto" />
+      <Property Id="8cbb77d0-0402-403a-8112-ca564282a7ca" name="Artnuevo" type="Int16" label="Artnuevo : Int16" nullable="true" kind="Persistent" fieldName="_artnuevo" />
+      <Property Id="f5de1271-e798-4523-a1c3-00859eff9e2b" name="Bonigral" type="Decimal" label="Bonigral : Decimal" kind="Persistent" fieldName="_bonigral" />
+      <Property Id="cdfe7793-63c4-4be6-9b0f-d9a5a6e19085" name="Canstock" type="Decimal" label="Canstock : Decimal" kind="Persistent" fieldName="_canstock" />
+      <Property Id="4f5a2317-e466-49b8-bcb4-60237dff0cb2" name="Codfamia" type="Int16" label="Codfamia : Int16" kind="Persistent" fieldName="_codfamia" />
+      <Property Id="c5451e4b-0d04-4db3-a74a-a6568a2875e8" name="Codigean" label="Codigean : String" kind="Persistent" fieldName="_codigean" />
+      <Property Id="ebfd4a7f-ac14-4740-a5e5-a43fb6853ab6" name="Codigiva" type="Int16" label="Codigiva : Int16" kind="Persistent" fieldName="_codigiva" />
+      <Property Id="d806b82e-c4b0-4c0c-94f1-ebd51e0e9e65" name="Codmaccl" label="Codmaccl : String" kind="Persistent" fieldName="_codmaccl" />
+      <Property Id="3cb20480-924b-499a-85e7-94e0b930c3fc" name="Codmacta" label="Codmacta : String" kind="Persistent" fieldName="_codmacta" />
+      <Property Id="ad94f88a-e3e7-4993-a95e-22cf4592cd51" name="Ctacompr" label="Ctacompr : String" kind="Persistent" fieldName="_ctacompr" />
+      <Property Id="48e69709-bcfb-4b58-b013-8189e46bb579" name="Ctrstock" type="Int16" label="Ctrstock : Int16" kind="Persistent" fieldName="_ctrstock" />
+      <Property Id="ad308de9-6334-406f-8335-efb54dd077dc" name="Fechainv" type="DateTime" label="Fechainv : DateTime" nullable="true" kind="Persistent" fieldName="_fechainv" />
+      <Property Id="4c880f7d-8500-4980-abd2-31af299589f5" name="Gp" type="Int16" label="Gp : Int16" kind="Persistent" fieldName="_gp" />
+      <Property Id="e6cc7e05-3ac3-4a50-9490-1719df0cb937" name="Impuesto" type="Decimal" label="Impuesto : Decimal" nullable="true" kind="Persistent" fieldName="_impuesto" />
+      <Property Id="682e7a6c-5b93-4653-88df-c87b29202932" name="Nomartic" label="Nomartic : String" kind="Persistent" fieldName="_nomartic" />
+      <Property Id="852cdf67-4485-4926-96ea-ca696caa757b" name="Nummangu" type="Int16" label="Nummangu : Int16" nullable="true" kind="Persistent" fieldName="_nummangu" />
+      <Property Id="586f302a-4471-4d81-9fc3-8673d84448c7" name="Numtanqu" type="Int16" label="Numtanqu : Int16" nullable="true" kind="Persistent" fieldName="_numtanqu" />
+      <Property Id="30d4ee5c-2765-4276-8bd8-e9ce697911bd" name="Pesoart" type="Decimal" label="Pesoart : Decimal" nullable="true" kind="Persistent" fieldName="_pesoart" />
+      <Property Id="b56d431f-7381-46d7-8469-3a01ced65114" name="Porcbd" type="Decimal" label="Porcbd : Decimal" kind="Persistent" fieldName="_porcbd" />
+      <Property Id="39af6429-e17a-41b3-8c46-4db85b4996a2" name="Preciopmp" type="Decimal" label="Preciopmp : Decimal" nullable="true" kind="Persistent" fieldName="_preciopmp" />
+      <Property Id="5d9cbfcf-22c9-42b5-8890-d13aad0b98fc" name="Precsigaus" type="Decimal" label="Precsigaus : Decimal" nullable="true" kind="Persistent" fieldName="_precsigaus" />
+      <Property Id="ccf424a9-75bf-48c7-ab47-e4134980b275" name="Preventa" type="Decimal" label="Preventa : Decimal" kind="Persistent" fieldName="_preventa" />
+      <Property Id="08ccf101-7687-434e-908c-18d6f6e0ca8c" name="Stockinv" type="Decimal" label="Stockinv : Decimal" nullable="true" kind="Persistent" fieldName="_stockinv" />
+      <Property Id="268232f6-0063-4eb2-9cfe-bfa84aa5c1b6" name="Tipogaso" type="Int16" label="Tipogaso : Int16" kind="Persistent" fieldName="_tipogaso" />
+      <Property Id="32190bb8-b926-4249-ae3c-181e3c99473e" name="Ultfecha" type="DateTime" label="Ultfecha : DateTime" nullable="true" kind="Persistent" fieldName="_ultfecha" />
+      <Property Id="d9185f80-7840-486a-984a-2362d843bd4e" name="Ultpreci" type="Decimal" label="Ultpreci : Decimal" nullable="true" kind="Persistent" fieldName="_ultpreci" />
+      <AssociationTargets>
+        <Association Id="90a7fbc1-9e04-417d-a843-3d04057a9efa" SourceMultiplicity="ZeroOne" name="SarticHasSartic">
+          <DomainClassMoniker name="/AriGasolContext/Sartic" />
+          <targetNavigationalProperty>
+            <associationDefinesTargetProperty Id="fca1cc32-e326-4741-afc4-6586657e6de3">
+              <NavigationalPropertyMoniker name="/AriGasolContext/Sartic/Sartics" />
+            </associationDefinesTargetProperty>
+          </targetNavigationalProperty>
+          <sourceNavigationalProperty>
+            <associationDefinesSourceProperty Id="aa1ad7f0-c499-438c-81d9-81b4e204aaf8">
+              <NavigationalPropertyMoniker name="/AriGasolContext/Sartic/Sartic1" />
+            </associationDefinesSourceProperty>
+          </sourceNavigationalProperty>
+        </Association>
+      </AssociationTargets>
+      <navigationalProperties>
+        <classHasNavigationalProperties Id="a56a962a-e256-4a2e-8141-d1da8936242e">
+          <NavigationalProperty Id="f11ded27-268c-4377-aa74-cfcc589849da" name="Sartic1" type="Sartic" label="Sartic1 : Sartic" nullable="true" kind="Persistent" fieldName="_sartic1" isDependent="false" isManaged="false" />
+        </classHasNavigationalProperties>
+        <classHasNavigationalProperties Id="dec4ac48-c7b1-4c11-a8e5-bae02abf16f5">
+          <NavigationalProperty Id="6a1d728a-4a48-412e-aa0e-a2130474bcc0" name="Sartics" type="IList&lt;Sartic&gt;" label="Sartics : IList&lt;Sartic&gt;" nullable="true" kind="Persistent" fieldName="_sartics" isDependent="false" isManaged="true" />
+        </classHasNavigationalProperties>
+        <classHasNavigationalProperties Id="2ba89c9e-1b26-44fd-9710-14bba759cc4d">
+          <NavigationalProperty Id="66a908b8-c02b-4a3f-9dec-fb01cb20fd31" name="Slhfacs" type="IList&lt;Slhfac&gt;" label="Slhfacs : IList&lt;Slhfac&gt;" nullable="true" kind="Persistent" fieldName="_slhfacs" isDependent="false" isManaged="false" />
+        </classHasNavigationalProperties>
+      </navigationalProperties>
+    </DomainClass>
+    <DomainClass Id="5d904b7b-de8c-4eda-a853-54a0336848fe" name="Schfac" namespace="AriGasolModel" showPropertiesCompartment="true" concurrencyMode="Changed" concurrencyMember="&lt; AUTO &gt;" showNavigationCompartment="true" showImplementationCompartment="true">
+      <Property Id="d15121e3-3c61-481f-94b9-65cc94b35f40" name="Fecfactu" type="DateTime" label="Fecfactu : DateTime" kind="Persistent" identity="true" fieldName="_fecfactu" />
+      <Property Id="923de4ea-0250-4895-ab80-670f47aa3ea2" name="Letraser" label="Letraser : String" kind="Persistent" identity="true" fieldName="_letraser" />
+      <Property Id="cc0f60c5-8c0e-41f1-a45a-38d0cdc97470" name="Numfactu" type="Int32" label="Numfactu : Int32" kind="Persistent" identity="true" fieldName="_numfactu" />
+      <Property Id="d8260bc0-8f8d-496e-858f-93a4e5133ca9" name="Baseimp1" type="Decimal" label="Baseimp1 : Decimal" kind="Persistent" fieldName="_baseimp1" />
+      <Property Id="b897e5b4-61c6-4ec3-afc8-95179629890d" name="Baseimp2" type="Decimal" label="Baseimp2 : Decimal" nullable="true" kind="Persistent" fieldName="_baseimp2" />
+      <Property Id="fae4877c-c9e7-4a95-a97c-1ab6edbce311" name="Baseimp3" type="Decimal" label="Baseimp3 : Decimal" nullable="true" kind="Persistent" fieldName="_baseimp3" />
+      <Property Id="ccd578df-ec0e-4f22-9229-130780bfb732" name="Codcoope" type="Int16" label="Codcoope : Int16" kind="Persistent" fieldName="_codcoope" />
+      <Property Id="f052103e-1b49-4c7e-b7f5-d68191b94aaa" name="Codforpa" type="Int16" label="Codforpa : Int16" kind="Persistent" fieldName="_codforpa" />
+      <Property Id="150df4c9-5dae-4f96-98b7-31cc616efe34" name="Codsocio" type="Int32" label="Codsocio : Int32" kind="Persistent" fieldName="_codsocio" />
+      <Property Id="28bb0230-f11c-43ed-b7b3-2787438298d9" name="Impoiva1" type="Decimal" label="Impoiva1 : Decimal" kind="Persistent" fieldName="_impoiva1" />
+      <Property Id="c59847c0-c22f-4155-ba22-0828fd0b64fd" name="Impoiva2" type="Decimal" label="Impoiva2 : Decimal" nullable="true" kind="Persistent" fieldName="_impoiva2" />
+      <Property Id="7370aaf2-6a30-401b-8342-50cc2551d83c" name="Impoiva3" type="Decimal" label="Impoiva3 : Decimal" nullable="true" kind="Persistent" fieldName="_impoiva3" />
+      <Property Id="bbbb5632-b897-44bd-ab0a-7ae8daa331d0" name="Impuesigaus" type="Decimal" label="Impuesigaus : Decimal" nullable="true" kind="Persistent" fieldName="_impuesigaus" />
+      <Property Id="79639305-61cd-410f-8a7c-7a2086db84fe" name="Impuesto" type="Decimal" label="Impuesto : Decimal" kind="Persistent" fieldName="_impuesto" />
+      <Property Id="763f709b-81a7-4e5f-9d69-383b49c9bf1b" name="Intconta" type="Int16" label="Intconta : Int16" kind="Persistent" fieldName="_intconta" />
+      <Property Id="0c5c15fc-0c50-4f28-97a2-88c20e9d833f" name="Observac" label="Observac : String" kind="Persistent" fieldName="_observac" />
+      <Property Id="83bd9749-91e0-40f0-881e-f065c326856c" name="Porciva1" type="Decimal" label="Porciva1 : Decimal" kind="Persistent" fieldName="_porciva1" />
+      <Property Id="1c76218b-98b0-4a67-99f8-06957b07951e" name="Porciva2" type="Decimal" label="Porciva2 : Decimal" nullable="true" kind="Persistent" fieldName="_porciva2" />
+      <Property Id="e7bcdfaa-c9ab-4de2-985a-8861dda314b1" name="Porciva3" type="Decimal" label="Porciva3 : Decimal" nullable="true" kind="Persistent" fieldName="_porciva3" />
+      <Property Id="e2b05026-db5e-492f-99fb-e9d8c691d0ff" name="Tipoiva1" type="Int16" label="Tipoiva1 : Int16" kind="Persistent" fieldName="_tipoiva1" />
+      <Property Id="916ec0f0-24dc-42a8-af93-0f44e811ccf6" name="Tipoiva2" type="Int16" label="Tipoiva2 : Int16" nullable="true" kind="Persistent" fieldName="_tipoiva2" />
+      <Property Id="4962dd00-4ca2-4c26-b5fc-4c6099f92b16" name="Tipoiva3" type="Int16" label="Tipoiva3 : Int16" nullable="true" kind="Persistent" fieldName="_tipoiva3" />
+      <Property Id="5ad3fdd3-4b81-499c-b355-2ee2b10f29d9" name="Totalfac" type="Decimal" label="Totalfac : Decimal" kind="Persistent" fieldName="_totalfac" />
+      <AssociationTargets>
+        <Association Id="7a50a1cf-42c0-4225-b57b-0f145c30ec1e" SourceMultiplicity="One" name="SchfacHasSsocio">
+          <DomainClassMoniker name="/AriGasolContext/Ssocio" />
+          <targetNavigationalProperty>
+            <associationDefinesTargetProperty Id="884944f9-0de3-4007-a12c-666105301f19">
+              <NavigationalPropertyMoniker name="/AriGasolContext/Ssocio/Schfacs" />
+            </associationDefinesTargetProperty>
+          </targetNavigationalProperty>
+          <sourceNavigationalProperty>
+            <associationDefinesSourceProperty Id="247eb7c2-fb7d-49d1-9770-7a644d082d4c">
+              <NavigationalPropertyMoniker name="/AriGasolContext/Schfac/Ssocio" />
+            </associationDefinesSourceProperty>
+          </sourceNavigationalProperty>
+        </Association>
+      </AssociationTargets>
+      <navigationalProperties>
+        <classHasNavigationalProperties Id="4df80266-ccb3-4dc0-9aad-81d5ebbe5b76">
+          <NavigationalProperty Id="bf39ec4b-c821-4603-8991-0de5497f3516" name="Ssocio" type="Ssocio" label="Ssocio : Ssocio" nullable="true" kind="Persistent" fieldName="_ssocio" isDependent="false" isManaged="false" />
+        </classHasNavigationalProperties>
+        <classHasNavigationalProperties Id="dfd0aea7-d44b-46fb-b306-a62f454c25db">
+          <NavigationalProperty Id="1d35c2d9-2dd7-4c7a-a71c-406363c43129" name="Slhfacs" type="IList&lt;Slhfac&gt;" label="Slhfacs : IList&lt;Slhfac&gt;" nullable="true" kind="Persistent" fieldName="_slhfacs" isDependent="false" isManaged="false" />
+        </classHasNavigationalProperties>
+      </navigationalProperties>
+    </DomainClass>
+    <DomainClass Id="87b1211c-48a7-43df-9471-ced611a4370b" name="Slhfac" namespace="AriGasolModel" showPropertiesCompartment="true" concurrencyMode="Changed" concurrencyMember="&lt; AUTO &gt;" showNavigationCompartment="true" showImplementationCompartment="true">
+      <Property Id="f54c833c-9031-4c7f-8db2-99b146259759" name="Fecfactu" type="DateTime" label="Fecfactu : DateTime" kind="Persistent" identity="true" fieldName="_fecfactu" />
+      <Property Id="f85d1bd7-4fea-4f6e-9809-3cb67acd370b" name="Letraser" label="Letraser : String" kind="Persistent" identity="true" fieldName="_letraser" />
+      <Property Id="2f17adcc-225e-40e7-9e8a-b80b4660a093" name="Numfactu" type="Int32" label="Numfactu : Int32" kind="Persistent" identity="true" fieldName="_numfactu" />
+      <Property Id="9b80af5d-22f6-4674-b917-ab40bf77a9b5" name="Numlinea" type="Int16" label="Numlinea : Int16" kind="Persistent" identity="true" fieldName="_numlinea" />
+      <Property Id="ed7f0837-3338-45a7-9c0b-d9eedda04b7e" name="Cantidad" type="Decimal" label="Cantidad : Decimal" kind="Persistent" fieldName="_cantidad" />
+      <Property Id="12c531e7-29a0-480a-ad83-4143c3b2327a" name="Codartic" type="Int32" label="Codartic : Int32" kind="Persistent" fieldName="_codartic" />
+      <Property Id="2952703f-63e4-4b2c-ba7d-e5b253f5254d" name="Codturno" type="Int16" label="Codturno : Int16" kind="Persistent" fieldName="_codturno" />
+      <Property Id="287afa2a-44f8-47fb-8a13-90cd51e046dc" name="Fecalbar" type="DateTime" label="Fecalbar : DateTime" kind="Persistent" fieldName="_fecalbar" />
+      <Property Id="5d22c08b-cad9-4274-aead-44b79e0844cc" name="Horalbar" type="DateTime" label="Horalbar : DateTime" kind="Persistent" fieldName="_horalbar" />
+      <Property Id="72f467d1-994e-45a5-b750-c49445bd0142" name="Implinea" type="Decimal" label="Implinea : Decimal" kind="Persistent" fieldName="_implinea" />
+      <Property Id="b5e31402-2e20-4e71-89f9-4a81a3a1b7a5" name="Matricul" label="Matricul : String" kind="Persistent" fieldName="_matricul" />
+      <Property Id="ad14dbf8-eb4e-4e82-9954-b2f1c1da2731" name="Numalbar" label="Numalbar : String" kind="Persistent" fieldName="_numalbar" />
+      <Property Id="ba96d543-db35-438b-908e-191418ea3df6" name="Numtarje" type="Int32" label="Numtarje : Int32" kind="Persistent" fieldName="_numtarje" />
+      <Property Id="a33fb6ca-2011-4c19-8619-7db5030d9dda" name="Precioinicial" type="Decimal" label="Precioinicial : Decimal" nullable="true" kind="Persistent" fieldName="_precioinicial" />
+      <Property Id="30218d8f-b6e6-480d-bda3-6d88e50e2dab" name="Preciove" type="Decimal" label="Preciove : Decimal" kind="Persistent" fieldName="_preciove" />
+      <AssociationTargets>
+        <Association Id="efce6843-c0c9-4955-85d1-9ca0d395a2bf" SourceMultiplicity="One" name="SlhfacHasSartic">
+          <DomainClassMoniker name="/AriGasolContext/Sartic" />
+          <targetNavigationalProperty>
+            <associationDefinesTargetProperty Id="8de67a64-f159-4927-825c-64a2d2cffa9e">
+              <NavigationalPropertyMoniker name="/AriGasolContext/Sartic/Slhfacs" />
+            </associationDefinesTargetProperty>
+          </targetNavigationalProperty>
+          <sourceNavigationalProperty>
+            <associationDefinesSourceProperty Id="446743bf-012d-462b-9e16-c6ab25570c5c">
+              <NavigationalPropertyMoniker name="/AriGasolContext/Slhfac/Sartic" />
+            </associationDefinesSourceProperty>
+          </sourceNavigationalProperty>
+        </Association>
+        <Association Id="775594af-6112-4cd7-b1a6-ddb225ea2709" SourceMultiplicity="One" name="SlhfacHasSchfac">
+          <DomainClassMoniker name="/AriGasolContext/Schfac" />
+          <targetNavigationalProperty>
+            <associationDefinesTargetProperty Id="fdf00af8-28ac-4612-8b27-838d2dd911c4">
+              <NavigationalPropertyMoniker name="/AriGasolContext/Schfac/Slhfacs" />
+            </associationDefinesTargetProperty>
+          </targetNavigationalProperty>
+          <sourceNavigationalProperty>
+            <associationDefinesSourceProperty Id="9c51f187-5b57-4c04-8c25-36b061ad0eeb">
+              <NavigationalPropertyMoniker name="/AriGasolContext/Slhfac/Schfac" />
+            </associationDefinesSourceProperty>
+          </sourceNavigationalProperty>
+        </Association>
+      </AssociationTargets>
+      <navigationalProperties>
+        <classHasNavigationalProperties Id="55c553e3-c1a3-4533-8aab-db2f84862772">
+          <NavigationalProperty Id="24009535-a0cc-47f2-807f-41747fdc17b0" name="Sartic" type="Sartic" label="Sartic : Sartic" nullable="true" kind="Persistent" fieldName="_sartic" isDependent="false" isManaged="false" />
+        </classHasNavigationalProperties>
+        <classHasNavigationalProperties Id="7d93c151-d69b-49b8-97d3-07afa5744710">
+          <NavigationalProperty Id="5f297c3a-d26f-4c3c-ae04-6a55e6fbe5a5" name="Schfac" type="Schfac" label="Schfac : Schfac" nullable="true" kind="Persistent" fieldName="_schfac" isDependent="false" isManaged="false" />
+        </classHasNavigationalProperties>
+      </navigationalProperties>
+    </DomainClass>
+  </Types>
+  <domainContext>
+    <domainModelHasDomainContext Id="767bd325-5c6f-480d-a898-be393da8dd76">
+      <domainContainer name="AriGasolContext" namespace="AriGasolModel" showPropertiesCompartment="true">
+        <entitySetProperty name="Ssocios" namespace="AriGasolModel" type="Ssocio" label="Ssocios : IQueryable&lt;AriGasolModel.Ssocio&gt;" />
+        <entitySetProperty name="Sempres" namespace="AriGasolModel" type="Sempre" label="Sempres : IQueryable&lt;AriGasolModel.Sempre&gt;" />
+        <entitySetProperty name="Sartics" namespace="AriGasolModel" type="Sartic" label="Sartics : IQueryable&lt;AriGasolModel.Sartic&gt;" />
+        <entitySetProperty name="Schfacs" namespace="AriGasolModel" type="Schfac" label="Schfacs : IQueryable&lt;AriGasolModel.Schfac&gt;" />
+        <entitySetProperty name="Slhfacs" namespace="AriGasolModel" type="Slhfac" label="Slhfacs : IQueryable&lt;AriGasolModel.Slhfac&gt;" />
+      </domainContainer>
+    </domainModelHasDomainContext>
+  </domainContext>
+</DomainModel>

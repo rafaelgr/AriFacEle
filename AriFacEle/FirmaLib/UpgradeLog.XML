@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="FirmaLib">
+</Property><Property Name="Archivo de la solución" Value="C:\ProyectosNet\FacturaElectronica[Ariges]\Firma_facturaE\FirmaLib\FirmaLib.sln">
+</Property><Property Name="Date" Value="jueves, 07 de junio de 2012">
+</Property><Property Name="Time" Value="18:00:15">
+</Property></Properties><Event ErrorLevel="0" Project="FirmaLib" Source="FirmaLib.csproj" Description="Se realizó correctamente la copia de seguridad del archivo de proyecto C:\ProyectosNet\FacturaElectronica[Ariges]\Firma_facturaE\FirmaLib\Backup\FirmaLib.csproj">
+</Event><Event ErrorLevel="0" Project="FirmaLib" Source="Certificado.cs" Description="Se realizó correctamente la copia de seguridad del archivo C:\ProyectosNet\FacturaElectronica[Ariges]\Firma_facturaE\FirmaLib\Backup\Certificado.cs">
+</Event><Event ErrorLevel="0" Project="FirmaLib" Source="Class1.cs" Description="Se realizó correctamente la copia de seguridad del archivo C:\ProyectosNet\FacturaElectronica[Ariges]\Firma_facturaE\FirmaLib\Backup\Class1.cs">
+</Event><Event ErrorLevel="0" Project="FirmaLib" Source="Firma.cs" Description="Se realizó correctamente la copia de seguridad del archivo C:\ProyectosNet\FacturaElectronica[Ariges]\Firma_facturaE\FirmaLib\Backup\Firma.cs">
+</Event><Event ErrorLevel="0" Project="FirmaLib" Source="FirmaBES.cs" Description="Se realizó correctamente la copia de seguridad del archivo C:\ProyectosNet\FacturaElectronica[Ariges]\Firma_facturaE\FirmaLib\Backup\FirmaBES.cs">
+</Event><Event ErrorLevel="0" Project="FirmaLib" Source="FirmaC.cs" Description="Se realizó correctamente la copia de seguridad del archivo C:\ProyectosNet\FacturaElectronica[Ariges]\Firma_facturaE\FirmaLib\Backup\FirmaC.cs">
+</Event><Event ErrorLevel="0" Project="FirmaLib" Source="FirmaEPES.cs" Description="Se realizó correctamente la copia de seguridad del archivo C:\ProyectosNet\FacturaElectronica[Ariges]\Firma_facturaE\FirmaLib\Backup\FirmaEPES.cs">
+</Event><Event ErrorLevel="0" Project="FirmaLib" Source="FirmaT.cs" Description="Se realizó correctamente la copia de seguridad del archivo C:\ProyectosNet\FacturaElectronica[Ariges]\Firma_facturaE\FirmaLib\Backup\FirmaT.cs">
+</Event><Event ErrorLevel="0" Project="FirmaLib" Source="FirmaXL.cs" Description="Se realizó correctamente la copia de seguridad del archivo C:\ProyectosNet\FacturaElectronica[Ariges]\Firma_facturaE\FirmaLib\Backup\FirmaXL.cs">
+</Event><Event ErrorLevel="0" Project="FirmaLib" Source="MyPolicy.cs" Description="Se realizó correctamente la copia de seguridad del archivo C:\ProyectosNet\FacturaElectronica[Ariges]\Firma_facturaE\FirmaLib\Backup\MyPolicy.cs">
+</Event><Event ErrorLevel="0" Project="FirmaLib" Source="Properties\AssemblyInfo.cs" Description="Se realizó correctamente la copia de seguridad del archivo C:\ProyectosNet\FacturaElectronica[Ariges]\Firma_facturaE\FirmaLib\Backup\Properties\AssemblyInfo.cs">
+</Event><Event ErrorLevel="0" Project="FirmaLib" Source="Validacion.cs" Description="Se realizó correctamente la copia de seguridad del archivo C:\ProyectosNet\FacturaElectronica[Ariges]\Firma_facturaE\FirmaLib\Backup\Validacion.cs">
+</Event><Event ErrorLevel="0" Project="FirmaLib" Source="ClassDiagram1.cd" Description="Se realizó correctamente la copia de seguridad del archivo C:\ProyectosNet\FacturaElectronica[Ariges]\Firma_facturaE\FirmaLib\Backup\ClassDiagram1.cd">
+</Event><Event ErrorLevel="0" Project="FirmaLib" Source="FirmaLib.csproj" Description="Proyecto convertido correctamente">
+</Event><Event ErrorLevel="3" Project="FirmaLib" Source="FirmaLib.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="FirmaLib" Source="FirmaLib.csproj" Description="Examen completo: no es necesario actualizar los archivos de proyecto.">
+</Event></UpgradeLog>

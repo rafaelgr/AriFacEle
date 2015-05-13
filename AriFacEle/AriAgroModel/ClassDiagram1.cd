@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="AriAgroModel.Cliente" Collapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gCwEsDgCmUEDCIhxAkAkwJSuIAGyAASZeyGPYAMIYVE=</HashCode>
+      <FileName>Cliente.generated.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AriAgroModel.Empresa" Collapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QQABAICAwCAgAIAQKEAASAAAAEAAAEwIACAsAAAwAIA=</HashCode>
+      <FileName>Empresa.generated.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AriAgroModel.AriAgroCtx" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACACBAQAAAAAAAgAAAgAACAAAAAABIAAUAAAA=</HashCode>
+      <FileName>EntitiesModel1.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="AriAgroModel.Factura" Collapsed="true">
+    <Position X="0.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gACIhVACEAoEqQAAAACCMhQC2IEMgFYJEAGIIIsyBFA=</HashCode>
+      <FileName>Factura.generated.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AriAgroModel.Rcampo" Collapsed="true">
+    <Position X="2.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BaQDU7RDsWi8gIHGEM2RZoSkTF0JfBAKBAwAEQpmWFw=</HashCode>
+      <FileName>Rcampo.generated.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AriAgroModel.Rfactsoc" Collapsed="true">
+    <Position X="4" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EEIIoKABCBgBiyCHABAQIVBGKSAAAk6ADQCEOAZCAEE=</HashCode>
+      <FileName>Rfactsoc.generated.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AriAgroModel.Rsocio" Collapsed="true">
+    <Position X="0.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>GEqgJCkA2ABgIMEAEgBAhEAGqKgSACCIApQRIaReDEA=</HashCode>
+      <FileName>Rsocio.generated.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AriAgroModel.Variedade" Collapsed="true">
+    <Position X="2.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>iAUIhhoh6QLICMicBeIpMSZQEZYoERAahyDBIAIEEAA=</HashCode>
+      <FileName>Variedade.generated.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AriAgroModel.Vcampo">
+    <Position X="6.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CCAAQBoggMQSAoCMEAIICAAgCAAAIAAAAEAQAABAEAA=</HashCode>
+      <FileName>Campo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="AriAgroModel.IAriAgroCtxUnitOfWork" Collapsed="true">
+    <Position X="0.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAAAAAAAAAgAAAgAACAAAAAABAAAUAAAA=</HashCode>
+      <FileName>EntitiesModel1.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

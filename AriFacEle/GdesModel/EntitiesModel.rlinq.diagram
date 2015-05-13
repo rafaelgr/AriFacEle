@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntityDiagrams>
+  <entityDiagramsDiagram dslVersion="2.0.0.0" absoluteBounds="0, 0, 13.125, 8.5" name="GdesModelo" fillColor="62, 62, 65" isDefault="true">
+    <DomainModelMoniker name="/GdesModelo" />
+    <nestedChildShapes>
+      <classShape Id="d0649194-4269-4d00-b329-837d04436800" absoluteBounds="3.5, 0.75, 2.375, 2.3396761067708329" fillColor="225, 249, 128, 67" outlineColor="213, 71, 0" textColor="White">
+        <DomainClassMoniker name="/GdesModelo/Cau_FIN_FACEInvoiceTax" />
+        <nestedChildShapes>
+          <elementListCompartment Id="e370ba4f-f950-4a3f-b9ce-0a3db7eda62f" absoluteBounds="3.515, 1.26, 2.3449999999999998, 1.2108968098958333" name="AttributesCompartment" titleTextColor="Black" itemTextColor="Black" />
+          <elementListCompartment Id="c6c8488c-e3a7-4e4c-936e-3db126b650ed" absoluteBounds="3.515, 2.4808968098958335, 2.3449999999999998, 0.2493896484375" name="ImplementationsCompartment" titleTextColor="Black" itemTextColor="Black" />
+          <elementListCompartment Id="916f5466-1ab8-46cc-81ef-06d1a2e67bbf" absoluteBounds="3.515, 2.7402864583333333, 2.3449999999999998, 0.2493896484375" name="NavigationCompartment" titleTextColor="Black" itemTextColor="Black" />
+        </nestedChildShapes>
+      </classShape>
+      <classShape Id="842654ca-4783-4732-a5aa-d3e6387fc839" absoluteBounds="6.625, 0.75, 2.375, 3.108881835937499" fillColor="225, 249, 128, 67" outlineColor="213, 71, 0" textColor="White">
+        <DomainClassMoniker name="/GdesModelo/Cau_FIN_FACEInvoiceLine" />
+        <nestedChildShapes>
+          <elementListCompartment Id="39eb9fbb-18e9-4f43-ba4f-5ef29474a89a" absoluteBounds="6.6400000000000006, 1.26, 2.3449999999999998, 1.9801025390624998" name="AttributesCompartment" titleTextColor="Black" itemTextColor="Black" />
+          <elementListCompartment Id="e2693e84-b725-49f9-bf78-492f6580053a" absoluteBounds="6.6400000000000006, 3.2501025390624996, 2.3449999999999998, 0.2493896484375" name="ImplementationsCompartment" titleTextColor="Black" itemTextColor="Black" />
+          <elementListCompartment Id="c37f2f26-44e8-4668-96c3-633cfc096907" absoluteBounds="6.6400000000000006, 3.5094921874999994, 2.3449999999999998, 0.2493896484375" name="NavigationCompartment" titleTextColor="Black" itemTextColor="Black" />
+        </nestedChildShapes>
+      </classShape>
+      <classShape Id="e5cb1215-2020-4361-b237-5535e30d23e1" absoluteBounds="9.375, 0.75, 3.5, 7.147211914062499" fillColor="225, 249, 128, 67" outlineColor="213, 71, 0" textColor="White">
+        <DomainClassMoniker name="/GdesModelo/Cau_FIN_FACEInvoiceHeader" />
+        <nestedChildShapes>
+          <elementListCompartment Id="16b9f537-1d0e-4154-82a6-1344122cc8d3" absoluteBounds="9.39, 1.26, 3.4699999999999998, 6.0184326171875" name="AttributesCompartment" titleTextColor="Black" itemTextColor="Black" />
+          <elementListCompartment Id="03083fb0-69e1-40ab-ae47-24c39d472075" absoluteBounds="9.39, 7.2884326171875, 3.4699999999999998, 0.2493896484375" name="ImplementationsCompartment" titleTextColor="Black" itemTextColor="Black" />
+          <elementListCompartment Id="1e467572-9c3f-4341-80a7-a6714ae25570" absoluteBounds="9.39, 7.5478222656249994, 3.4699999999999998, 0.2493896484375" name="NavigationCompartment" titleTextColor="Black" itemTextColor="Black" />
+        </nestedChildShapes>
+      </classShape>
+    </nestedChildShapes>
+  </entityDiagramsDiagram>
+</EntityDiagrams>

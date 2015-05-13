@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntityDiagrams>
+  <entityDiagramsDiagram dslVersion="2.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="EntityDiagrams1" fillColor="62, 62, 65" isDefault="true">
+    <DomainModelMoniker name="/AriGasolContext" />
+    <nestedChildShapes>
+      <classShape Id="90802111-755c-4ef7-96fe-325f15b50857" isExpanded="false" absoluteBounds="0.5, 0.5, 1.5, 0.5" fillColor="225, 249, 128, 67" outlineColor="213, 71, 0" textColor="White">
+        <DomainClassMoniker name="/AriGasolContext/Ssocio" />
+        <nestedChildShapes>
+          <elementListCompartment Id="9345b4db-524b-4004-a33d-2c4eebed434f" absoluteBounds="0.515, 1.0099999999999998, 1.4700000000000002, 6.5953369140625" name="AttributesCompartment" titleTextColor="Black" itemTextColor="Black" />
+          <elementListCompartment Id="296d4415-c932-47db-a174-d5c2d4914265" absoluteBounds="0.515, 6.65092041015625, 1.4700000000000002, 0.2493896484375" name="ImplementationsCompartment" titleTextColor="Black" itemTextColor="Black" />
+          <elementListCompartment Id="59c29fe6-8e35-48f5-b5c0-133da8b6329c" absoluteBounds="0.515, 6.8683789062499994, 1.4700000000000002, 0.44169108072916663" name="NavigationCompartment" titleTextColor="Black" itemTextColor="Black" />
+        </nestedChildShapes>
+      </classShape>
+      <classShape Id="e6be3d73-a4fe-48f4-ba0c-c8c3766a621c" isExpanded="false" absoluteBounds="6.25, 0.5, 1.5, 0.5" fillColor="225, 249, 128, 67" outlineColor="213, 71, 0" textColor="White">
+        <DomainClassMoniker name="/AriGasolContext/Sempre" />
+        <nestedChildShapes>
+          <elementListCompartment Id="00d530b4-53cd-4cf1-a29d-1bc8b1043e2a" absoluteBounds="6.2650000000000006, 1.0099999999999998, 1.4700000000000002, 2.5570068359375" name="AttributesCompartment" titleTextColor="Black" itemTextColor="Black" />
+          <elementListCompartment Id="05222aa2-0dcf-4bb0-8079-280178136e6e" absoluteBounds="6.2650000000000006, 3.1996264648437496, 1.4700000000000002, 0.2493896484375" name="ImplementationsCompartment" titleTextColor="Black" itemTextColor="Black" />
+          <elementListCompartment Id="f73486eb-0f30-49c3-88aa-80961a28492f" absoluteBounds="6.2650000000000006, 3.4170849609374994, 1.4700000000000002, 0.2493896484375" name="NavigationCompartment" titleTextColor="Black" itemTextColor="Black" />
+        </nestedChildShapes>
+      </classShape>
+      <classShape Id="51d98ceb-66ac-4290-ab77-4e293b73dcd6" isExpanded="false" absoluteBounds="6.25, 1.375, 1.5, 0.5" fillColor="225, 249, 128, 67" outlineColor="213, 71, 0" textColor="White">
+        <DomainClassMoniker name="/AriGasolContext/Sartic" />
+        <nestedChildShapes>
+          <elementListCompartment Id="233b559b-6516-4055-8f15-ae51527708a4" absoluteBounds="6.2650000000000006, 1.8849999999999998, 1.4700000000000002, 5.4415283203125" name="AttributesCompartment" titleTextColor="Black" itemTextColor="Black" />
+          <elementListCompartment Id="6d1821c8-70a0-4681-a9c5-1da09b55062c" absoluteBounds="6.2650000000000006, 6.53983642578125, 1.4700000000000002, 0.2493896484375" name="ImplementationsCompartment" titleTextColor="Black" itemTextColor="Black" />
+          <elementListCompartment Id="f581a633-1a0b-4ae8-adc1-dbdf3926e7dd" absoluteBounds="6.2650000000000006, 6.7572949218749994, 1.4700000000000002, 0.8262939453125" name="NavigationCompartment" titleTextColor="Black" itemTextColor="Black" />
+        </nestedChildShapes>
+      </classShape>
+      <associationConnector edgePoints="[(6.76576923076923 : 1.875); (6.76576923076923 : 2.125); (7.24538461538461 : 2.125); (7.24538461538461 : 1.875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+        <AssociationMoniker Id="90a7fbc1-9e04-417d-a843-3d04057a9efa" />
+        <relativeChildShapes />
+        <nodes>
+          <classShapeMoniker Id="51d98ceb-66ac-4290-ab77-4e293b73dcd6" />
+          <classShapeMoniker Id="51d98ceb-66ac-4290-ab77-4e293b73dcd6" />
+        </nodes>
+      </associationConnector>
+      <classShape Id="57059ed9-0e17-46d3-b715-4f4590fc60cc" absoluteBounds="0.5, 1.5, 1.5, 6.1857047526041651" fillColor="225, 249, 128, 67" outlineColor="213, 71, 0" textColor="White">
+        <DomainClassMoniker name="/AriGasolContext/Schfac" />
+        <nestedChildShapes>
+          <elementListCompartment Id="336dd16b-1bf8-4b01-b949-a1bddc10a065" absoluteBounds="0.515, 2.01, 1.4700000000000002, 4.672322591145833" name="AttributesCompartment" titleTextColor="Black" itemTextColor="Black" />
+          <elementListCompartment Id="6727ced6-2914-47e0-9895-fac3d806dcd0" absoluteBounds="0.515, 6.6923225911458326, 1.4700000000000002, 0.2493896484375" name="ImplementationsCompartment" titleTextColor="Black" itemTextColor="Black" />
+          <elementListCompartment Id="a2986eee-f13d-4a6d-b717-980e7b4046e1" absoluteBounds="0.515, 6.9517122395833324, 1.4700000000000002, 0.633992513020833" name="NavigationCompartment" titleTextColor="Black" itemTextColor="Black" />
+        </nestedChildShapes>
+      </classShape>
+      <associationConnector edgePoints="[(1.25 : 1.5); (1.25 : 1)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+        <AssociationMoniker Id="7a50a1cf-42c0-4225-b57b-0f145c30ec1e" />
+        <relativeChildShapes />
+        <nodes>
+          <classShapeMoniker Id="57059ed9-0e17-46d3-b715-4f4590fc60cc" />
+          <classShapeMoniker Id="90802111-755c-4ef7-96fe-325f15b50857" />
+        </nodes>
+      </associationConnector>
+      <classShape Id="29841973-3354-45b2-a388-da33723de547" absoluteBounds="2.875, 0.5, 1.5, 4.647293294270832" fillColor="225, 249, 128, 67" outlineColor="213, 71, 0" textColor="White">
+        <DomainClassMoniker name="/AriGasolContext/Slhfac" />
+        <nestedChildShapes>
+          <elementListCompartment Id="bac5dd35-7a34-490b-a9e2-e5e0053d6806" absoluteBounds="2.89, 1.01, 1.4700000000000002, 3.1339111328125" name="AttributesCompartment" titleTextColor="Black" itemTextColor="Black" />
+          <elementListCompartment Id="5e28dda4-40a2-459f-9155-53f29bc6e72c" absoluteBounds="2.89, 4.1539111328125, 1.4700000000000002, 0.2493896484375" name="ImplementationsCompartment" titleTextColor="Black" itemTextColor="Black" />
+          <elementListCompartment Id="c84fa6cb-183e-433f-9e27-8541154e6bfe" absoluteBounds="2.89, 4.4133007812499994, 1.4700000000000002, 0.633992513020833" name="NavigationCompartment" titleTextColor="Black" itemTextColor="Black" />
+        </nestedChildShapes>
+      </classShape>
+      <associationConnector edgePoints="[(4.375 : 1.625); (6.25 : 1.625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+        <AssociationMoniker Id="efce6843-c0c9-4955-85d1-9ca0d395a2bf" />
+        <relativeChildShapes />
+        <nodes>
+          <classShapeMoniker Id="29841973-3354-45b2-a388-da33723de547" />
+          <classShapeMoniker Id="51d98ceb-66ac-4290-ab77-4e293b73dcd6" />
+        </nodes>
+      </associationConnector>
+      <associationConnector edgePoints="[(2.875 : 3.02314005533854); (2 : 3.02314005533854)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+        <AssociationMoniker Id="775594af-6112-4cd7-b1a6-ddb225ea2709" />
+        <relativeChildShapes />
+        <nodes>
+          <classShapeMoniker Id="29841973-3354-45b2-a388-da33723de547" />
+          <classShapeMoniker Id="57059ed9-0e17-46d3-b715-4f4590fc60cc" />
+        </nodes>
+      </associationConnector>
+    </nestedChildShapes>
+  </entityDiagramsDiagram>
+  <entityDiagramsDiagram dslVersion="2.0.0.0" absoluteBounds="0, 0, 11, 8.5" diagramId="142054ab-69e7-4e9c-aa81-4c969420987b" name="Diagram2" isDefault="false">
+    <DomainModelMoniker name="/AriGasolContext" />
+  </entityDiagramsDiagram>
+</EntityDiagrams>

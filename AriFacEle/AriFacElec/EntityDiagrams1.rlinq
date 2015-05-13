@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DomainModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="2.0.0.0" name="ContaContext" namespace="AriFacElec" showPropertiesCompartment="true" xmlns="http://www.telerik.com/ORM">
+  <orm:orm name="ContaContext" backend="mssql" xmlns:orm="http://tempuri.org/ORM">
+    <orm:namespace name="AriFacElec" default="true">
+      <orm:class name="Tiposiva" class-id="487634227" uniqueId="e17aecba-ed67-4a98-ae89-d12bd28984f3">
+        <orm:table name="tiposiva" />
+        <orm:identity>
+          <orm:single-field field-name="codigiva" />
+        </orm:identity>
+        <orm:field name="codigiva" property="Codigiva" uniqueId="de47f7b8-f91e-48df-bc9f-9fecfbce4fe6" type="System.Byte">
+          <orm:column name="codigiva" sql-type="tinyint unsigned" nullable="false" primary-key="true" ado-type="Byte" />
+        </orm:field>
+        <orm:field name="nombriva" property="Nombriva" uniqueId="1f823da2-f72e-481b-b835-6543532ddd53" type="System.String">
+          <orm:column name="nombriva" sql-type="char" nullable="false" length="15" ado-type="Character" />
+        </orm:field>
+        <orm:field name="tipodiva" property="Tipodiva" uniqueId="8b43d891-af46-4b1b-96c5-3028ab0bd763" type="System.Byte">
+          <orm:column name="tipodiva" sql-type="tinyint unsigned" nullable="false" ado-type="Byte" />
+        </orm:field>
+        <orm:field name="porceiva" property="Porceiva" uniqueId="37b55e54-4c4f-416b-b36d-791a0af04ebf" type="System.Decimal">
+          <orm:column name="porceiva" sql-type="decimal" nullable="false" length="4" scale="2" ado-type="Decimal" />
+        </orm:field>
+        <orm:field name="porcerec" property="Porcerec" uniqueId="c4f2b62c-6ecc-46df-8964-ceb0018bf268" type="System.Nullable`1[[System.Decimal, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="porcerec" sql-type="decimal" length="4" scale="2" ado-type="Decimal" />
+        </orm:field>
+        <orm:field name="cuentare" property="Cuentare" uniqueId="de48ffbb-3373-46c2-8470-0d8a86c131a7" type="System.String">
+          <orm:column name="cuentare" sql-type="char" nullable="false" length="10" ado-type="Character" />
+        </orm:field>
+        <orm:field name="cuentarr" property="Cuentarr" uniqueId="cd8863dd-a430-4c7f-a340-fbe03409954a" type="System.String">
+          <orm:column name="cuentarr" sql-type="char" nullable="false" length="10" ado-type="Character" />
+        </orm:field>
+        <orm:field name="cuentaso" property="Cuentaso" uniqueId="4f01a03d-fb24-4561-9ec0-4500db24a2d6" type="System.String">
+          <orm:column name="cuentaso" sql-type="char" nullable="false" length="10" ado-type="Character" />
+        </orm:field>
+        <orm:field name="cuentasr" property="Cuentasr" uniqueId="6c8761f8-f64d-4856-bbed-3bdeb8781d59" type="System.String">
+          <orm:column name="cuentasr" sql-type="char" nullable="false" length="10" ado-type="Character" />
+        </orm:field>
+        <orm:field name="cuentasn" property="Cuentasn" uniqueId="6a78cd7e-679d-44f0-9619-88decb5c22fa" type="System.String">
+          <orm:column name="cuentasn" sql-type="char" nullable="false" length="10" ado-type="Character" />
+        </orm:field>
+        <orm:index name="cl_repercutido">
+          <orm:columnMapping>
+            <orm:column name="cuentare" sql-type="char" nullable="false" length="10" ado-type="Character" />
+          </orm:columnMapping>
+        </orm:index>
+        <orm:index name="cl_repercutidorec">
+          <orm:columnMapping>
+            <orm:column name="cuentarr" sql-type="char" nullable="false" length="10" ado-type="Character" />
+          </orm:columnMapping>
+        </orm:index>
+        <orm:index name="cl_soportado">
+          <orm:columnMapping>
+            <orm:column name="cuentaso" sql-type="char" nullable="false" length="10" ado-type="Character" />
+          </orm:columnMapping>
+        </orm:index>
+        <orm:index name="cl_soportadore">
+          <orm:columnMapping>
+            <orm:column name="cuentasr" sql-type="char" nullable="false" length="10" ado-type="Character" />
+          </orm:columnMapping>
+        </orm:index>
+        <orm:index name="cl_soportadoNded">
+          <orm:columnMapping>
+            <orm:column name="cuentasn" sql-type="char" nullable="false" length="10" ado-type="Character" />
+          </orm:columnMapping>
+        </orm:index>
+      </orm:class>
+    </orm:namespace>
+    <orm:schema schema="">
+      <orm:table name="tiposiva">
+        <orm:column name="codigiva" sql-type="tinyint unsigned" nullable="false" primary-key="true" ado-type="Byte" />
+        <orm:column name="nombriva" sql-type="char" nullable="false" length="15" ado-type="Character" />
+        <orm:column name="tipodiva" sql-type="tinyint unsigned" nullable="false" ado-type="Byte" />
+        <orm:column name="porceiva" sql-type="decimal" nullable="false" length="4" scale="2" ado-type="Decimal" />
+        <orm:column name="porcerec" sql-type="decimal" length="4" scale="2" ado-type="Decimal" />
+        <orm:column name="cuentare" sql-type="char" nullable="false" length="10" ado-type="Character" />
+        <orm:column name="cuentarr" sql-type="char" nullable="false" length="10" ado-type="Character" />
+        <orm:column name="cuentaso" sql-type="char" nullable="false" length="10" ado-type="Character" />
+        <orm:column name="cuentasr" sql-type="char" nullable="false" length="10" ado-type="Character" />
+        <orm:column name="cuentasn" sql-type="char" nullable="false" length="10" ado-type="Character" />
+        <orm:index name="cl_repercutido">
+          <orm:columnMapping>
+            <orm:column name="cuentare" sql-type="char" nullable="false" length="10" ado-type="Character" />
+          </orm:columnMapping>
+        </orm:index>
+        <orm:index name="cl_repercutidorec">
+          <orm:columnMapping>
+            <orm:column name="cuentarr" sql-type="char" nullable="false" length="10" ado-type="Character" />
+          </orm:columnMapping>
+        </orm:index>
+        <orm:index name="cl_soportado">
+          <orm:columnMapping>
+            <orm:column name="cuentaso" sql-type="char" nullable="false" length="10" ado-type="Character" />
+          </orm:columnMapping>
+        </orm:index>
+        <orm:index name="cl_soportadore">
+          <orm:columnMapping>
+            <orm:column name="cuentasr" sql-type="char" nullable="false" length="10" ado-type="Character" />
+          </orm:columnMapping>
+        </orm:index>
+        <orm:index name="cl_soportadoNded">
+          <orm:columnMapping>
+            <orm:column name="cuentasn" sql-type="char" nullable="false" length="10" ado-type="Character" />
+          </orm:columnMapping>
+        </orm:index>
+        <orm:constraint name="tiposiva_ibfk_1">
+          <orm:column name="cuentare" sql-type="char" nullable="false" length="10" ado-type="Character" />
+        </orm:constraint>
+        <orm:constraint name="tiposiva_ibfk_2">
+          <orm:column name="cuentarr" sql-type="char" nullable="false" length="10" ado-type="Character" />
+        </orm:constraint>
+        <orm:constraint name="tiposiva_ibfk_3">
+          <orm:column name="cuentaso" sql-type="char" nullable="false" length="10" ado-type="Character" />
+        </orm:constraint>
+        <orm:constraint name="tiposiva_ibfk_4">
+          <orm:column name="cuentasr" sql-type="char" nullable="false" length="10" ado-type="Character" />
+        </orm:constraint>
+        <orm:constraint name="tiposiva_ibfk_5">
+          <orm:column name="cuentasn" sql-type="char" nullable="false" length="10" ado-type="Character" />
+        </orm:constraint>
+      </orm:table>
+    </orm:schema>
+  </orm:orm>
+  <ModelSettings xmlns="">
+    <AppConfigConnectionPropertyName>ContaContext</AppConfigConnectionPropertyName>
+    <AppConfigConnectionString>server=pcdavid;User Id=root;password=aritel;database=conta2</AppConfigConnectionString>
+    <InitialCatalog>conta2</InitialCatalog>
+    <NamingSettings>
+      <ClassRules>
+        <CaseMode>PascalCase</CaseMode>
+        <PluralizationMode>Singularize</PluralizationMode>
+      </ClassRules>
+      <FieldRules>
+        <CaseMode>CamelCase</CaseMode>
+      </FieldRules>
+      <PropertyRules>
+        <CaseMode>PascalCase</CaseMode>
+      </PropertyRules>
+    </NamingSettings>
+    <CodeGenerationSettings>
+      <MappingDefinitionType>Xml</MappingDefinitionType>
+    </CodeGenerationSettings>
+    <SchemaUpdateSettings />
+    <BackendConfigurationSettings>
+      <BackendConfiguration>
+        <Backend>mysql</Backend>
+      </BackendConfiguration>
+    </BackendConfigurationSettings>
+  </ModelSettings>
+  <Types>
+    <DomainClass Id="e17aecba-ed67-4a98-ae89-d12bd28984f3" name="Tiposiva" namespace="AriFacElec" showPropertiesCompartment="true" showNavigationCompartment="true" showImplementationCompartment="true">
+      <Property Id="de47f7b8-f91e-48df-bc9f-9fecfbce4fe6" name="Codigiva" type="Byte" label="Codigiva : Byte" identity="true" fieldName="codigiva" />
+      <Property Id="de48ffbb-3373-46c2-8470-0d8a86c131a7" name="Cuentare" label="Cuentare : String" fieldName="cuentare" />
+      <Property Id="cd8863dd-a430-4c7f-a340-fbe03409954a" name="Cuentarr" label="Cuentarr : String" fieldName="cuentarr" />
+      <Property Id="6a78cd7e-679d-44f0-9619-88decb5c22fa" name="Cuentasn" label="Cuentasn : String" fieldName="cuentasn" />
+      <Property Id="4f01a03d-fb24-4561-9ec0-4500db24a2d6" name="Cuentaso" label="Cuentaso : String" fieldName="cuentaso" />
+      <Property Id="6c8761f8-f64d-4856-bbed-3bdeb8781d59" name="Cuentasr" label="Cuentasr : String" fieldName="cuentasr" />
+      <Property Id="1f823da2-f72e-481b-b835-6543532ddd53" name="Nombriva" label="Nombriva : String" fieldName="nombriva" />
+      <Property Id="37b55e54-4c4f-416b-b36d-791a0af04ebf" name="Porceiva" type="Decimal" label="Porceiva : Decimal" fieldName="porceiva" />
+      <Property Id="c4f2b62c-6ecc-46df-8964-ceb0018bf268" name="Porcerec" type="Decimal" label="Porcerec : Decimal" nullable="true" fieldName="porcerec" />
+      <Property Id="8b43d891-af46-4b1b-96c5-3028ab0bd763" name="Tipodiva" type="Byte" label="Tipodiva : Byte" fieldName="tipodiva" />
+    </DomainClass>
+  </Types>
+  <domainContext>
+    <domainModelHasDomainContext Id="af564d21-e273-4ce5-8ede-7475d66d8465">
+      <domainContainer name="ContaContext" namespace="AriFacElec" showPropertiesCompartment="true">
+        <entitySetProperty name="Tiposivas" namespace="AriFacElec" type="Tiposiva" label="Tiposivas : IQueryable&lt;AriFacElec.Tiposiva&gt;" />
+      </domainContainer>
+    </domainModelHasDomainContext>
+  </domainContext>
+</DomainModel>

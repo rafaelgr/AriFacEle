@@ -1,0 +1,299 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DomainModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="2.0.0.0" name="GdesModelo" namespace="GdesModel" showPropertiesCompartment="true" xmlns="http://www.telerik.com/ORM">
+  <orm:orm name="GdesModelo" backend="mssql" default-schema="dbo" xmlns:orm="http://tempuri.org/ORM">
+    <orm:namespace name="GdesModel" default="true">
+      <orm:class name="Cau_FIN_FACEInvoiceTax" uniqueId="5e143a11-d0d5-40e3-a106-af41eb013e7c">
+        <orm:table name="cau_FIN_FACEInvoiceTax" />
+        <orm:identity />
+        <orm:concurrency strategy="changed" />
+        <orm:field name="_tAXBASEAMOUNT" property="TAXBASEAMOUNT" behavior="readwrite" uniqueId="e8917542-e2ff-466b-b51c-d358a213f989" type="System.Decimal">
+          <orm:column name="TAXBASEAMOUNT" sql-type="numeric" nullable="false" length="28" scale="12" ado-type="Numeric" />
+        </orm:field>
+        <orm:field name="_tAXAMOUNT" property="TAXAMOUNT" behavior="readwrite" uniqueId="f8cbeeef-a702-4908-a096-2834ce791ae6" type="System.Decimal">
+          <orm:column name="TAXAMOUNT" sql-type="numeric" nullable="false" length="28" scale="12" ado-type="Numeric" />
+        </orm:field>
+        <orm:field name="_taxRate" property="TaxRate" behavior="readwrite" uniqueId="811d4e04-584c-403b-9b2e-7ad51f1d2678" type="System.Decimal">
+          <orm:column name="TaxRate" sql-type="numeric" nullable="false" length="28" scale="12" ado-type="Numeric" />
+        </orm:field>
+        <orm:field name="_iD" property="ID" behavior="readwrite" uniqueId="956c6386-4c4f-4b45-9b3b-de9e76cb0728" type="System.String">
+          <orm:column name="ID" sql-type="nvarchar" nullable="true" length="23" scale="0" ado-type="UnicodeStringVariableLength" />
+        </orm:field>
+        <orm:field name="_invoiceNumber" property="InvoiceNumber" behavior="readwrite" uniqueId="abe4b647-7922-4375-8a83-b84d38241d75" type="System.String">
+          <orm:column name="InvoiceNumber" sql-type="nvarchar" nullable="false" length="20" scale="0" ado-type="UnicodeStringVariableLength" />
+        </orm:field>
+      </orm:class>
+      <orm:class name="Cau_FIN_FACEInvoiceLine" uniqueId="ba672ff0-6305-4e8e-ac08-cd170881f3b0">
+        <orm:table name="cau_FIN_FACEInvoiceLines" />
+        <orm:identity />
+        <orm:concurrency strategy="changed" />
+        <orm:field name="_iD" property="ID" behavior="readwrite" uniqueId="63ffee5a-6322-48d6-812d-a89c5f2890dd" type="System.String">
+          <orm:column name="ID" sql-type="nvarchar" nullable="true" length="23" scale="0" ado-type="UnicodeStringVariableLength" />
+        </orm:field>
+        <orm:field name="_invoiceNumber" property="InvoiceNumber" behavior="readwrite" uniqueId="3f940c67-1d21-4309-92c3-6c690dabb261" type="System.String">
+          <orm:column name="InvoiceNumber" sql-type="nvarchar" nullable="false" length="20" scale="0" ado-type="UnicodeStringVariableLength" />
+        </orm:field>
+        <orm:field name="_itemDescription" property="ItemDescription" behavior="readwrite" uniqueId="b6c2c8e5-0d6c-42d2-bd0a-4e0efb2b1ceb" type="System.String">
+          <orm:column name="ItemDescription" sql-type="nvarchar" nullable="false" length="1000" scale="0" ado-type="UnicodeStringVariableLength" />
+        </orm:field>
+        <orm:field name="_quantity" property="Quantity" behavior="readwrite" uniqueId="9956f46a-4d20-4372-af12-6add03116725" type="System.Decimal">
+          <orm:column name="Quantity" sql-type="numeric" nullable="false" length="28" scale="12" ado-type="Numeric" />
+        </orm:field>
+        <orm:field name="_unitPriceWithoutTax" property="UnitPriceWithoutTax" behavior="readwrite" uniqueId="36b5514d-2682-4799-9346-7d601a112408" type="System.Decimal">
+          <orm:column name="UnitPriceWithoutTax" sql-type="numeric" nullable="false" length="28" scale="12" ado-type="Numeric" />
+        </orm:field>
+        <orm:field name="_totalCost" property="TotalCost" behavior="readwrite" uniqueId="d223f0eb-4f71-4582-81a3-a6ef5f8c7415" type="System.Decimal">
+          <orm:column name="TotalCost" sql-type="numeric" nullable="false" length="28" scale="12" ado-type="Numeric" />
+        </orm:field>
+        <orm:field name="_grossAmount" property="GrossAmount" behavior="readwrite" uniqueId="61f3ccfc-9095-43c6-bd2f-c9fba29ba9b6" type="System.Decimal">
+          <orm:column name="GrossAmount" sql-type="numeric" nullable="false" length="28" scale="12" ado-type="Numeric" />
+        </orm:field>
+        <orm:field name="_taxRate" property="TaxRate" behavior="readwrite" uniqueId="c30c5ee7-5c1e-4496-9530-0eeb3f03fcd9" type="System.Nullable`1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="TaxRate" sql-type="int" nullable="true" length="0" scale="0" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="_taxAmount" property="TaxAmount" behavior="readwrite" uniqueId="10c3f270-884c-4c7f-9cad-edd393d560b5" type="System.Nullable`1[[System.Decimal, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="TaxAmount" sql-type="numeric" nullable="true" length="38" scale="11" ado-type="Numeric" />
+        </orm:field>
+      </orm:class>
+      <orm:class name="Cau_FIN_FACEInvoiceHeader" uniqueId="d64b7780-1954-489b-ad9e-d72739b08ce3">
+        <orm:table name="cau_FIN_FACEInvoiceHeader" />
+        <orm:identity />
+        <orm:concurrency strategy="changed" />
+        <orm:field name="_totalAmount" property="TotalAmount" behavior="readwrite" uniqueId="2bb75f29-2afe-4e89-8a67-d104eebcb10d" type="System.Decimal">
+          <orm:column name="TotalAmount" sql-type="numeric" nullable="false" length="28" scale="12" ado-type="Numeric" />
+        </orm:field>
+        <orm:field name="_currencyCode" property="CurrencyCode" behavior="readwrite" uniqueId="5d4b28ad-9a04-46e1-9c7a-28ff777b3b5a" type="System.String">
+          <orm:column name="CurrencyCode" sql-type="nvarchar" nullable="false" length="3" scale="0" ado-type="UnicodeStringVariableLength" />
+        </orm:field>
+        <orm:field name="_sellerTaxIdentificationNumber" property="SellerTaxIdentificationNumber" behavior="readwrite" uniqueId="e4a9de35-491d-466a-a0b3-147c412d9c65" type="System.String">
+          <orm:column name="SellerTaxIdentificationNumber" sql-type="nvarchar" nullable="false" length="33" scale="0" ado-type="UnicodeStringVariableLength" />
+        </orm:field>
+        <orm:field name="_sellerCorporateName" property="SellerCorporateName" behavior="readwrite" uniqueId="4f953a4c-ea6a-46b4-a91e-98b52c3b015f" type="System.String">
+          <orm:column name="SellerCorporateName" sql-type="nvarchar" nullable="false" length="60" scale="0" ado-type="UnicodeStringVariableLength" />
+        </orm:field>
+        <orm:field name="_sellerAddress" property="SellerAddress" behavior="readwrite" uniqueId="55a5f32d-4077-424f-b2eb-4bf9d6611dbe" type="System.String">
+          <orm:column name="SellerAddress" sql-type="nvarchar" nullable="false" length="250" scale="0" ado-type="UnicodeStringVariableLength" />
+        </orm:field>
+        <orm:field name="_sellerPostCode" property="SellerPostCode" behavior="readwrite" uniqueId="c8fdbf4a-afa6-4074-b07c-49f9a299ab31" type="System.String">
+          <orm:column name="SellerPostCode" sql-type="nvarchar" nullable="false" length="10" scale="0" ado-type="UnicodeStringVariableLength" />
+        </orm:field>
+        <orm:field name="_sellerCountryCode" property="SellerCountryCode" behavior="readwrite" uniqueId="03006e7f-9276-471c-be86-73d4ab77cd43" type="System.String">
+          <orm:column name="SellerCountryCode" sql-type="nvarchar" nullable="false" length="13" scale="0" ado-type="UnicodeStringVariableLength" />
+        </orm:field>
+        <orm:field name="_sellerProvince" property="SellerProvince" behavior="readwrite" uniqueId="3be3d08c-9d33-4354-8180-ab86ce44caf6" type="System.String">
+          <orm:column name="SellerProvince" sql-type="nvarchar" nullable="false" length="60" scale="0" ado-type="UnicodeStringVariableLength" />
+        </orm:field>
+        <orm:field name="_sellerTown" property="SellerTown" behavior="readwrite" uniqueId="c025e12c-1ff9-4ee9-afac-70bcde624704" type="System.String">
+          <orm:column name="SellerTown" sql-type="nvarchar" nullable="false" length="60" scale="0" ado-type="UnicodeStringVariableLength" />
+        </orm:field>
+        <orm:field name="_buyerTaxIdentificationNumber" property="BuyerTaxIdentificationNumber" behavior="readwrite" uniqueId="db4ba4e4-a53d-4aea-8e4b-924be2bcb5ff" type="System.String">
+          <orm:column name="BuyerTaxIdentificationNumber" sql-type="nvarchar" nullable="false" length="20" scale="0" ado-type="UnicodeStringVariableLength" />
+        </orm:field>
+        <orm:field name="_buyerCorporateName" property="BuyerCorporateName" behavior="readwrite" uniqueId="f95e2a9a-803f-4635-a8e0-dd5c66ef42e8" type="System.String">
+          <orm:column name="BuyerCorporateName" sql-type="nvarchar" nullable="false" length="60" scale="0" ado-type="UnicodeStringVariableLength" />
+        </orm:field>
+        <orm:field name="_buyerAddress" property="BuyerAddress" behavior="readwrite" uniqueId="cca9c7bb-9733-4f0f-b9be-072cc5c19c50" type="System.String">
+          <orm:column name="BuyerAddress" sql-type="nvarchar" nullable="false" length="250" scale="0" ado-type="UnicodeStringVariableLength" />
+        </orm:field>
+        <orm:field name="_buyerPostCode" property="BuyerPostCode" behavior="readwrite" uniqueId="5f93348f-cd60-4b11-854a-c38742ede67e" type="System.String">
+          <orm:column name="BuyerPostCode" sql-type="nvarchar" nullable="false" length="10" scale="0" ado-type="UnicodeStringVariableLength" />
+        </orm:field>
+        <orm:field name="_buyerCountryCode" property="BuyerCountryCode" behavior="readwrite" uniqueId="1e24c083-7260-477b-bfed-c43d19c9b507" type="System.String">
+          <orm:column name="BuyerCountryCode" sql-type="nvarchar" nullable="false" length="13" scale="0" ado-type="UnicodeStringVariableLength" />
+        </orm:field>
+        <orm:field name="_invoiceNumber" property="InvoiceNumber" behavior="readwrite" uniqueId="5fd1e9a3-5667-4097-8965-f0557666a7a6" type="System.String">
+          <orm:column name="InvoiceNumber" sql-type="nvarchar" nullable="false" length="20" scale="0" ado-type="UnicodeStringVariableLength" />
+        </orm:field>
+        <orm:field name="_issueDate" property="IssueDate" behavior="readwrite" uniqueId="913647e1-69bc-4143-842c-f3eb33f1c577" type="System.DateTime">
+          <orm:column name="IssueDate" sql-type="datetime" nullable="false" length="0" scale="0" ado-type="DateTime" />
+        </orm:field>
+        <orm:field name="_invoiceCurrencyCode" property="InvoiceCurrencyCode" behavior="readwrite" uniqueId="0ce087ba-516a-44ce-acc4-519f7e524893" type="System.String">
+          <orm:column name="InvoiceCurrencyCode" sql-type="nvarchar" nullable="false" length="3" scale="0" ado-type="UnicodeStringVariableLength" />
+        </orm:field>
+        <orm:field name="_languageName" property="LanguageName" behavior="readwrite" uniqueId="21fbeb15-176c-4c31-976e-53f912e6567f" type="System.String">
+          <orm:column name="LanguageName" sql-type="nvarchar" nullable="false" length="5" scale="0" ado-type="UnicodeStringVariableLength" />
+        </orm:field>
+        <orm:field name="_taxCurrencyCode" property="TaxCurrencyCode" behavior="readwrite" uniqueId="4536f0ba-a7cb-4bca-bf17-338d2cd0d8ad" type="System.String">
+          <orm:column name="TaxCurrencyCode" sql-type="nvarchar" nullable="false" length="3" scale="0" ado-type="UnicodeStringVariableLength" />
+        </orm:field>
+        <orm:field name="_dATAAREAID" property="DATAAREAID" behavior="readwrite" uniqueId="49c19520-14dd-46b8-975e-ed24c75023ef" type="System.String">
+          <orm:column name="DATAAREAID" sql-type="nvarchar" nullable="false" length="3" scale="0" ado-type="UnicodeStringVariableLength" />
+        </orm:field>
+        <orm:field name="_iD" property="ID" behavior="readwrite" uniqueId="ca8855fc-8f4f-41cb-b8d4-a2c7e5aa8592" type="System.String">
+          <orm:column name="ID" sql-type="nvarchar" nullable="false" length="23" scale="0" ado-type="UnicodeStringVariableLength" />
+        </orm:field>
+        <orm:field name="_totalGrossAmount" property="TotalGrossAmount" behavior="readwrite" uniqueId="8fe98fb8-2e26-4bb0-b71e-02fa435e68e0" type="System.Decimal">
+          <orm:column name="TotalGrossAmount" sql-type="numeric" nullable="false" length="28" scale="12" ado-type="Numeric" />
+        </orm:field>
+        <orm:field name="_totalGrossAmountBeforeTaxes" property="TotalGrossAmountBeforeTaxes" behavior="readwrite" uniqueId="314623cc-018d-4d60-8ad0-8aeaef18e9cb" type="System.Decimal">
+          <orm:column name="TotalGrossAmountBeforeTaxes" sql-type="numeric" nullable="false" length="28" scale="12" ado-type="Numeric" />
+        </orm:field>
+        <orm:field name="_totalTaxOutputs" property="TotalTaxOutputs" behavior="readwrite" uniqueId="a0535905-3889-4f07-88f4-42c48d02dfc4" type="System.Decimal">
+          <orm:column name="TotalTaxOutputs" sql-type="numeric" nullable="false" length="28" scale="12" ado-type="Numeric" />
+        </orm:field>
+        <orm:field name="_invoiceTotals" property="InvoiceTotals" behavior="readwrite" uniqueId="0fae37cf-b3e1-4e8f-8308-e18802cda101" type="System.Decimal">
+          <orm:column name="InvoiceTotals" sql-type="numeric" nullable="false" length="28" scale="12" ado-type="Numeric" />
+        </orm:field>
+        <orm:field name="_totalOutstandingAmount" property="TotalOutstandingAmount" behavior="readwrite" uniqueId="f779cc59-5e4b-4ac4-b39d-7056bc14cbd0" type="System.Decimal">
+          <orm:column name="TotalOutstandingAmount" sql-type="numeric" nullable="false" length="28" scale="12" ado-type="Numeric" />
+        </orm:field>
+        <orm:field name="_totalExecutableAmount" property="TotalExecutableAmount" behavior="readwrite" uniqueId="e05afa21-5a87-48b6-8b7b-47bd4a1c73da" type="System.Decimal">
+          <orm:column name="TotalExecutableAmount" sql-type="numeric" nullable="false" length="28" scale="12" ado-type="Numeric" />
+        </orm:field>
+        <orm:field name="_cODIGOUNIDADTRAMITADORA" property="CODIGOUNIDADTRAMITADORA" behavior="readwrite" uniqueId="f74cf747-5b02-41f1-ae8e-b6ce710fe131" type="System.String">
+          <orm:column name="CODIGOUNIDADTRAMITADORA" sql-type="nvarchar" nullable="false" length="20" scale="0" ado-type="UnicodeStringVariableLength" />
+        </orm:field>
+        <orm:field name="_cODIGOORGANOGESTOR" property="CODIGOORGANOGESTOR" behavior="readwrite" uniqueId="e3cc3f87-acde-4f70-869f-4e6d21435e65" type="System.String">
+          <orm:column name="CODIGOORGANOGESTOR" sql-type="nvarchar" nullable="false" length="20" scale="0" ado-type="UnicodeStringVariableLength" />
+        </orm:field>
+        <orm:field name="_cODIGOOFICINACONTABLE" property="CODIGOOFICINACONTABLE" behavior="readwrite" uniqueId="47a23016-f0cf-4de7-88ce-fc69b2666894" type="System.String">
+          <orm:column name="CODIGOOFICINACONTABLE" sql-type="nvarchar" nullable="false" length="20" scale="0" ado-type="UnicodeStringVariableLength" />
+        </orm:field>
+      </orm:class>
+    </orm:namespace>
+    <orm:schema schema="">
+      <orm:table name="cau_FIN_FACEInvoiceTax">
+        <orm:column name="TAXBASEAMOUNT" sql-type="numeric" nullable="false" length="28" scale="12" ado-type="Numeric" />
+        <orm:column name="TAXAMOUNT" sql-type="numeric" nullable="false" length="28" scale="12" ado-type="Numeric" />
+        <orm:column name="TaxRate" sql-type="numeric" nullable="false" length="28" scale="12" ado-type="Numeric" />
+        <orm:column name="ID" sql-type="nvarchar" nullable="true" length="23" scale="0" ado-type="UnicodeStringVariableLength" />
+        <orm:column name="InvoiceNumber" sql-type="nvarchar" nullable="false" length="20" scale="0" ado-type="UnicodeStringVariableLength" />
+      </orm:table>
+      <orm:table name="cau_FIN_FACEInvoiceLines">
+        <orm:column name="ID" sql-type="nvarchar" nullable="true" length="23" scale="0" ado-type="UnicodeStringVariableLength" />
+        <orm:column name="InvoiceNumber" sql-type="nvarchar" nullable="false" length="20" scale="0" ado-type="UnicodeStringVariableLength" />
+        <orm:column name="ItemDescription" sql-type="nvarchar" nullable="false" length="1000" scale="0" ado-type="UnicodeStringVariableLength" />
+        <orm:column name="Quantity" sql-type="numeric" nullable="false" length="28" scale="12" ado-type="Numeric" />
+        <orm:column name="UnitPriceWithoutTax" sql-type="numeric" nullable="false" length="28" scale="12" ado-type="Numeric" />
+        <orm:column name="TotalCost" sql-type="numeric" nullable="false" length="28" scale="12" ado-type="Numeric" />
+        <orm:column name="GrossAmount" sql-type="numeric" nullable="false" length="28" scale="12" ado-type="Numeric" />
+        <orm:column name="TaxRate" sql-type="int" nullable="true" length="0" scale="0" ado-type="Int32" />
+        <orm:column name="TaxAmount" sql-type="numeric" nullable="true" length="38" scale="11" ado-type="Numeric" />
+      </orm:table>
+      <orm:table name="cau_FIN_FACEInvoiceHeader">
+        <orm:column name="TotalAmount" sql-type="numeric" nullable="false" length="28" scale="12" ado-type="Numeric" />
+        <orm:column name="CurrencyCode" sql-type="nvarchar" nullable="false" length="3" scale="0" ado-type="UnicodeStringVariableLength" />
+        <orm:column name="SellerTaxIdentificationNumber" sql-type="nvarchar" nullable="false" length="33" scale="0" ado-type="UnicodeStringVariableLength" />
+        <orm:column name="SellerCorporateName" sql-type="nvarchar" nullable="false" length="60" scale="0" ado-type="UnicodeStringVariableLength" />
+        <orm:column name="SellerAddress" sql-type="nvarchar" nullable="false" length="250" scale="0" ado-type="UnicodeStringVariableLength" />
+        <orm:column name="SellerPostCode" sql-type="nvarchar" nullable="false" length="10" scale="0" ado-type="UnicodeStringVariableLength" />
+        <orm:column name="SellerCountryCode" sql-type="nvarchar" nullable="false" length="13" scale="0" ado-type="UnicodeStringVariableLength" />
+        <orm:column name="SellerProvince" sql-type="nvarchar" nullable="false" length="60" scale="0" ado-type="UnicodeStringVariableLength" />
+        <orm:column name="SellerTown" sql-type="nvarchar" nullable="false" length="60" scale="0" ado-type="UnicodeStringVariableLength" />
+        <orm:column name="BuyerTaxIdentificationNumber" sql-type="nvarchar" nullable="false" length="20" scale="0" ado-type="UnicodeStringVariableLength" />
+        <orm:column name="BuyerCorporateName" sql-type="nvarchar" nullable="false" length="60" scale="0" ado-type="UnicodeStringVariableLength" />
+        <orm:column name="BuyerAddress" sql-type="nvarchar" nullable="false" length="250" scale="0" ado-type="UnicodeStringVariableLength" />
+        <orm:column name="BuyerPostCode" sql-type="nvarchar" nullable="false" length="10" scale="0" ado-type="UnicodeStringVariableLength" />
+        <orm:column name="BuyerCountryCode" sql-type="nvarchar" nullable="false" length="13" scale="0" ado-type="UnicodeStringVariableLength" />
+        <orm:column name="InvoiceNumber" sql-type="nvarchar" nullable="false" length="20" scale="0" ado-type="UnicodeStringVariableLength" />
+        <orm:column name="IssueDate" sql-type="datetime" nullable="false" length="0" scale="0" ado-type="DateTime" />
+        <orm:column name="InvoiceCurrencyCode" sql-type="nvarchar" nullable="false" length="3" scale="0" ado-type="UnicodeStringVariableLength" />
+        <orm:column name="LanguageName" sql-type="nvarchar" nullable="false" length="5" scale="0" ado-type="UnicodeStringVariableLength" />
+        <orm:column name="TaxCurrencyCode" sql-type="nvarchar" nullable="false" length="3" scale="0" ado-type="UnicodeStringVariableLength" />
+        <orm:column name="DATAAREAID" sql-type="nvarchar" nullable="false" length="3" scale="0" ado-type="UnicodeStringVariableLength" />
+        <orm:column name="ID" sql-type="nvarchar" nullable="false" length="23" scale="0" ado-type="UnicodeStringVariableLength" />
+        <orm:column name="TotalGrossAmount" sql-type="numeric" nullable="false" length="28" scale="12" ado-type="Numeric" />
+        <orm:column name="TotalGrossAmountBeforeTaxes" sql-type="numeric" nullable="false" length="28" scale="12" ado-type="Numeric" />
+        <orm:column name="TotalTaxOutputs" sql-type="numeric" nullable="false" length="28" scale="12" ado-type="Numeric" />
+        <orm:column name="InvoiceTotals" sql-type="numeric" nullable="false" length="28" scale="12" ado-type="Numeric" />
+        <orm:column name="TotalOutstandingAmount" sql-type="numeric" nullable="false" length="28" scale="12" ado-type="Numeric" />
+        <orm:column name="TotalExecutableAmount" sql-type="numeric" nullable="false" length="28" scale="12" ado-type="Numeric" />
+        <orm:column name="CODIGOUNIDADTRAMITADORA" sql-type="nvarchar" nullable="false" length="20" scale="0" ado-type="UnicodeStringVariableLength" />
+        <orm:column name="CODIGOORGANOGESTOR" sql-type="nvarchar" nullable="false" length="20" scale="0" ado-type="UnicodeStringVariableLength" />
+        <orm:column name="CODIGOOFICINACONTABLE" sql-type="nvarchar" nullable="false" length="20" scale="0" ado-type="UnicodeStringVariableLength" />
+      </orm:table>
+    </orm:schema>
+    <orm:relational-naming-settings>
+      <orm:remove-camel-case>False</orm:remove-camel-case>
+      <orm:source-strategy>Property</orm:source-strategy>
+    </orm:relational-naming-settings>
+  </orm:orm>
+  <ModelSettings xmlns="">
+    <AppConfigConnectionPropertyName>GdesConnection</AppConfigConnectionPropertyName>
+    <AppConfigConnectionString>Data Source=PC-W8\SQLEXPRESS;Initial Catalog=FACE_test;Integrated Security=True</AppConfigConnectionString>
+    <InitialCatalog>FACE_test</InitialCatalog>
+    <NamingSettings>
+      <ClassRules>
+        <CaseMode>PascalCase</CaseMode>
+        <PluralizationMode>Singularize</PluralizationMode>
+      </ClassRules>
+      <FieldRules>
+        <AddPrefix>_</AddPrefix>
+        <CaseMode>CamelCase</CaseMode>
+      </FieldRules>
+      <PropertyRules>
+        <CaseMode>PascalCase</CaseMode>
+      </PropertyRules>
+    </NamingSettings>
+    <CodeGenerationSettings>
+      <MappingDefinitionType>Xml</MappingDefinitionType>
+    </CodeGenerationSettings>
+    <SchemaUpdateSettings />
+    <BackendConfigurationSettings>
+      <BackendConfiguration>
+        <Backend>MsSql</Backend>
+        <ProviderName>System.Data.SqlClient</ProviderName>
+      </BackendConfiguration>
+    </BackendConfigurationSettings>
+  </ModelSettings>
+  <Types>
+    <DomainClass Id="5e143a11-d0d5-40e3-a106-af41eb013e7c" name="Cau_FIN_FACEInvoiceTax" namespace="GdesModel" showPropertiesCompartment="true" concurrencyMode="Changed" showNavigationCompartment="true" showImplementationCompartment="true">
+      <Property Id="956c6386-4c4f-4b45-9b3b-de9e76cb0728" name="ID" label="ID : String" kind="Persistent" fieldName="_iD" />
+      <Property Id="abe4b647-7922-4375-8a83-b84d38241d75" name="InvoiceNumber" label="InvoiceNumber : String" kind="Persistent" fieldName="_invoiceNumber" />
+      <Property Id="f8cbeeef-a702-4908-a096-2834ce791ae6" name="TAXAMOUNT" type="Decimal" label="TAXAMOUNT : Decimal" kind="Persistent" fieldName="_tAXAMOUNT" />
+      <Property Id="e8917542-e2ff-466b-b51c-d358a213f989" name="TAXBASEAMOUNT" type="Decimal" label="TAXBASEAMOUNT : Decimal" kind="Persistent" fieldName="_tAXBASEAMOUNT" />
+      <Property Id="811d4e04-584c-403b-9b2e-7ad51f1d2678" name="TaxRate" type="Decimal" label="TaxRate : Decimal" kind="Persistent" fieldName="_taxRate" />
+    </DomainClass>
+    <DomainClass Id="ba672ff0-6305-4e8e-ac08-cd170881f3b0" name="Cau_FIN_FACEInvoiceLine" namespace="GdesModel" showPropertiesCompartment="true" concurrencyMode="Changed" showNavigationCompartment="true" showImplementationCompartment="true">
+      <Property Id="61f3ccfc-9095-43c6-bd2f-c9fba29ba9b6" name="GrossAmount" type="Decimal" label="GrossAmount : Decimal" kind="Persistent" fieldName="_grossAmount" />
+      <Property Id="63ffee5a-6322-48d6-812d-a89c5f2890dd" name="ID" label="ID : String" kind="Persistent" fieldName="_iD" />
+      <Property Id="3f940c67-1d21-4309-92c3-6c690dabb261" name="InvoiceNumber" label="InvoiceNumber : String" kind="Persistent" fieldName="_invoiceNumber" />
+      <Property Id="b6c2c8e5-0d6c-42d2-bd0a-4e0efb2b1ceb" name="ItemDescription" label="ItemDescription : String" kind="Persistent" fieldName="_itemDescription" />
+      <Property Id="9956f46a-4d20-4372-af12-6add03116725" name="Quantity" type="Decimal" label="Quantity : Decimal" kind="Persistent" fieldName="_quantity" />
+      <Property Id="10c3f270-884c-4c7f-9cad-edd393d560b5" name="TaxAmount" type="Decimal" label="TaxAmount : Decimal" nullable="true" kind="Persistent" fieldName="_taxAmount" />
+      <Property Id="c30c5ee7-5c1e-4496-9530-0eeb3f03fcd9" name="TaxRate" type="Int32" label="TaxRate : Int32" nullable="true" kind="Persistent" fieldName="_taxRate" />
+      <Property Id="d223f0eb-4f71-4582-81a3-a6ef5f8c7415" name="TotalCost" type="Decimal" label="TotalCost : Decimal" kind="Persistent" fieldName="_totalCost" />
+      <Property Id="36b5514d-2682-4799-9346-7d601a112408" name="UnitPriceWithoutTax" type="Decimal" label="UnitPriceWithoutTax : Decimal" kind="Persistent" fieldName="_unitPriceWithoutTax" />
+    </DomainClass>
+    <DomainClass Id="d64b7780-1954-489b-ad9e-d72739b08ce3" name="Cau_FIN_FACEInvoiceHeader" namespace="GdesModel" showPropertiesCompartment="true" concurrencyMode="Changed" showNavigationCompartment="true" showImplementationCompartment="true">
+      <Property Id="cca9c7bb-9733-4f0f-b9be-072cc5c19c50" name="BuyerAddress" label="BuyerAddress : String" kind="Persistent" fieldName="_buyerAddress" />
+      <Property Id="f95e2a9a-803f-4635-a8e0-dd5c66ef42e8" name="BuyerCorporateName" label="BuyerCorporateName : String" kind="Persistent" fieldName="_buyerCorporateName" />
+      <Property Id="1e24c083-7260-477b-bfed-c43d19c9b507" name="BuyerCountryCode" label="BuyerCountryCode : String" kind="Persistent" fieldName="_buyerCountryCode" />
+      <Property Id="5f93348f-cd60-4b11-854a-c38742ede67e" name="BuyerPostCode" label="BuyerPostCode : String" kind="Persistent" fieldName="_buyerPostCode" />
+      <Property Id="db4ba4e4-a53d-4aea-8e4b-924be2bcb5ff" name="BuyerTaxIdentificationNumber" label="BuyerTaxIdentificationNumber : String" kind="Persistent" fieldName="_buyerTaxIdentificationNumber" />
+      <Property Id="47a23016-f0cf-4de7-88ce-fc69b2666894" name="CODIGOOFICINACONTABLE" label="CODIGOOFICINACONTABLE : String" kind="Persistent" fieldName="_cODIGOOFICINACONTABLE" />
+      <Property Id="e3cc3f87-acde-4f70-869f-4e6d21435e65" name="CODIGOORGANOGESTOR" label="CODIGOORGANOGESTOR : String" kind="Persistent" fieldName="_cODIGOORGANOGESTOR" />
+      <Property Id="f74cf747-5b02-41f1-ae8e-b6ce710fe131" name="CODIGOUNIDADTRAMITADORA" label="CODIGOUNIDADTRAMITADORA : String" kind="Persistent" fieldName="_cODIGOUNIDADTRAMITADORA" />
+      <Property Id="5d4b28ad-9a04-46e1-9c7a-28ff777b3b5a" name="CurrencyCode" label="CurrencyCode : String" kind="Persistent" fieldName="_currencyCode" />
+      <Property Id="49c19520-14dd-46b8-975e-ed24c75023ef" name="DATAAREAID" label="DATAAREAID : String" kind="Persistent" fieldName="_dATAAREAID" />
+      <Property Id="ca8855fc-8f4f-41cb-b8d4-a2c7e5aa8592" name="ID" label="ID : String" kind="Persistent" fieldName="_iD" />
+      <Property Id="0ce087ba-516a-44ce-acc4-519f7e524893" name="InvoiceCurrencyCode" label="InvoiceCurrencyCode : String" kind="Persistent" fieldName="_invoiceCurrencyCode" />
+      <Property Id="5fd1e9a3-5667-4097-8965-f0557666a7a6" name="InvoiceNumber" label="InvoiceNumber : String" kind="Persistent" fieldName="_invoiceNumber" />
+      <Property Id="0fae37cf-b3e1-4e8f-8308-e18802cda101" name="InvoiceTotals" type="Decimal" label="InvoiceTotals : Decimal" kind="Persistent" fieldName="_invoiceTotals" />
+      <Property Id="913647e1-69bc-4143-842c-f3eb33f1c577" name="IssueDate" type="DateTime" label="IssueDate : DateTime" kind="Persistent" fieldName="_issueDate" />
+      <Property Id="21fbeb15-176c-4c31-976e-53f912e6567f" name="LanguageName" label="LanguageName : String" kind="Persistent" fieldName="_languageName" />
+      <Property Id="55a5f32d-4077-424f-b2eb-4bf9d6611dbe" name="SellerAddress" label="SellerAddress : String" kind="Persistent" fieldName="_sellerAddress" />
+      <Property Id="4f953a4c-ea6a-46b4-a91e-98b52c3b015f" name="SellerCorporateName" label="SellerCorporateName : String" kind="Persistent" fieldName="_sellerCorporateName" />
+      <Property Id="03006e7f-9276-471c-be86-73d4ab77cd43" name="SellerCountryCode" label="SellerCountryCode : String" kind="Persistent" fieldName="_sellerCountryCode" />
+      <Property Id="c8fdbf4a-afa6-4074-b07c-49f9a299ab31" name="SellerPostCode" label="SellerPostCode : String" kind="Persistent" fieldName="_sellerPostCode" />
+      <Property Id="3be3d08c-9d33-4354-8180-ab86ce44caf6" name="SellerProvince" label="SellerProvince : String" kind="Persistent" fieldName="_sellerProvince" />
+      <Property Id="e4a9de35-491d-466a-a0b3-147c412d9c65" name="SellerTaxIdentificationNumber" label="SellerTaxIdentificationNumber : String" kind="Persistent" fieldName="_sellerTaxIdentificationNumber" />
+      <Property Id="c025e12c-1ff9-4ee9-afac-70bcde624704" name="SellerTown" label="SellerTown : String" kind="Persistent" fieldName="_sellerTown" />
+      <Property Id="4536f0ba-a7cb-4bca-bf17-338d2cd0d8ad" name="TaxCurrencyCode" label="TaxCurrencyCode : String" kind="Persistent" fieldName="_taxCurrencyCode" />
+      <Property Id="2bb75f29-2afe-4e89-8a67-d104eebcb10d" name="TotalAmount" type="Decimal" label="TotalAmount : Decimal" kind="Persistent" fieldName="_totalAmount" />
+      <Property Id="e05afa21-5a87-48b6-8b7b-47bd4a1c73da" name="TotalExecutableAmount" type="Decimal" label="TotalExecutableAmount : Decimal" kind="Persistent" fieldName="_totalExecutableAmount" />
+      <Property Id="8fe98fb8-2e26-4bb0-b71e-02fa435e68e0" name="TotalGrossAmount" type="Decimal" label="TotalGrossAmount : Decimal" kind="Persistent" fieldName="_totalGrossAmount" />
+      <Property Id="314623cc-018d-4d60-8ad0-8aeaef18e9cb" name="TotalGrossAmountBeforeTaxes" type="Decimal" label="TotalGrossAmountBeforeTaxes : Decimal" kind="Persistent" fieldName="_totalGrossAmountBeforeTaxes" />
+      <Property Id="f779cc59-5e4b-4ac4-b39d-7056bc14cbd0" name="TotalOutstandingAmount" type="Decimal" label="TotalOutstandingAmount : Decimal" kind="Persistent" fieldName="_totalOutstandingAmount" />
+      <Property Id="a0535905-3889-4f07-88f4-42c48d02dfc4" name="TotalTaxOutputs" type="Decimal" label="TotalTaxOutputs : Decimal" kind="Persistent" fieldName="_totalTaxOutputs" />
+    </DomainClass>
+  </Types>
+  <domainContext>
+    <domainModelHasDomainContext Id="f0ad54d6-e6e3-4dfe-999f-7bf671401ab7">
+      <domainContainer name="GdesModelo" namespace="GdesModel" showPropertiesCompartment="true">
+        <entitySetProperty name="Cau_FIN_FACEInvoiceTaxes" namespace="GdesModel" type="Cau_FIN_FACEInvoiceTax" label="Cau_FIN_FACEInvoiceTaxes : IQueryable&lt;GdesModel.Cau_FIN_FACEInvoiceTax&gt;" />
+        <entitySetProperty name="Cau_FIN_FACEInvoiceLines" namespace="GdesModel" type="Cau_FIN_FACEInvoiceLine" label="Cau_FIN_FACEInvoiceLines : IQueryable&lt;GdesModel.Cau_FIN_FACEInvoiceLine&gt;" />
+        <entitySetProperty name="Cau_FIN_FACEInvoiceHeaders" namespace="GdesModel" type="Cau_FIN_FACEInvoiceHeader" label="Cau_FIN_FACEInvoiceHeaders : IQueryable&lt;GdesModel.Cau_FIN_FACEInvoiceHeader&gt;" />
+      </domainContainer>
+    </domainModelHasDomainContext>
+  </domainContext>
+</DomainModel>

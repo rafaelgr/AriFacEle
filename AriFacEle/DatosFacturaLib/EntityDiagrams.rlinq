@@ -1,0 +1,811 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DomainModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="2.0.0.0" name="FacturaEntity" namespace="DatosFacturaLib" showPropertiesCompartment="true" xmlns="http://www.telerik.com/ORM">
+  <orm:orm name="FacturaEntity" backend="mssql" xmlns:orm="http://tempuri.org/ORM">
+    <orm:namespace name="DatosFacturaLib" default="true">
+      <orm:class name="Empresa" class-id="798743507" uniqueId="c9815943-a946-48d7-9c50-f0301327b4df">
+        <orm:table name="empresa" />
+        <orm:identity>
+          <orm:key-generator name="autoinc" />
+          <orm:single-field field-name="idEmpresa" />
+        </orm:identity>
+        <orm:field name="idEmpresa" property="Id_empresa" null-value="none" uniqueId="e17e233b-d577-4f02-a5a3-fba045de17b5" type="System.Int32">
+          <orm:column name="id_empresa" sql-type="INTEGER" nullable="false" length="0" scale="0" primary-key="true" backend-calculated="true" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="nombre" property="Nombre" null-value="none" uniqueId="efd17e13-1b25-48d6-a46b-1ff98c796039" type="System.String">
+          <orm:column name="nombre" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="Varchar" />
+        </orm:field>
+        <orm:field name="cif" property="Cif" null-value="none" uniqueId="98625c70-e845-4908-a4da-5b89d9789018" type="System.String">
+          <orm:column name="cif" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="Varchar" />
+        </orm:field>
+        <orm:field name="superusuarios" property="Superusuarios" null-value="none" uniqueId="38ec2cf3-2d8f-402c-98df-b62a0b2932f6" type="DatosFacturaLib.Superusuario">
+          <orm:collection element-class="DatosFacturaLib.Superusuario" inverse-field="empresa" managed="true" order-by="" uniqueId="d89259b3-30ef-4408-99f9-24e783d2b0f3" />
+        </orm:field>
+        <orm:field name="clientes" property="Clientes" behavior="readwrite" uniqueId="3ac73fa5-cc99-4535-a013-70fd80c89ab8" type="DatosFacturaLib.Cliente">
+          <orm:collection element-class="DatosFacturaLib.Cliente" inverse-field="empresa" order-by="" uniqueId="ee8a1400-0d60-4080-82c8-70f9cb3b4faa" />
+        </orm:field>
+      </orm:class>
+      <orm:class name="Factura" class-id="170225885" uniqueId="1770133c-b3e9-4393-aae5-d740e19249e4">
+        <orm:table name="factura" />
+        <orm:identity>
+          <orm:key-generator name="autoinc" />
+          <orm:single-field field-name="idFactura" />
+        </orm:identity>
+        <orm:field name="idFactura" property="Id_factura" null-value="none" uniqueId="0953ef14-dfb9-4545-b043-ca47dde7f5bd" type="System.Int32">
+          <orm:column name="id_factura" sql-type="integer" nullable="false" length="0" scale="0" primary-key="true" backend-calculated="true" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="fecha" property="Fecha" null-value="none" uniqueId="ecf57533-4108-4c01-bdf2-c358f58caae8" type="System.Nullable`1[[System.DateTime, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="fecha" sql-type="datetime" nullable="true" length="0" scale="0" ado-type="DateTime" />
+        </orm:field>
+        <orm:field name="baseTotal" property="Base_total" null-value="none" uniqueId="137ce992-9049-479a-ac12-7e55e7a1b0ae" type="System.Nullable`1[[System.Decimal, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="base_total" sql-type="decimal" nullable="true" length="20" scale="10" ado-type="Decimal" />
+        </orm:field>
+        <orm:field name="cuotaTotal" property="Cuota_total" null-value="none" uniqueId="666fcf57-df77-4911-81ff-7bdc78a7fb7c" type="System.Nullable`1[[System.Decimal, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="cuota_total" sql-type="decimal" nullable="true" length="20" scale="10" ado-type="Decimal" />
+        </orm:field>
+        <orm:field name="ttal" property="Ttal" null-value="none" uniqueId="f4159db5-7e61-4e27-bbde-574e352eb2bc" type="System.Nullable`1[[System.Decimal, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="ttal" sql-type="decimal" nullable="true" length="20" scale="10" ado-type="Decimal" />
+        </orm:field>
+        <orm:field name="numSerie" property="Num_serie" null-value="none" uniqueId="fd44872c-5920-42c4-9375-0f9005ca7db0" type="System.String">
+          <orm:column name="num_serie" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="Varchar" />
+        </orm:field>
+        <orm:field name="numFactura" property="Num_factura" null-value="none" uniqueId="f1ed9a14-148b-4eb3-a36b-88ad11b636bb" type="System.Nullable`1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="num_factura" sql-type="integer" nullable="true" length="0" scale="0" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="idCliente" property="Id_cliente" null-value="none" uniqueId="8c439642-08c1-487a-ac8f-4e2816c42174" type="System.Nullable`1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="id_cliente" sql-type="integer" nullable="true" length="0" scale="0" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="nueva" property="Nueva" null-value="none" uniqueId="c8e24bef-438a-4507-b2eb-303fe7ab03d8" type="System.Nullable`1[[System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="nueva" sql-type="tinyint" nullable="true" length="0" scale="0" ado-type="Byte" />
+        </orm:field>
+        <orm:field name="coddirecAriges" property="coddirec_ariges" null-value="none" uniqueId="b1ef3a94-559c-4b1c-92ba-b7b5f9542ffc" type="System.Int32">
+          <orm:column name="coddirec_ariges" sql-type="integer" nullable="true" length="0" scale="0" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="unidadTramitadoraCodigo" property="UnidadTramitadoraCodigo" uniqueId="9a27997b-4143-4df4-9239-06a1f12475fd" type="System.String">
+          <orm:column name="unidadTramitadoraCodigo" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="" />
+        </orm:field>
+        <orm:field name="organoGestorCodigo" property="OrganoGestorCodigo" uniqueId="bd5138a3-10bd-490e-a8c7-486933f05fcd" type="System.String">
+          <orm:column name="organoGestorCodigo" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="" />
+        </orm:field>
+        <orm:field name="oficinaContableCodigo" property="OficinaContableCodigo" uniqueId="d1222a86-b572-487b-ab6d-512584d1305b" type="System.String">
+          <orm:column name="oficinaContableCodigo" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="" />
+        </orm:field>
+        <orm:field name="codDirecGdes" property="CodDirecGdes" uniqueId="c6ad4b6a-4540-4baf-874e-11c75dc99ac3" type="System.String">
+          <orm:column name="coddirec_gdes" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="" />
+        </orm:field>
+        <orm:field name="sistemaGdes" property="SistemaGdes" uniqueId="655e252d-00d9-493d-bd4e-c24367dfdeae" type="System.String">
+          <orm:column name="sistema_gdes" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="" />
+        </orm:field>
+        <orm:field name="esFraCliente" property="EsFraCliente" uniqueId="ec210122-b792-4ca2-a728-ac6cbee04ca2" type="System.Boolean" />
+        <orm:field name="impRetencion" property="ImpRetencion" uniqueId="db40629a-b4f0-4b46-a276-1a338eec39d6" type="System.Decimal" />
+        <orm:field name="letraIdFraProve" property="LetraIdFraProve" uniqueId="a8261de6-fa2d-4c5f-bc56-9a1bc12bdee3" type="System.String" />
+        <orm:field name="sistema_id" property="Sistema_id" uniqueId="96080b68-3364-449a-b41f-357aa03d2744" type="System.Int32" />
+        <orm:field name="impGastosAFo" property="ImpGastosAFo" uniqueId="45d50013-640f-444a-bb4a-5f2954daea12" type="System.Decimal" />
+        <orm:field name="vCodtipom1" property="vCodtipom" uniqueId="a5d2c9d4-ba66-4537-99bc-3eaef9f13ad7" type="System.String" />
+        <orm:field name="cliente" property="Cliente" null-value="none" uniqueId="2a38b7dd-895c-475c-9f5e-7da3eee85fec" type="DatosFacturaLib.Cliente">
+          <orm:reference uniqueId="e3c8c3c3-30e2-4dc9-b8b0-8b5867a5ec91">
+            <orm:constraint name="FK_factura" destination-table="cliente">
+              <orm:column name="id_cliente" sql-type="integer" nullable="true" length="0" scale="0" ado-type="Int32" target-class="DatosFacturaLib.Cliente" target-field="iD" />
+            </orm:constraint>
+          </orm:reference>
+        </orm:field>
+        <orm:field name="sistema" property="Sistema" behavior="readwrite" uniqueId="64b4b42d-6b6b-4142-b78f-be335b86bebc" type="DatosFacturaLib.Sistema">
+          <orm:reference uniqueId="4cf7e996-cc12-4d93-a9a1-ea9036e9351e">
+            <orm:sharedfield name="sistema_id" target-class="DatosFacturaLib.Sistema" target-field="sistemaId" />
+          </orm:reference>
+        </orm:field>
+        <orm:index name="idx_factura_id_cliente">
+          <orm:columnMapping>
+            <orm:column name="id_cliente" sql-type="integer" nullable="true" length="0" scale="0" ado-type="Int32" />
+          </orm:columnMapping>
+        </orm:index>
+      </orm:class>
+      <orm:class name="Firma" class-id="779338333" uniqueId="66af41ac-56a4-4044-b379-b3e9bcfd208e">
+        <orm:table name="firma" />
+        <orm:identity>
+          <orm:key-generator name="autoinc" />
+          <orm:single-field field-name="idFirma" />
+        </orm:identity>
+        <orm:field name="idFirma" property="Id_firma" null-value="none" uniqueId="f51d121a-9336-4af2-850c-a7e75b925892" type="System.Int32">
+          <orm:column name="id_firma" sql-type="INTEGER" nullable="false" scale="0" primary-key="true" backend-calculated="true" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="tsaUrl" property="Tsa_url" null-value="none" uniqueId="86792c4e-aa05-4449-97cd-7e2ac465e8ef" type="System.String">
+          <orm:column name="tsa_url" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="Varchar" />
+        </orm:field>
+        <orm:field name="tsaUser" property="Tsa_user" null-value="none" uniqueId="9c4629a1-0282-4545-9f5d-732cc4e911ec" type="System.String">
+          <orm:column name="tsa_user" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="Varchar" />
+        </orm:field>
+        <orm:field name="tsaPass" property="Tsa_pass" null-value="none" uniqueId="d8c397b1-a733-4797-8cee-6aa2b1522921" type="System.String">
+          <orm:column name="tsa_pass" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="Varchar" />
+        </orm:field>
+        <orm:field name="certificadoPath" property="Certificado_path" null-value="none" uniqueId="8427c00e-5b23-4f73-b358-3958ff4f3f00" type="System.String">
+          <orm:column name="certificado_path" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="Varchar" />
+        </orm:field>
+        <orm:field name="certificadoPass" property="Certificado_pass" null-value="none" uniqueId="da371c07-1e39-4580-92a7-c3b304632f31" type="System.String">
+          <orm:column name="certificado_pass" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="Varchar" />
+        </orm:field>
+        <orm:field name="motivo" property="Motivo" null-value="none" uniqueId="c7b77526-7b89-40a1-b62c-79308b84390d" type="System.String">
+          <orm:column name="motivo" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="Varchar" />
+        </orm:field>
+        <orm:field name="lugar" property="Lugar" null-value="none" uniqueId="62e7a9b5-66cd-42ec-b203-9eca9b909a8e" type="System.String">
+          <orm:column name="lugar" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="Varchar" />
+        </orm:field>
+        <orm:field name="logoPath" property="Logo_path" null-value="none" uniqueId="c61eea4f-8847-4ef2-8d70-be55ba0f174d" type="System.String">
+          <orm:column name="logo_path" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="Varchar" />
+        </orm:field>
+        <orm:field name="posicionX0" property="Posicion_x0" null-value="none" uniqueId="5903d223-5f5a-4b8d-8235-73ecae489de8" type="System.Nullable`1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="posicion_x0" sql-type="INTEGER" nullable="true" scale="0" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="posicionY0" property="Posicion_y0" null-value="none" uniqueId="8b39c405-7487-4aad-9a27-68acaeef7f11" type="System.Nullable`1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="posicion_y0" sql-type="INTEGER" nullable="true" scale="0" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="posicionXX" property="Posicion_x_x" null-value="none" uniqueId="bd249b4b-9df3-4baa-821b-07c2a9d34dc3" type="System.Nullable`1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="posicion_x_x" sql-type="INTEGER" nullable="true" scale="0" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="posicionYY" property="Posicion_y_y" null-value="none" uniqueId="a5158d15-e01a-43b3-abdb-691a8b514296" type="System.Nullable`1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="posicion_y_y" sql-type="INTEGER" nullable="true" scale="0" ado-type="Int32" />
+        </orm:field>
+      </orm:class>
+      <orm:class name="Repositorio" class-id="946456894" uniqueId="f2d6bbf9-9b1f-46b3-88ee-59dfdaddeb58">
+        <orm:table name="repositorio" />
+        <orm:identity>
+          <orm:key-generator name="autoinc" />
+          <orm:single-field field-name="iD" />
+        </orm:identity>
+        <orm:field name="iD" property="I_d" null-value="none" uniqueId="26355270-542e-494c-8dda-e0bd35bbe1db" type="System.Int32">
+          <orm:column name="i_d" sql-type="INTEGER" nullable="false" length="0" scale="0" primary-key="true" backend-calculated="true" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="path" property="Path" null-value="none" uniqueId="66d6d3bc-b824-4d88-a70e-c6929a98cfc9" type="System.String">
+          <orm:column name="path" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="Varchar" />
+        </orm:field>
+      </orm:class>
+      <orm:class name="Cliente" class-id="366156827" uniqueId="9f8c17bd-6277-413a-93d1-58f84392ef27">
+        <orm:table name="cliente" />
+        <orm:identity>
+          <orm:key-generator name="autoinc" />
+          <orm:single-field field-name="iD" />
+        </orm:identity>
+        <orm:field name="iD" property="ID" null-value="none" uniqueId="223601f9-e719-42c3-8eed-2fddb1fd7104" type="System.Int32">
+          <orm:column name="i_d" sql-type="integer" nullable="false" length="0" scale="0" primary-key="true" backend-calculated="true" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="login" property="Login" null-value="none" uniqueId="0dcd61b0-a0cb-452e-a677-1af90a2edde1" type="System.String">
+          <orm:column name="login" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="StringVariableLength" />
+        </orm:field>
+        <orm:field name="contraseña" property="Contraseña" null-value="none" uniqueId="ae5f45f7-4e41-4507-b80a-b15393ca2eec" type="System.String">
+          <orm:column name="contrasena" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="StringVariableLength" />
+        </orm:field>
+        <orm:field name="nombre" property="Nombre" null-value="none" uniqueId="d6c877b7-2c4d-41d4-aeec-4a9400ce0c22" type="System.String">
+          <orm:column name="nombre" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="StringVariableLength" />
+        </orm:field>
+        <orm:field name="cif" property="Cif" null-value="none" uniqueId="987bf51e-88b6-4247-b911-7a1ae8839e59" type="System.String">
+          <orm:column name="cif" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="StringVariableLength" />
+        </orm:field>
+        <orm:field name="email" property="Email" null-value="none" uniqueId="dba5b109-4cfe-48ea-8aee-75dab9aeb898" type="System.String">
+          <orm:column name="email" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="StringVariableLength" />
+        </orm:field>
+        <orm:field name="idEmpresa" property="Id_empresa" null-value="none" uniqueId="52b75ff9-b20e-458d-9213-7d343925fa91" type="System.Nullable`1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="id_empresa" sql-type="integer" nullable="true" length="0" scale="0" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="fNueva" property="F_nueva" null-value="none" uniqueId="fbc4c192-f5ef-4499-9ef1-67210e0fce77" type="System.Nullable`1[[System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="f_nueva" sql-type="tinyint" nullable="true" length="0" scale="0" ado-type="Byte" />
+        </orm:field>
+        <orm:field name="codclienAriges" property="CodclienAriges" null-value="none" uniqueId="5c7a2c09-70ee-4f49-8b47-1701b104aa51" type="System.Int32">
+          <orm:column name="codclien_ariges" sql-type="integer" nullable="true" length="0" scale="0" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="codGesSoc" property="CodGesSoc" behavior="readwrite" uniqueId="5a4e7111-24b2-4bae-bee3-09175e736fc3" type="System.Nullable`1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="cod_gessoc" sql-type="integer" nullable="true" length="0" scale="0" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="codSocioAritaxi" property="CodSocioAritaxi" uniqueId="548075f3-7d34-4c3c-806f-1664a126cd72" type="System.Int32">
+          <orm:column name="cod_socio_aritaxi" sql-type="integer" nullable="true" length="0" scale="0" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="unidadTramitadoraCodigo" property="UnidadTramitadoraCodigo" behavior="readwrite" uniqueId="a167649b-bc05-44dc-8150-934e60ebe611" type="System.String">
+          <orm:column name="unidadTramitadoraCodigo" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="StringVariableLength" />
+        </orm:field>
+        <orm:field name="organoGestorCodigo" property="OrganoGestorCodigo" behavior="readwrite" uniqueId="f1180a21-225f-4437-a586-ba0d8e77c616" type="System.String">
+          <orm:column name="organoGestorCodigo" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="StringVariableLength" />
+        </orm:field>
+        <orm:field name="oficinaContableCodigo" property="OficinaContableCodigo" behavior="readwrite" uniqueId="c083d872-f4e3-4619-b2c9-f0212044d020" type="System.String">
+          <orm:column name="oficinaContableCodigo" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="StringVariableLength" />
+        </orm:field>
+        <orm:field name="codclien_Arigasol" property="CodclienArigasol" uniqueId="468e10e1-556b-4154-8104-c964be29bf80" type="System.Int32">
+          <orm:column name="codclien__arigasol" sql-type="integer" nullable="false" length="0" scale="0" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="codclienAriagro" property="CodclienAriagro" uniqueId="23c1412a-81d3-49cd-b3cb-17238ccb4df4" type="System.Int32">
+          <orm:column name="codclien_ariagro" sql-type="integer" nullable="false" length="0" scale="0" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="tieneFacturaPROV" property="TieneFacturaPROV" uniqueId="3152b906-d43a-4940-a302-c8f48e65007c" type="System.Boolean">
+          <orm:column name="tiene_factura_p_r_o_v" sql-type="tinyint" nullable="false" length="0" scale="0" ado-type="Byte" />
+        </orm:field>
+        <orm:field name="codSocioAriagro" property="CodSocioAriagro" uniqueId="7eebcfb1-cdfa-46a0-8292-74761888e647" type="System.Int32">
+          <orm:column name="cod_socio_ariagro" sql-type="integer" nullable="false" length="0" scale="0" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="codClienAriges2" property="CodClienAriges2" uniqueId="8ea0e0a2-afc9-4c98-ab61-e59641c1a915" type="System.Int32">
+          <orm:column name="cod_clien_ariges2" sql-type="integer" nullable="false" length="0" scale="0" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="codTeletaxi" property="CodTeletaxi" uniqueId="7bdc91b2-9b3d-44ea-b130-3812a08eb950" type="System.Int32">
+          <orm:column name="cod_teletaxi" sql-type="integer" nullable="false" length="0" scale="0" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="codGdes" property="CodGdes" uniqueId="21014901-e49b-4947-bebe-70b8b497a697" type="System.String">
+          <orm:column name="cod_gdes" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="" />
+        </orm:field>
+        <orm:field name="iban" property="Iban" uniqueId="44e0b0e0-ef52-40b5-b4a9-b261f4ea9ed8" type="System.String">
+          <orm:column nullable="true" scale="0" length="50" sql-type="varchar" name="iban" ado-type="" />
+        </orm:field>
+        <orm:field name="empresa" property="Empresa" behavior="readwrite" uniqueId="56ab5a17-5bba-4ce1-a610-4f5a8f280288" type="DatosFacturaLib.Empresa">
+          <orm:reference uniqueId="ee8a1400-0d60-4080-82c8-70f9cb3b4faa">
+            <orm:sharedfield name="idEmpresa" target-class="DatosFacturaLib.Empresa" target-field="idEmpresa" />
+          </orm:reference>
+        </orm:field>
+        <orm:field name="facturas" property="Facturas" null-value="none" uniqueId="5e39660d-e238-4670-aa74-20187d49a628" type="DatosFacturaLib.Factura">
+          <orm:collection element-class="DatosFacturaLib.Factura" inverse-field="cliente" managed="true" order-by="" uniqueId="e3c8c3c3-30e2-4dc9-b8b0-8b5867a5ec91" />
+        </orm:field>
+        <orm:index name="idx_cliente_id_empresa">
+          <orm:columnMapping>
+            <orm:column name="id_empresa" sql-type="integer" nullable="true" length="0" scale="0" ado-type="Int32" />
+          </orm:columnMapping>
+        </orm:index>
+      </orm:class>
+      <orm:class name="Superusuario" class-id="63651746" uniqueId="488c493c-c622-4017-b60b-1243c9d27bde">
+        <orm:table name="superusuario" />
+        <orm:identity>
+          <orm:key-generator name="autoinc" />
+          <orm:single-field field-name="id" />
+        </orm:identity>
+        <orm:field name="id" property="Id" null-value="none" uniqueId="f128c46b-115d-4b04-9607-3c40f3ae1b6f" type="System.Int32">
+          <orm:column name="Id" sql-type="integer" nullable="false" length="0" scale="0" primary-key="true" backend-calculated="true" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="login" property="Login" null-value="none" uniqueId="ecbb22b5-e549-4195-826a-a6a396d0cb10" type="System.String">
+          <orm:column name="Login" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="Varchar" />
+        </orm:field>
+        <orm:field name="contraseña" property="Contraseña" null-value="none" uniqueId="4b97ff36-2bdc-4346-af5c-ce673a542a60" type="System.String">
+          <orm:column name="Contrasena" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="Varchar" />
+        </orm:field>
+        <orm:field name="email" property="Email" null-value="none" uniqueId="13e9ef63-b344-47f4-a759-f8a9c8546a8e" type="System.String">
+          <orm:column name="Email" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="Varchar" />
+        </orm:field>
+        <orm:field name="idEmpresa" property="Id_empresa" null-value="none" uniqueId="a7a71f69-d8b0-4acd-98e0-0b079857a3ea" type="System.Nullable`1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="Id_empresa" sql-type="integer" nullable="true" length="0" scale="0" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="empresa" property="Empresa" null-value="none" uniqueId="69e6a1e7-619f-4578-812d-4cc5a3683bd8" type="DatosFacturaLib.Empresa">
+          <orm:reference uniqueId="d89259b3-30ef-4408-99f9-24e783d2b0f3">
+            <orm:constraint name="ref_superusuario_empresa" destination-table="empresa">
+              <orm:column name="Id_empresa" sql-type="integer" nullable="true" length="0" scale="0" ado-type="Int32" target-class="DatosFacturaLib.Empresa" target-field="idEmpresa" />
+            </orm:constraint>
+          </orm:reference>
+        </orm:field>
+        <orm:index name="idx_superusuario_Id_empresa">
+          <orm:columnMapping>
+            <orm:column name="Id_empresa" sql-type="integer" nullable="true" length="0" scale="0" ado-type="Int32" />
+          </orm:columnMapping>
+        </orm:index>
+      </orm:class>
+      <orm:class name="Sistema" uniqueId="9c8f319a-618b-4acd-aa48-daedc077c618">
+        <orm:table name="sistema" />
+        <orm:identity>
+          <orm:key-generator name="autoinc" />
+          <orm:single-field field-name="sistemaId" />
+        </orm:identity>
+        <orm:field name="sistemaId" property="SistemaId" uniqueId="4549f69b-d0e8-4aa7-9535-89e4f6c5d25c" type="System.Int32">
+          <orm:column name="sistema_id" sql-type="integer" nullable="false" length="0" scale="0" primary-key="true" backend-calculated="true" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="nombre" property="Nombre" uniqueId="de6e5504-0952-4c87-a0f7-201814746a18" type="System.String">
+          <orm:column name="nombre" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="StringVariableLength" />
+        </orm:field>
+        <orm:field name="baseDatos" property="BaseDatos" uniqueId="278ac84c-8b51-4e2f-8c5b-d91af513fb57" type="System.String">
+          <orm:column name="base_datos" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="StringVariableLength" />
+        </orm:field>
+        <orm:field name="descripcion" property="Descripcion" uniqueId="cd9506f8-ee73-456a-a430-831e6796dfd8" type="System.String" />
+        <orm:field name="facturas" property="Facturas" behavior="readwrite" uniqueId="e9414436-9c07-4f92-ad7f-a2f948d3f715" type="DatosFacturaLib.Factura">
+          <orm:collection element-class="DatosFacturaLib.Factura" inverse-field="sistema" order-by="" uniqueId="4cf7e996-cc12-4d93-a9a1-ea9036e9351e" />
+        </orm:field>
+      </orm:class>
+      <orm:class name="Plantilla" uniqueId="98436f1a-a1f7-4917-bd55-916cfd1b9464">
+        <orm:table name="plantilla" />
+        <orm:identity>
+          <orm:single-field field-name="plantilla_id" />
+        </orm:identity>
+        <orm:concurrency strategy="changed" />
+        <orm:field name="contenido" property="Contenido" behavior="readwrite" uniqueId="5f921f7f-41b2-41da-938c-7a0d0f2e8043" type="System.String">
+          <orm:column name="contenido" sql-type="text" nullable="true" length="0" scale="0" ado-type="StringInfiniteLength" />
+        </orm:field>
+        <orm:field name="nombre" property="Nombre" behavior="readwrite" uniqueId="a08a07b4-c3d7-4803-81bf-6d65563b7482" type="System.String">
+          <orm:column name="nombre" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="StringVariableLength" />
+        </orm:field>
+        <orm:field name="plantilla_id" property="Plantilla_id" behavior="readwrite" uniqueId="426f1a91-14c5-4a54-911d-6440190c3305" type="System.Int32">
+          <orm:column name="plantilla_id" sql-type="integer" nullable="false" length="0" scale="0" primary-key="true" ado-type="Int32" />
+        </orm:field>
+      </orm:class>
+      <orm:class name="Unidad" uniqueId="8162badf-181f-4fbe-86ba-77c4f011bea0">
+        <orm:table name="unidad" />
+        <orm:identity>
+          <orm:multiple-field>
+            <orm:single-field field-name="organoGestorCodigo" />
+            <orm:single-field field-name="unidadTramitadoraCodigo" />
+            <orm:single-field field-name="oficinaContableCodigo" />
+          </orm:multiple-field>
+        </orm:identity>
+        <orm:concurrency strategy="changed" />
+        <orm:field name="organoGestorCodigo" property="OrganoGestorCodigo" behavior="readwrite" uniqueId="005a99d8-17e0-4e84-9ddf-d324d3ae77a7" type="System.String">
+          <orm:column name="organoGestorCodigo" sql-type="nvarchar" nullable="false" length="255" scale="0" primary-key="true" ado-type="UnicodeStringVariableLength" />
+        </orm:field>
+        <orm:field name="unidadTramitadoraCodigo" property="UnidadTramitadoraCodigo" behavior="readwrite" uniqueId="39f62f23-7acb-40f2-be51-43cb341fa5d7" type="System.String">
+          <orm:column name="unidadTramitadoraCodigo" sql-type="nvarchar" nullable="false" length="255" scale="0" primary-key="true" ado-type="UnicodeStringVariableLength" />
+        </orm:field>
+        <orm:field name="oficinaContableCodigo" property="OficinaContableCodigo" behavior="readwrite" uniqueId="2bc32ad6-6864-4da6-bc8f-eb5e119a0b06" type="System.String">
+          <orm:column name="oficinaContableCodigo" sql-type="nvarchar" nullable="false" length="255" scale="0" primary-key="true" ado-type="UnicodeStringVariableLength" />
+        </orm:field>
+        <orm:field name="organoGestorNombre" property="OrganoGestorNombre" behavior="readwrite" uniqueId="45b11622-fd5e-487b-96a2-b06c3375866c" type="System.String">
+          <orm:column name="organoGestorNombre" sql-type="nvarchar" nullable="false" length="255" scale="0" ado-type="UnicodeStringVariableLength" />
+        </orm:field>
+        <orm:field name="unidadTramitadoraNombre" property="UnidadTramitadoraNombre" behavior="readwrite" uniqueId="c00414cd-fd46-4765-935d-988d32abe16a" type="System.String">
+          <orm:column name="unidadTramitadoraNombre" sql-type="nvarchar" nullable="false" length="255" scale="0" ado-type="UnicodeStringVariableLength" />
+        </orm:field>
+        <orm:field name="oficinaContableNombre" property="OficinaContableNombre" behavior="readwrite" uniqueId="f2000155-9ecb-40ed-a67d-ed6bfde39f1b" type="System.String">
+          <orm:column name="oficinaContableNombre" sql-type="nvarchar" nullable="false" length="255" scale="0" ado-type="UnicodeStringVariableLength" />
+        </orm:field>
+      </orm:class>
+      <orm:class name="Usuario" uniqueId="427d77f3-186f-4371-9936-4ac2044baabb">
+        <orm:table name="usuario" />
+        <orm:identity>
+          <orm:key-generator name="autoinc" />
+          <orm:single-field field-name="usuarioId" />
+        </orm:identity>
+        <orm:concurrency strategy="changed" />
+        <orm:field name="usuarioId" property="UsuarioId" behavior="readwrite" uniqueId="5cfd92d0-0255-4b0c-aaa9-1f4a6b7fe82c" type="System.Int32">
+          <orm:column name="usuario_id" sql-type="integer" nullable="false" length="0" scale="0" primary-key="true" backend-calculated="true" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="nombre" property="Nombre" behavior="readwrite" uniqueId="82c20288-a921-4a65-9639-d9938b699d67" type="System.String">
+          <orm:column name="nombre" sql-type="nvarchar" nullable="true" length="255" scale="0" ado-type="UnicodeStringVariableLength" />
+        </orm:field>
+        <orm:field name="login" property="Login" behavior="readwrite" uniqueId="f078f89b-2df8-447b-81df-780f2c12d7ca" type="System.String">
+          <orm:column name="login" sql-type="nvarchar" nullable="true" length="255" scale="0" ado-type="UnicodeStringVariableLength" />
+        </orm:field>
+        <orm:field name="password" property="Password" behavior="readwrite" uniqueId="c89dc781-268e-46f3-b124-7d44b5a4ea9c" type="System.String">
+          <orm:column name="password" sql-type="nvarchar" nullable="true" length="255" scale="0" ado-type="UnicodeStringVariableLength" />
+        </orm:field>
+        <orm:field name="email" property="Email" behavior="readwrite" uniqueId="3e881f02-bd30-4e42-8ca0-01b583c3be01" type="System.String">
+          <orm:column name="email" sql-type="nvarchar" nullable="true" length="255" scale="0" ado-type="UnicodeStringVariableLength" />
+        </orm:field>
+        <orm:field name="nif" property="Nif" behavior="readwrite" uniqueId="73e65247-ef48-4a9e-b096-831edc22b698" type="System.String">
+          <orm:column name="nif" sql-type="nvarchar" nullable="true" length="255" scale="0" ado-type="UnicodeStringVariableLength" />
+        </orm:field>
+        <orm:field name="clienteId" property="ClienteId" behavior="readwrite" uniqueId="87718be1-98f1-4fa3-84c8-1db38e1386af" type="System.Nullable`1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="cliente_id" sql-type="integer" nullable="true" length="0" scale="0" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="departamentoId" property="DepartamentoId" behavior="readwrite" uniqueId="3818f5a3-8af9-4175-b462-9c97d2b459b6" type="System.Nullable`1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="departamento_id" sql-type="integer" nullable="true" length="0" scale="0" ado-type="Int32" />
+        </orm:field>
+      </orm:class>
+      <orm:class name="Nifbase" uniqueId="80b1bf26-7947-45dd-ae23-82dad7f58852">
+        <orm:table name="nifbase" />
+        <orm:identity>
+          <orm:single-field field-name="nif" />
+        </orm:identity>
+        <orm:concurrency strategy="changed" />
+        <orm:field name="nif" property="Nif" behavior="readwrite" uniqueId="1deba8d4-063d-4727-9558-e2607ce98e07" type="System.String">
+          <orm:column name="nif" sql-type="nvarchar" nullable="false" length="255" scale="0" primary-key="true" ado-type="UnicodeStringVariableLength" />
+        </orm:field>
+        <orm:field name="nombre" property="Nombre" behavior="readwrite" uniqueId="d362e000-6043-4d47-861b-6d7838df7766" type="System.String">
+          <orm:column name="nombre" sql-type="nvarchar" nullable="true" length="255" scale="0" ado-type="UnicodeStringVariableLength" />
+        </orm:field>
+      </orm:class>
+      <orm:class name="Departamento" uniqueId="0371a11f-ca58-4aff-a453-b0fe1a13f29c">
+        <orm:table name="departamento" />
+        <orm:identity>
+          <orm:key-generator name="autoinc" />
+          <orm:single-field field-name="departamentoId" />
+        </orm:identity>
+        <orm:concurrency strategy="changed" />
+        <orm:field name="departamentoId" property="DepartamentoId" behavior="readwrite" uniqueId="15c467c5-35f6-4e25-be1e-3f15a36e4b6a" type="System.Int32">
+          <orm:column name="departamento_id" sql-type="integer" nullable="false" length="0" scale="0" primary-key="true" backend-calculated="true" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="codclien" property="Codclien" behavior="readwrite" uniqueId="d4ebcc40-b417-4977-a1c8-6b839de6c29b" type="System.Nullable`1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="codclien" sql-type="integer" nullable="true" length="0" scale="0" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="coddirec" property="Coddirec" behavior="readwrite" uniqueId="07e1a70b-b04f-45d5-89c4-5c8f47922f7c" type="System.Nullable`1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="coddirec" sql-type="integer" nullable="true" length="0" scale="0" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="nombre" property="Nombre" behavior="readwrite" uniqueId="b577eb97-5d70-4c45-b3b6-81ef5c93199a" type="System.String">
+          <orm:column name="nombre" sql-type="nvarchar" nullable="true" length="255" scale="0" ado-type="UnicodeStringVariableLength" />
+        </orm:field>
+      </orm:class>
+    </orm:namespace>
+    <orm:schema schema="">
+      <orm:table name="empresa">
+        <orm:column name="id_empresa" sql-type="INTEGER" nullable="false" length="0" scale="0" primary-key="true" backend-calculated="true" ado-type="Int32" />
+        <orm:column name="nombre" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="Varchar" />
+        <orm:column name="cif" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="Varchar" />
+      </orm:table>
+      <orm:table name="factura">
+        <orm:column name="id_factura" sql-type="integer" nullable="false" length="0" scale="0" primary-key="true" backend-calculated="true" ado-type="Int32" />
+        <orm:column name="fecha" sql-type="datetime" nullable="true" length="0" scale="0" ado-type="DateTime" />
+        <orm:column name="base_total" sql-type="decimal" nullable="true" length="20" scale="10" ado-type="Decimal" />
+        <orm:column name="cuota_total" sql-type="decimal" nullable="true" length="20" scale="10" ado-type="Decimal" />
+        <orm:column name="ttal" sql-type="decimal" nullable="true" length="20" scale="10" ado-type="Decimal" />
+        <orm:column name="num_serie" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="Varchar" />
+        <orm:column name="num_factura" sql-type="integer" nullable="true" length="0" scale="0" ado-type="Int32" />
+        <orm:column name="id_cliente" sql-type="integer" nullable="true" length="0" scale="0" ado-type="Int32" />
+        <orm:column name="nueva" sql-type="tinyint" nullable="true" length="0" scale="0" ado-type="Byte" />
+        <orm:column name="coddirec_ariges" sql-type="integer" nullable="true" length="0" scale="0" ado-type="Int32" />
+        <orm:column name="unidadTramitadoraCodigo" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="" />
+        <orm:column name="organoGestorCodigo" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="" />
+        <orm:column name="oficinaContableCodigo" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="" />
+        <orm:column name="coddirec_gdes" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="" />
+        <orm:column name="sistema_gdes" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="" />
+        <orm:index name="idx_factura_id_cliente">
+          <orm:columnMapping>
+            <orm:column name="id_cliente" sql-type="integer" nullable="true" length="0" scale="0" ado-type="Int32" />
+          </orm:columnMapping>
+        </orm:index>
+        <orm:constraint name="FK_factura" destination-table="cliente">
+          <orm:column name="id_cliente" sql-type="integer" nullable="true" length="0" scale="0" ado-type="Int32" />
+        </orm:constraint>
+      </orm:table>
+      <orm:table name="firma">
+        <orm:column name="id_firma" sql-type="INTEGER" nullable="false" scale="0" primary-key="true" backend-calculated="true" ado-type="Int32" />
+        <orm:column name="tsa_url" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="Varchar" />
+        <orm:column name="tsa_user" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="Varchar" />
+        <orm:column name="tsa_pass" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="Varchar" />
+        <orm:column name="certificado_path" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="Varchar" />
+        <orm:column name="certificado_pass" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="Varchar" />
+        <orm:column name="motivo" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="Varchar" />
+        <orm:column name="lugar" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="Varchar" />
+        <orm:column name="logo_path" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="Varchar" />
+        <orm:column name="posicion_x0" sql-type="INTEGER" nullable="true" scale="0" ado-type="Int32" />
+        <orm:column name="posicion_y0" sql-type="INTEGER" nullable="true" scale="0" ado-type="Int32" />
+        <orm:column name="posicion_x_x" sql-type="INTEGER" nullable="true" scale="0" ado-type="Int32" />
+        <orm:column name="posicion_y_y" sql-type="INTEGER" nullable="true" scale="0" ado-type="Int32" />
+      </orm:table>
+      <orm:table name="repositorio">
+        <orm:column name="i_d" sql-type="INTEGER" nullable="false" length="0" scale="0" primary-key="true" backend-calculated="true" ado-type="Int32" />
+        <orm:column name="path" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="Varchar" />
+      </orm:table>
+      <orm:table name="cliente">
+        <orm:column name="i_d" sql-type="integer" nullable="false" length="0" scale="0" primary-key="true" backend-calculated="true" ado-type="Int32" />
+        <orm:column name="login" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="StringVariableLength" />
+        <orm:column name="contrasena" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="StringVariableLength" />
+        <orm:column name="nombre" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="StringVariableLength" />
+        <orm:column name="cif" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="StringVariableLength" />
+        <orm:column name="email" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="StringVariableLength" />
+        <orm:column name="id_empresa" sql-type="integer" nullable="true" length="0" scale="0" ado-type="Int32" />
+        <orm:column name="f_nueva" sql-type="tinyint" nullable="true" length="0" scale="0" ado-type="Byte" />
+        <orm:column name="codclien_ariges" sql-type="integer" nullable="true" length="0" scale="0" ado-type="Int32" />
+        <orm:column name="cod_gessoc" sql-type="integer" nullable="true" length="0" scale="0" ado-type="Int32" />
+        <orm:column name="cod_socio_aritaxi" sql-type="integer" nullable="true" length="0" scale="0" ado-type="Int32" />
+        <orm:column name="unidadTramitadoraCodigo" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="StringVariableLength" />
+        <orm:column name="tiene_factura_p_r_o_v" sql-type="tinyint" nullable="false" length="0" scale="0" ado-type="Byte" />
+        <orm:column name="organoGestorCodigo" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="StringVariableLength" />
+        <orm:column name="oficinaContableCodigo" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="StringVariableLength" />
+        <orm:column name="codclien_ariagro" sql-type="integer" nullable="false" length="0" scale="0" ado-type="Int32" />
+        <orm:column name="codclien__arigasol" sql-type="integer" nullable="false" length="0" scale="0" ado-type="Int32" />
+        <orm:column name="cod_teletaxi" sql-type="integer" nullable="false" length="0" scale="0" ado-type="Int32" />
+        <orm:column name="cod_socio_ariagro" sql-type="integer" nullable="false" length="0" scale="0" ado-type="Int32" />
+        <orm:column name="cod_clien_ariges2" sql-type="integer" nullable="false" length="0" scale="0" ado-type="Int32" />
+        <orm:column name="cod_gdes" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="" />
+        <orm:column nullable="true" scale="0" length="50" sql-type="varchar" name="iban" ado-type="" />
+        <orm:index name="idx_cliente_id_empresa">
+          <orm:columnMapping>
+            <orm:column name="id_empresa" sql-type="integer" nullable="true" length="0" scale="0" ado-type="Int32" />
+          </orm:columnMapping>
+        </orm:index>
+        <orm:constraint name="ref_cliente_empresa" destination-table="empresa">
+          <orm:column name="id_empresa" sql-type="integer" nullable="true" length="0" scale="0" ado-type="Int32" />
+        </orm:constraint>
+      </orm:table>
+      <orm:table name="superusuario">
+        <orm:column name="Id" sql-type="integer" nullable="false" length="0" scale="0" primary-key="true" backend-calculated="true" ado-type="Int32" />
+        <orm:column name="Login" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="Varchar" />
+        <orm:column name="Contrasena" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="Varchar" />
+        <orm:column name="Email" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="Varchar" />
+        <orm:column name="Id_empresa" sql-type="integer" nullable="true" length="0" scale="0" ado-type="Int32" />
+        <orm:index name="idx_superusuario_Id_empresa">
+          <orm:columnMapping>
+            <orm:column name="Id_empresa" sql-type="integer" nullable="true" length="0" scale="0" ado-type="Int32" />
+          </orm:columnMapping>
+        </orm:index>
+        <orm:constraint name="ref_superusuario_empresa" destination-table="empresa">
+          <orm:column name="Id_empresa" sql-type="integer" nullable="true" length="0" scale="0" ado-type="Int32" />
+        </orm:constraint>
+      </orm:table>
+      <orm:table name="sistema">
+        <orm:column name="sistema_id" sql-type="integer" nullable="false" length="0" scale="0" primary-key="true" backend-calculated="true" ado-type="Int32" />
+        <orm:column name="nombre" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="StringVariableLength" />
+        <orm:column name="base_datos" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="StringVariableLength" />
+      </orm:table>
+      <orm:table name="plantilla">
+        <orm:column name="contenido" sql-type="text" nullable="true" length="0" scale="0" ado-type="StringInfiniteLength" />
+        <orm:column name="nombre" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="StringVariableLength" />
+        <orm:column name="plantilla_id" sql-type="integer" nullable="false" length="0" scale="0" primary-key="true" ado-type="Int32" />
+      </orm:table>
+      <orm:table name="unidad">
+        <orm:column name="organoGestorCodigo" sql-type="nvarchar" nullable="false" length="255" scale="0" primary-key="true" ado-type="UnicodeStringVariableLength" />
+        <orm:column name="unidadTramitadoraCodigo" sql-type="nvarchar" nullable="false" length="255" scale="0" primary-key="true" ado-type="UnicodeStringVariableLength" />
+        <orm:column name="oficinaContableCodigo" sql-type="nvarchar" nullable="false" length="255" scale="0" primary-key="true" ado-type="UnicodeStringVariableLength" />
+        <orm:column name="organoGestorNombre" sql-type="nvarchar" nullable="false" length="255" scale="0" ado-type="UnicodeStringVariableLength" />
+        <orm:column name="unidadTramitadoraNombre" sql-type="nvarchar" nullable="false" length="255" scale="0" ado-type="UnicodeStringVariableLength" />
+        <orm:column name="oficinaContableNombre" sql-type="nvarchar" nullable="false" length="255" scale="0" ado-type="UnicodeStringVariableLength" />
+      </orm:table>
+      <orm:table name="usuario">
+        <orm:column name="usuario_id" sql-type="integer" nullable="false" length="0" scale="0" primary-key="true" backend-calculated="true" ado-type="Int32" />
+        <orm:column name="nombre" sql-type="nvarchar" nullable="true" length="255" scale="0" ado-type="UnicodeStringVariableLength" />
+        <orm:column name="login" sql-type="nvarchar" nullable="true" length="255" scale="0" ado-type="UnicodeStringVariableLength" />
+        <orm:column name="password" sql-type="nvarchar" nullable="true" length="255" scale="0" ado-type="UnicodeStringVariableLength" />
+        <orm:column name="email" sql-type="nvarchar" nullable="true" length="255" scale="0" ado-type="UnicodeStringVariableLength" />
+        <orm:column name="nif" sql-type="nvarchar" nullable="true" length="255" scale="0" ado-type="UnicodeStringVariableLength" />
+        <orm:column name="cliente_id" sql-type="integer" nullable="true" length="0" scale="0" ado-type="Int32" />
+        <orm:column name="departamento_id" sql-type="integer" nullable="true" length="0" scale="0" ado-type="Int32" />
+      </orm:table>
+      <orm:table name="nifbase">
+        <orm:column name="nif" sql-type="nvarchar" nullable="false" length="255" scale="0" primary-key="true" ado-type="UnicodeStringVariableLength" />
+        <orm:column name="nombre" sql-type="nvarchar" nullable="true" length="255" scale="0" ado-type="UnicodeStringVariableLength" />
+      </orm:table>
+      <orm:table name="departamento">
+        <orm:column name="departamento_id" sql-type="integer" nullable="false" length="0" scale="0" primary-key="true" backend-calculated="true" ado-type="Int32" />
+        <orm:column name="codclien" sql-type="integer" nullable="true" length="0" scale="0" ado-type="Int32" />
+        <orm:column name="coddirec" sql-type="integer" nullable="true" length="0" scale="0" ado-type="Int32" />
+        <orm:column name="nombre" sql-type="nvarchar" nullable="true" length="255" scale="0" ado-type="UnicodeStringVariableLength" />
+      </orm:table>
+    </orm:schema>
+  </orm:orm>
+  <ModelSettings xmlns="">
+    <AppConfigConnectionPropertyName>Facelec_ariadnaConnection</AppConfigConnectionPropertyName>
+    <AppConfigConnectionString>server=localhost;user id=root;password=aritel;database=facelec_ariadna</AppConfigConnectionString>
+    <InitialCatalog>factura_electronica</InitialCatalog>
+    <NamingSettings>
+      <ClassRules>
+        <CaseMode>PascalCase</CaseMode>
+        <PluralizationMode>Singularize</PluralizationMode>
+      </ClassRules>
+      <FieldRules>
+        <CaseMode>CamelCase</CaseMode>
+      </FieldRules>
+      <PropertyRules>
+        <CaseMode>PascalCase</CaseMode>
+      </PropertyRules>
+    </NamingSettings>
+    <CodeGenerationSettings>
+      <MappingDefinitionType>Xml</MappingDefinitionType>
+    </CodeGenerationSettings>
+    <SchemaUpdateSettings>
+      <NamePrefix>mod_Aritaxi</NamePrefix>
+      <ExecuteScript>true</ExecuteScript>
+      <DeploymentProject>DatosFacturaLib</DeploymentProject>
+      <DeploymentDirectory>SQLs\</DeploymentDirectory>
+      <UpdateDatabaseOperation>Migrate</UpdateDatabaseOperation>
+    </SchemaUpdateSettings>
+    <BackendConfigurationSettings>
+      <BackendConfiguration>
+        <Backend>mysql</Backend>
+        <ProviderName>MySql.Data.MySqlClient</ProviderName>
+      </BackendConfiguration>
+    </BackendConfigurationSettings>
+  </ModelSettings>
+  <Types>
+    <DomainClass Id="c9815943-a946-48d7-9c50-f0301327b4df" name="Empresa" namespace="DatosFacturaLib" showPropertiesCompartment="true" identityMechanism="DatabaseServerCalculated" showNavigationCompartment="true" showImplementationCompartment="true">
+      <Property Id="e17e233b-d577-4f02-a5a3-fba045de17b5" name="Id_empresa" type="Int32" label="Id_empresa : Int32" kind="Persistent" identity="true" fieldName="idEmpresa" />
+      <Property Id="efd17e13-1b25-48d6-a46b-1ff98c796039" name="Nombre" label="Nombre : String" kind="Persistent" fieldName="nombre" />
+      <Property Id="98625c70-e845-4908-a4da-5b89d9789018" name="Cif" label="Cif : String" kind="Persistent" fieldName="cif" />
+      <navigationalProperties>
+        <classHasNavigationalProperties Id="aec44efe-3014-4812-a181-4865266c6581">
+          <NavigationalProperty Id="38ec2cf3-2d8f-402c-98df-b62a0b2932f6" name="Superusuarios" type="IList&lt;Superusuario&gt;" label="Superusuarios : IList&lt;Superusuario&gt;" nullable="true" kind="Persistent" fieldName="superusuarios" isDependent="false" isManaged="true" />
+        </classHasNavigationalProperties>
+        <classHasNavigationalProperties Id="d0258e6e-9f11-4802-b4bb-afbfc1f15223">
+          <NavigationalProperty Id="3ac73fa5-cc99-4535-a013-70fd80c89ab8" name="Clientes" type="IList&lt;Cliente&gt;" label="Clientes : IList&lt;Cliente&gt;" nullable="true" kind="Persistent" fieldName="clientes" isDependent="false" isManaged="false" />
+        </classHasNavigationalProperties>
+      </navigationalProperties>
+    </DomainClass>
+    <DomainClass Id="1770133c-b3e9-4393-aae5-d740e19249e4" name="Factura" namespace="DatosFacturaLib" showPropertiesCompartment="true" identityMechanism="DatabaseServerCalculated" showNavigationCompartment="true" showImplementationCompartment="true">
+      <Property Id="0953ef14-dfb9-4545-b043-ca47dde7f5bd" name="Id_factura" type="Int32" label="Id_factura : Int32" kind="Persistent" identity="true" fieldName="idFactura" />
+      <Property Id="ecf57533-4108-4c01-bdf2-c358f58caae8" name="Fecha" type="DateTime" label="Fecha : DateTime" nullable="true" kind="Persistent" fieldName="fecha" />
+      <Property Id="137ce992-9049-479a-ac12-7e55e7a1b0ae" name="Base_total" type="Decimal" label="Base_total : Decimal" nullable="true" kind="Persistent" fieldName="baseTotal" />
+      <Property Id="666fcf57-df77-4911-81ff-7bdc78a7fb7c" name="Cuota_total" type="Decimal" label="Cuota_total : Decimal" nullable="true" kind="Persistent" fieldName="cuotaTotal" />
+      <Property Id="f4159db5-7e61-4e27-bbde-574e352eb2bc" name="Ttal" type="Decimal" label="Ttal : Decimal" nullable="true" kind="Persistent" fieldName="ttal" />
+      <Property Id="fd44872c-5920-42c4-9375-0f9005ca7db0" name="Num_serie" label="Num_serie : String" kind="Persistent" fieldName="numSerie" />
+      <Property Id="f1ed9a14-148b-4eb3-a36b-88ad11b636bb" name="Num_factura" type="Int32" label="Num_factura : Int32" nullable="true" kind="Persistent" fieldName="numFactura" />
+      <Property Id="8c439642-08c1-487a-ac8f-4e2816c42174" name="Id_cliente" type="Int32" label="Id_cliente : Int32" nullable="true" kind="Persistent" fieldName="idCliente" />
+      <Property Id="c8e24bef-438a-4507-b2eb-303fe7ab03d8" name="Nueva" type="Boolean" label="Nueva : Boolean" nullable="true" kind="Persistent" fieldName="nueva" />
+      <Property Id="b1ef3a94-559c-4b1c-92ba-b7b5f9542ffc" name="coddirec_ariges" type="Int32" label="coddirec_ariges : Int32" kind="Persistent" fieldName="coddirecAriges" />
+      <Property Id="ec210122-b792-4ca2-a728-ac6cbee04ca2" name="EsFraCliente" type="Boolean" label="EsFraCliente : Boolean" fieldName="esFraCliente" />
+      <Property Id="db40629a-b4f0-4b46-a276-1a338eec39d6" name="ImpRetencion" type="Decimal" label="ImpRetencion : Decimal" fieldName="impRetencion" />
+      <Property Id="a8261de6-fa2d-4c5f-bc56-9a1bc12bdee3" name="LetraIdFraProve" label="LetraIdFraProve : String" fieldName="letraIdFraProve" />
+      <Property Id="96080b68-3364-449a-b41f-357aa03d2744" name="Sistema_id" type="Int32" label="Sistema_id : Int32" fieldName="sistema_id" />
+      <Property Id="45d50013-640f-444a-bb4a-5f2954daea12" name="ImpGastosAFo" type="Decimal" label="ImpGastosAFo : Decimal" fieldName="impGastosAFo" />
+      <Property Id="a5d2c9d4-ba66-4537-99bc-3eaef9f13ad7" name="vCodtipom" label="vCodtipom : String" fieldName="vCodtipom1" />
+      <Property Id="9a27997b-4143-4df4-9239-06a1f12475fd" name="UnidadTramitadoraCodigo" label="UnidadTramitadoraCodigo : String" fieldName="unidadTramitadoraCodigo" />
+      <Property Id="bd5138a3-10bd-490e-a8c7-486933f05fcd" name="OrganoGestorCodigo" label="OrganoGestorCodigo : String" fieldName="organoGestorCodigo" />
+      <Property Id="d1222a86-b572-487b-ab6d-512584d1305b" name="OficinaContableCodigo" label="OficinaContableCodigo : String" fieldName="oficinaContableCodigo" />
+      <Property Id="c6ad4b6a-4540-4baf-874e-11c75dc99ac3" name="CodDirecGdes" label="CodDirecGdes : String" fieldName="codDirecGdes" />
+      <Property Id="655e252d-00d9-493d-bd4e-c24367dfdeae" name="SistemaGdes" label="SistemaGdes : String" fieldName="sistemaGdes" />
+      <AssociationTargets>
+        <Association Id="e3c8c3c3-30e2-4dc9-b8b0-8b5867a5ec91" SourceMultiplicity="ZeroOne" name="FacturaHasCliente">
+          <DomainClassMoniker name="/FacturaEntity/Cliente" />
+          <targetNavigationalProperty>
+            <associationDefinesTargetProperty Id="d3b2a255-c53b-4e47-bcdf-a446040e0974">
+              <NavigationalPropertyMoniker name="/FacturaEntity/Cliente/Facturas" />
+            </associationDefinesTargetProperty>
+          </targetNavigationalProperty>
+          <sourceNavigationalProperty>
+            <associationDefinesSourceProperty Id="2bd6bf29-fc59-4af5-91bf-a1391f6d7449">
+              <NavigationalPropertyMoniker name="/FacturaEntity/Factura/Cliente" />
+            </associationDefinesSourceProperty>
+          </sourceNavigationalProperty>
+        </Association>
+        <Association Id="4cf7e996-cc12-4d93-a9a1-ea9036e9351e" SourceMultiplicity="ZeroOne" name="FacturaHasSistema">
+          <DomainClassMoniker name="/FacturaEntity/Sistema" />
+          <targetNavigationalProperty>
+            <associationDefinesTargetProperty Id="d745b86f-06e6-4b17-b056-62b84478c81d">
+              <NavigationalPropertyMoniker name="/FacturaEntity/Sistema/Facturas" />
+            </associationDefinesTargetProperty>
+          </targetNavigationalProperty>
+          <sourceNavigationalProperty>
+            <associationDefinesSourceProperty Id="fe0831d6-2c73-4991-ae10-0c6c5385bb54">
+              <NavigationalPropertyMoniker name="/FacturaEntity/Factura/Sistema" />
+            </associationDefinesSourceProperty>
+          </sourceNavigationalProperty>
+        </Association>
+      </AssociationTargets>
+      <navigationalProperties>
+        <classHasNavigationalProperties Id="3aecae51-a551-4e97-94d5-019dc986174b">
+          <NavigationalProperty Id="2a38b7dd-895c-475c-9f5e-7da3eee85fec" name="Cliente" type="Cliente" label="Cliente : Cliente" nullable="true" kind="Persistent" fieldName="cliente" isDependent="false" isManaged="false" />
+        </classHasNavigationalProperties>
+        <classHasNavigationalProperties Id="0ce0ec7c-61e5-4d3c-be33-a2b23c0b49ac">
+          <NavigationalProperty Id="64b4b42d-6b6b-4142-b78f-be335b86bebc" name="Sistema" type="Sistema" label="Sistema : Sistema" nullable="true" kind="Persistent" fieldName="sistema" isDependent="false" isManaged="false" />
+        </classHasNavigationalProperties>
+      </navigationalProperties>
+    </DomainClass>
+    <DomainClass Id="66af41ac-56a4-4044-b379-b3e9bcfd208e" name="Firma" namespace="DatosFacturaLib" showPropertiesCompartment="true" identityMechanism="DatabaseServerCalculated" showNavigationCompartment="true" showImplementationCompartment="true">
+      <Property Id="f51d121a-9336-4af2-850c-a7e75b925892" name="Id_firma" type="Int32" label="Id_firma : Int32" kind="Persistent" identity="true" fieldName="idFirma" />
+      <Property Id="86792c4e-aa05-4449-97cd-7e2ac465e8ef" name="Tsa_url" label="Tsa_url : String" kind="Persistent" fieldName="tsaUrl" />
+      <Property Id="9c4629a1-0282-4545-9f5d-732cc4e911ec" name="Tsa_user" label="Tsa_user : String" kind="Persistent" fieldName="tsaUser" />
+      <Property Id="d8c397b1-a733-4797-8cee-6aa2b1522921" name="Tsa_pass" label="Tsa_pass : String" kind="Persistent" fieldName="tsaPass" />
+      <Property Id="8427c00e-5b23-4f73-b358-3958ff4f3f00" name="Certificado_path" label="Certificado_path : String" kind="Persistent" fieldName="certificadoPath" />
+      <Property Id="da371c07-1e39-4580-92a7-c3b304632f31" name="Certificado_pass" label="Certificado_pass : String" kind="Persistent" fieldName="certificadoPass" />
+      <Property Id="c7b77526-7b89-40a1-b62c-79308b84390d" name="Motivo" label="Motivo : String" kind="Persistent" fieldName="motivo" />
+      <Property Id="62e7a9b5-66cd-42ec-b203-9eca9b909a8e" name="Lugar" label="Lugar : String" kind="Persistent" fieldName="lugar" />
+      <Property Id="c61eea4f-8847-4ef2-8d70-be55ba0f174d" name="Logo_path" label="Logo_path : String" kind="Persistent" fieldName="logoPath" />
+      <Property Id="5903d223-5f5a-4b8d-8235-73ecae489de8" name="Posicion_x0" type="Int32" label="Posicion_x0 : Int32" nullable="true" kind="Persistent" fieldName="posicionX0" />
+      <Property Id="8b39c405-7487-4aad-9a27-68acaeef7f11" name="Posicion_y0" type="Int32" label="Posicion_y0 : Int32" nullable="true" kind="Persistent" fieldName="posicionY0" />
+      <Property Id="bd249b4b-9df3-4baa-821b-07c2a9d34dc3" name="Posicion_x_x" type="Int32" label="Posicion_x_x : Int32" nullable="true" kind="Persistent" fieldName="posicionXX" />
+      <Property Id="a5158d15-e01a-43b3-abdb-691a8b514296" name="Posicion_y_y" type="Int32" label="Posicion_y_y : Int32" nullable="true" kind="Persistent" fieldName="posicionYY" />
+    </DomainClass>
+    <DomainClass Id="f2d6bbf9-9b1f-46b3-88ee-59dfdaddeb58" name="Repositorio" namespace="DatosFacturaLib" showPropertiesCompartment="true" identityMechanism="DatabaseServerCalculated" showNavigationCompartment="true" showImplementationCompartment="true">
+      <Property Id="26355270-542e-494c-8dda-e0bd35bbe1db" name="I_d" type="Int32" label="I_d : Int32" kind="Persistent" identity="true" fieldName="iD" />
+      <Property Id="66d6d3bc-b824-4d88-a70e-c6929a98cfc9" name="Path" label="Path : String" kind="Persistent" fieldName="path" />
+    </DomainClass>
+    <DomainClass Id="9f8c17bd-6277-413a-93d1-58f84392ef27" name="Cliente" namespace="DatosFacturaLib" showPropertiesCompartment="true" identityMechanism="DatabaseServerCalculated" showNavigationCompartment="true" showImplementationCompartment="true">
+      <Property Id="223601f9-e719-42c3-8eed-2fddb1fd7104" name="ID" type="Int32" label="ID : Int32" kind="Persistent" identity="true" fieldName="iD" />
+      <Property Id="0dcd61b0-a0cb-452e-a677-1af90a2edde1" name="Login" label="Login : String" kind="Persistent" fieldName="login" />
+      <Property Id="ae5f45f7-4e41-4507-b80a-b15393ca2eec" name="Contraseña" label="Contraseña : String" kind="Persistent" fieldName="contraseña" />
+      <Property Id="d6c877b7-2c4d-41d4-aeec-4a9400ce0c22" name="Nombre" label="Nombre : String" kind="Persistent" fieldName="nombre" />
+      <Property Id="987bf51e-88b6-4247-b911-7a1ae8839e59" name="Cif" label="Cif : String" kind="Persistent" fieldName="cif" />
+      <Property Id="dba5b109-4cfe-48ea-8aee-75dab9aeb898" name="Email" label="Email : String" kind="Persistent" fieldName="email" />
+      <Property Id="52b75ff9-b20e-458d-9213-7d343925fa91" name="Id_empresa" type="Int32" label="Id_empresa : Int32" nullable="true" kind="Persistent" fieldName="idEmpresa" />
+      <Property Id="fbc4c192-f5ef-4499-9ef1-67210e0fce77" name="F_nueva" type="Boolean" label="F_nueva : Boolean" nullable="true" kind="Persistent" fieldName="fNueva" />
+      <Property Id="5c7a2c09-70ee-4f49-8b47-1701b104aa51" name="CodclienAriges" type="Int32" label="CodclienAriges : Int32" kind="Persistent" fieldName="codclienAriges" />
+      <Property Id="468e10e1-556b-4154-8104-c964be29bf80" name="CodclienArigasol" type="Int32" label="CodclienArigasol : Int32" fieldName="codclien_Arigasol" />
+      <Property Id="23c1412a-81d3-49cd-b3cb-17238ccb4df4" name="CodclienAriagro" type="Int32" label="CodclienAriagro : Int32" fieldName="codclienAriagro" />
+      <Property Id="3152b906-d43a-4940-a302-c8f48e65007c" name="TieneFacturaPROV" type="Boolean" label="TieneFacturaPROV : Boolean" fieldName="tieneFacturaPROV" />
+      <Property Id="7eebcfb1-cdfa-46a0-8292-74761888e647" name="CodSocioAriagro" type="Int32" label="CodSocioAriagro : Int32" fieldName="codSocioAriagro" />
+      <Property Id="8ea0e0a2-afc9-4c98-ab61-e59641c1a915" name="CodClienAriges2" type="Int32" label="CodClienAriges2 : Int32" fieldName="codClienAriges2" />
+      <Property Id="7bdc91b2-9b3d-44ea-b130-3812a08eb950" name="CodTeletaxi" type="Int32" label="CodTeletaxi : Int32" fieldName="codTeletaxi" />
+      <Property Id="5a4e7111-24b2-4bae-bee3-09175e736fc3" name="CodGesSoc" type="Int32" label="CodGesSoc : Int32" nullable="true" kind="Persistent" fieldName="codGesSoc" />
+      <Property Id="548075f3-7d34-4c3c-806f-1664a126cd72" name="CodSocioAritaxi" type="Int32" label="CodSocioAritaxi : Int32" fieldName="codSocioAritaxi" />
+      <Property Id="a167649b-bc05-44dc-8150-934e60ebe611" name="UnidadTramitadoraCodigo" label="UnidadTramitadoraCodigo : String" kind="Persistent" fieldName="unidadTramitadoraCodigo" />
+      <Property Id="f1180a21-225f-4437-a586-ba0d8e77c616" name="OrganoGestorCodigo" label="OrganoGestorCodigo : String" kind="Persistent" fieldName="organoGestorCodigo" />
+      <Property Id="c083d872-f4e3-4619-b2c9-f0212044d020" name="OficinaContableCodigo" label="OficinaContableCodigo : String" kind="Persistent" fieldName="oficinaContableCodigo" />
+      <Property Id="21014901-e49b-4947-bebe-70b8b497a697" name="CodGdes" label="CodGdes : String" fieldName="codGdes" />
+      <Property Id="44e0b0e0-ef52-40b5-b4a9-b261f4ea9ed8" name="Iban" label="Iban : String" fieldName="iban" />
+      <AssociationTargets>
+        <Association Id="ee8a1400-0d60-4080-82c8-70f9cb3b4faa" SourceMultiplicity="ZeroOne" name="ClienteHasEmpresa">
+          <DomainClassMoniker name="/FacturaEntity/Empresa" />
+          <targetNavigationalProperty>
+            <associationDefinesTargetProperty Id="75ab3f6a-a7d5-4205-bb6f-af5df773cc85">
+              <NavigationalPropertyMoniker name="/FacturaEntity/Empresa/Clientes" />
+            </associationDefinesTargetProperty>
+          </targetNavigationalProperty>
+          <sourceNavigationalProperty>
+            <associationDefinesSourceProperty Id="50158f60-3ebc-4d95-8a41-794e7647942c">
+              <NavigationalPropertyMoniker name="/FacturaEntity/Cliente/Empresa" />
+            </associationDefinesSourceProperty>
+          </sourceNavigationalProperty>
+        </Association>
+      </AssociationTargets>
+      <navigationalProperties>
+        <classHasNavigationalProperties Id="b0556980-dc14-4004-a183-01e42332231b">
+          <NavigationalProperty Id="5e39660d-e238-4670-aa74-20187d49a628" name="Facturas" type="IList&lt;Factura&gt;" label="Facturas : IList&lt;Factura&gt;" nullable="true" kind="Persistent" fieldName="facturas" isDependent="false" isManaged="true" />
+        </classHasNavigationalProperties>
+        <classHasNavigationalProperties Id="2e93fa65-d6c7-4d56-aa5c-868b057f80ea">
+          <NavigationalProperty Id="56ab5a17-5bba-4ce1-a610-4f5a8f280288" name="Empresa" type="Empresa" label="Empresa : Empresa" nullable="true" kind="Persistent" fieldName="empresa" isDependent="false" isManaged="false" />
+        </classHasNavigationalProperties>
+      </navigationalProperties>
+    </DomainClass>
+    <DomainClass Id="488c493c-c622-4017-b60b-1243c9d27bde" name="Superusuario" namespace="DatosFacturaLib" showPropertiesCompartment="true" identityMechanism="DatabaseServerCalculated" showNavigationCompartment="true" showImplementationCompartment="true">
+      <Property Id="f128c46b-115d-4b04-9607-3c40f3ae1b6f" name="Id" type="Int32" label="Id : Int32" kind="Persistent" identity="true" fieldName="id" />
+      <Property Id="ecbb22b5-e549-4195-826a-a6a396d0cb10" name="Login" label="Login : String" kind="Persistent" fieldName="login" />
+      <Property Id="4b97ff36-2bdc-4346-af5c-ce673a542a60" name="Contraseña" label="Contraseña : String" kind="Persistent" fieldName="contraseña" />
+      <Property Id="13e9ef63-b344-47f4-a759-f8a9c8546a8e" name="Email" label="Email : String" kind="Persistent" fieldName="email" />
+      <Property Id="a7a71f69-d8b0-4acd-98e0-0b079857a3ea" name="Id_empresa" type="Int32" label="Id_empresa : Int32" nullable="true" kind="Persistent" fieldName="idEmpresa" />
+      <AssociationTargets>
+        <Association Id="d89259b3-30ef-4408-99f9-24e783d2b0f3" SourceMultiplicity="ZeroOne" name="SuperusuarioHasEmpresa">
+          <DomainClassMoniker name="/FacturaEntity/Empresa" />
+          <targetNavigationalProperty>
+            <associationDefinesTargetProperty Id="3d5d6277-a244-4810-9755-31a5a3b0e33d">
+              <NavigationalPropertyMoniker name="/FacturaEntity/Empresa/Superusuarios" />
+            </associationDefinesTargetProperty>
+          </targetNavigationalProperty>
+          <sourceNavigationalProperty>
+            <associationDefinesSourceProperty Id="7486492d-04cc-4f4c-b5c8-31cb3de96f87">
+              <NavigationalPropertyMoniker name="/FacturaEntity/Superusuario/Empresa" />
+            </associationDefinesSourceProperty>
+          </sourceNavigationalProperty>
+        </Association>
+      </AssociationTargets>
+      <navigationalProperties>
+        <classHasNavigationalProperties Id="6b0441f7-c8bc-42f7-9fca-4939c734457d">
+          <NavigationalProperty Id="69e6a1e7-619f-4578-812d-4cc5a3683bd8" name="Empresa" type="Empresa" label="Empresa : Empresa" nullable="true" kind="Persistent" fieldName="empresa" isDependent="false" isManaged="false" />
+        </classHasNavigationalProperties>
+      </navigationalProperties>
+    </DomainClass>
+    <DomainClass Id="9c8f319a-618b-4acd-aa48-daedc077c618" name="Sistema" namespace="DatosFacturaLib" showPropertiesCompartment="true" identityMechanism="DatabaseServerCalculated" showNavigationCompartment="true" showImplementationCompartment="true">
+      <Property Id="4549f69b-d0e8-4aa7-9535-89e4f6c5d25c" name="SistemaId" type="Int32" label="SistemaId : Int32" identity="true" />
+      <Property Id="de6e5504-0952-4c87-a0f7-201814746a18" name="Nombre" label="Nombre : String" fieldName="property1" />
+      <Property Id="278ac84c-8b51-4e2f-8c5b-d91af513fb57" name="BaseDatos" label="BaseDatos : String" fieldName="property1" />
+      <Property Id="cd9506f8-ee73-456a-a430-831e6796dfd8" name="Descripcion" label="Descripcion : String" fieldName="descripcion" />
+      <navigationalProperties>
+        <classHasNavigationalProperties Id="6f40919e-e636-47ed-898a-fa392bf5915d">
+          <NavigationalProperty Id="e9414436-9c07-4f92-ad7f-a2f948d3f715" name="Facturas" type="IList&lt;Factura&gt;" label="Facturas : IList&lt;Factura&gt;" nullable="true" kind="Persistent" fieldName="facturas" isDependent="false" isManaged="false" />
+        </classHasNavigationalProperties>
+      </navigationalProperties>
+    </DomainClass>
+    <DomainClass Id="98436f1a-a1f7-4917-bd55-916cfd1b9464" name="Plantilla" namespace="DatosFacturaLib" showPropertiesCompartment="true" concurrencyMode="Changed" showNavigationCompartment="true" showImplementationCompartment="true">
+      <Property Id="426f1a91-14c5-4a54-911d-6440190c3305" name="Plantilla_id" type="Int32" label="Plantilla_id : Int32" kind="Persistent" identity="true" fieldName="plantilla_id" />
+      <Property Id="5f921f7f-41b2-41da-938c-7a0d0f2e8043" name="Contenido" label="Contenido : String" kind="Persistent" fieldName="contenido" />
+      <Property Id="a08a07b4-c3d7-4803-81bf-6d65563b7482" name="Nombre" label="Nombre : String" kind="Persistent" fieldName="nombre" />
+    </DomainClass>
+    <DomainClass Id="8162badf-181f-4fbe-86ba-77c4f011bea0" name="Unidad" namespace="DatosFacturaLib" showPropertiesCompartment="true" concurrencyMode="Changed" showNavigationCompartment="true" showImplementationCompartment="true">
+      <Property Id="2bc32ad6-6864-4da6-bc8f-eb5e119a0b06" name="OficinaContableCodigo" label="OficinaContableCodigo : String" kind="Persistent" identity="true" fieldName="oficinaContableCodigo" />
+      <Property Id="005a99d8-17e0-4e84-9ddf-d324d3ae77a7" name="OrganoGestorCodigo" label="OrganoGestorCodigo : String" kind="Persistent" identity="true" fieldName="organoGestorCodigo" />
+      <Property Id="39f62f23-7acb-40f2-be51-43cb341fa5d7" name="UnidadTramitadoraCodigo" label="UnidadTramitadoraCodigo : String" kind="Persistent" identity="true" fieldName="unidadTramitadoraCodigo" />
+      <Property Id="f2000155-9ecb-40ed-a67d-ed6bfde39f1b" name="OficinaContableNombre" label="OficinaContableNombre : String" kind="Persistent" fieldName="oficinaContableNombre" />
+      <Property Id="45b11622-fd5e-487b-96a2-b06c3375866c" name="OrganoGestorNombre" label="OrganoGestorNombre : String" kind="Persistent" fieldName="organoGestorNombre" />
+      <Property Id="c00414cd-fd46-4765-935d-988d32abe16a" name="UnidadTramitadoraNombre" label="UnidadTramitadoraNombre : String" kind="Persistent" fieldName="unidadTramitadoraNombre" />
+    </DomainClass>
+    <DomainClass Id="427d77f3-186f-4371-9936-4ac2044baabb" name="Usuario" namespace="DatosFacturaLib" showPropertiesCompartment="true" identityMechanism="DatabaseServerCalculated" concurrencyMode="Changed" showNavigationCompartment="true" showImplementationCompartment="true">
+      <Property Id="5cfd92d0-0255-4b0c-aaa9-1f4a6b7fe82c" name="UsuarioId" type="Int32" label="UsuarioId : Int32" kind="Persistent" identity="true" fieldName="usuarioId" />
+      <Property Id="87718be1-98f1-4fa3-84c8-1db38e1386af" name="ClienteId" type="Int32" label="ClienteId : Int32" nullable="true" kind="Persistent" fieldName="clienteId" />
+      <Property Id="3818f5a3-8af9-4175-b462-9c97d2b459b6" name="DepartamentoId" type="Int32" label="DepartamentoId : Int32" nullable="true" kind="Persistent" fieldName="departamentoId" />
+      <Property Id="3e881f02-bd30-4e42-8ca0-01b583c3be01" name="Email" label="Email : String" kind="Persistent" fieldName="email" />
+      <Property Id="f078f89b-2df8-447b-81df-780f2c12d7ca" name="Login" label="Login : String" kind="Persistent" fieldName="login" />
+      <Property Id="73e65247-ef48-4a9e-b096-831edc22b698" name="Nif" label="Nif : String" kind="Persistent" fieldName="nif" />
+      <Property Id="82c20288-a921-4a65-9639-d9938b699d67" name="Nombre" label="Nombre : String" kind="Persistent" fieldName="nombre" />
+      <Property Id="c89dc781-268e-46f3-b124-7d44b5a4ea9c" name="Password" label="Password : String" kind="Persistent" fieldName="password" />
+    </DomainClass>
+    <DomainClass Id="80b1bf26-7947-45dd-ae23-82dad7f58852" name="Nifbase" namespace="DatosFacturaLib" showPropertiesCompartment="true" concurrencyMode="Changed" showNavigationCompartment="true" showImplementationCompartment="true">
+      <Property Id="1deba8d4-063d-4727-9558-e2607ce98e07" name="Nif" label="Nif : String" kind="Persistent" identity="true" fieldName="nif" />
+      <Property Id="d362e000-6043-4d47-861b-6d7838df7766" name="Nombre" label="Nombre : String" kind="Persistent" fieldName="nombre" />
+    </DomainClass>
+    <DomainClass Id="0371a11f-ca58-4aff-a453-b0fe1a13f29c" name="Departamento" namespace="DatosFacturaLib" showPropertiesCompartment="true" identityMechanism="DatabaseServerCalculated" concurrencyMode="Changed" showNavigationCompartment="true" showImplementationCompartment="true">
+      <Property Id="15c467c5-35f6-4e25-be1e-3f15a36e4b6a" name="DepartamentoId" type="Int32" label="DepartamentoId : Int32" kind="Persistent" identity="true" fieldName="departamentoId" />
+      <Property Id="d4ebcc40-b417-4977-a1c8-6b839de6c29b" name="Codclien" type="Int32" label="Codclien : Int32" nullable="true" kind="Persistent" fieldName="codclien" />
+      <Property Id="07e1a70b-b04f-45d5-89c4-5c8f47922f7c" name="Coddirec" type="Int32" label="Coddirec : Int32" nullable="true" kind="Persistent" fieldName="coddirec" />
+      <Property Id="b577eb97-5d70-4c45-b3b6-81ef5c93199a" name="Nombre" label="Nombre : String" kind="Persistent" fieldName="nombre" />
+    </DomainClass>
+  </Types>
+  <domainContext>
+    <domainModelHasDomainContext Id="19353855-7df5-4111-a159-7ba3f40c1b2b">
+      <domainContainer name="FacturaEntity" namespace="DatosFacturaLib" showPropertiesCompartment="true">
+        <entitySetProperty name="Empresas" namespace="DatosFacturaLib" type="Empresa" label="Empresas : IQueryable&lt;DatosFacturaLib.Empresa&gt;" />
+        <entitySetProperty name="Facturas" namespace="DatosFacturaLib" type="Factura" label="Facturas : IQueryable&lt;DatosFacturaLib.Factura&gt;" />
+        <entitySetProperty name="Firmas" namespace="DatosFacturaLib" type="Firma" label="Firmas : IQueryable&lt;DatosFacturaLib.Firma&gt;" />
+        <entitySetProperty name="Repositorios" namespace="DatosFacturaLib" type="Repositorio" label="Repositorios : IQueryable&lt;DatosFacturaLib.Repositorio&gt;" />
+        <entitySetProperty name="Clientes" namespace="DatosFacturaLib" type="Cliente" label="Clientes : IQueryable&lt;DatosFacturaLib.Cliente&gt;" />
+        <entitySetProperty name="Superusuarios" namespace="DatosFacturaLib" type="Superusuario" label="Superusuarios : IQueryable&lt;DatosFacturaLib.Superusuario&gt;" />
+        <entitySetProperty name="Sistemas" namespace="DatosFacturaLib" type="Sistema" label="Sistemas : IQueryable&lt;DatosFacturaLib.Sistema&gt;" />
+        <entitySetProperty name="Plantillas" namespace="DatosFacturaLib" type="Plantilla" label="Plantillas : IQueryable&lt;DatosFacturaLib.Plantilla&gt;" />
+        <entitySetProperty name="Unidads" namespace="DatosFacturaLib" type="Unidad" label="Unidads : IQueryable&lt;DatosFacturaLib.Unidad&gt;" />
+        <entitySetProperty name="Usuarios" namespace="DatosFacturaLib" type="Usuario" label="Usuarios : IQueryable&lt;DatosFacturaLib.Usuario&gt;" />
+        <entitySetProperty name="Nifbases" namespace="DatosFacturaLib" type="Nifbase" label="Nifbases : IQueryable&lt;DatosFacturaLib.Nifbase&gt;" />
+        <entitySetProperty name="Departamentos" namespace="DatosFacturaLib" type="Departamento" label="Departamentos : IQueryable&lt;DatosFacturaLib.Departamento&gt;" />
+      </domainContainer>
+    </domainModelHasDomainContext>
+  </domainContext>
+</DomainModel>

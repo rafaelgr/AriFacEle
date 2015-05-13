@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Facturae xmlns="http://www.facturae.es/Facturae/2007/v3.1/Facturae" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <FileHeader xmlns="">
+    <SchemaVersion>3.1</SchemaVersion>
+    <Modality>I</Modality>
+    <InvoiceIssuerType>EM</InvoiceIssuerType>
+    <Batch>
+      <BatchIdentifier>A000013420120131</BatchIdentifier>
+      <InvoicesCount>1</InvoicesCount>
+      <TotalInvoicesAmount>
+        <TotalAmount>20.00</TotalAmount>
+      </TotalInvoicesAmount>
+      <TotalOutstandingAmount>
+        <TotalAmount>20.00</TotalAmount>
+      </TotalOutstandingAmount>
+      <TotalExecutableAmount>
+        <TotalAmount>20.00</TotalAmount>
+      </TotalExecutableAmount>
+      <InvoiceCurrencyCode>EUR</InvoiceCurrencyCode>
+    </Batch>
+  </FileHeader>
+  <Parties xmlns="">
+    <SellerParty>
+      <TaxIdentification>
+        <PersonTypeCode>J</PersonTypeCode>
+        <ResidenceTypeCode>R</ResidenceTypeCode>
+        <TaxIdentificationNumber>F46024196</TaxIdentificationNumber>
+      </TaxIdentification>
+      <LegalEntity>
+        <CorporateName>ALZICOOP COOP.V.  (Sección Gasolinera)</CorporateName>
+        <AddressInSpain>
+          <Address>Calle Partida Materna,   17</Address>
+          <PostCode>46600</PostCode>
+          <Town>ALZIRA</Town>
+          <Province>VALENCIA</Province>
+          <CountryCode>ESP</CountryCode>
+        </AddressInSpain>
+      </LegalEntity>
+    </SellerParty>
+    <BuyerParty>
+      <TaxIdentification>
+        <PersonTypeCode>J</PersonTypeCode>
+        <ResidenceTypeCode>R</ResidenceTypeCode>
+        <TaxIdentificationNumber>B46946315</TaxIdentificationNumber>
+      </TaxIdentification>
+      <LegalEntity>
+        <CorporateName>PANADERIA BOLLERIA LOPEZ                </CorporateName>
+        <AddressInSpain>
+          <Address>DESCONOCIDA</Address>
+          <PostCode>46</PostCode>
+          <Town>VALENCIA</Town>
+          <Province>VALENCIA</Province>
+          <CountryCode>ESP</CountryCode>
+        </AddressInSpain>
+      </LegalEntity>
+    </BuyerParty>
+  </Parties>
+  <Invoices xmlns="">
+    <Invoice>
+      <InvoiceHeader>
+        <InvoiceNumber>134</InvoiceNumber>
+        <InvoiceSeriesCode>A</InvoiceSeriesCode>
+        <InvoiceDocumentType>FC</InvoiceDocumentType>
+        <InvoiceClass>OO</InvoiceClass>
+      </InvoiceHeader>
+      <InvoiceIssueData>
+        <IssueDate>2012-01-31</IssueDate>
+        <InvoiceCurrencyCode>EUR</InvoiceCurrencyCode>
+        <TaxCurrencyCode>EUR</TaxCurrencyCode>
+        <LanguageName>es</LanguageName>
+      </InvoiceIssueData>
+      <TaxesOutputs>
+        <Tax>
+          <TaxTypeCode>01</TaxTypeCode>
+          <TaxRate>18.00</TaxRate>
+          <TaxableBase>
+            <TotalAmount>16.95</TotalAmount>
+          </TaxableBase>
+          <TaxAmount>
+            <TotalAmount>3.05</TotalAmount>
+          </TaxAmount>
+        </Tax>
+      </TaxesOutputs>
+      <InvoiceTotals>
+        <TotalGrossAmount>16.95</TotalGrossAmount>
+        <TotalGrossAmountBeforeTaxes>16.95</TotalGrossAmountBeforeTaxes>
+        <TotalTaxOutputs>3.05</TotalTaxOutputs>
+        <TotalTaxesWithheld>0.00</TotalTaxesWithheld>
+        <InvoiceTotal>20.00</InvoiceTotal>
+        <TotalOutstandingAmount>20.00</TotalOutstandingAmount>
+        <TotalExecutableAmount>20.00</TotalExecutableAmount>
+      </InvoiceTotals>
+      <Items>
+        <InvoiceLine>
+          <ItemDescription>GAS-A</ItemDescription>
+          <Quantity>14.83</Quantity>
+          <UnitPriceWithoutTax>1.142896</UnitPriceWithoutTax>
+          <TotalCost>16.95</TotalCost>
+          <GrossAmount>16.95</GrossAmount>
+          <TaxesOutputs>
+            <Tax>
+              <TaxTypeCode>01</TaxTypeCode>
+              <TaxRate>18.00</TaxRate>
+              <TaxableBase>
+                <TotalAmount>16.95</TotalAmount>
+              </TaxableBase>
+              <TaxAmount>
+                <TotalAmount>3.05</TotalAmount>
+              </TaxAmount>
+            </Tax>
+          </TaxesOutputs>
+        </InvoiceLine>
+      </Items>
+    </Invoice>
+  </Invoices>
+<ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:etsi="http://uri.etsi.org/01903/v1.3.2#" Id="Signature709137">
+<ds:SignedInfo Id="Signature-SignedInfo565217">
+<ds:CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"></ds:CanonicalizationMethod>
+<ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"></ds:SignatureMethod>
+<ds:Reference Id="SignedPropertiesID959296" Type="http://uri.etsi.org/01903#SignedProperties" URI="#Signature709137-SignedProperties839975">
+<ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"></ds:DigestMethod>
+<ds:DigestValue>d2GHhDUNEbU366yMKPUSCoLPSHY=</ds:DigestValue>
+</ds:Reference>
+<ds:Reference URI="#Certificate1513119">
+<ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"></ds:DigestMethod>
+<ds:DigestValue>k8LxBQGVzfunjA81L+P5eDBwKJc=</ds:DigestValue>
+</ds:Reference>
+<ds:Reference Id="Reference-ID-202624" URI="">
+<ds:Transforms>
+<ds:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"></ds:Transform>
+</ds:Transforms>
+<ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"></ds:DigestMethod>
+<ds:DigestValue>G7+iZ5herqkQu/IGrzpsRnTuavM=</ds:DigestValue>
+</ds:Reference>
+</ds:SignedInfo>
+<ds:SignatureValue Id="SignatureValue9888">
+Oaj+SuuIorPSl/xXzBn2Agr0pVxmRTk6mg0O7cTN4J2uFCP91Z69s+FPTgFiikTmLTI1PuSCc9or
+r/1keDUetD5+TVHYdjUyGovBI2NLHQHbMzeI4xivW4hqdy6PbGnjtU0ryKHMt5PNwYvqjYQHH4tX
+iYWFnFbe1pnIqo7OVNJyAyzb5qwq8hdlrQ2trmSUQ+XyQNlYuAqFerlEPH2n9xBSwVa93eOdJX5D
+87r47xe+8FiO4bLnFEscnuengksO5jXaP+sKoKS5wuqUKsA7MSZlr7Qj/fDRCSZ7kWfapVd37O3D
+/RL2KX1sKmELPyeW9t2VWu3Wwz4HzQsxnmHBFw==
+</ds:SignatureValue>
+<ds:KeyInfo Id="Certificate1513119">
+<ds:X509Data>
+<ds:X509Certificate>
+MIII8DCCB9igAwIBAgIITug8zBREkKQwDQYJKoZIhvcNAQEFBQAwgeAxCzAJBgNVBAYTAkVTMS4w
+LAYJKoZIhvcNAQkBFh9hY19jYW1lcmZpcm1hX2NjQGNhbWVyZmlybWEuY29tMUMwQQYDVQQHEzpN
+YWRyaWQgKHNlZSBjdXJyZW50IGFkZHJlc3MgYXQgd3d3LmNhbWVyZmlybWEuY29tL2FkZHJlc3Mp
+MRIwEAYDVQQFEwlBODI3NDMyODcxGTAXBgNVBAoTEEFDIENhbWVyZmlybWEgU0ExLTArBgNVBAMT
+JEFDIENhbWVyZmlybWEgQ2VydGlmaWNhZG9zIENhbWVyYWxlczAeFw0xMTA1MDMxMTI3NDZaFw0x
+MzA1MDIxMTI3NDZaMIIBNTELMAkGA1UEBhMCRVMxHzAdBgNVBAMTFkFyaWFkbmEgU29mdHdhcmUg
+IFMuTC4xMDAuBgkqhkiG9w0BCQEWIXJhZmFlbC5nYXJjaWFAYXJpYWRuYXNvZnR3YXJlLmNvbTES
+MBAGA1UEBRMJQjk2NDcwMTkwMRcwFQYDVQQEFA5HYXJj7WEgUmVkb25kbzEPMA0GA1UEKhMGUmFm
+YWVsMRkwFwYKKwYBBAGBkxYBARMJMjUzNzU1ODZQMR8wHQYDVQQKExZBcmlhZG5hIFNvZnR3YXJl
+ICBTLkwuMREwDwYDVQQLEwhnZXJlbmNpYTEWMBQGA1UEDBMNYWRtaW5pc3RyYWRvcjEuMCwGA1UE
+DRMlUXVhbGlmaWVkIENlcnRpZmljYXRlOiBDQU0tUEotU1ctS1BTQzCCASIwDQYJKoZIhvcNAQEB
+BQADggEPADCCAQoCggEBANLXYpQGfgiRvCJ4HQ+gpbSGlqd0K7oXid50FJeB3Grx2NrqRNgcgD6B
+vwlDbLPhOKnjQRW2ptuqBekX3FBI3g2Ciim0xdDp454NwqqxqwAtXEtEfB1tAP/1F6hHITnx2/BH
+QpCZZxr96gND81Q+xZrtj3Fkgx3BY4Qd6NGyy8CU8D73z1aLVyqrBMBnGT/KU7g1pi+hxqnKgply
+pu/D4NZStaSuASSWi1iChGLgKq+M6fVhxPNsCodMpUasn3P7I5trWiEwpjeCM0Ex6PhFQyFVG21M
+iTe3R88KcT9tqrZKJ+awpbl4x5aXYwdwRa2DoaH26mAk62lo+xBYX4NxjFcCAwEAAaOCBFQwggRQ
+MAwGA1UdEwEB/wQCMAAwDgYDVR0PAQH/BAQDAgP4MB0GA1UdJQQWMBQGCCsGAQUFBwMCBggrBgEF
+BQcDBDARBglghkgBhvhCAQEEBAMCBaAwQgYJYIZIAYb4QgEDBDUWM1VSSTpodHRwOi8vd3d3LmNh
+bWVyZmlybWEuY29tL2FjX2NhbWVyZmlybWFfY2MuY2dpPzBGBglghkgBhvhCAQgEORY3VVJJOmh0
+dHA6Ly9jcHMuY2FtZXJmaXJtYS5jb20vY3BzL2FjX2NhbWVyZmlybWFfY2MuaHRtbDAdBgNVHQ4E
+FgQUrt8Sz7nHFbB/absfUWfblGjnQ/sweAYIKwYBBQUHAQEEbDBqMEAGCCsGAQUFBzAChjRodHRw
+Oi8vd3d3LmNhbWVyZmlybWEuY29tL2NlcnRzL2FjX2NhbWVyZmlybWFfY2MuY3J0MCYGCCsGAQUF
+BzABhhpodHRwOi8vb2NzcC5jYW1lcmZpcm1hLmNvbTCBqwYDVR0jBIGjMIGggBS2H06dHGiRLjdy
+YOFGj1qlKjExuaGBhKSBgTB/MQswCQYDVQQGEwJFVTEnMCUGA1UEChMeQUMgQ2FtZXJmaXJtYSBT
+QSBDSUYgQTgyNzQzMjg3MSMwIQYDVQQLExpodHRwOi8vd3d3LmNoYW1iZXJzaWduLm9yZzEiMCAG
+A1UEAxMZQ2hhbWJlcnMgb2YgQ29tbWVyY2UgUm9vdIIBBTB2BgNVHR8EbzBtMDSgMqAwhi5odHRw
+Oi8vY3JsLmNhbWVyZmlybWEuY29tL2FjX2NhbWVyZmlybWFfY2MuY3JsMDWgM6Axhi9odHRwOi8v
+Y3JsMS5jYW1lcmZpcm1hLmNvbS9hY19jYW1lcmZpcm1hX2NjLmNybDAsBgNVHREEJTAjgSFyYWZh
+ZWwuZ2FyY2lhQGFyaWFkbmFzb2Z0d2FyZS5jb20wKgYDVR0SBCMwIYEfYWNfY2FtZXJmaXJtYV9j
+Y0BjYW1lcmZpcm1hLmNvbTCB3AYDVR0gBIHUMIHRMIHOBg0rBgEEAYGHLgoJBAEBMIG8MD8GCCsG
+AQUFBwIBFjNodHRwOi8vY3BzLmNhbWVyZmlybWEuY29tL2Nwcy9hY19jYW1lcmZpcm1hX2NjLmh0
+bWwweQYIKwYBBQUHAgIwbRprUkE6IENDNDYgLSBERUNMQVJBQ0lPTiBBRElDSU9OQUw6IGh0dHBz
+Oi8vcmFvbmxpbmUuY2FtZXJmaXJtYS5jb20vcGRvY2UvZGVjbGFyYWNpb25lcy80RUU4M0NDQzE0
+NDQ5MEE0Lmh0bWwwegYJYIZIAYb4QgENBG0Wa1JBOiBDQzQ2IC0gREVDTEFSQUNJT04gQURJQ0lP
+TkFMOiBodHRwczovL3Jhb25saW5lLmNhbWVyZmlybWEuY29tL3Bkb2NlL2RlY2xhcmFjaW9uZXMv
+NEVFODNDQ0MxNDQ0OTBBNC5odG1sMA0GCSqGSIb3DQEBBQUAA4IBAQCEMFYMo4/zOmfp+vCsk4Cw
+UPOHTavNfGByLSELxQqwUWLkmf8xpTsrlS5l/s5ig0Lpy/TTmWD4xJdeShZG4hzFTaP2Ms2Kk2TE
+ePZd05ljiBk4JI8E7V4XkCs4YUooMl3C9Ddl/BDL7kogwO+7D/tZ5PzplHDVn92ChGSd8loC56Re
+dr+S7W4Wdkc5/tV7pHmOyQYLopRUUzfECJ7KDsR7sAu8qdeEi6jGqXOtbPvlMem2OZpJDWYIKpWX
+XlmMK7IY8Mn48R/hz4vVHj/9aUqtHH1kS54mLcLLOznQDNqfcHJbIIeQXWo02IwC0lxSQq7mU2iG
+6DPd+xoHUv1ZzYVY
+</ds:X509Certificate>
+</ds:X509Data>
+<ds:KeyValue>
+<ds:RSAKeyValue>
+<ds:Modulus>
+0tdilAZ+CJG8IngdD6CltIaWp3QruheJ3nQUl4HcavHY2upE2ByAPoG/CUNss+E4qeNBFbam26oF
+6RfcUEjeDYKKKbTF0Onjng3CqrGrAC1cS0R8HW0A//UXqEchOfHb8EdCkJlnGv3qA0PzVD7Fmu2P
+cWSDHcFjhB3o0bLLwJTwPvfPVotXKqsEwGcZP8pTuDWmL6HGqcqCmXKm78Pg1lK1pK4BJJaLWIKE
+YuAqr4zp9WHE82wKh0ylRqyfc/sjm2taITCmN4IzQTHo+EVDIVUbbUyJN7dHzwpxP22qtkon5rCl
+uXjHlpdjB3BFrYOhofbqYCTraWj7EFhfg3GMVw==
+</ds:Modulus>
+<ds:Exponent>AQAB</ds:Exponent>
+</ds:RSAKeyValue>
+</ds:KeyValue>
+</ds:KeyInfo>
+<ds:Object Id="Signature709137-Object614040"><etsi:QualifyingProperties Target="#Signature709137"><etsi:SignedProperties Id="Signature709137-SignedProperties839975"><etsi:SignedSignatureProperties><etsi:SigningTime>2013-07-08T13:06:36+02:00</etsi:SigningTime><etsi:SigningCertificate><etsi:Cert><etsi:CertDigest><ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"></ds:DigestMethod><ds:DigestValue>SI46S4Y7Sope3slGld684nYqF2U=</ds:DigestValue></etsi:CertDigest><etsi:IssuerSerial><ds:X509IssuerName>CN=AC Camerfirma Certificados Camerales,O=AC Camerfirma SA,2.5.4.5=#1309413832373433323837,L=Madrid (see current address at www.camerfirma.com/address),1.2.840.113549.1.9.1=#161f61635f63616d65726669726d615f63634063616d65726669726d612e636f6d,C=ES</ds:X509IssuerName><ds:X509SerialNumber>5685861376766283940</ds:X509SerialNumber></etsi:IssuerSerial></etsi:Cert></etsi:SigningCertificate><etsi:SignaturePolicyIdentifier><etsi:SignaturePolicyId><etsi:SigPolicyId><etsi:Identifier>http://www.facturae.es/politica_de_firma_formato_facturae/politica_de_firma_formato_facturae_v3_1.pdf</etsi:Identifier><etsi:Description>Política de Firma FacturaE v3.1</etsi:Description></etsi:SigPolicyId><etsi:SigPolicyHash><ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"></ds:DigestMethod><ds:DigestValue>Ohixl6upD6av8N7pEvDABhEL6hM=</ds:DigestValue></etsi:SigPolicyHash></etsi:SignaturePolicyId></etsi:SignaturePolicyIdentifier></etsi:SignedSignatureProperties><etsi:SignedDataObjectProperties><etsi:DataObjectFormat ObjectReference="#Reference-ID-202624"><etsi:Description>Descripcion del documento</etsi:Description><etsi:MimeType>text/xml</etsi:MimeType></etsi:DataObjectFormat></etsi:SignedDataObjectProperties></etsi:SignedProperties></etsi:QualifyingProperties></ds:Object></ds:Signature></Facturae>

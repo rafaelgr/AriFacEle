@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="_ConvertModelWizard_Files\UpgradeReferences.xslt"?>
+<UpgradeLog>
+  <Events>
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\FirmaLib\FirmaLib.csproj" Message="Assembly References" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\FirmaLib\FirmaLib.csproj" Message="Project References" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\FirmaLib\FirmaLib.csproj" Message="Import Directives" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\FirmaLib\FirmaLib.csproj" Message="FirmaLib" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\AriFacElec\AriFacElec.csproj" Message="Assembly References" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\AriFacElec\AriFacElec.csproj" Message="Project References" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\AriFacElec\AriFacElec.csproj" Message="Import Directives" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\AriFacElec\App.Config" Message="Assembly References" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\AriFacElec\App.Config" Message="Http Handlers" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\AriFacElec\App.Config" Message="Handlers (IIS7+)" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\AriFacElec\App.Config" Message="Config Sections" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\AriFacElec\App.Config" Message="Render Extensions" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\AriFacElec\App.Config" Message="App.Config" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\AriFacElec\AriFacElec.csproj" Message="AriFacElec" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\FacElecLib\FacElecLib.csproj" Message="Assembly References" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\FacElecLib\FacElecLib.csproj" Message="Project References" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\FacElecLib\FacElecLib.csproj" Message="Import Directives" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\FacElecLib\App.Config" Message="Assembly References" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\FacElecLib\App.Config" Message="Http Handlers" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\FacElecLib\App.Config" Message="Handlers (IIS7+)" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\FacElecLib\App.Config" Message="Config Sections" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\FacElecLib\App.Config" Message="Render Extensions" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\FacElecLib\App.Config" Message="App.Config" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\FacElecLib\FacElecLib.csproj" Message="FacElecLib" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\FacturaE\FacturaE.csproj" Message="Assembly References" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\FacturaE\FacturaE.csproj" Message="Project References" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\FacturaE\FacturaE.csproj" Message="Import Directives" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\FacturaE\App.Config" Message="Assembly References" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\FacturaE\App.Config" Message="Http Handlers" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\FacturaE\App.Config" Message="Handlers (IIS7+)" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\FacturaE\App.Config" Message="Config Sections" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\FacturaE\App.Config" Message="Render Extensions" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\FacturaE\App.Config" Message="App.Config" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\FacturaE\FacturaE.csproj" Message="FacturaE" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\DatosFacturaLib\DatosFacturaLib.csproj" Message="Assembly References" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\DatosFacturaLib\DatosFacturaLib.csproj" Message="Project References" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\DatosFacturaLib\DatosFacturaLib.csproj" Message="Import Directives" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\DatosFacturaLib\App.Config" Message="Assembly References" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\DatosFacturaLib\App.Config" Message="Http Handlers" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\DatosFacturaLib\App.Config" Message="Handlers (IIS7+)" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\DatosFacturaLib\App.Config" Message="Config Sections" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\DatosFacturaLib\App.Config" Message="Render Extensions" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\DatosFacturaLib\App.Config" Message="App.Config" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\DatosFacturaLib\DatosFacturaLib.csproj" Message="DatosFacturaLib" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\AriFtp\AriFtp.csproj" Message="Assembly References" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\AriFtp\AriFtp.csproj" Message="Project References" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\AriFtp\AriFtp.csproj" Message="Import Directives" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\AriFtp\AriFtp.csproj" Message="AriFtp" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\AriFacEleWiS\AriFacEleWiS.csproj" Message="Assembly References" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\AriFacEleWiS\AriFacEleWiS.csproj" Message="Project References" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\AriFacEleWiS\AriFacEleWiS.csproj" Message="Import Directives" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\AriFacEleWiS\App.config" Message="Assembly References" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\AriFacEleWiS\App.config" Message="Http Handlers" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\AriFacEleWiS\App.config" Message="Handlers (IIS7+)" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\AriFacEleWiS\App.config" Message="Config Sections" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\AriFacEleWiS\App.config" Message="Render Extensions" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\AriFacEleWiS\App.config" Message="App.config" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\AriFacEleWiS\packages.config" Message="Assembly References" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\AriFacEleWiS\packages.config" Message="Http Handlers" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\AriFacEleWiS\packages.config" Message="Handlers (IIS7+)" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\AriFacEleWiS\packages.config" Message="Config Sections" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\AriFacEleWiS\packages.config" Message="Render Extensions" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\AriFacEleWiS\packages.config" Message="packages.config" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\AriFacEleWiS\ProjectInstaller.resx" Message="ProjectInstaller.resx" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\AriFacEleWiS\AriFacEleWiS.csproj" Message="AriFacEleWiS" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\AriGasolModel\AriGasolModel.csproj" Message="Assembly References" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\AriGasolModel\AriGasolModel.csproj" Message="Project References" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\AriGasolModel\AriGasolModel.csproj" Message="Import Directives" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\AriGasolModel\App.Config" Message="Assembly References" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\AriGasolModel\App.Config" Message="Http Handlers" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\AriGasolModel\App.Config" Message="Handlers (IIS7+)" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\AriGasolModel\App.Config" Message="Config Sections" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\AriGasolModel\App.Config" Message="Render Extensions" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\AriGasolModel\App.Config" Message="App.Config" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\AriGasolModel\AriGasolModel.csproj" Message="AriGasolModel" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\FacElecWeb\AdminPage.aspx" Message="Register Directives" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\FacElecWeb\AdminPage.aspx" Message="Assembly Directives" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\FacElecWeb\AdminPage.aspx" Message="AdminPage.aspx" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\FacElecWeb\Bin\" Message="Binary References" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\FacElecWeb\Inicio.aspx" Message="Register Directives" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\FacElecWeb\Inicio.aspx" Message="Assembly Directives" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\FacElecWeb\Inicio.aspx" Message="Inicio.aspx" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\FacElecWeb\Inicio2.aspx" Message="Register Directives" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\FacElecWeb\Inicio2.aspx" Message="Assembly Directives" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\FacElecWeb\Inicio2.aspx" Message="Inicio2.aspx" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\FacElecWeb\Invoice.aspx" Message="Register Directives" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\FacElecWeb\Invoice.aspx" Message="Assembly Directives" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\FacElecWeb\Invoice.aspx" Message="Invoice.aspx" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\FacElecWeb\InvoiceViewer.aspx" Message="Register Directives" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\FacElecWeb\InvoiceViewer.aspx" Message="Assembly Directives" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\FacElecWeb\InvoiceViewer.aspx" Message="InvoiceViewer.aspx" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\FacElecWeb\Master.master" Message="Register Directives" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\FacElecWeb\Master.master" Message="Assembly Directives" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\FacElecWeb\Master.master" Message="Master.master" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\FacElecWeb\Plantilla.aspx" Message="Register Directives" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\FacElecWeb\Plantilla.aspx" Message="Assembly Directives" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\FacElecWeb\Plantilla.aspx" Message="Plantilla.aspx" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\FacElecWeb\web.config" Message="Assembly References" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\FacElecWeb\web.config" Message="Http Handlers" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\FacElecWeb\web.config" Message="Handlers (IIS7+)" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\FacElecWeb\web.config" Message="Config Sections" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\FacElecWeb\web.config" Message="Render Extensions" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\FacElecWeb\web.config" Message="web.config" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\FacElecWeb" Message="C:\...\FacElecWeb\" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\AriAgroModel\AriAgroModel.csproj" Message="Assembly References" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\AriAgroModel\AriAgroModel.csproj" Message="Project References" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\AriAgroModel\AriAgroModel.csproj" Message="Import Directives" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\AriAgroModel\App.Config" Message="Assembly References" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\AriAgroModel\App.Config" Message="Http Handlers" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\AriAgroModel\App.Config" Message="Handlers (IIS7+)" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\AriAgroModel\App.Config" Message="Config Sections" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\AriAgroModel\App.Config" Message="Render Extensions" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\AriAgroModel\App.Config" Message="App.Config" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\AriAgroModel\AriAgroModel.csproj" Message="AriAgroModel" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\AriTaxiModel\AriTaxiModel.csproj" Message="Assembly References" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\AriTaxiModel\AriTaxiModel.csproj" Message="Project References" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\AriTaxiModel\AriTaxiModel.csproj" Message="Import Directives" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\AriTaxiModel\App.Config" Message="Assembly References" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\AriTaxiModel\App.Config" Message="Http Handlers" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\AriTaxiModel\App.Config" Message="Handlers (IIS7+)" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\AriTaxiModel\App.Config" Message="Config Sections" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\AriTaxiModel\App.Config" Message="Render Extensions" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\AriTaxiModel\App.Config" Message="App.Config" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\AriTaxiModel\AriTaxiModel.csproj" Message="AriTaxiModel" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\GdesModel\GdesModel.csproj" Message="Assembly References" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\GdesModel\GdesModel.csproj" Message="Project References" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\GdesModel\GdesModel.csproj" Message="Import Directives" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\GdesModel\App.Config" Message="Assembly References" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\GdesModel\App.Config" Message="Http Handlers" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\GdesModel\App.Config" Message="Handlers (IIS7+)" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\GdesModel\App.Config" Message="Config Sections" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\GdesModel\App.Config" Message="Render Extensions" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\GdesModel\App.Config" Message="App.Config" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\GdesModel\GdesModel.csproj" Message="GdesModel" />
+    <Event EventType="Success" Action="Analyze" SourceItem="C:\Proyectos\AriFacEle\AriFacEle\AriFacEle.sln" Message="AriFacEle" />
+  </Events>
+</UpgradeLog>

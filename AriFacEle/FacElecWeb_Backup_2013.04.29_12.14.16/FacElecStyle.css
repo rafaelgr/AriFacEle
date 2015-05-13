@@ -1,0 +1,55 @@
+﻿
+
+#banner
+{
+    background: #FDFDFC url('img/headerMap.png') no-repeat fixed left top;
+    width: 100%;
+    height: 112px;
+    }
+#login
+{
+    left: 40%;
+    position: relative;
+    top: 100px;
+    color: #000000;
+    font-family: 'Arial Rounded MT Bold';
+    font-size: small;
+}
+#cuerpo
+{
+    font-family: 'Arial Rounded MT Bold';
+    font-size: small;
+    background-position: center top;
+    top:20px;
+    width: 100%;
+    height: 650px;
+    background-color: #F9F5EC;
+    background-repeat: repeat-y;
+    bottom: 0px;
+}
+.textoRojo
+{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #FF3300;
+    z-index: 1;
+}
+.btnSalir
+{
+    right: 10px;
+    bottom:10px;
+    height: 20px;
+    width: 66px;
+}
+#txtNomClient
+{
+    font-family: 'Arial Rounded MT Bold';
+    font-size: large;
+}
+
+.headContent
+{
+    border-style: outset none none none;
+    border-color: #0066CC;
+    border-top-width: medium;
+}

@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DomainModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="2.0.0.0" name="Fac_elecEntity" namespace="FacElecLib" showPropertiesCompartment="true" xmlns="http://www.telerik.com/ORM">
+  <orm:orm name="Fac_elecEntity" backend="mssql" xmlns:orm="http://tempuri.org/ORM">
+    <orm:namespace name="FacElecLib" default="true">
+      <orm:class name="srv_origen" discriminator-value="FacElecLib.base_origen" uniqueId="59f47a8e-0b40-4975-a32e-0ce105bffbb5" persistent-baseclass="FacElecLib.base_loc">
+        <orm:table name="srv_origen" />
+        <orm:identity>
+          <orm:single-field field-name="iD" />
+        </orm:identity>
+        <orm:discriminator discriminator-value="FacElecLib.base_origen" />
+        <orm:field name="iD" property="ID" null-value="none" uniqueId="e48918ce-c58f-4a95-bc4e-0f043f85d58d" type="System.Int32">
+          <orm:column name="i_d" sql-type="INTEGER" nullable="false" scale="0" primary-key="true" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="idBaseFirmada" property="id_base_firmada" null-value="none" uniqueId="b7240774-af38-4189-a961-5c5c9da30ad6" type="System.Int32">
+          <orm:column name="id_base_firmada" sql-type="INTEGER" nullable="true" scale="0" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="baseFirmada" property="Base_firmada" null-value="none" uniqueId="7e8aab46-528e-4682-b6a9-fb5eca410e64" type="FacElecLib.base_firmada">
+          <orm:reference uniqueId="43c5cd0e-217b-4f53-b1be-33db1b2f6658">
+            <orm:sharedfield name="idBaseFirmada" target-class="FacElecLib.base_firmada" target-field="iD" />
+          </orm:reference>
+        </orm:field>
+        <orm:index name="ref_srv_origen_base_firmada">
+          <orm:columnMapping>
+            <orm:column name="id_base_firmada" sql-type="INTEGER" nullable="true" scale="0" ado-type="Int32" />
+          </orm:columnMapping>
+        </orm:index>
+      </orm:class>
+      <orm:class name="base_firmada" uniqueId="c5dbb13d-0684-4e69-b6e4-49bb4cdcf977" persistent-baseclass="FacElecLib.base_loc">
+        <orm:table name="base_firmada" />
+        <orm:identity>
+          <orm:single-field field-name="iD" />
+        </orm:identity>
+        <orm:field name="iD" property="ID" null-value="none" uniqueId="ae4d59e3-9231-42b6-b4cb-5717f5c08fe9" type="System.Int32">
+          <orm:column name="i_d" sql-type="INTEGER" nullable="false" scale="0" primary-key="true" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="srvOrigens" property="srv_origens" null-value="none" uniqueId="ff8e9cf4-d972-4117-b842-f19c016c05d4" type="FacElecLib.srv_origen">
+          <orm:collection element-class="FacElecLib.srv_origen" inverse-field="baseFirmada" managed="true" order-by="" uniqueId="43c5cd0e-217b-4f53-b1be-33db1b2f6658" />
+        </orm:field>
+      </orm:class>
+      <orm:class name="base_loc" inheritance-modifier="horizontal" discriminator-value="FacElecLib.base" uniqueId="8491babf-5e72-4bb7-9c4d-81bf6d0de6dc" inheritance="subclass-table">
+        <orm:identity />
+        <orm:discriminator discriminator-value="FacElecLib.base" />
+        <orm:field name="server1" property="server" null-value="none" uniqueId="02f18c5e-31b4-43ba-a040-fd7775096615" type="System.String" />
+        <orm:field name="userId" property="user_id" null-value="none" uniqueId="5dd06d20-47e9-4d25-9b16-6d49aca84f24" type="System.String" />
+        <orm:field name="passw1" property="passw" null-value="none" uniqueId="775341c0-35eb-45eb-b93a-0c2942a15ccc" type="System.String" />
+        <orm:field name="db1" property="db" null-value="none" uniqueId="e83730af-4b5a-4805-b5cf-2f2b78f9c79c" type="System.String" />
+      </orm:class>
+    </orm:namespace>
+    <orm:schema schema="">
+      <orm:table name="srv_origen">
+        <orm:column name="user_id" sql-type="varchar" nullable="false" length="255" scale="0" primary-key="true" ado-type="Varchar" />
+        <orm:column name="server1" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="Varchar" />
+        <orm:column name="passw1" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="Varchar" />
+        <orm:column name="id_base_firmada" sql-type="INTEGER" nullable="true" scale="0" ado-type="Int32" />
+        <orm:column name="i_d" sql-type="INTEGER" nullable="false" scale="0" primary-key="true" ado-type="Int32" />
+        <orm:column name="db1" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="Varchar" />
+        <orm:index name="ref_srv_origen_base_firmada">
+          <orm:columnMapping>
+            <orm:column name="id_base_firmada" sql-type="INTEGER" nullable="true" scale="0" ado-type="Int32" />
+          </orm:columnMapping>
+        </orm:index>
+        <orm:constraint name="ref_srv_origen_base_firmada" destination-table="base_firmada">
+          <orm:column name="id_base_firmada" sql-type="INTEGER" nullable="true" scale="0" ado-type="Int32" />
+        </orm:constraint>
+      </orm:table>
+      <orm:table name="base_firmada">
+        <orm:column name="user_id" sql-type="varchar" nullable="false" length="255" scale="0" primary-key="true" ado-type="Varchar" />
+        <orm:column name="server1" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="Varchar" />
+        <orm:column name="passw1" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="Varchar" />
+        <orm:column name="i_d" sql-type="INTEGER" nullable="false" scale="0" primary-key="true" ado-type="Int32" />
+        <orm:column name="db1" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="Varchar" />
+      </orm:table>
+    </orm:schema>
+  </orm:orm>
+  <ModelSettings xmlns="">
+    <AppConfigConnectionPropertyName>Fac_elecEntity</AppConfigConnectionPropertyName>
+    <AppConfigConnectionString>server=localhost;User Id=root;password=aritel;Persist Security Info=True;database=facturacion_electronica</AppConfigConnectionString>
+    <InitialCatalog>facturacion_electronica</InitialCatalog>
+    <NamingSettings>
+      <ClassRules>
+        <CaseMode>PascalCase</CaseMode>
+        <PluralizationMode>Singularize</PluralizationMode>
+      </ClassRules>
+      <FieldRules>
+        <CaseMode>CamelCase</CaseMode>
+      </FieldRules>
+      <PropertyRules>
+        <CaseMode>PascalCase</CaseMode>
+      </PropertyRules>
+    </NamingSettings>
+    <CodeGenerationSettings>
+      <MappingDefinitionType>Xml</MappingDefinitionType>
+    </CodeGenerationSettings>
+    <SchemaUpdateSettings />
+    <BackendConfigurationSettings>
+      <BackendConfiguration>
+        <Backend>mysql</Backend>
+      </BackendConfiguration>
+    </BackendConfigurationSettings>
+  </ModelSettings>
+  <Types>
+    <DomainClass Id="59f47a8e-0b40-4975-a32e-0ce105bffbb5" name="srv_origen" namespace="FacElecLib" showPropertiesCompartment="true" showNavigationCompartment="true" showImplementationCompartment="true">
+      <Property Id="e48918ce-c58f-4a95-bc4e-0f043f85d58d" name="ID" type="Int32" label="ID : Int32" identity="true" fieldName="iD" />
+      <Property Id="b7240774-af38-4189-a961-5c5c9da30ad6" name="id_base_firmada" type="Int32" label="id_base_firmada : Int32" fieldName="idBaseFirmada" />
+      <AssociationTargets>
+        <Association Id="43c5cd0e-217b-4f53-b1be-33db1b2f6658" SourceMultiplicity="ZeroOne" name="srv_origenHasbase_firmada">
+          <DomainClassMoniker name="/Fac_elecEntity/base_firmada" />
+          <targetNavigationalProperty>
+            <associationDefinesTargetProperty Id="f409f600-cab2-4eea-92a1-37cc08c615d6">
+              <NavigationalPropertyMoniker name="/Fac_elecEntity/base_firmada/srv_origens" />
+            </associationDefinesTargetProperty>
+          </targetNavigationalProperty>
+          <sourceNavigationalProperty>
+            <associationDefinesSourceProperty Id="f33a71ed-0a16-4d68-b344-88ac2ad1be8e">
+              <NavigationalPropertyMoniker name="/Fac_elecEntity/srv_origen/Base_firmada" />
+            </associationDefinesSourceProperty>
+          </sourceNavigationalProperty>
+        </Association>
+      </AssociationTargets>
+      <navigationalProperties>
+        <classHasNavigationalProperties Id="24488562-a5d7-40fb-bee7-85d27fc3d35f">
+          <NavigationalProperty Id="7e8aab46-528e-4682-b6a9-fb5eca410e64" name="Base_firmada" type="base_firmada" label="Base_firmada : base_firmada" nullable="true" fieldName="baseFirmada" isDependent="false" isManaged="false" />
+        </classHasNavigationalProperties>
+      </navigationalProperties>
+    </DomainClass>
+    <DomainClass Id="c5dbb13d-0684-4e69-b6e4-49bb4cdcf977" name="base_firmada" namespace="FacElecLib" showPropertiesCompartment="true" showNavigationCompartment="true" showImplementationCompartment="true">
+      <Property Id="ae4d59e3-9231-42b6-b4cb-5717f5c08fe9" name="ID" type="Int32" label="ID : Int32" identity="true" fieldName="iD" />
+      <navigationalProperties>
+        <classHasNavigationalProperties Id="ff20e6eb-5802-4444-b112-170559f85166">
+          <NavigationalProperty Id="ff8e9cf4-d972-4117-b842-f19c016c05d4" name="srv_origens" type="IList&lt;srv_origen&gt;" label="srv_origens : IList&lt;srv_origen&gt;" nullable="true" fieldName="srvOrigens" isDependent="false" isManaged="true" />
+        </classHasNavigationalProperties>
+      </navigationalProperties>
+    </DomainClass>
+    <DomainClass Id="8491babf-5e72-4bb7-9c4d-81bf6d0de6dc" name="base_loc" namespace="FacElecLib" showPropertiesCompartment="true" showNavigationCompartment="true" showImplementationCompartment="true">
+      <Property Id="e83730af-4b5a-4805-b5cf-2f2b78f9c79c" name="db" label="db : String" fieldName="db1" />
+      <Property Id="775341c0-35eb-45eb-b93a-0c2942a15ccc" name="passw" label="passw : String" fieldName="passw1" />
+      <Property Id="02f18c5e-31b4-43ba-a040-fd7775096615" name="server" label="server : String" fieldName="server1" />
+      <Property Id="5dd06d20-47e9-4d25-9b16-6d49aca84f24" name="user_id" label="user_id : String" fieldName="userId" />
+      <inheritors>
+        <inheritance Id="214befc6-0f18-4dc1-939d-2423d9ded0b5">
+          <DomainClassMoniker name="/Fac_elecEntity/srv_origen" />
+        </inheritance>
+        <inheritance Id="8fc84f33-e68e-4bd5-9c38-85832130d5ac">
+          <DomainClassMoniker name="/Fac_elecEntity/base_firmada" />
+        </inheritance>
+      </inheritors>
+    </DomainClass>
+  </Types>
+  <domainContext>
+    <domainModelHasDomainContext Id="7b51e4c7-1fda-49a0-be72-f42e8717e359">
+      <domainContainer name="Fac_elecEntity" namespace="FacElecLib" showPropertiesCompartment="true">
+        <entitySetProperty name="srv_origens" namespace="FacElecLib" type="srv_origen" label="srv_origens : IQueryable&lt;FacElecLib.srv_origen&gt;" />
+        <entitySetProperty name="base_firmadas" namespace="FacElecLib" type="base_firmada" label="base_firmadas : IQueryable&lt;FacElecLib.base_firmada&gt;" />
+        <entitySetProperty name="base_locs" namespace="FacElecLib" type="base_loc" label="base_locs : IQueryable&lt;FacElecLib.base_loc&gt;" />
+      </domainContainer>
+    </domainModelHasDomainContext>
+  </domainContext>
+</DomainModel>
