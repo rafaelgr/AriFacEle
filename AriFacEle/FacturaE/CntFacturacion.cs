@@ -565,7 +565,7 @@ namespace FacturaE
             fcte.Parties.SellerParty.TaxIdentification.PersonTypeCode = PersonTypeCodeType.J;
             fcte.Parties.SellerParty.TaxIdentification.ResidenceTypeCode = ResidenceTypeCodeType.R;
             fcte.Parties.SellerParty.TaxIdentification.TaxIdentificationNumber = gdesHeader.SellerTaxIdentificationNumber;
-            
+                        
             //Ciudade ciu = (from c in ctx1.Ciudades
             //               where c.Codposta == empresa.Codposta
             //               select c).FirstOrDefault<Ciudade>();
@@ -665,6 +665,9 @@ namespace FacturaE
             fcte.Parties.SellerParty.TaxIdentification.PersonTypeCode = PersonTypeCodeType.J;
             fcte.Parties.SellerParty.TaxIdentification.ResidenceTypeCode = ResidenceTypeCodeType.R;
             fcte.Parties.SellerParty.TaxIdentification.TaxIdentificationNumber = empresa.Cifempre;
+
+            
+            
             
             //Ciudade ciu = (from c in ctx1.Ciudades
             //               where c.Codposta == empresa.Codposta
@@ -678,6 +681,8 @@ namespace FacturaE
             address.Province = empresa.Proempre;
             address.CountryCode = CountryType.ESP;
             legalEntity.Item = address;
+            
+            
             
             fcte.Parties.SellerParty.Item = legalEntity;
             

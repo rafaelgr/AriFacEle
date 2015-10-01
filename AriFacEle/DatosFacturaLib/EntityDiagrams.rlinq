@@ -228,7 +228,7 @@
           <orm:column name="cod_gdes" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="" />
         </orm:field>
         <orm:field name="iban" property="Iban" uniqueId="44e0b0e0-ef52-40b5-b4a9-b261f4ea9ed8" type="System.String">
-          <orm:column nullable="true" scale="0" length="50" sql-type="varchar" name="iban" ado-type="" />
+          <orm:column name="iban" sql-type="varchar" nullable="true" length="50" scale="0" ado-type="" />
         </orm:field>
         <orm:field name="empresa" property="Empresa" behavior="readwrite" uniqueId="56ab5a17-5bba-4ce1-a610-4f5a8f280288" type="DatosFacturaLib.Empresa">
           <orm:reference uniqueId="ee8a1400-0d60-4080-82c8-70f9cb3b4faa">
@@ -481,7 +481,7 @@
         <orm:column name="cod_socio_ariagro" sql-type="integer" nullable="false" length="0" scale="0" ado-type="Int32" />
         <orm:column name="cod_clien_ariges2" sql-type="integer" nullable="false" length="0" scale="0" ado-type="Int32" />
         <orm:column name="cod_gdes" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="" />
-        <orm:column nullable="true" scale="0" length="50" sql-type="varchar" name="iban" ado-type="" />
+        <orm:column name="iban" sql-type="varchar" nullable="true" length="50" scale="0" ado-type="" />
         <orm:index name="idx_cliente_id_empresa">
           <orm:columnMapping>
             <orm:column name="id_empresa" sql-type="integer" nullable="true" length="0" scale="0" ado-type="Int32" />

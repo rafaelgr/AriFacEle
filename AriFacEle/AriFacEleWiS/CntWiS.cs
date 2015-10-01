@@ -443,23 +443,23 @@ namespace AriFacEleWiS
             {
                 case "AriGes":
                     FicheroXml = oFacturae.generarFacturaeAriGes(iban, fecha, firma, numfact, numSerie, String.Format(@"{0}\{1}", repositorioLocal, empresa.Cif), ctx0, ctx1);
-                    FicheroXSIG = FicheroXml.Replace(".xml", ".xsig");
+                    if (firmar.ToUpper().Equals("S")) FicheroXSIG = FicheroXml.Replace(".xml", ".xsig");
                     break;
                 case "AriGesDos":
                     FicheroXml = oFacturae.generarFacturaeAriGes(iban, fecha, firma, numfact, numSerie, String.Format(@"{0}\{1}", repositorioLocal, empresa.Cif), ctx0_2, ctx1);
-                    FicheroXSIG = FicheroXml.Replace(".xml", ".xsig");
+                    if (firmar.ToUpper().Equals("S")) FicheroXSIG = FicheroXml.Replace(".xml", ".xsig");
                     break;
                 case "AriGasol":
                     FicheroXml = oFacturae.GenerarFacturaeAriGasol(iban, fecha, firma, numfact, numSerie, String.Format(@"{0}\{1}", repositorioLocal, empresa.Cif), ctx2, ctx1);
-                    FicheroXSIG = FicheroXml.Replace(".xml", ".xsig");
+                    if (firmar.ToUpper().Equals("S")) FicheroXSIG = FicheroXml.Replace(".xml", ".xsig");
                     break;
                 case "AriTaxi":
                     FicheroXml = oFacturae.generarFacturaeAriTaxi(fecha, firma, numfact, numSerie, String.Format(@"{0}\{1}", repositorioLocal, empresa.Cif), ctx4, ctx1);
-                    FicheroXSIG = FicheroXml.Replace(".xml", ".xsig");
+                    if (firmar.ToUpper().Equals("S")) FicheroXSIG = FicheroXml.Replace(".xml", ".xsig");
                     break;
                 case "GDES":
                     FicheroXml = oFacturae.generarFacturaeGdes(fecha, firma, numSerie, String.Format(@"{0}\{1}", repositorioLocal, empresa.Cif),fac.SistemaGdes, ctx5, ctx1);
-                    FicheroXSIG = FicheroXml.Replace(".xml", ".xsig");
+                    if (firmar.ToUpper().Equals("S")) FicheroXSIG = FicheroXml.Replace(".xml", ".xsig");
                     break;
                 case "AriAgro":
                     //No hacemos, de momento, la facturae
