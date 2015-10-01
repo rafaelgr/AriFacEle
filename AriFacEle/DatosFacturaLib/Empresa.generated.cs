@@ -63,6 +63,97 @@ namespace DatosFacturaLib
 			}
 		}
 		
+		private string tomo;
+		public virtual string Tomo
+		{
+			get
+			{
+				return this.tomo;
+			}
+			set
+			{
+				this.tomo = value;
+			}
+		}
+		
+		private string seccion;
+		public virtual string Seccion
+		{
+			get
+			{
+				return this.seccion;
+			}
+			set
+			{
+				this.seccion = value;
+			}
+		}
+		
+		private string registro;
+		public virtual string Registro
+		{
+			get
+			{
+				return this.registro;
+			}
+			set
+			{
+				this.registro = value;
+			}
+		}
+		
+		private string regcomentarios;
+		public virtual string Regcomentarios
+		{
+			get
+			{
+				return this.regcomentarios;
+			}
+			set
+			{
+				this.regcomentarios = value;
+			}
+		}
+		
+		private string libro;
+		public virtual string Libro
+		{
+			get
+			{
+				return this.libro;
+			}
+			set
+			{
+				this.libro = value;
+			}
+		}
+		
+		private string hoja;
+		public virtual string Hoja
+		{
+			get
+			{
+				return this.hoja;
+			}
+			set
+			{
+				this.hoja = value;
+			}
+		}
+		
+		private string folio;
+		public virtual string Folio
+		{
+			get
+			{
+				return this.folio;
+			}
+			set
+			{
+				this.folio = value;
+			}
+		}
+		
 		private IList<Superusuario> superusuarios = new List<Superusuario>();
 		public virtual IList<Superusuario> Superusuarios
 		{

@@ -92,7 +92,10 @@ namespace AriFacEleWiS
                           where numFactura == f.Numfactu && f.Codtipom == codTipom && f.Fecfactu == fecha
                           select f).FirstOrDefault<Scafac>();
 
-            Facturae facturasE = cf.GenerarFacturaAriGes(fac, ctx0, iban);
+            // REGMERCANTIL: Ahora hay que obtener los datos de registro mercantil, le 
+            // pasamos un nuevo contexto para que se extraiga la información
+
+            Facturae facturasE = cf.GenerarFacturaAriGes(fac, ctx0, iban, ctx1);
 
             //Crear fichero FacturaE
             XmlSerializer serializer = new XmlSerializer(typeof(Facturae));

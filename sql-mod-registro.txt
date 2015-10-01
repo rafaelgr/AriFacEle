@@ -1,0 +1,8 @@
+ALTER TABLE `facelec_ariadna`.`empresa`   
+  ADD COLUMN `registro` VARCHAR(20) NULL AFTER `cif`,
+  ADD COLUMN `seccion` VARCHAR(20) NULL AFTER `registro`,
+  ADD COLUMN `tomo` VARCHAR(20) NULL AFTER `seccion`,
+  ADD COLUMN `libro` VARCHAR(20) NULL AFTER `tomo`,
+  ADD COLUMN `hoja` VARCHAR(20) NULL AFTER `libro`,
+  ADD COLUMN `folio` VARCHAR(20) NULL AFTER `hoja`,
+  ADD COLUMN `regcomentarios` VARCHAR(20) NULL AFTER `folio`;

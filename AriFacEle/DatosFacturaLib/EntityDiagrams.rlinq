@@ -9,13 +9,34 @@
           <orm:single-field field-name="idEmpresa" />
         </orm:identity>
         <orm:field name="idEmpresa" property="Id_empresa" null-value="none" uniqueId="e17e233b-d577-4f02-a5a3-fba045de17b5" type="System.Int32">
-          <orm:column name="id_empresa" sql-type="INTEGER" nullable="false" length="0" scale="0" primary-key="true" backend-calculated="true" ado-type="Int32" />
+          <orm:column name="id_empresa" sql-type="integer" nullable="false" length="0" scale="0" primary-key="true" backend-calculated="true" ado-type="Int32" />
         </orm:field>
         <orm:field name="nombre" property="Nombre" null-value="none" uniqueId="efd17e13-1b25-48d6-a46b-1ff98c796039" type="System.String">
-          <orm:column name="nombre" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="Varchar" />
+          <orm:column name="nombre" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="StringVariableLength" />
         </orm:field>
         <orm:field name="cif" property="Cif" null-value="none" uniqueId="98625c70-e845-4908-a4da-5b89d9789018" type="System.String">
-          <orm:column name="cif" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="Varchar" />
+          <orm:column name="cif" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="StringVariableLength" />
+        </orm:field>
+        <orm:field name="tomo" property="Tomo" behavior="readwrite" uniqueId="e85d4798-ff0e-4a07-bbf8-11db56ba562d" type="System.String">
+          <orm:column nullable="true" length="20" name="tomo" scale="0" sql-type="varchar" ado-type="StringVariableLength" />
+        </orm:field>
+        <orm:field name="seccion" property="Seccion" behavior="readwrite" uniqueId="b6f2e664-9344-4ee5-813f-57ac77ccdbdf" type="System.String">
+          <orm:column nullable="true" length="20" name="seccion" scale="0" sql-type="varchar" ado-type="StringVariableLength" />
+        </orm:field>
+        <orm:field name="registro" property="Registro" behavior="readwrite" uniqueId="d838761a-6ced-41a5-9b54-f779b12259c3" type="System.String">
+          <orm:column nullable="true" length="20" name="registro" scale="0" sql-type="varchar" ado-type="StringVariableLength" />
+        </orm:field>
+        <orm:field name="regcomentarios" property="Regcomentarios" behavior="readwrite" uniqueId="7ce4a287-7f08-4788-a62e-0c583c75b479" type="System.String">
+          <orm:column nullable="true" length="20" name="regcomentarios" scale="0" sql-type="varchar" ado-type="StringVariableLength" />
+        </orm:field>
+        <orm:field name="libro" property="Libro" behavior="readwrite" uniqueId="a052445f-ee4b-420d-b8cd-4f76f2e1c9b9" type="System.String">
+          <orm:column nullable="true" length="20" name="libro" scale="0" sql-type="varchar" ado-type="StringVariableLength" />
+        </orm:field>
+        <orm:field name="hoja" property="Hoja" behavior="readwrite" uniqueId="24cc6ec3-7201-43ec-ab48-f2eabe87d63f" type="System.String">
+          <orm:column nullable="true" length="20" name="hoja" scale="0" sql-type="varchar" ado-type="StringVariableLength" />
+        </orm:field>
+        <orm:field name="folio" property="Folio" behavior="readwrite" uniqueId="3f167047-83e3-418f-ac9a-4cad28ae533b" type="System.String">
+          <orm:column nullable="true" length="20" name="folio" scale="0" sql-type="varchar" ado-type="StringVariableLength" />
         </orm:field>
         <orm:field name="superusuarios" property="Superusuarios" null-value="none" uniqueId="38ec2cf3-2d8f-402c-98df-b62a0b2932f6" type="DatosFacturaLib.Superusuario">
           <orm:collection element-class="DatosFacturaLib.Superusuario" inverse-field="empresa" managed="true" order-by="" uniqueId="d89259b3-30ef-4408-99f9-24e783d2b0f3" />
@@ -411,9 +432,16 @@
     </orm:namespace>
     <orm:schema schema="">
       <orm:table name="empresa">
-        <orm:column name="id_empresa" sql-type="INTEGER" nullable="false" length="0" scale="0" primary-key="true" backend-calculated="true" ado-type="Int32" />
-        <orm:column name="nombre" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="Varchar" />
-        <orm:column name="cif" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="Varchar" />
+        <orm:column name="id_empresa" sql-type="integer" nullable="false" length="0" scale="0" primary-key="true" backend-calculated="true" ado-type="Int32" />
+        <orm:column name="nombre" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="StringVariableLength" />
+        <orm:column name="cif" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="StringVariableLength" />
+        <orm:column nullable="true" length="20" name="tomo" scale="0" sql-type="varchar" ado-type="StringVariableLength" />
+        <orm:column nullable="true" length="20" name="seccion" scale="0" sql-type="varchar" ado-type="StringVariableLength" />
+        <orm:column nullable="true" length="20" name="registro" scale="0" sql-type="varchar" ado-type="StringVariableLength" />
+        <orm:column nullable="true" length="20" name="regcomentarios" scale="0" sql-type="varchar" ado-type="StringVariableLength" />
+        <orm:column nullable="true" length="20" name="libro" scale="0" sql-type="varchar" ado-type="StringVariableLength" />
+        <orm:column nullable="true" length="20" name="hoja" scale="0" sql-type="varchar" ado-type="StringVariableLength" />
+        <orm:column nullable="true" length="20" name="folio" scale="0" sql-type="varchar" ado-type="StringVariableLength" />
       </orm:table>
       <orm:table name="factura">
         <orm:column name="id_factura" sql-type="integer" nullable="false" length="0" scale="0" primary-key="true" backend-calculated="true" ado-type="Int32" />
@@ -584,6 +612,13 @@
       <Property Id="e17e233b-d577-4f02-a5a3-fba045de17b5" name="Id_empresa" type="Int32" label="Id_empresa : Int32" kind="Persistent" identity="true" fieldName="idEmpresa" />
       <Property Id="efd17e13-1b25-48d6-a46b-1ff98c796039" name="Nombre" label="Nombre : String" kind="Persistent" fieldName="nombre" />
       <Property Id="98625c70-e845-4908-a4da-5b89d9789018" name="Cif" label="Cif : String" kind="Persistent" fieldName="cif" />
+      <Property Id="e85d4798-ff0e-4a07-bbf8-11db56ba562d" name="Tomo" label="Tomo : String" kind="Persistent" fieldName="tomo" />
+      <Property Id="b6f2e664-9344-4ee5-813f-57ac77ccdbdf" name="Seccion" label="Seccion : String" kind="Persistent" fieldName="seccion" />
+      <Property Id="d838761a-6ced-41a5-9b54-f779b12259c3" name="Registro" label="Registro : String" kind="Persistent" fieldName="registro" />
+      <Property Id="7ce4a287-7f08-4788-a62e-0c583c75b479" name="Regcomentarios" label="Regcomentarios : String" kind="Persistent" fieldName="regcomentarios" />
+      <Property Id="a052445f-ee4b-420d-b8cd-4f76f2e1c9b9" name="Libro" label="Libro : String" kind="Persistent" fieldName="libro" />
+      <Property Id="24cc6ec3-7201-43ec-ab48-f2eabe87d63f" name="Hoja" label="Hoja : String" kind="Persistent" fieldName="hoja" />
+      <Property Id="3f167047-83e3-418f-ac9a-4cad28ae533b" name="Folio" label="Folio : String" kind="Persistent" fieldName="folio" />
       <navigationalProperties>
         <classHasNavigationalProperties Id="aec44efe-3014-4812-a181-4865266c6581">
           <NavigationalProperty Id="38ec2cf3-2d8f-402c-98df-b62a0b2932f6" name="Superusuarios" type="IList&lt;Superusuario&gt;" label="Superusuarios : IList&lt;Superusuario&gt;" nullable="true" kind="Persistent" fieldName="superusuarios" isDependent="false" isManaged="true" />

@@ -23,17 +23,19 @@ namespace FacturaE
             InvoicesGdes(facE, gdesHeader, ctx0);
             return facE;
         }
-        
-        public Facturae GenerarFacturaAriGes(Scafac factura, ArigesContext ctx0, string numCuenta)
-        {
-            ctx1 = ctx0;
 
-            Sparam empresa = (from emp in ctx1.Sparams
+        public Facturae GenerarFacturaAriGes(Scafac factura, ArigesContext ctx0, string numCuenta, FacturaEntity ctx1)
+        {
+            Sparam empresa = (from emp in ctx0.Sparams
                               select emp).FirstOrDefault<Sparam>();
+            Empresa emp2 = (from e in ctx1.Empresas
+                            where e.Cif == empresa.Cifempre
+                            select e).FirstOrDefault<Empresa>();
+
 
             Facturae facE = new Facturae();
             FileHeaderAriGes(facE, factura);
-            PartiesAriGes(facE, empresa, factura);
+            PartiesAriGes(facE, empresa, factura, emp2);
             InvoicesAriGes(facE, factura, numCuenta);
             return facE;
         }
@@ -656,7 +658,7 @@ namespace FacturaE
             fcte.Parties.BuyerParty.Item = legalEntity;
         }
             
-        private void PartiesAriGes(Facturae fcte, Sparam empresa, Scafac factura)
+        private void PartiesAriGes(Facturae fcte, Sparam empresa, Scafac factura, Empresa emp2)
         {
             // TODO: Person type code must be obtained from NIF
             fcte.Parties = new PartiesType();
@@ -681,7 +683,18 @@ namespace FacturaE
             address.Province = empresa.Proempre;
             address.CountryCode = CountryType.ESP;
             legalEntity.Item = address;
-            
+            if (emp2 != null)
+            {
+                RegistrationDataType registro = new RegistrationDataType();
+                registro.AdditionalRegistrationData = emp2.Regcomentarios;
+                registro.Book = emp2.Libro;
+                registro.Folio = emp2.Folio;
+                registro.RegisterOfCompaniesLocation = emp2.Registro;
+                registro.Section = emp2.Seccion;
+                registro.Sheet = emp2.Hoja;
+                registro.Volume = emp2.Tomo;
+                legalEntity.RegistrationData = registro;
+            }
             
             
             fcte.Parties.SellerParty.Item = legalEntity;
