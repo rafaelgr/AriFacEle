@@ -31,12 +31,11 @@ namespace FacturaE
             Empresa emp2 = (from e in ctx1.Empresas
                             where e.Cif == empresa.Cifempre
                             select e).FirstOrDefault<Empresa>();
-
-
+            
             Facturae facE = new Facturae();
-            FileHeaderAriGes(facE, factura);
-            PartiesAriGes(facE, empresa, factura, emp2);
-            InvoicesAriGes(facE, factura, numCuenta);
+            FileHeaderAriGes(facE, factura, ctx0);
+            PartiesAriGes(facE, empresa, factura, emp2, ctx0);
+            InvoicesAriGes(facE, factura, numCuenta, ctx0);
             return facE;
         }
         
@@ -495,9 +494,9 @@ namespace FacturaE
             return codTipom;
         }
 
-        private string getLetraSerie(string codtipom)
+        private string getLetraSerie(string codtipom, ArigesContext ctx0)
         {
-            return (from c in ctx1.Stipoms
+            return (from c in ctx0.Stipoms
                     where c.Codtipom == codtipom
                     select c).FirstOrDefault<Stipom>().Letraser;
         }
@@ -528,8 +527,8 @@ namespace FacturaE
             fcte.FileHeader.Batch.TotalExecutableAmount.TotalAmount = new DoubleTwoDecimalType((double)gdesHeader.InvoiceTotals);
             fcte.FileHeader.Batch.InvoiceCurrencyCode = CurrencyCodeType.EUR; // invoices is in euros
         }
-            
-        private void FileHeaderAriGes(Facturae fcte, Scafac factura)
+
+        private void FileHeaderAriGes(Facturae fcte, Scafac factura, ArigesContext ctx0)
         {
             // File Header.
             fcte.FileHeader = new FileHeaderType();
@@ -538,7 +537,7 @@ namespace FacturaE
             fcte.FileHeader.InvoiceIssuerType = InvoiceIssuerTypeType.EM; // Issuer is "EMISOR"
                 
             // Constructing batch identifier = Issuer nif + invoice serial + invoice number + invoice date
-            string letrafac = getLetraSerie(factura.Codtipom);
+            string letrafac = getLetraSerie(factura.Codtipom, ctx0);
             string batchIdentifier = String.Format("{0}{1}{2:0000000}{3:yyyMMdd}",
                 factura.Nifclien,
                 letrafac,
@@ -658,7 +657,7 @@ namespace FacturaE
             fcte.Parties.BuyerParty.Item = legalEntity;
         }
             
-        private void PartiesAriGes(Facturae fcte, Sparam empresa, Scafac factura, Empresa emp2)
+        private void PartiesAriGes(Facturae fcte, Sparam empresa, Scafac factura, Empresa emp2, ArigesContext ctx0)
         {
             // TODO: Person type code must be obtained from NIF
             fcte.Parties = new PartiesType();
@@ -699,7 +698,7 @@ namespace FacturaE
             
             fcte.Parties.SellerParty.Item = legalEntity;
             
-            AriFacElec.Sclien cliente = (from c in ctx1.Scliens
+            AriFacElec.Sclien cliente = (from c in ctx0.Scliens
                                          where c.Codclien == factura.Codclien
                                          select c).FirstOrDefault<AriFacElec.Sclien>();
             fcte.Parties.BuyerParty = new BusinessType();
@@ -918,12 +917,12 @@ namespace FacturaE
             return il;
         }
             
-        private InvoiceLineType InvoiceLine(Slifac line, ContaContext ctx2)
+        // -- TEINSA -- Control de descuentos
+        private InvoiceLineType InvoiceLine(Slifac line, ContaContext ctx2, ArigesContext ctx0)
         {
             byte codigIva = line.Sartic.Codigiva;
             decimal porcentIva = obtenerPorcentajeIva(ctx2, codigIva);
-            Spara1 param1 = ctx1.Spara1.FirstOrDefault<Spara1>();
-            
+            Spara1 param1 = ctx0.Spara1.FirstOrDefault<Spara1>();
             InvoiceLineType il = new InvoiceLineType();
             il.ItemDescription = line.Nomartic;
             if (line.Ampliaci != null)
@@ -942,34 +941,37 @@ namespace FacturaE
 
             double totalLineDiscounts = 0.0;
             DiscountType discountType;
-                
+
             if (line.Dtoline1 != (decimal)0.0)
             {
                 il.DiscountsAndRebates = new DiscountType[2];
-                
+
                 discountType = new DiscountType();
                 discountType.DiscountRate = new DoubleFourDecimalType((double)line.Dtoline1);
-                discountType.DiscountAmount = new DoubleSixDecimalType((double)line.Cantidad * (double)line.Precioar * ((double)line.Dtoline1 / 100));
+                discountType.DiscountAmount = new DoubleSixDecimalType(Math.Round((double)line.Cantidad * (double)line.Precioar * ((double)line.Dtoline1 / 100),2));
                 discountType.DiscountReason = "Descuento 1.";
                 discountType.DiscountRateSpecified = true;
                 il.DiscountsAndRebates[0] = discountType;
                 totalLineDiscounts += discountType.DiscountAmount;
-                    
+
                 if (line.Dtoline2 != (decimal)0.0)
                 {
                     discountType = new DiscountType();
                     discountType.DiscountRate = new DoubleFourDecimalType((double)line.Dtoline2);
-                    if (param1.Ordendto == 0)
-                        discountType.DiscountAmount = new DoubleSixDecimalType((double)line.Cantidad * (double)line.Precioar * ((double)line.Dtoline2 / 100));
+                    if (param1.Tipodtos == 0)
+                        discountType.DiscountAmount = new DoubleSixDecimalType(Math.Round((double)line.Cantidad * (double)line.Precioar * ((double)line.Dtoline2 / 100),2));
                     else
-                        discountType.DiscountAmount = new DoubleSixDecimalType(((double)line.Cantidad * (double)line.Precioar - il.DiscountsAndRebates[0].DiscountAmount) * ((double)line.Dtoline2 / 100));
+                        discountType.DiscountAmount = new DoubleSixDecimalType(Math.Round(((double)line.Cantidad * (double)line.Precioar - il.DiscountsAndRebates[0].DiscountAmount) * ((double)line.Dtoline2 / 100),2));
                     discountType.DiscountReason = "Descuento 2.";
                     discountType.DiscountRateSpecified = true;
                     il.DiscountsAndRebates[1] = discountType;
                     totalLineDiscounts += discountType.DiscountAmount;
                 }
             }
-            il.GrossAmount = new DoubleSixDecimalType(grossAmount - totalLineDiscounts);
+
+
+            //il.GrossAmount = new DoubleSixDecimalType(grossAmount - totalLineDiscounts);
+            il.GrossAmount = new DoubleSixDecimalType((double)line.Importel);
             il.TaxesOutputs = new InvoiceLineTypeTax[1]; // only one tax per line
             InvoiceLineTypeTax lTax = new InvoiceLineTypeTax();
             lTax.TaxTypeCode = TaxTypeCodeType.Item01; // always VAT
@@ -981,14 +983,14 @@ namespace FacturaE
             il.TaxesOutputs[0] = lTax;
             return il;
         }
-            
-        private void InvoicesAriGes(Facturae fcte, Scafac factura, string numCuenta)
+
+        private void InvoicesAriGes(Facturae fcte, Scafac factura, string numCuenta, ArigesContext ctx0)
         {
             fcte.Invoices = new InvoiceType[1]; // One invoice only
             InvoiceType inv = new InvoiceType();
             inv.InvoiceHeader = new InvoiceHeaderType();
             inv.InvoiceHeader.InvoiceNumber = factura.Numfactu.ToString();
-            inv.InvoiceHeader.InvoiceSeriesCode = getLetraSerie(factura.Codtipom).ToString();
+            inv.InvoiceHeader.InvoiceSeriesCode = getLetraSerie(factura.Codtipom, ctx0).ToString();
             inv.InvoiceHeader.InvoiceClass = InvoiceClassType.OO; // TODO: We are fixing invoice class value (perhaps incorrect)
             
             inv.InvoiceIssueData = new InvoiceIssueDataType();
@@ -1108,14 +1110,14 @@ namespace FacturaE
             inv.InvoiceTotals.TotalExecutableAmount = new DoubleTwoDecimalType((double)factura.Totalfac);
             
             //-- Invoice lines
-            Spara1 param1 = ctx1.Spara1.FirstOrDefault<Spara1>();
+            Spara1 param1 = ctx0.Spara1.FirstOrDefault<Spara1>();
             ctx2 = new ContaContext("contaEntity");
             
             i = 0;
             inv.Items = new InvoiceLineType[factura.Slifacs.Count]; // dimension = number of lines
             foreach (Slifac ln in factura.Slifacs)
             {
-                inv.Items[i] = InvoiceLine(ln, ctx2);
+                inv.Items[i] = InvoiceLine(ln, ctx2, ctx0);
                 i++;
             }
             fcte.Invoices[0] = inv;

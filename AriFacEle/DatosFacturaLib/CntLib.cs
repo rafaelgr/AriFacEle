@@ -352,6 +352,7 @@ namespace DatosFacturaLib
             Factura fac;
             Cliente cli;
             bool usaDepartamentos = false;
+            bool yaEstaba = false;
             string codtipom = getCodtipom(numSerie, ctxAriges);
             Scafac ariFactura = (from c in ctxAriges.Scafacs
                                  where c.Numfactu == numfactura && c.Codtipom == codtipom && c.Fecfactu == fecha
@@ -361,9 +362,14 @@ namespace DatosFacturaLib
             {
                 //Linka por sistemId tb
                 fac = (from f in ctx1.Facturas
-                       where f.Num_factura == ariFactura.Numfactu && f.Num_serie == numSerie.ToString() && f.Sistema.SistemaId  == s.SistemaId 
+                       where f.Num_factura == ariFactura.Numfactu && f.Num_serie == numSerie.ToString() && f.Sistema.SistemaId  == s.SistemaId && f.Fecha == ariFactura.Fecfactu
                        select f).FirstOrDefault<Factura>();
-
+                if (fac != null)
+                {
+                    ctx1.Delete(fac);
+                    ctx1.SaveChanges();
+                }
+                fac = null;
                 cli = (from c in ctx1.Clientes
                        where c.Cif == ariFactura.Sclien.Nifclien
                        //&& c.coddirec_ariges == ariFactura.Coddirec
@@ -401,7 +407,7 @@ namespace DatosFacturaLib
                         fac.Cliente = cli;
                     }
                 }
-                if (EsAriges1)
+                 if (EsAriges1)
                 {
                     fac.Cliente.CodclienAriges = ariFactura.Sclien.Codclien;
                     fac.Cliente.CodClienAriges2 = 0;
