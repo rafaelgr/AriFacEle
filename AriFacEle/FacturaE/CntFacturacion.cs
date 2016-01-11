@@ -977,7 +977,8 @@ namespace FacturaE
             lTax.TaxTypeCode = TaxTypeCodeType.Item01; // always VAT
             lTax.TaxRate = new DoubleTwoDecimalType((double)porcentIva);
             lTax.TaxableBase = new AmountType();
-            lTax.TaxableBase.TotalAmount = new DoubleTwoDecimalType(grossAmount);
+            //lTax.TaxableBase.TotalAmount = new DoubleTwoDecimalType(grossAmount);
+            lTax.TaxableBase.TotalAmount = new DoubleTwoDecimalType((double)line.Importel - taxAmount);
             lTax.TaxAmount = new AmountType();
             lTax.TaxAmount.TotalAmount = new DoubleTwoDecimalType(taxAmount);
             il.TaxesOutputs[0] = lTax;
