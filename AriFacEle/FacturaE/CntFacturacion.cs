@@ -972,6 +972,7 @@ namespace FacturaE
 
             //il.GrossAmount = new DoubleSixDecimalType(grossAmount - totalLineDiscounts);
             il.GrossAmount = new DoubleSixDecimalType((double)line.Importel);
+            il.TotalCost = il.GrossAmount;
             il.TaxesOutputs = new InvoiceLineTypeTax[1]; // only one tax per line
             InvoiceLineTypeTax lTax = new InvoiceLineTypeTax();
             lTax.TaxTypeCode = TaxTypeCodeType.Item01; // always VAT
