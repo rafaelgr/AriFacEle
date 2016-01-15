@@ -751,7 +751,14 @@ namespace DatosFacturaLib
             {
                 fac = (from f in ctx1.Facturas
                        where f.Num_factura == ariFactura.Numfactu && f.Num_serie == numSerie.ToString() && f.Fecha ==fecha
-                       select f).FirstOrDefault<Factura>();  
+                       select f).FirstOrDefault<Factura>();
+                if (fac != null)
+                {
+                    // eliminar la factura porque la vamos a crear.
+                    ctx1.Delete(fac);
+                    ctx1.SaveChanges();
+                    fac = null;
+                }
                 //abril 2013
                 // Linkara por nif y CODCLIEN teletaxi
 
@@ -851,6 +858,14 @@ namespace DatosFacturaLib
                 // comprobaciones necesarias
                 VerificarNif(ariCuota.Sclien.Nifclien, ariCuota.Sclien.Nomclien, ctx1);
                 VerificarUsuario(ariCuota.Sclien.Nifclien, ctx1);
+
+                if (fac != null)
+                {
+                    ctx1.Delete(fac);
+                    ctx1.SaveChanges();
+                    fac = null;
+                }
+
 
                 if (fac == null)
                 {
@@ -1001,6 +1016,13 @@ namespace DatosFacturaLib
                 // comprobaciones necesarias
                 VerificarNif(ariFactura.Sclien.Nifclien, ariFactura.Sclien.Nomclien, ctx1);
                 VerificarUsuario(ariFactura.Sclien.Nifclien, ctx1);
+
+                if (fac != null)
+                {
+                    ctx1.Delete(fac);
+                    ctx1.SaveChanges();
+                    fac = null;
+                }
 
                 if (fac == null)
                 {
