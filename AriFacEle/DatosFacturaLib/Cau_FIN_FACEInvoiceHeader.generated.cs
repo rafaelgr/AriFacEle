@@ -491,6 +491,32 @@ namespace DatosFacturaLib
 			}
 		}
 		
+		private DateTime _periodoFactHasta;
+		public virtual DateTime PeriodoFactHasta
+		{
+			get
+			{
+				return this._periodoFactHasta;
+			}
+			set
+			{
+				this._periodoFactHasta = value;
+			}
+		}
+		
+		private DateTime _periodoFactDesde;
+		public virtual DateTime PeriodoFactDesde
+		{
+			get
+			{
+				return this._periodoFactDesde;
+			}
+			set
+			{
+				this._periodoFactDesde = value;
+			}
+		}
+		
 	}
 }
 #pragma warning restore 1591

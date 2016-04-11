@@ -789,6 +789,12 @@ namespace FacturaE
 
             inv.InvoiceIssueData = new InvoiceIssueDataType();
             inv.InvoiceIssueData.IssueDate = gdesHeader.IssueDate;
+            DateTime fechaNula = new DateTime(1900, 1, 1);
+            if (gdesHeader.PeriodoFactDesde != fechaNula && gdesHeader.PeriodoFactHasta != fechaNula)
+            {
+                inv.InvoiceIssueData.InvoicingPeriod.StartDate = gdesHeader.PeriodoFactDesde;
+                inv.InvoiceIssueData.InvoicingPeriod.EndDate = gdesHeader.PeriodoFactHasta;
+            }
             inv.InvoiceIssueData.InvoiceCurrencyCode = CurrencyCodeType.EUR; // fixed euros
             inv.InvoiceIssueData.TaxCurrencyCode = CurrencyCodeType.EUR; // taxes in euros too.
             inv.InvoiceIssueData.LanguageName = LanguageCodeType.es; // always in Spanish

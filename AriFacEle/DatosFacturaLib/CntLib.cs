@@ -281,12 +281,14 @@ namespace DatosFacturaLib
                 // si usa departamentos
                 usaDepartamentos = false;
 
-                // ----> Dejamos en comentario esto. Hay que ver si va a existir un tratamiento de departamanetos o nó.
-                //
-                //if (usaDepartamentos && ariFactura.Coddirec != null)
-                //{
-                //    VerificarDepartamento((int)ariFactura.Sclien.Codclien, (int)ariFactura.Coddirec, ctxAriges, ctx1);
-                //}
+                // Si la factura ya existe la borramos previamente
+                // porque si no tenemos un problema para darla de alta.
+                if (fac != null)
+                {
+                    ctx1.Delete(fac);
+                    ctx1.SaveChanges();
+                    fac = null;
+                }
 
 
                 if (fac == null)
@@ -574,6 +576,12 @@ namespace DatosFacturaLib
                 VerificarNif(ariFactura.Cliente.Cifclien, ariFactura.Cliente.Nomclien, ctx1);
                 VerificarUsuario(ariFactura.Cliente.Cifclien, ctx1);
 
+                if (fac != null)
+                {
+                    ctx1.Delete(fac);
+                    ctx1.SaveChanges();
+                    fac = null;
+                }
 
                 if (fac == null)
                 {
@@ -666,6 +674,13 @@ namespace DatosFacturaLib
                 // comprobaciones necesarias
                 VerificarNif(ariFactura.Rsocio.Nifsocio, ariFactura.Rsocio.Nomsocio, ctx1);
                 VerificarUsuario(ariFactura.Rsocio.Nifsocio, ctx1);
+
+                if (fac != null)
+                {
+                    ctx1.Delete(fac);
+                    ctx1.SaveChanges();
+                    fac = null;
+                }
 
 
                 if (fac == null)

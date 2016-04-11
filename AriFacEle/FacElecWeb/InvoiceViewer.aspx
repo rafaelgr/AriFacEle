@@ -18,13 +18,13 @@
 
     </div>
     <div id="contenido">
-        <telerik:RadTabStrip ID="RadTabStrip1" runat="server" SelectedIndex="1" MultiPageID="RadMultiPage1">
+        <telerik:RadTabStrip ID="RadTabStrip1" runat="server" SelectedIndex="2" MultiPageID="RadMultiPage1">
             <Tabs>
                 <telerik:RadTab Text="Mi cuenta">
                 </telerik:RadTab>
-                <telerik:RadTab Text="Facturas" Selected="True">
+                <telerik:RadTab Text="Facturas">
                 </telerik:RadTab>
-                <telerik:RadTab Text="Facturas de proveedor">
+                <telerik:RadTab Text="Facturas de proveedor" Selected="True">
                 </telerik:RadTab>
                 <telerik:RadTab Text="Datos personales">
                 </telerik:RadTab>
@@ -35,7 +35,7 @@
             </Tabs>
         </telerik:RadTabStrip>
         <br />
-        <telerik:RadMultiPage ID="RadMultiPage1" runat="server" SelectedIndex="1">
+        <telerik:RadMultiPage ID="RadMultiPage1" runat="server" SelectedIndex="2">
             <telerik:RadPageView ID="pvCuenta" runat="server">
                 <div id="content_Micuenta" class="headContent" style="left: 10%; position: relative; width: 80%;">
                     <table id="table_Micuenta">

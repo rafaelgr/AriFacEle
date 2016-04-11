@@ -21,7 +21,7 @@ namespace AriFacEleWiS
             ////StartAsConsole(); //DEBUG
             //else
             //{
-            //    StartAsConsole();
+            //  StartAsConsole();
             //}
             //StartAsConsole();
         }

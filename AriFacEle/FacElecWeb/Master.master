@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head runat="server">
         <title>
-            Alzicoop Online
+            Tele Taxi Valencia Online
         </title>
         <link href="FacElecStyle.css" rel="stylesheet" type="text/css" />
         <style type="text/css">
@@ -75,7 +75,7 @@
                             </td>
                             <td>
                                 <div style="text-align:right; font-family:Verdana;">
-                                <h1>Alzicoop Online</h1>
+                                <h1>Tele Taxi Valencia Online</h1>
                                 <p>Consulta de documentación electrónica</p>
                                     </div>
                             </td>

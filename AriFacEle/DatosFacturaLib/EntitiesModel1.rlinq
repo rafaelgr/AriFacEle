@@ -18,10 +18,10 @@
           <orm:column name="InvoiceNumber" sql-type="nvarchar" nullable="false" length="20" scale="0" ado-type="UnicodeStringVariableLength" />
         </orm:field>
         <orm:field name="_tAXBASEAMOUNT" property="TAXBASEAMOUNT" behavior="readwrite" uniqueId="03e5630a-16b2-4457-bd6c-19cc0cfce253" type="System.Nullable`1[[System.Decimal, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
-          <orm:column nullable="true" length="28" name="TAXBASEAMOUNT" scale="12" sql-type="numeric" ado-type="Numeric" />
+          <orm:column name="TAXBASEAMOUNT" sql-type="numeric" nullable="true" length="28" scale="12" ado-type="Numeric" />
         </orm:field>
         <orm:field name="_tAXAMOUNT" property="TAXAMOUNT" behavior="readwrite" uniqueId="ceae0386-7282-4cdf-b413-e14a078202ed" type="System.Nullable`1[[System.Decimal, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
-          <orm:column nullable="true" length="28" name="TAXAMOUNT" scale="12" sql-type="numeric" ado-type="Numeric" />
+          <orm:column name="TAXAMOUNT" sql-type="numeric" nullable="true" length="28" scale="12" ado-type="Numeric" />
         </orm:field>
       </orm:class>
       <orm:class name="Cau_FIN_FACEInvoiceLine" uniqueId="9b3fb97a-fd9e-48c0-9d7f-4f87751f5c9f">
@@ -92,7 +92,7 @@
           <orm:column name="SellerProvince" sql-type="nvarchar" nullable="false" length="60" scale="0" ado-type="UnicodeStringVariableLength" />
         </orm:field>
         <orm:field name="_sellerTown" property="SellerTown" behavior="readwrite" uniqueId="4c92d899-d959-442f-b5d9-a5702ca401f6" type="System.String">
-          <orm:column name="SellerTown" sql-type="nvarchar" nullable="false" length="60" scale="0" ado-type="UnicodeStringVariableLength" />
+          <orm:column name="SellerTown" sql-type="nvarchar" nullable="true" length="20" scale="0" ado-type="UnicodeStringVariableLength" />
         </orm:field>
         <orm:field name="_buyerTaxIdentificationNumber" property="BuyerTaxIdentificationNumber" behavior="readwrite" uniqueId="1c7c9868-5b70-4cf5-914b-9876b6d056b3" type="System.String">
           <orm:column name="BuyerTaxIdentificationNumber" sql-type="nvarchar" nullable="false" length="20" scale="0" ado-type="UnicodeStringVariableLength" />
@@ -101,7 +101,7 @@
           <orm:column name="BuyerCorporateName" sql-type="nvarchar" nullable="false" length="60" scale="0" ado-type="UnicodeStringVariableLength" />
         </orm:field>
         <orm:field name="_buyerAddress" property="BuyerAddress" behavior="readwrite" uniqueId="e991ed54-bec4-4c33-85d6-dad438cfceee" type="System.String">
-          <orm:column name="BuyerAddress" sql-type="nvarchar" nullable="false" length="250" scale="0" ado-type="UnicodeStringVariableLength" />
+          <orm:column name="BuyerAddress" sql-type="nvarchar" nullable="true" length="80" scale="0" ado-type="UnicodeStringVariableLength" />
         </orm:field>
         <orm:field name="_buyerPostCode" property="BuyerPostCode" behavior="readwrite" uniqueId="ea5dc921-f4c2-45a7-a2f5-0137bfa6a551" type="System.String">
           <orm:column name="BuyerPostCode" sql-type="nvarchar" nullable="false" length="10" scale="0" ado-type="UnicodeStringVariableLength" />
@@ -158,10 +158,10 @@
           <orm:column name="CODIGOOFICINACONTABLE" sql-type="nvarchar" nullable="false" length="20" scale="0" ado-type="UnicodeStringVariableLength" />
         </orm:field>
         <orm:field name="_buyerProvince" property="BuyerProvince" behavior="readwrite" uniqueId="a58e9e84-bb5b-4582-9453-681f570bdc87" type="System.String">
-          <orm:column name="BuyerProvince" sql-type="nvarchar" nullable="true" length="60" scale="0" ado-type="UnicodeStringVariableLength" />
+          <orm:column name="BuyerProvince" sql-type="nvarchar" nullable="true" length="20" scale="0" ado-type="UnicodeStringVariableLength" />
         </orm:field>
         <orm:field name="_buyerTown" property="BuyerTown" behavior="readwrite" uniqueId="fb08273d-d5e4-43c2-85da-95779f4140af" type="System.String">
-          <orm:column name="BuyerTown" sql-type="nvarchar" nullable="false" length="60" scale="0" ado-type="UnicodeStringVariableLength" />
+          <orm:column name="BuyerTown" sql-type="nvarchar" nullable="true" length="20" scale="0" ado-type="UnicodeStringVariableLength" />
         </orm:field>
         <orm:field name="_installmentDueDate" property="InstallmentDueDate" behavior="readwrite" uniqueId="8be2dbd8-f2ce-4f2a-a838-8a3faa0f1f41" type="System.DateTime">
           <orm:column name="InstallmentDueDate" sql-type="datetime" nullable="false" length="0" scale="0" ado-type="DateTime" />
@@ -175,6 +175,12 @@
         <orm:field name="_iBAN" property="IBAN" behavior="readwrite" uniqueId="b37dc3ed-b1fa-4254-8596-f267138c2ebe" type="System.String">
           <orm:column name="IBAN" sql-type="nvarchar" nullable="false" length="34" scale="0" ado-type="UnicodeStringVariableLength" />
         </orm:field>
+        <orm:field name="_periodoFactHasta" property="PeriodoFactHasta" behavior="readwrite" uniqueId="d213bdbf-e8cf-47d0-a345-73af8882c7f3" type="System.DateTime">
+          <orm:column nullable="false" length="0" name="PeriodoFactHasta" scale="0" sql-type="datetime" ado-type="DateTime" />
+        </orm:field>
+        <orm:field name="_periodoFactDesde" property="PeriodoFactDesde" behavior="readwrite" uniqueId="690d9302-9192-4175-85f9-7fa71d24cdce" type="System.DateTime">
+          <orm:column nullable="false" length="0" name="PeriodoFactDesde" scale="0" sql-type="datetime" ado-type="DateTime" />
+        </orm:field>
       </orm:class>
     </orm:namespace>
     <orm:schema schema="">
@@ -182,8 +188,8 @@
         <orm:column name="TaxRate" sql-type="numeric" nullable="false" length="28" scale="12" ado-type="Numeric" />
         <orm:column name="ID" sql-type="nvarchar" nullable="false" length="23" scale="0" primary-key="true" ado-type="UnicodeStringVariableLength" />
         <orm:column name="InvoiceNumber" sql-type="nvarchar" nullable="false" length="20" scale="0" ado-type="UnicodeStringVariableLength" />
-        <orm:column nullable="true" length="28" name="TAXBASEAMOUNT" scale="12" sql-type="numeric" ado-type="Numeric" />
-        <orm:column nullable="true" length="28" name="TAXAMOUNT" scale="12" sql-type="numeric" ado-type="Numeric" />
+        <orm:column name="TAXBASEAMOUNT" sql-type="numeric" nullable="true" length="28" scale="12" ado-type="Numeric" />
+        <orm:column name="TAXAMOUNT" sql-type="numeric" nullable="true" length="28" scale="12" ado-type="Numeric" />
       </orm:table>
       <orm:table name="cau_FIN_FACEInvoiceLines" view="true">
         <orm:column name="ID" sql-type="nvarchar" nullable="false" length="23" scale="0" primary-key="true" ado-type="UnicodeStringVariableLength" />
@@ -205,10 +211,10 @@
         <orm:column name="SellerPostCode" sql-type="nvarchar" nullable="false" length="10" scale="0" ado-type="UnicodeStringVariableLength" />
         <orm:column name="SellerCountryCode" sql-type="nvarchar" nullable="false" length="13" scale="0" ado-type="UnicodeStringVariableLength" />
         <orm:column name="SellerProvince" sql-type="nvarchar" nullable="false" length="60" scale="0" ado-type="UnicodeStringVariableLength" />
-        <orm:column name="SellerTown" sql-type="nvarchar" nullable="false" length="60" scale="0" ado-type="UnicodeStringVariableLength" />
+        <orm:column name="SellerTown" sql-type="nvarchar" nullable="true" length="20" scale="0" ado-type="UnicodeStringVariableLength" />
         <orm:column name="BuyerTaxIdentificationNumber" sql-type="nvarchar" nullable="false" length="20" scale="0" ado-type="UnicodeStringVariableLength" />
         <orm:column name="BuyerCorporateName" sql-type="nvarchar" nullable="false" length="60" scale="0" ado-type="UnicodeStringVariableLength" />
-        <orm:column name="BuyerAddress" sql-type="nvarchar" nullable="false" length="250" scale="0" ado-type="UnicodeStringVariableLength" />
+        <orm:column name="BuyerAddress" sql-type="nvarchar" nullable="true" length="80" scale="0" ado-type="UnicodeStringVariableLength" />
         <orm:column name="BuyerPostCode" sql-type="nvarchar" nullable="false" length="10" scale="0" ado-type="UnicodeStringVariableLength" />
         <orm:column name="BuyerCountryCode" sql-type="nvarchar" nullable="false" length="13" scale="0" ado-type="UnicodeStringVariableLength" />
         <orm:column name="InvoiceNumber" sql-type="nvarchar" nullable="false" length="20" scale="0" ado-type="UnicodeStringVariableLength" />
@@ -227,12 +233,14 @@
         <orm:column name="CODIGOUNIDADTRAMITADORA" sql-type="nvarchar" nullable="false" length="20" scale="0" ado-type="UnicodeStringVariableLength" />
         <orm:column name="CODIGOORGANOGESTOR" sql-type="nvarchar" nullable="false" length="20" scale="0" ado-type="UnicodeStringVariableLength" />
         <orm:column name="CODIGOOFICINACONTABLE" sql-type="nvarchar" nullable="false" length="20" scale="0" ado-type="UnicodeStringVariableLength" />
-        <orm:column name="BuyerProvince" sql-type="nvarchar" nullable="true" length="60" scale="0" ado-type="UnicodeStringVariableLength" />
-        <orm:column name="BuyerTown" sql-type="nvarchar" nullable="false" length="60" scale="0" ado-type="UnicodeStringVariableLength" />
+        <orm:column name="BuyerProvince" sql-type="nvarchar" nullable="true" length="20" scale="0" ado-type="UnicodeStringVariableLength" />
+        <orm:column name="BuyerTown" sql-type="nvarchar" nullable="true" length="20" scale="0" ado-type="UnicodeStringVariableLength" />
         <orm:column name="InstallmentDueDate" sql-type="datetime" nullable="false" length="0" scale="0" ado-type="DateTime" />
         <orm:column name="InstallmentAmount" sql-type="numeric" nullable="false" length="28" scale="12" ado-type="Numeric" />
         <orm:column name="PaymentMeans" sql-type="varchar" nullable="false" length="2" scale="0" ado-type="StringVariableLength" />
         <orm:column name="IBAN" sql-type="nvarchar" nullable="false" length="34" scale="0" ado-type="UnicodeStringVariableLength" />
+        <orm:column nullable="false" length="0" name="PeriodoFactHasta" scale="0" sql-type="datetime" ado-type="DateTime" />
+        <orm:column nullable="false" length="0" name="PeriodoFactDesde" scale="0" sql-type="datetime" ado-type="DateTime" />
       </orm:table>
     </orm:schema>
     <orm:relational-naming-settings>
@@ -323,6 +331,8 @@
       <Property Id="4946568c-733f-4449-bc78-5ebd3de6f7ff" name="TotalGrossAmountBeforeTaxes" type="Decimal" label="TotalGrossAmountBeforeTaxes : Decimal" kind="Persistent" fieldName="_totalGrossAmountBeforeTaxes" />
       <Property Id="ce70ad2a-b288-4959-a591-9c603e584876" name="TotalOutstandingAmount" type="Decimal" label="TotalOutstandingAmount : Decimal" kind="Persistent" fieldName="_totalOutstandingAmount" />
       <Property Id="1afc19b6-d330-4a71-911c-ff74ea83aa24" name="TotalTaxOutputs" type="Decimal" label="TotalTaxOutputs : Decimal" kind="Persistent" fieldName="_totalTaxOutputs" />
+      <Property Id="d213bdbf-e8cf-47d0-a345-73af8882c7f3" name="PeriodoFactHasta" type="DateTime" label="PeriodoFactHasta : DateTime" kind="Persistent" fieldName="_periodoFactHasta" />
+      <Property Id="690d9302-9192-4175-85f9-7fa71d24cdce" name="PeriodoFactDesde" type="DateTime" label="PeriodoFactDesde : DateTime" kind="Persistent" fieldName="_periodoFactDesde" />
     </DomainClass>
   </Types>
   <domainContext>
