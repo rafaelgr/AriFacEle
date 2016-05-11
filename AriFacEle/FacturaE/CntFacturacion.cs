@@ -150,35 +150,37 @@ namespace FacturaE
                                          u.OrganoGestorCodigo == cFacturae.OrganoGestorCodigo &&
                                          u.UnidadTramitadoraCodigo == cFacturae.UnidadTramitadoraCodigo
                                    select u).FirstOrDefault<Unidad>();
+                    
+                    // De momento montamos todas las direcciones como comunes
+                    address = new AddressType();
+                    if (cliente.Domclien.Length > 80)
+                        aux = cliente.Domclien.Substring(0, 80);
+                    else
+                        aux = cliente.Domclien;
+                    address.Address = aux;
+                    // 9
+                    if (cliente.Codpobla.Length > 9)
+                        aux = cliente.Codpobla.Substring(0, 80);
+                    else
+                        aux = cliente.Codpobla;
+                    address.PostCode = aux;
+                    // 50
+                    if (cliente.Pobclien.Length > 50)
+                        aux = cliente.Pobclien.Substring(0, 50);
+                    else
+                        aux = cliente.Pobclien;
+                    address.Town = aux;
+                    // 20
+                    if (cliente.Proclien.Length > 20)
+                        aux = cliente.Proclien.Substring(0, 20);
+                    else
+                        aux = cliente.Proclien;
+                    address.Province = aux;
+
+                    address.CountryCode = CountryType.ESP;
+
                     if (uAdm != null)
                     {
-                        // De momento montamos todas las direcciones como comunes
-                        address = new AddressType();
-                        if (cliente.Domclien.Length > 80)
-                            aux = cliente.Domclien.Substring(0, 80);
-                        else
-                            aux = cliente.Domclien;
-                        address.Address = aux;
-                        // 9
-                        if (cliente.Codpobla.Length > 9)
-                            aux = cliente.Codpobla.Substring(0, 80);
-                        else
-                            aux = cliente.Codpobla;
-                        address.PostCode = aux;
-                        // 50
-                        if (cliente.Pobclien.Length > 50)
-                            aux = cliente.Pobclien.Substring(0, 50);
-                        else
-                            aux = cliente.Pobclien;
-                        address.Town = aux;
-                        // 20
-                        if (cliente.Proclien.Length > 20)
-                            aux = cliente.Proclien.Substring(0, 20);
-                        else
-                            aux = cliente.Proclien;
-                        address.Province = aux;
-                        
-                        address.CountryCode = CountryType.ESP;
                         // Ahora montamos las diferentes unidades administrativas (3)
                         fcte.Parties.BuyerParty.AdministrativeCentres = new AdministrativeCentreType[3];
                         AdministrativeCentreType admCenter = new AdministrativeCentreType();
@@ -204,6 +206,35 @@ namespace FacturaE
                         admCenter.RoleTypeCodeSpecified = true;
                         admCenter.Item = address;
                         admCenter.CentreDescription = uAdm.OficinaContableNombre;
+                        fcte.Parties.BuyerParty.AdministrativeCentres[2] = admCenter;
+                    }
+                    else
+                    {
+                        // Ahora montamos las diferentes unidades administrativas (3)
+                        fcte.Parties.BuyerParty.AdministrativeCentres = new AdministrativeCentreType[3];
+                        AdministrativeCentreType admCenter = new AdministrativeCentreType();
+                        // Organo gestor
+                        admCenter.CentreCode = cFacturae.OrganoGestorCodigo;
+                        admCenter.RoleTypeCode = RoleTypeCodeType.Item02;
+                        admCenter.RoleTypeCodeSpecified = true;
+                        admCenter.Item = address;
+                        admCenter.CentreDescription = cliente.Nomclien;
+                        fcte.Parties.BuyerParty.AdministrativeCentres[0] = admCenter;
+                        // Unidad tramitadora
+                        admCenter = new AdministrativeCentreType();
+                        admCenter.CentreCode = cFacturae.UnidadTramitadoraCodigo;
+                        admCenter.RoleTypeCode = RoleTypeCodeType.Item03;
+                        admCenter.RoleTypeCodeSpecified = true;
+                        admCenter.Item = address;
+                        admCenter.CentreDescription = cliente.Nomclien;
+                        fcte.Parties.BuyerParty.AdministrativeCentres[1] = admCenter;
+                        // oficina contable
+                        admCenter = new AdministrativeCentreType();
+                        admCenter.CentreCode = cFacturae.OficinaContableCodigo;
+                        admCenter.RoleTypeCode = RoleTypeCodeType.Item01;
+                        admCenter.RoleTypeCodeSpecified = true;
+                        admCenter.Item = address;
+                        admCenter.CentreDescription = cliente.Nomclien;
                         fcte.Parties.BuyerParty.AdministrativeCentres[2] = admCenter;
                     }
                 }
@@ -604,15 +635,17 @@ namespace FacturaE
                                      u.OrganoGestorCodigo == gdesHeader.CODIGOORGANOGESTOR &&
                                      u.UnidadTramitadoraCodigo == gdesHeader.CODIGOUNIDADTRAMITADORA
                                select u).FirstOrDefault<Unidad>();
+                
+                // De momento montamos todas las direcciones como comunes
+                address = new AddressType();
+                address.Address = gdesHeader.BuyerAddress;
+                address.PostCode = gdesHeader.BuyerPostCode;
+                address.Town = gdesHeader.BuyerTown;
+                address.Province = gdesHeader.BuyerProvince;
+                address.CountryCode = CountryType.ESP;
+
                 if (uAdm != null)
                 {
-                    // De momento montamos todas las direcciones como comunes
-                    address = new AddressType();
-                    address.Address = gdesHeader.BuyerAddress;
-                    address.PostCode = gdesHeader.BuyerPostCode;
-                    address.Town = gdesHeader.BuyerTown;
-                    address.Province = gdesHeader.BuyerProvince;
-                    address.CountryCode = CountryType.ESP;
                     // Ahora montamos las diferentes unidades administrativas (3)
                     fcte.Parties.BuyerParty.AdministrativeCentres = new AdministrativeCentreType[3];
                     AdministrativeCentreType admCenter = new AdministrativeCentreType();
@@ -625,7 +658,7 @@ namespace FacturaE
                     fcte.Parties.BuyerParty.AdministrativeCentres[0] = admCenter;
                     // Unidad tramitadora
                     admCenter = new AdministrativeCentreType();
-                    admCenter.CentreCode = uAdm.UnidadTramitadoraCodigo;
+                    admCenter.CentreCode =  uAdm.UnidadTramitadoraCodigo;
                     admCenter.RoleTypeCode = RoleTypeCodeType.Item03;
                     admCenter.RoleTypeCodeSpecified = true;
                     admCenter.Item = address;
@@ -638,6 +671,35 @@ namespace FacturaE
                     admCenter.RoleTypeCodeSpecified = true;
                     admCenter.Item = address;
                     admCenter.CentreDescription = uAdm.OficinaContableNombre;
+                    fcte.Parties.BuyerParty.AdministrativeCentres[2] = admCenter;
+                }
+                else
+                {
+                    // Ahora montamos las diferentes unidades administrativas (3)
+                    fcte.Parties.BuyerParty.AdministrativeCentres = new AdministrativeCentreType[3];
+                    AdministrativeCentreType admCenter = new AdministrativeCentreType();
+                    // Organo gestor
+                    admCenter.CentreCode = gdesHeader.CODIGOORGANOGESTOR;
+                    admCenter.RoleTypeCode = RoleTypeCodeType.Item02;
+                    admCenter.RoleTypeCodeSpecified = true;
+                    admCenter.Item = address;
+                    admCenter.CentreDescription = gdesHeader.BuyerCorporateName;
+                    fcte.Parties.BuyerParty.AdministrativeCentres[0] = admCenter;
+                    // Unidad tramitadora
+                    admCenter = new AdministrativeCentreType();
+                    admCenter.CentreCode = gdesHeader.CODIGOUNIDADTRAMITADORA;
+                    admCenter.RoleTypeCode = RoleTypeCodeType.Item03;
+                    admCenter.RoleTypeCodeSpecified = true;
+                    admCenter.Item = address;
+                    admCenter.CentreDescription = gdesHeader.BuyerCorporateName;
+                    fcte.Parties.BuyerParty.AdministrativeCentres[1] = admCenter;
+                    // oficina contable
+                    admCenter = new AdministrativeCentreType();
+                    admCenter.CentreCode = gdesHeader.CODIGOOFICINACONTABLE;
+                    admCenter.RoleTypeCode = RoleTypeCodeType.Item01;
+                    admCenter.RoleTypeCodeSpecified = true;
+                    admCenter.Item = address;
+                    admCenter.CentreDescription = gdesHeader.BuyerCorporateName;
                     fcte.Parties.BuyerParty.AdministrativeCentres[2] = admCenter;
                 }
             }
@@ -725,15 +787,46 @@ namespace FacturaE
                                          u.OrganoGestorCodigo == cFacturae.OrganoGestorCodigo &&
                                          u.UnidadTramitadoraCodigo == cFacturae.UnidadTramitadoraCodigo
                                    select u).FirstOrDefault<Unidad>();
+                    
+                    // De momento montamos todas las direcciones como comunes
+                    address = new AddressType();
+                    address.Address = cliente.Domclien;
+                    address.PostCode = cliente.Codpobla;
+                    address.Town = cliente.Pobclien;
+                    address.Province = cliente.Proclien;
+                    address.CountryCode = CountryType.ESP;
+
                     if (uAdm != null)
                     {
-                        // De momento montamos todas las direcciones como comunes
-                        address = new AddressType();
-                        address.Address = cliente.Domclien;
-                        address.PostCode = cliente.Codpobla;
-                        address.Town = cliente.Pobclien;
-                        address.Province = cliente.Proclien;
-                        address.CountryCode = CountryType.ESP;
+                        // Ahora montamos las diferentes unidades administrativas (3)
+                        fcte.Parties.BuyerParty.AdministrativeCentres = new AdministrativeCentreType[3];
+                        AdministrativeCentreType admCenter = new AdministrativeCentreType();
+                        // Organo gestor
+                        admCenter.CentreCode = cFacturae.OrganoGestorCodigo;
+                        admCenter.RoleTypeCode = RoleTypeCodeType.Item02;
+                        admCenter.RoleTypeCodeSpecified = true;
+                        admCenter.Item = address;
+                        admCenter.CentreDescription = cliente.Nomclien;
+                        fcte.Parties.BuyerParty.AdministrativeCentres[0] = admCenter;
+                        // Unidad tramitadora
+                        admCenter = new AdministrativeCentreType();
+                        admCenter.CentreCode = cFacturae.UnidadTramitadoraCodigo;
+                        admCenter.RoleTypeCode = RoleTypeCodeType.Item03;
+                        admCenter.RoleTypeCodeSpecified = true;
+                        admCenter.Item = address;
+                        admCenter.CentreDescription = cliente.Nomclien;
+                        fcte.Parties.BuyerParty.AdministrativeCentres[1] = admCenter;
+                        // oficina contable
+                        admCenter = new AdministrativeCentreType();
+                        admCenter.CentreCode = cFacturae.OficinaContableCodigo;
+                        admCenter.RoleTypeCode = RoleTypeCodeType.Item01;
+                        admCenter.RoleTypeCodeSpecified = true;
+                        admCenter.Item = address;
+                        admCenter.CentreDescription = cliente.Nomclien;
+                        fcte.Parties.BuyerParty.AdministrativeCentres[2] = admCenter;
+                    }
+                    else
+                    {
                         // Ahora montamos las diferentes unidades administrativas (3)
                         fcte.Parties.BuyerParty.AdministrativeCentres = new AdministrativeCentreType[3];
                         AdministrativeCentreType admCenter = new AdministrativeCentreType();
@@ -792,8 +885,12 @@ namespace FacturaE
             DateTime fechaNula = new DateTime(1900, 1, 1);
             if (gdesHeader.PeriodoFactDesde != fechaNula && gdesHeader.PeriodoFactHasta != fechaNula)
             {
-                inv.InvoiceIssueData.InvoicingPeriod.StartDate = gdesHeader.PeriodoFactDesde;
-                inv.InvoiceIssueData.InvoicingPeriod.EndDate = gdesHeader.PeriodoFactHasta;
+                PeriodDates pd = new PeriodDates();
+                pd.StartDate = gdesHeader.PeriodoFactDesde;
+                pd.EndDate = gdesHeader.PeriodoFactHasta;
+                //inv.InvoiceIssueData.InvoicingPeriod.StartDate = gdesHeader.PeriodoFactDesde;
+                //inv.InvoiceIssueData.InvoicingPeriod.EndDate = gdesHeader.PeriodoFactHasta;
+                inv.InvoiceIssueData.InvoicingPeriod = pd;
             }
             inv.InvoiceIssueData.InvoiceCurrencyCode = CurrencyCodeType.EUR; // fixed euros
             inv.InvoiceIssueData.TaxCurrencyCode = CurrencyCodeType.EUR; // taxes in euros too.
