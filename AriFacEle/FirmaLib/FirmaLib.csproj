@@ -36,105 +36,83 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="bcmail-jdk15-1.43, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\FacturaeLib\bin\Debug\bcmail-jdk15-1.43.dll</HintPath>
+    <Reference Include="bcmail-jdk15-1.43">
+      <HintPath>..\..\ExternalReferences\bcmail-jdk15-1.43.dll</HintPath>
     </Reference>
-    <Reference Include="bcprov-jdk15-1.43, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\FacturaeLib\bin\Debug\bcprov-jdk15-1.43.dll</HintPath>
+    <Reference Include="bcprov-jdk15-1.43">
+      <HintPath>..\..\ExternalReferences\bcprov-jdk15-1.43.dll</HintPath>
     </Reference>
-    <Reference Include="bctsp-jdk15-1.43, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\FacturaeLib\bin\Debug\bctsp-jdk15-1.43.dll</HintPath>
+    <Reference Include="bctsp-jdk15-1.43">
+      <HintPath>..\..\ExternalReferences\bctsp-jdk15-1.43.dll</HintPath>
     </Reference>
-    <Reference Include="commons-codec-1.2, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\FacturaeLib\bin\Debug\commons-codec-1.2.dll</HintPath>
+    <Reference Include="commons-codec-1.2">
+      <HintPath>..\..\ExternalReferences\commons-codec-1.2.dll</HintPath>
     </Reference>
-    <Reference Include="commons-httpclient-3.0.1, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\FacturaeLib\bin\Debug\commons-httpclient-3.0.1.dll</HintPath>
+    <Reference Include="commons-httpclient-3.0.1">
+      <HintPath>..\..\ExternalReferences\commons-httpclient-3.0.1.dll</HintPath>
     </Reference>
-    <Reference Include="commons-lang-2.4, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\FacturaeLib\bin\Debug\commons-lang-2.4.dll</HintPath>
+    <Reference Include="commons-lang-2.4">
+      <HintPath>..\..\ExternalReferences\commons-lang-2.4.dll</HintPath>
     </Reference>
-    <Reference Include="commons-logging-1.1, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\FacturaeLib\bin\Debug\commons-logging-1.1.dll</HintPath>
+    <Reference Include="commons-logging-1.1">
+      <HintPath>..\..\ExternalReferences\commons-logging-1.1.dll</HintPath>
     </Reference>
-    <Reference Include="facturaE_additional, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\FacturaeLib\bin\Debug\facturaE_additional.dll</HintPath>
+    <Reference Include="facturaE_additional">
+      <HintPath>..\..\ExternalReferences\facturaE_additional.dll</HintPath>
     </Reference>
-    <Reference Include="FirmaPDF, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\ElementosFirma\FirmaPDF.dll</HintPath>
+    <Reference Include="FirmaPDF">
+      <HintPath>..\..\ExternalReferences\FirmaPDF.dll</HintPath>
     </Reference>
-    <Reference Include="IKVM.OpenJDK.Core, Version=0.42.0.6, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\FacturaeLib\bin\Debug\IKVM.OpenJDK.Core.dll</HintPath>
+    <Reference Include="IKVM.OpenJDK.Core">
+      <HintPath>..\..\ExternalReferences\IKVM.OpenJDK.Core.dll</HintPath>
     </Reference>
-    <Reference Include="IKVM.OpenJDK.Security, Version=0.42.0.6, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\FacturaeLib\bin\Debug\IKVM.OpenJDK.Security.dll</HintPath>
+    <Reference Include="IKVM.OpenJDK.Security">
+      <HintPath>..\..\ExternalReferences\IKVM.OpenJDK.Security.dll</HintPath>
     </Reference>
-    <Reference Include="IKVM.OpenJDK.Text, Version=0.42.0.6, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\FacturaeLib\bin\Debug\IKVM.OpenJDK.Text.dll</HintPath>
+    <Reference Include="IKVM.OpenJDK.Text">
+      <HintPath>..\..\ExternalReferences\IKVM.OpenJDK.Text.dll</HintPath>
     </Reference>
-    <Reference Include="IKVM.OpenJDK.Util, Version=0.42.0.6, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\FacturaeLib\bin\Debug\IKVM.OpenJDK.Util.dll</HintPath>
+    <Reference Include="IKVM.OpenJDK.Util">
+      <HintPath>..\..\ExternalReferences\IKVM.OpenJDK.Util.dll</HintPath>
     </Reference>
-    <Reference Include="IKVM.OpenJDK.XML.API, Version=0.42.0.6, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\FacturaeLib\bin\Debug\IKVM.OpenJDK.XML.API.dll</HintPath>
+    <Reference Include="IKVM.OpenJDK.XML.API">
+      <HintPath>..\..\ExternalReferences\IKVM.OpenJDK.XML.API.dll</HintPath>
     </Reference>
-    <Reference Include="IKVM.OpenJDK.XML.Parse, Version=0.42.0.6, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\FacturaeLib\bin\Debug\IKVM.OpenJDK.XML.Parse.dll</HintPath>
+    <Reference Include="IKVM.OpenJDK.XML.Parse">
+      <HintPath>..\..\ExternalReferences\IKVM.OpenJDK.XML.Parse.dll</HintPath>
     </Reference>
-    <Reference Include="IKVM.Runtime, Version=0.42.0.6, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\FacturaeLib\bin\Debug\IKVM.Runtime.dll</HintPath>
+    <Reference Include="IKVM.Runtime">
+      <HintPath>..\..\ExternalReferences\IKVM.Runtime.dll</HintPath>
     </Reference>
-    <Reference Include="jss-4.2.5, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\FacturaeLib\bin\Debug\jss-4.2.5.dll</HintPath>
+    <Reference Include="itextsharp">
+      <HintPath>..\..\ExternalReferences\itextsharp.dll</HintPath>
     </Reference>
-    <Reference Include="MITyCLibAPI-1.0.4, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\FacturaeLib\bin\Debug\MITyCLibAPI-1.0.4.dll</HintPath>
+    <Reference Include="jss-4.2.5">
+      <HintPath>..\..\ExternalReferences\jss-4.2.5.dll</HintPath>
     </Reference>
-    <Reference Include="MITyCLibCert-1.0.4, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\FacturaeLib\bin\Debug\MITyCLibCert-1.0.4.dll</HintPath>
+    <Reference Include="MITyCLibAPI-1.0.4">
+      <HintPath>..\..\ExternalReferences\MITyCLibAPI-1.0.4.dll</HintPath>
     </Reference>
-    <Reference Include="MITyCLibOCSP-1.0.4, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\FacturaeLib\bin\Debug\MITyCLibOCSP-1.0.4.dll</HintPath>
+    <Reference Include="MITyCLibCert-1.0.4">
+      <HintPath>..\..\ExternalReferences\MITyCLibCert-1.0.4.dll</HintPath>
     </Reference>
-    <Reference Include="MITyCLibPolicy-1.0.4, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\FacturaeLib\bin\Debug\MITyCLibPolicy-1.0.4.dll</HintPath>
+    <Reference Include="MITyCLibOCSP-1.0.4">
+      <HintPath>..\..\ExternalReferences\MITyCLibOCSP-1.0.4.dll</HintPath>
     </Reference>
-    <Reference Include="MITyCLibTrust-1.0.4, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\FacturaeLib\bin\Debug\MITyCLibTrust-1.0.4.dll</HintPath>
+    <Reference Include="MITyCLibPolicy-1.0.4">
+      <HintPath>..\..\ExternalReferences\MITyCLibPolicy-1.0.4.dll</HintPath>
     </Reference>
-    <Reference Include="MITyCLibTSA-1.0.4, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\FacturaeLib\bin\Debug\MITyCLibTSA-1.0.4.dll</HintPath>
+    <Reference Include="MITyCLibTrust-1.0.4">
+      <HintPath>..\..\ExternalReferences\MITyCLibTrust-1.0.4.dll</HintPath>
     </Reference>
-    <Reference Include="MITyCLibXADES-1.0.4, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\FacturaeLib\bin\Debug\MITyCLibXADES-1.0.4.dll</HintPath>
+    <Reference Include="MITyCLibTSA-1.0.4">
+      <HintPath>..\..\ExternalReferences\MITyCLibTSA-1.0.4.dll</HintPath>
     </Reference>
-    <Reference Include="serializer-2.7.1, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\FacturaeLib\bin\Debug\serializer-2.7.1.dll</HintPath>
+    <Reference Include="MITyCLibXADES-1.0.4">
+      <HintPath>..\..\ExternalReferences\MITyCLibXADES-1.0.4.dll</HintPath>
+    </Reference>
+    <Reference Include="serializer-2.7.1">
+      <HintPath>..\..\ExternalReferences\serializer-2.7.1.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
@@ -148,17 +126,14 @@
     </Reference>
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="xalan-2.7.1, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\FacturaeLib\bin\Debug\xalan-2.7.1.dll</HintPath>
+    <Reference Include="xalan-2.7.1">
+      <HintPath>..\..\ExternalReferences\xalan-2.7.1.dll</HintPath>
     </Reference>
-    <Reference Include="xml-apis-1.3.04, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\FacturaeLib\bin\Debug\xml-apis-1.3.04.dll</HintPath>
+    <Reference Include="xml-apis-1.3.04">
+      <HintPath>..\..\ExternalReferences\xml-apis-1.3.04.dll</HintPath>
     </Reference>
-    <Reference Include="xmlsec-1.4.2-ADSI-1.0, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\FacturaeLib\bin\Debug\xmlsec-1.4.2-ADSI-1.0.dll</HintPath>
+    <Reference Include="xmlsec-1.4.2-ADSI-1.0">
+      <HintPath>..\..\ExternalReferences\xmlsec-1.4.2-ADSI-1.0.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
