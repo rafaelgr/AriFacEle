@@ -17,7 +17,7 @@ namespace AriFacEleWiS
             ftp.port = int.Parse(ConfigurationSettings.AppSettings["ftp_port"]);
             ftp.user = ConfigurationSettings.AppSettings["ftp_usr"];
             ftp.pass = ConfigurationSettings.AppSettings["ftp_pass"];
-            ftp.PassiveMode = false;
+            //ftp.PassiveMode = false;
             try
             {
                 ftp.ChangeDir(ConfigurationSettings.AppSettings["ftp_dir"]);

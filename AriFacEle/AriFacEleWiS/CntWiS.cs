@@ -61,8 +61,8 @@ namespace AriFacEleWiS
             }
             catch (Exception ex)
             {
-                LogOrConsole(String.Format("Fallo de log: {0}",ex.Message),4);
                 logAvailabel = false;
+                LogOrConsole(String.Format("Fallo de log: {0}", ex.Message), 4);
             }
 
             // show version number in log
@@ -478,6 +478,7 @@ namespace AriFacEleWiS
                 System.IO.File.Copy(destFile,  ficheroDest, true);
                 System.IO.File.Delete(destFile);
 
+                /* --OJO QUE NO IRA
                 //subimos los ficheros al servidor
                 UpLoadInvoice(ficheroDest, ftp);
 
@@ -485,6 +486,7 @@ namespace AriFacEleWiS
                     UpLoadInvoice(FicheroXml, ftp);
                 if (FicheroXSIG != "")
                     UpLoadInvoice(FicheroXSIG, ftp);
+                 */
             }
             else
             {
