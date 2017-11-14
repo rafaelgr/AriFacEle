@@ -17,7 +17,7 @@ namespace AriFacEleWiS
         {
 
             //if (ComoServicio())
-            // StartAsAService();
+            //StartAsAService();
             ////StartAsConsole(); //DEBUG
             //else
             //{
