@@ -455,7 +455,7 @@ namespace AriFacEleWiS
                     if (firmar.ToUpper().Equals("S")) FicheroXSIG = FicheroXml.Replace(".xml", ".xsig");
                     break;
                 case "AriTaxi":
-                    FicheroXml = oFacturae.generarFacturaeAriTaxi(fecha, firma, numfact, numSerie, String.Format(@"{0}\{1}", repositorioLocal, empresa.Cif), ctx4, ctx1);
+                    FicheroXml = oFacturae.generarFacturaeAriTaxi(fecha, firma, numfact, numSerie, letraDeFactura, String.Format(@"{0}\{1}", repositorioLocal, empresa.Cif), ctx4, ctx1);
                     if (firmar.ToUpper().Equals("S")) FicheroXSIG = FicheroXml.Replace(".xml", ".xsig");
                     break;
                 case "GDES":

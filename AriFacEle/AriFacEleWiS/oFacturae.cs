@@ -121,9 +121,10 @@ namespace AriFacEleWiS
             return SinFirmar;
         }
 
-        public static string generarFacturaeAriTaxi(DateTime fecha, DatosFacturaLib.Firma firma, int numFactura, string letra, string pathDest, AriTaxiContext ctx0, FacturaEntity ctx1)
+        public static string generarFacturaeAriTaxi(DateTime fecha, DatosFacturaLib.Firma firma, int numFactura, string letra, string letraFactura, string pathDest, AriTaxiContext ctx0, FacturaEntity ctx1)
         {
-            if (letra != "A" && letra != "B" && letra != "P") return ""; // solo procesamos de todos los tipos los de factura de cliente
+            //if (letra != "A" && letra != "B" && letra != "P") return ""; // solo procesamos de todos los tipos los de factura de cliente
+            if (letraFactura != "F") return "";
             CntFacturacion cf = new CntFacturacion();
 
             string codTipom = FacturaE.CntFacturacion.getCodtipom(letra, ctx0);
