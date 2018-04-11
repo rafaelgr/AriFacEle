@@ -300,6 +300,8 @@ namespace AriFacEleWiS
 
             //Ahora solo tiene la carpeta
             string xmlDestino = ctx1.Repositorios.FirstOrDefault<Repositorio>().Path;   //por si NO hace FTP, que hara un file copy sobre el repositorio
+            xmlDestino = "C:\\FicherosFacElectronicas";
+            
 
 
 
@@ -422,7 +424,7 @@ namespace AriFacEleWiS
             if (iban == null) iban = "";
             string ficheroDest = System.IO.Path.Combine(System.IO.Path.GetDirectoryName(destFile), nombreficherodestino);
             string ficheroDestCopy = ctx1.Repositorios.FirstOrDefault<Repositorio>().Path;   //por si NO hace FTP, que haga un file copy sobre el repositorio
-            // ficheroDestCopy = "C:\\FicherosFacElectronicas";
+            ficheroDestCopy = "C:\\FicherosFacElectronicas";
             ficheroDestCopy = System.IO.Path.Combine(ficheroDestCopy, nombreficherodestino);
 
             string firmar = ConfigurationSettings.AppSettings["Firmar"];   //Esta firma es meter el bmp en el pdf
@@ -455,7 +457,7 @@ namespace AriFacEleWiS
                     if (firmar.ToUpper().Equals("S")) FicheroXSIG = FicheroXml.Replace(".xml", ".xsig");
                     break;
                 case "AriTaxi":
-                    FicheroXml = oFacturae.generarFacturaeAriTaxi(fecha, firma, numfact, numSerie, letraDeFactura, String.Format(@"{0}\{1}", repositorioLocal, empresa.Cif), ctx4, ctx1);
+                    FicheroXml = oFacturae.generarFacturaeAriTaxi(iban, fecha, firma, numfact, numSerie, letraDeFactura, String.Format(@"{0}\{1}", repositorioLocal, empresa.Cif), ctx4, ctx1);
                     if (firmar.ToUpper().Equals("S")) FicheroXSIG = FicheroXml.Replace(".xml", ".xsig");
                     break;
                 case "GDES":

@@ -79,6 +79,9 @@
     <Compile Include="StipomTaxi.generated.cs">
       <DependentUpon>EntitiesModel1.rlinq</DependentUpon>
     </Compile>
+    <Compile Include="Svencicli.generated.cs">
+      <DependentUpon>EntitiesModel1.rlinq</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <OpenAccessDeploy Include="EntitiesModel1.rlinq">

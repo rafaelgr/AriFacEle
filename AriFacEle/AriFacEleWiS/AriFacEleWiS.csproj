@@ -262,7 +262,10 @@
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Copia de App.config">
+    <None Include="CopiaAriadna de App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="CopiaAriTAxi de App.config">
       <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />

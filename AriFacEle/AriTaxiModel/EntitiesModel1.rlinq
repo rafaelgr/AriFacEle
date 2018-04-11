@@ -111,7 +111,7 @@
           <orm:column name="exportada" sql-type="tinyint unsigned" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Byte" />
         </orm:field>
         <orm:field name="_sclien" property="Sclien" behavior="readwrite" uniqueId="159c67ee-86ff-4735-9861-66ba9716b407" type="AriTaxiModel.Sclien">
-          <orm:reference uniqueId="0380cf8b-d947-498b-b4f5-d3b6fe23fcb3">
+          <orm:reference uniqueId="0380cf8b-d947-498b-b4f5-d3b6fe23fcb3" association-name="SfactusocHasSclien">
             <orm:sharedfield name="_codsocio" target-class="AriTaxiModel.Sclien" target-field="_codclien" />
           </orm:reference>
         </orm:field>
@@ -605,10 +605,13 @@
           <orm:column name="exportada" sql-type="tinyint unsigned" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Byte" />
         </orm:field>
         <orm:field name="_scliente" property="Scliente" behavior="readwrite" uniqueId="9e69551e-7346-4722-951a-cd12626d8483" type="AriTaxiModel.Scliente">
-          <orm:reference uniqueId="3bc338c7-fedc-481f-a0b9-1665b73fcc5d">
+          <orm:reference uniqueId="3bc338c7-fedc-481f-a0b9-1665b73fcc5d" association-name="ScafaccliHasScliente">
             <orm:sharedfield name="_codclien" target-class="AriTaxiModel.Scliente" target-field="_codclien" />
             <orm:constraint name="scafaccli_ibfk_5" destination-table="scliente" />
           </orm:reference>
+        </orm:field>
+        <orm:field name="_svencicli" property="Svencicli" behavior="readwrite" uniqueId="49b46829-b04f-4dda-be02-6a6f4436fe1f" type="AriTaxiModel.Svencicli">
+          <orm:inversereference inverse-field="_scafaccli" uniqueId="f9ad04b0-b670-4f28-a74d-b3b418990983" />
         </orm:field>
         <orm:index name="fk_codagent">
           <orm:columnMapping>
@@ -820,7 +823,7 @@
           <orm:column name="exportada" sql-type="tinyint unsigned" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Byte" />
         </orm:field>
         <orm:field name="_sclien" property="Sclien" behavior="readwrite" uniqueId="a5c696a0-cd4a-49f3-b9e3-5f7f3c52a08a" type="AriTaxiModel.Sclien">
-          <orm:reference uniqueId="f0efeade-7c10-4abd-bcb4-bbd4c555c130">
+          <orm:reference uniqueId="f0efeade-7c10-4abd-bcb4-bbd4c555c130" association-name="ScafacuotaHasSclien">
             <orm:sharedfield name="_codclien" target-class="AriTaxiModel.Sclien" target-field="_codclien" />
             <orm:constraint name="scafac_ibfk_1" destination-table="sclien" />
           </orm:reference>
@@ -863,100 +866,100 @@
         </orm:identity>
         <orm:concurrency strategy="changed" />
         <orm:field name="_codtipom" property="Codtipom" behavior="readwrite" uniqueId="b11bffb4-2722-43eb-b8db-5c3ec8b83782" type="System.String">
-          <orm:column has-default-value="true" nullable="false" primary-key="true" length="3" name="codtipom" scale="0" sql-type="char" ado-type="StringFixedLength" />
+          <orm:column name="codtipom" sql-type="char" nullable="false" length="3" scale="0" primary-key="true" has-default-value="true" ado-type="StringFixedLength" />
         </orm:field>
         <orm:field name="_numfactu" property="Numfactu" behavior="readwrite" uniqueId="2400eaed-dbf7-429e-b0c8-2d86b6d2965f" type="System.UInt32">
-          <orm:column has-default-value="true" nullable="false" primary-key="true" length="0" name="numfactu" scale="0" sql-type="mediumint unsigned" ado-type="Int32" />
+          <orm:column name="numfactu" sql-type="mediumint unsigned" nullable="false" length="0" scale="0" primary-key="true" has-default-value="true" ado-type="Int32" />
         </orm:field>
         <orm:field name="_fecfactu" property="Fecfactu" behavior="readwrite" uniqueId="68a3141a-6ea7-46d4-800c-21e4a3d39d5f" type="System.DateTime">
-          <orm:column has-default-value="true" nullable="false" primary-key="true" length="0" name="fecfactu" scale="0" sql-type="date" ado-type="Date" />
+          <orm:column name="fecfactu" sql-type="date" nullable="false" length="0" scale="0" primary-key="true" has-default-value="true" ado-type="Date" />
         </orm:field>
         <orm:field name="_codtipoa" property="Codtipoa" behavior="readwrite" uniqueId="eb9d755a-0761-46d4-a42a-0f6f102f760b" type="System.String">
-          <orm:column nullable="false" primary-key="true" length="3" name="codtipoa" scale="0" sql-type="char" ado-type="StringFixedLength" />
+          <orm:column name="codtipoa" sql-type="char" nullable="false" length="3" scale="0" primary-key="true" ado-type="StringFixedLength" />
         </orm:field>
         <orm:field name="_numalbar" property="Numalbar" behavior="readwrite" uniqueId="3d762ce8-36a7-414e-beaf-403f2d76a28e" type="System.UInt32">
-          <orm:column has-default-value="true" nullable="false" primary-key="true" length="0" name="numalbar" scale="0" sql-type="mediumint unsigned" ado-type="Int32" />
+          <orm:column name="numalbar" sql-type="mediumint unsigned" nullable="false" length="0" scale="0" primary-key="true" has-default-value="true" ado-type="Int32" />
         </orm:field>
         <orm:field name="_numlinea" property="Numlinea" behavior="readwrite" uniqueId="2aa4eec4-a0f0-43d8-beb7-d85ef8bac237" type="System.UInt16">
-          <orm:column has-default-value="true" nullable="false" primary-key="true" length="0" name="numlinea" scale="0" sql-type="smallint unsigned" ado-type="Int16" />
+          <orm:column name="numlinea" sql-type="smallint unsigned" nullable="false" length="0" scale="0" primary-key="true" has-default-value="true" ado-type="Int16" />
         </orm:field>
         <orm:field name="_codalmac" property="Codalmac" behavior="readwrite" uniqueId="ca2af75d-5a40-4b7e-9a37-581cb73d1b83" type="System.UInt16">
-          <orm:column has-default-value="true" nullable="false" length="0" name="codalmac" scale="0" sql-type="smallint unsigned" ado-type="Int16" />
+          <orm:column name="codalmac" sql-type="smallint unsigned" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Int16" />
         </orm:field>
         <orm:field name="_codartic" property="Codartic" behavior="readwrite" uniqueId="fe8f19bb-e73d-4ebc-994b-ae2d14377f1b" type="System.String">
-          <orm:column nullable="false" length="16" name="codartic" scale="0" sql-type="varchar" ado-type="StringVariableLength" />
+          <orm:column name="codartic" sql-type="varchar" nullable="false" length="16" scale="0" ado-type="StringVariableLength" />
         </orm:field>
         <orm:field name="_nomartic" property="Nomartic" behavior="readwrite" uniqueId="e5763fb3-46e9-44e9-807c-0650b3334a3f" type="System.String">
-          <orm:column nullable="false" length="40" name="nomartic" scale="0" sql-type="varchar" ado-type="StringVariableLength" />
+          <orm:column name="nomartic" sql-type="varchar" nullable="false" length="40" scale="0" ado-type="StringVariableLength" />
         </orm:field>
         <orm:field name="_ampliaci" property="Ampliaci" behavior="readwrite" uniqueId="5be23a6b-33f7-4dd9-9d1b-598d8dba50e0" type="System.String">
-          <orm:column nullable="true" length="250" name="ampliaci" scale="0" sql-type="varchar" ado-type="StringVariableLength" />
+          <orm:column name="ampliaci" sql-type="varchar" nullable="true" length="250" scale="0" ado-type="StringVariableLength" />
         </orm:field>
         <orm:field name="_cantidad" property="Cantidad" behavior="readwrite" uniqueId="fda1aefe-d97c-454a-8a7e-5eec800c3797" type="System.Nullable`1[[System.Decimal, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
-          <orm:column nullable="true" length="12" name="cantidad" scale="2" sql-type="decimal" ado-type="Decimal" />
+          <orm:column name="cantidad" sql-type="decimal" nullable="true" length="12" scale="2" ado-type="Decimal" />
         </orm:field>
         <orm:field name="_numbultos" property="Numbultos" behavior="readwrite" uniqueId="23c7c59a-d9ce-4640-9c57-668d61fbc9cc" type="System.Int32">
-          <orm:column has-default-value="true" nullable="false" length="0" name="numbultos" scale="0" sql-type="integer" ado-type="Int32" />
+          <orm:column name="numbultos" sql-type="integer" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Int32" />
         </orm:field>
         <orm:field name="_precioar" property="Precioar" behavior="readwrite" uniqueId="d96cf069-e060-4853-923d-e9848dd5dbcb" type="System.Nullable`1[[System.Decimal, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
-          <orm:column nullable="true" length="10" name="precioar" scale="4" sql-type="decimal" ado-type="Decimal" />
+          <orm:column name="precioar" sql-type="decimal" nullable="true" length="10" scale="4" ado-type="Decimal" />
         </orm:field>
         <orm:field name="_dtoline1" property="Dtoline1" behavior="readwrite" uniqueId="a131c1e5-fd43-4fb5-9b48-4b03804722ec" type="System.Decimal">
-          <orm:column has-default-value="true" nullable="false" length="4" name="dtoline1" scale="2" sql-type="decimal" ado-type="Decimal" />
+          <orm:column name="dtoline1" sql-type="decimal" nullable="false" length="4" scale="2" has-default-value="true" ado-type="Decimal" />
         </orm:field>
         <orm:field name="_dtoline2" property="Dtoline2" behavior="readwrite" uniqueId="ac320378-3a95-449f-8f2b-13e899af1a6e" type="System.Decimal">
-          <orm:column has-default-value="true" nullable="false" length="4" name="dtoline2" scale="2" sql-type="decimal" ado-type="Decimal" />
+          <orm:column name="dtoline2" sql-type="decimal" nullable="false" length="4" scale="2" has-default-value="true" ado-type="Decimal" />
         </orm:field>
         <orm:field name="_importel" property="Importel" behavior="readwrite" uniqueId="1572e603-f2f7-4bb4-9bc1-d8a632c0c8e3" type="System.Nullable`1[[System.Decimal, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
-          <orm:column has-default-value="true" nullable="true" length="12" name="importel" scale="2" sql-type="decimal" ado-type="Decimal" />
+          <orm:column name="importel" sql-type="decimal" nullable="true" length="12" scale="2" has-default-value="true" ado-type="Decimal" />
         </orm:field>
         <orm:field name="_origpre" property="Origpre" behavior="readwrite" uniqueId="a94c9087-d44f-47f9-aad4-fd146f9c3157" type="System.Char">
-          <orm:column nullable="false" length="1" name="origpre" scale="0" sql-type="char" ado-type="Character" />
+          <orm:column name="origpre" sql-type="char" nullable="false" length="1" scale="0" ado-type="Character" />
         </orm:field>
         <orm:field name="_precioiv" property="Precioiv" behavior="readwrite" uniqueId="f3b1f9dc-829e-42bd-8867-d05db1216b75" type="System.Nullable`1[[System.Decimal, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
-          <orm:column nullable="true" length="12" name="precioiv" scale="2" sql-type="decimal" ado-type="Decimal" />
+          <orm:column name="precioiv" sql-type="decimal" nullable="true" length="12" scale="2" ado-type="Decimal" />
         </orm:field>
         <orm:field name="_preciomp" property="Preciomp" behavior="readwrite" uniqueId="78f6f639-e011-40e6-b71f-3bb97df585bc" type="System.Nullable`1[[System.Decimal, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
-          <orm:column nullable="true" length="10" name="preciomp" scale="4" sql-type="decimal" ado-type="Decimal" />
+          <orm:column name="preciomp" sql-type="decimal" nullable="true" length="10" scale="4" ado-type="Decimal" />
         </orm:field>
         <orm:field name="_preciost" property="Preciost" behavior="readwrite" uniqueId="e5feda8c-84de-496b-81ef-3585557ab72b" type="System.Nullable`1[[System.Decimal, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
-          <orm:column nullable="true" length="10" name="preciost" scale="4" sql-type="decimal" ado-type="Decimal" />
+          <orm:column name="preciost" sql-type="decimal" nullable="true" length="10" scale="4" ado-type="Decimal" />
         </orm:field>
         <orm:field name="_preciouc" property="Preciouc" behavior="readwrite" uniqueId="5e071028-b9cc-4260-b58e-8c25922ba149" type="System.Nullable`1[[System.Decimal, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
-          <orm:column nullable="true" length="10" name="preciouc" scale="4" sql-type="decimal" ado-type="Decimal" />
+          <orm:column name="preciouc" sql-type="decimal" nullable="true" length="10" scale="4" ado-type="Decimal" />
         </orm:field>
         <orm:field name="_codproveX" property="CodproveX" behavior="readwrite" uniqueId="67166da5-e614-4273-86b9-4670c9cc272c" type="System.Int32">
-          <orm:column has-default-value="true" nullable="false" length="0" name="codproveX" scale="0" sql-type="integer" ado-type="Int32" />
+          <orm:column name="codproveX" sql-type="integer" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Int32" />
         </orm:field>
         <orm:field name="_numlote" property="Numlote" behavior="readwrite" uniqueId="75a5c1e4-458c-4d68-86a6-8e7414346389" type="System.String">
-          <orm:column nullable="true" length="15" name="numlote" scale="0" sql-type="varchar" ado-type="StringVariableLength" />
+          <orm:column name="numlote" sql-type="varchar" nullable="true" length="15" scale="0" ado-type="StringVariableLength" />
         </orm:field>
         <orm:field name="_codccost" property="Codccost" behavior="readwrite" uniqueId="1ea7085f-d6cb-4818-93f5-3751e3ab9546" type="System.String">
-          <orm:column nullable="true" length="4" name="codccost" scale="0" sql-type="varchar" ado-type="StringVariableLength" />
+          <orm:column name="codccost" sql-type="varchar" nullable="true" length="4" scale="0" ado-type="StringVariableLength" />
         </orm:field>
         <orm:index name="fk_almacen">
           <orm:columnMapping>
-            <orm:column nullable="false" length="16" name="codartic" scale="0" sql-type="varchar" ado-type="StringVariableLength" />
+            <orm:column name="codartic" sql-type="varchar" nullable="false" length="16" scale="0" ado-type="StringVariableLength" />
           </orm:columnMapping>
           <orm:columnMapping>
-            <orm:column has-default-value="true" nullable="false" length="0" name="codalmac" scale="0" sql-type="smallint unsigned" ado-type="Int16" />
+            <orm:column name="codalmac" sql-type="smallint unsigned" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Int16" />
           </orm:columnMapping>
         </orm:index>
         <orm:index name="fk_albFactura">
           <orm:columnMapping>
-            <orm:column has-default-value="true" nullable="false" primary-key="true" length="3" name="codtipom" scale="0" sql-type="char" ado-type="StringFixedLength" />
+            <orm:column name="codtipom" sql-type="char" nullable="false" length="3" scale="0" primary-key="true" has-default-value="true" ado-type="StringFixedLength" />
           </orm:columnMapping>
           <orm:columnMapping>
-            <orm:column has-default-value="true" nullable="false" primary-key="true" length="0" name="numfactu" scale="0" sql-type="mediumint unsigned" ado-type="Int32" />
+            <orm:column name="numfactu" sql-type="mediumint unsigned" nullable="false" length="0" scale="0" primary-key="true" has-default-value="true" ado-type="Int32" />
           </orm:columnMapping>
           <orm:columnMapping>
-            <orm:column has-default-value="true" nullable="false" primary-key="true" length="0" name="fecfactu" scale="0" sql-type="date" ado-type="Date" />
+            <orm:column name="fecfactu" sql-type="date" nullable="false" length="0" scale="0" primary-key="true" has-default-value="true" ado-type="Date" />
           </orm:columnMapping>
           <orm:columnMapping>
-            <orm:column nullable="false" primary-key="true" length="3" name="codtipoa" scale="0" sql-type="char" ado-type="StringFixedLength" />
+            <orm:column name="codtipoa" sql-type="char" nullable="false" length="3" scale="0" primary-key="true" ado-type="StringFixedLength" />
           </orm:columnMapping>
           <orm:columnMapping>
-            <orm:column has-default-value="true" nullable="false" primary-key="true" length="0" name="numalbar" scale="0" sql-type="mediumint unsigned" ado-type="Int32" />
+            <orm:column name="numalbar" sql-type="mediumint unsigned" nullable="false" length="0" scale="0" primary-key="true" has-default-value="true" ado-type="Int32" />
           </orm:columnMapping>
         </orm:index>
       </orm:class>
@@ -967,134 +970,169 @@
         </orm:identity>
         <orm:concurrency strategy="changed" />
         <orm:field name="_codartic" property="Codartic" behavior="readwrite" uniqueId="16f117ed-f617-4660-bbd4-eda85742625d" type="System.String">
-          <orm:column nullable="false" primary-key="true" length="16" name="codartic" scale="0" sql-type="varchar" ado-type="StringVariableLength" />
+          <orm:column name="codartic" sql-type="varchar" nullable="false" length="16" scale="0" primary-key="true" ado-type="StringVariableLength" />
         </orm:field>
         <orm:field name="_nomartic" property="Nomartic" behavior="readwrite" uniqueId="ab02321c-015d-49c1-bda6-a28e47f65a27" type="System.String">
-          <orm:column nullable="false" length="40" name="nomartic" scale="0" sql-type="varchar" ado-type="StringVariableLength" />
+          <orm:column name="nomartic" sql-type="varchar" nullable="false" length="40" scale="0" ado-type="StringVariableLength" />
         </orm:field>
         <orm:field name="_codtelem" property="Codtelem" behavior="readwrite" uniqueId="077ac078-bbee-4958-992c-cf80f841c2c3" type="System.String">
-          <orm:column nullable="true" length="18" name="codtelem" scale="0" sql-type="varchar" ado-type="StringVariableLength" />
+          <orm:column name="codtelem" sql-type="varchar" nullable="true" length="18" scale="0" ado-type="StringVariableLength" />
         </orm:field>
         <orm:field name="_codprove" property="Codprove" behavior="readwrite" uniqueId="a6e5eb43-4f0b-452a-8026-118dee17c2dd" type="System.UInt32">
-          <orm:column has-default-value="true" nullable="false" length="0" name="codprove" scale="0" sql-type="integer unsigned" ado-type="Int32" />
+          <orm:column name="codprove" sql-type="integer unsigned" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Int32" />
         </orm:field>
         <orm:field name="_codfamia" property="Codfamia" behavior="readwrite" uniqueId="531dd3d5-64b6-42e8-9363-5a7e391ae576" type="System.UInt16">
-          <orm:column has-default-value="true" nullable="false" length="0" name="codfamia" scale="0" sql-type="smallint unsigned" ado-type="Int16" />
+          <orm:column name="codfamia" sql-type="smallint unsigned" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Int16" />
         </orm:field>
         <orm:field name="_codmarca" property="Codmarca" behavior="readwrite" uniqueId="354eebac-ec44-4433-9875-17bac08b2a8e" type="System.UInt16">
-          <orm:column has-default-value="true" nullable="false" length="0" name="codmarca" scale="0" sql-type="smallint unsigned" ado-type="Int16" />
+          <orm:column name="codmarca" sql-type="smallint unsigned" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Int16" />
         </orm:field>
         <orm:field name="_codunida" property="Codunida" behavior="readwrite" uniqueId="7ed7c5fa-cf2e-49a3-901f-ed15208e47c7" type="System.UInt16">
-          <orm:column has-default-value="true" nullable="false" length="0" name="codunida" scale="0" sql-type="smallint unsigned" ado-type="Int16" />
+          <orm:column name="codunida" sql-type="smallint unsigned" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Int16" />
         </orm:field>
         <orm:field name="_codtipar" property="Codtipar" behavior="readwrite" uniqueId="486b93b4-7e27-46ad-bf94-b104cbc6e41a" type="System.String">
-          <orm:column nullable="false" length="2" name="codtipar" scale="0" sql-type="char" ado-type="StringFixedLength" />
+          <orm:column name="codtipar" sql-type="char" nullable="false" length="2" scale="0" ado-type="StringFixedLength" />
         </orm:field>
         <orm:field name="_codstatu" property="Codstatu" behavior="readwrite" uniqueId="4448147d-5c00-4310-8f28-a8c3890d52fa" type="System.UInt16">
-          <orm:column has-default-value="true" nullable="false" length="0" name="codstatu" scale="0" sql-type="smallint unsigned" ado-type="Int16" />
+          <orm:column name="codstatu" sql-type="smallint unsigned" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Int16" />
         </orm:field>
         <orm:field name="_codigiva" property="Codigiva" behavior="readwrite" uniqueId="18ac150e-2bd3-47d6-b3b4-abfb0a5e4277" type="System.Byte">
-          <orm:column has-default-value="true" nullable="false" length="0" name="codigiva" scale="0" sql-type="tinyint unsigned" ado-type="Byte" />
+          <orm:column name="codigiva" sql-type="tinyint unsigned" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Byte" />
         </orm:field>
         <orm:field name="_artvario" property="Artvario" behavior="readwrite" uniqueId="5f0bbc2d-1875-4f38-9249-d3fba56d835b" type="System.UInt16">
-          <orm:column has-default-value="true" nullable="false" length="0" name="artvario" scale="0" sql-type="smallint unsigned" ado-type="Int16" />
+          <orm:column name="artvario" sql-type="smallint unsigned" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Int16" />
         </orm:field>
         <orm:field name="_conjunto" property="Conjunto" behavior="readwrite" uniqueId="c6078057-dd32-476f-922b-a01409764b78" type="System.Byte">
-          <orm:column has-default-value="true" nullable="false" length="0" name="conjunto" scale="0" sql-type="tinyint unsigned" ado-type="Byte" />
+          <orm:column name="conjunto" sql-type="tinyint unsigned" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Byte" />
         </orm:field>
         <orm:field name="_nseriesn" property="Nseriesn" behavior="readwrite" uniqueId="6bcacfdc-e445-4e04-ab20-9d6618d76f97" type="System.Byte">
-          <orm:column has-default-value="true" nullable="false" length="0" name="nseriesn" scale="0" sql-type="tinyint unsigned" ado-type="Byte" />
+          <orm:column name="nseriesn" sql-type="tinyint unsigned" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Byte" />
         </orm:field>
         <orm:field name="_garantia" property="Garantia" behavior="readwrite" uniqueId="fb830272-3afc-4e8e-8d2c-4096051879bc" type="System.UInt16">
-          <orm:column has-default-value="true" nullable="false" length="0" name="garantia" scale="0" sql-type="smallint unsigned" ado-type="Int16" />
+          <orm:column name="garantia" sql-type="smallint unsigned" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Int16" />
         </orm:field>
         <orm:field name="_preciomp" property="Preciomp" behavior="readwrite" uniqueId="68a1688d-4766-4035-bb4d-16b1c1068b19" type="System.Nullable`1[[System.Decimal, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
-          <orm:column nullable="true" length="10" name="preciomp" scale="4" sql-type="decimal" ado-type="Decimal" />
+          <orm:column name="preciomp" sql-type="decimal" nullable="true" length="10" scale="4" ado-type="Decimal" />
         </orm:field>
         <orm:field name="_precioma" property="Precioma" behavior="readwrite" uniqueId="1849d0ee-8c80-424f-9908-fec030c8111c" type="System.Nullable`1[[System.Decimal, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
-          <orm:column nullable="true" length="10" name="precioma" scale="4" sql-type="decimal" ado-type="Decimal" />
+          <orm:column name="precioma" sql-type="decimal" nullable="true" length="10" scale="4" ado-type="Decimal" />
         </orm:field>
         <orm:field name="_preciouc" property="Preciouc" behavior="readwrite" uniqueId="0886eaca-2723-4430-ba6c-f65cfde68b35" type="System.Nullable`1[[System.Decimal, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
-          <orm:column nullable="true" length="10" name="preciouc" scale="4" sql-type="decimal" ado-type="Decimal" />
+          <orm:column name="preciouc" sql-type="decimal" nullable="true" length="10" scale="4" ado-type="Decimal" />
         </orm:field>
         <orm:field name="_preciost" property="Preciost" behavior="readwrite" uniqueId="82b8f5c7-a280-40dc-bcd8-8b43d7e877e1" type="System.Nullable`1[[System.Decimal, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
-          <orm:column nullable="true" length="10" name="preciost" scale="4" sql-type="decimal" ado-type="Decimal" />
+          <orm:column name="preciost" sql-type="decimal" nullable="true" length="10" scale="4" ado-type="Decimal" />
         </orm:field>
         <orm:field name="_preciove" property="Preciove" behavior="readwrite" uniqueId="34c4c6a1-e698-4572-ae53-7e646e3cbf21" type="System.Decimal">
-          <orm:column has-default-value="true" nullable="false" length="10" name="preciove" scale="4" sql-type="decimal" ado-type="Decimal" />
+          <orm:column name="preciove" sql-type="decimal" nullable="false" length="10" scale="4" has-default-value="true" ado-type="Decimal" />
         </orm:field>
         <orm:field name="_ultfecco" property="Ultfecco" behavior="readwrite" uniqueId="c2eb3bd0-2021-4d16-b5cd-4244ca4d7af0" type="System.Nullable`1[[System.DateTime, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
-          <orm:column nullable="true" length="0" name="ultfecco" scale="0" sql-type="date" ado-type="Date" />
+          <orm:column name="ultfecco" sql-type="date" nullable="true" length="0" scale="0" ado-type="Date" />
         </orm:field>
         <orm:field name="_ultfecpvp" property="Ultfecpvp" behavior="readwrite" uniqueId="c17a98be-71f0-4201-8b4d-8aac60342ffe" type="System.Nullable`1[[System.DateTime, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
-          <orm:column nullable="true" length="0" name="ultfecpvp" scale="0" sql-type="date" ado-type="Date" />
+          <orm:column name="ultfecpvp" sql-type="date" nullable="true" length="0" scale="0" ado-type="Date" />
         </orm:field>
         <orm:field name="_unicajas" property="Unicajas" behavior="readwrite" uniqueId="3ae54e5b-4751-441c-97bb-f134adad1cce" type="System.UInt16">
-          <orm:column has-default-value="true" nullable="false" length="0" name="unicajas" scale="0" sql-type="smallint unsigned" ado-type="Int16" />
+          <orm:column name="unicajas" sql-type="smallint unsigned" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Int16" />
         </orm:field>
         <orm:field name="_fecaltas" property="Fecaltas" behavior="readwrite" uniqueId="1dba2e75-e17e-4b0b-9c0f-84ee30b4dc6e" type="System.DateTime">
-          <orm:column has-default-value="true" nullable="false" length="0" name="fecaltas" scale="0" sql-type="date" ado-type="Date" />
+          <orm:column name="fecaltas" sql-type="date" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Date" />
         </orm:field>
         <orm:field name="_textoven" property="Textoven" behavior="readwrite" uniqueId="a50867f5-2322-45df-b3cc-75b9f77373d4" type="System.String">
-          <orm:column nullable="true" length="200" name="textoven" scale="0" sql-type="varchar" ado-type="StringVariableLength" />
+          <orm:column name="textoven" sql-type="varchar" nullable="true" length="200" scale="0" ado-type="StringVariableLength" />
         </orm:field>
         <orm:field name="_textocom" property="Textocom" behavior="readwrite" uniqueId="b55be581-ed1f-45a9-9186-113214eb9efb" type="System.String">
-          <orm:column nullable="true" length="200" name="textocom" scale="0" sql-type="varchar" ado-type="StringVariableLength" />
+          <orm:column name="textocom" sql-type="varchar" nullable="true" length="200" scale="0" ado-type="StringVariableLength" />
         </orm:field>
         <orm:field name="_controli" property="Controli" behavior="readwrite" uniqueId="66aea38c-8208-4465-a158-ed5f82cdfda8" type="System.String">
-          <orm:column nullable="true" length="200" name="controli" scale="0" sql-type="varchar" ado-type="StringVariableLength" />
+          <orm:column name="controli" sql-type="varchar" nullable="true" length="200" scale="0" ado-type="StringVariableLength" />
         </orm:field>
         <orm:field name="_ctrstock" property="Ctrstock" behavior="readwrite" uniqueId="02fccdc2-d3cc-40e0-9fe7-dd7906da63f9" type="System.Byte">
-          <orm:column has-default-value="true" nullable="false" length="0" name="ctrstock" scale="0" sql-type="tinyint unsigned" ado-type="Byte" />
+          <orm:column name="ctrstock" sql-type="tinyint unsigned" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Byte" />
         </orm:field>
         <orm:field name="_margecom" property="Margecom" behavior="readwrite" uniqueId="830a4473-96a0-4d97-8de1-f5eb1dd273a7" type="System.Nullable`1[[System.Decimal, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
-          <orm:column nullable="true" length="5" name="margecom" scale="2" sql-type="decimal" ado-type="Decimal" />
+          <orm:column name="margecom" sql-type="decimal" nullable="true" length="5" scale="2" ado-type="Decimal" />
         </orm:field>
         <orm:field name="_preanuman" property="Preanuman" behavior="readwrite" uniqueId="81d906a7-f50a-440e-bb4f-3169930f95f3" type="System.Nullable`1[[System.Decimal, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
-          <orm:column nullable="true" length="8" name="preanuman" scale="2" sql-type="decimal" ado-type="Decimal" />
+          <orm:column name="preanuman" sql-type="decimal" nullable="true" length="8" scale="2" ado-type="Decimal" />
         </orm:field>
         <orm:field name="_txtauxdocumento" property="Txtauxdocumento" behavior="readwrite" uniqueId="f6150a7f-3de7-4041-b0d2-012913219694" type="System.String">
-          <orm:column nullable="true" length="60" name="txtauxdocumento" scale="0" sql-type="varchar" ado-type="StringVariableLength" />
+          <orm:column name="txtauxdocumento" sql-type="varchar" nullable="true" length="60" scale="0" ado-type="StringVariableLength" />
         </orm:field>
         <orm:field name="_pesoarti" property="Pesoarti" behavior="readwrite" uniqueId="a8c0fb38-a7cc-431b-9fdd-f88598afa5da" type="System.Nullable`1[[System.Decimal, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
-          <orm:column nullable="true" length="5" name="pesoarti" scale="2" sql-type="decimal" ado-type="Decimal" />
+          <orm:column name="pesoarti" sql-type="decimal" nullable="true" length="5" scale="2" ado-type="Decimal" />
         </orm:field>
         <orm:field name="_mateprima" property="Mateprima" behavior="readwrite" uniqueId="9a113080-b053-4573-a039-249f3d4fdd2b" type="System.Int16">
-          <orm:column has-default-value="true" nullable="false" length="0" name="mateprima" scale="0" sql-type="tinyint" ado-type="Byte" />
+          <orm:column name="mateprima" sql-type="tinyint" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Byte" />
         </orm:field>
         <orm:field name="_numorden" property="Numorden" behavior="readwrite" uniqueId="d781d536-e9a9-466a-8066-be882bc1e317" type="System.Int32">
-          <orm:column has-default-value="true" nullable="false" length="0" name="numorden" scale="0" sql-type="integer" ado-type="Int32" />
+          <orm:column name="numorden" sql-type="integer" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Int32" />
         </orm:field>
         <orm:index name="iartic1">
           <orm:columnMapping>
-            <orm:column nullable="false" length="40" name="nomartic" scale="0" sql-type="varchar" ado-type="StringVariableLength" />
+            <orm:column name="nomartic" sql-type="varchar" nullable="false" length="40" scale="0" ado-type="StringVariableLength" />
           </orm:columnMapping>
         </orm:index>
         <orm:index name="fkcodunida">
           <orm:columnMapping>
-            <orm:column has-default-value="true" nullable="false" length="0" name="codunida" scale="0" sql-type="smallint unsigned" ado-type="Int16" />
+            <orm:column name="codunida" sql-type="smallint unsigned" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Int16" />
           </orm:columnMapping>
         </orm:index>
         <orm:index name="fkcodtipar">
           <orm:columnMapping>
-            <orm:column nullable="false" length="2" name="codtipar" scale="0" sql-type="char" ado-type="StringFixedLength" />
+            <orm:column name="codtipar" sql-type="char" nullable="false" length="2" scale="0" ado-type="StringFixedLength" />
           </orm:columnMapping>
         </orm:index>
         <orm:index name="fkcodprove">
           <orm:columnMapping>
-            <orm:column has-default-value="true" nullable="false" length="0" name="codprove" scale="0" sql-type="integer unsigned" ado-type="Int32" />
+            <orm:column name="codprove" sql-type="integer unsigned" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Int32" />
           </orm:columnMapping>
         </orm:index>
         <orm:index name="fkcodmarca">
           <orm:columnMapping>
-            <orm:column has-default-value="true" nullable="false" length="0" name="codmarca" scale="0" sql-type="smallint unsigned" ado-type="Int16" />
+            <orm:column name="codmarca" sql-type="smallint unsigned" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Int16" />
           </orm:columnMapping>
         </orm:index>
         <orm:index name="fkcodfamia">
           <orm:columnMapping>
-            <orm:column has-default-value="true" nullable="false" length="0" name="codfamia" scale="0" sql-type="smallint unsigned" ado-type="Int16" />
+            <orm:column name="codfamia" sql-type="smallint unsigned" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Int16" />
           </orm:columnMapping>
         </orm:index>
+      </orm:class>
+      <orm:class name="Svencicli" uniqueId="38819a2f-f7be-48d5-ac22-6b8d391beb31">
+        <orm:table name="svencicli" />
+        <orm:identity>
+          <orm:multiple-field>
+            <orm:single-field field-name="_codtipom" />
+            <orm:single-field field-name="_numfacu" />
+            <orm:single-field field-name="_fecfactu" />
+          </orm:multiple-field>
+        </orm:identity>
+        <orm:field name="_codtipom" property="Codtipom" uniqueId="bd93829b-4f9b-4d23-9a3a-28e173d1b494" type="System.String">
+          <orm:column name="codtipom" sql-type="char" nullable="false" length="3" scale="0" primary-key="true" ado-type="" />
+        </orm:field>
+        <orm:field name="_numfacu" property="Numfacu" uniqueId="95d47f41-db31-4014-b89b-76b281a4dd04" type="System.UInt32">
+          <orm:column name="numfactu" sql-type="mediumint unsigned" nullable="false" length="6" scale="0" primary-key="true" ado-type="" />
+        </orm:field>
+        <orm:field name="_fecfactu" property="Fecfactu" uniqueId="3a066fd7-cf41-4e79-8db9-f1bad9ac0bd3" type="System.DateTime">
+          <orm:column name="fecfactu" sql-type="date" nullable="false" length="0" scale="0" primary-key="true" ado-type="" />
+        </orm:field>
+        <orm:field name="_ordefect" property="Ordefect" uniqueId="3f2c0973-2d0d-4594-8129-178259154996" type="System.UInt16">
+          <orm:column name="ordefect" sql-type="smallint" nullable="false" length="5" scale="0" ado-type="" />
+        </orm:field>
+        <orm:field name="_fecefect" property="Fecefect" uniqueId="b63834b0-8811-4295-b847-574b0ec903b4" type="System.DateTime">
+          <orm:column name="fecefect" sql-type="date" nullable="false" length="0" scale="0" ado-type="" />
+        </orm:field>
+        <orm:field name="_impefect" property="Impefect" uniqueId="0fc18fae-406b-4bd3-92d6-3230eb6ba6b3" type="System.Decimal">
+          <orm:column name="impefect" sql-type="decimal" nullable="false" length="12" scale="2" ado-type="" />
+        </orm:field>
+        <orm:field name="_scafaccli" property="Scafaccli" behavior="readwrite" uniqueId="8a5a692d-8784-4350-95d4-ba73e2320464" type="AriTaxiModel.Scafaccli">
+          <orm:reference uniqueId="f9ad04b0-b670-4f28-a74d-b3b418990983" association-name="VenciFacs">
+            <orm:sharedfield name="_codtipom" target-class="AriTaxiModel.Scafaccli" target-field="_codtipom" />
+            <orm:sharedfield name="_numfacu" target-class="AriTaxiModel.Scafaccli" target-field="_numfactu" />
+            <orm:sharedfield name="_fecfactu" target-class="AriTaxiModel.Scafaccli" target-field="_fecfactu" />
+          </orm:reference>
+        </orm:field>
       </orm:class>
     </orm:namespace>
     <orm:schema schema="">
@@ -1436,131 +1474,140 @@
         </orm:constraint>
       </orm:table>
       <orm:table name="slifaccli">
-        <orm:column has-default-value="true" nullable="false" primary-key="true" length="3" name="codtipom" scale="0" sql-type="char" ado-type="StringFixedLength" />
-        <orm:column has-default-value="true" nullable="false" primary-key="true" length="0" name="numfactu" scale="0" sql-type="mediumint unsigned" ado-type="Int32" />
-        <orm:column has-default-value="true" nullable="false" primary-key="true" length="0" name="fecfactu" scale="0" sql-type="date" ado-type="Date" />
-        <orm:column nullable="false" primary-key="true" length="3" name="codtipoa" scale="0" sql-type="char" ado-type="StringFixedLength" />
-        <orm:column has-default-value="true" nullable="false" primary-key="true" length="0" name="numalbar" scale="0" sql-type="mediumint unsigned" ado-type="Int32" />
-        <orm:column has-default-value="true" nullable="false" primary-key="true" length="0" name="numlinea" scale="0" sql-type="smallint unsigned" ado-type="Int16" />
-        <orm:column has-default-value="true" nullable="false" length="0" name="codalmac" scale="0" sql-type="smallint unsigned" ado-type="Int16" />
-        <orm:column nullable="false" length="16" name="codartic" scale="0" sql-type="varchar" ado-type="StringVariableLength" />
-        <orm:column nullable="false" length="40" name="nomartic" scale="0" sql-type="varchar" ado-type="StringVariableLength" />
-        <orm:column nullable="true" length="250" name="ampliaci" scale="0" sql-type="varchar" ado-type="StringVariableLength" />
-        <orm:column nullable="true" length="12" name="cantidad" scale="2" sql-type="decimal" ado-type="Decimal" />
-        <orm:column has-default-value="true" nullable="false" length="0" name="numbultos" scale="0" sql-type="integer" ado-type="Int32" />
-        <orm:column nullable="true" length="10" name="precioar" scale="4" sql-type="decimal" ado-type="Decimal" />
-        <orm:column has-default-value="true" nullable="false" length="4" name="dtoline1" scale="2" sql-type="decimal" ado-type="Decimal" />
-        <orm:column has-default-value="true" nullable="false" length="4" name="dtoline2" scale="2" sql-type="decimal" ado-type="Decimal" />
-        <orm:column has-default-value="true" nullable="true" length="12" name="importel" scale="2" sql-type="decimal" ado-type="Decimal" />
-        <orm:column nullable="false" length="1" name="origpre" scale="0" sql-type="char" ado-type="Character" />
-        <orm:column nullable="true" length="12" name="precioiv" scale="2" sql-type="decimal" ado-type="Decimal" />
-        <orm:column nullable="true" length="10" name="preciomp" scale="4" sql-type="decimal" ado-type="Decimal" />
-        <orm:column nullable="true" length="10" name="preciost" scale="4" sql-type="decimal" ado-type="Decimal" />
-        <orm:column nullable="true" length="10" name="preciouc" scale="4" sql-type="decimal" ado-type="Decimal" />
-        <orm:column has-default-value="true" nullable="false" length="0" name="codproveX" scale="0" sql-type="integer" ado-type="Int32" />
-        <orm:column nullable="true" length="15" name="numlote" scale="0" sql-type="varchar" ado-type="StringVariableLength" />
-        <orm:column nullable="true" length="4" name="codccost" scale="0" sql-type="varchar" ado-type="StringVariableLength" />
+        <orm:column name="codtipom" sql-type="char" nullable="false" length="3" scale="0" primary-key="true" has-default-value="true" ado-type="StringFixedLength" />
+        <orm:column name="numfactu" sql-type="mediumint unsigned" nullable="false" length="0" scale="0" primary-key="true" has-default-value="true" ado-type="Int32" />
+        <orm:column name="fecfactu" sql-type="date" nullable="false" length="0" scale="0" primary-key="true" has-default-value="true" ado-type="Date" />
+        <orm:column name="codtipoa" sql-type="char" nullable="false" length="3" scale="0" primary-key="true" ado-type="StringFixedLength" />
+        <orm:column name="numalbar" sql-type="mediumint unsigned" nullable="false" length="0" scale="0" primary-key="true" has-default-value="true" ado-type="Int32" />
+        <orm:column name="numlinea" sql-type="smallint unsigned" nullable="false" length="0" scale="0" primary-key="true" has-default-value="true" ado-type="Int16" />
+        <orm:column name="codalmac" sql-type="smallint unsigned" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Int16" />
+        <orm:column name="codartic" sql-type="varchar" nullable="false" length="16" scale="0" ado-type="StringVariableLength" />
+        <orm:column name="nomartic" sql-type="varchar" nullable="false" length="40" scale="0" ado-type="StringVariableLength" />
+        <orm:column name="ampliaci" sql-type="varchar" nullable="true" length="250" scale="0" ado-type="StringVariableLength" />
+        <orm:column name="cantidad" sql-type="decimal" nullable="true" length="12" scale="2" ado-type="Decimal" />
+        <orm:column name="numbultos" sql-type="integer" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Int32" />
+        <orm:column name="precioar" sql-type="decimal" nullable="true" length="10" scale="4" ado-type="Decimal" />
+        <orm:column name="dtoline1" sql-type="decimal" nullable="false" length="4" scale="2" has-default-value="true" ado-type="Decimal" />
+        <orm:column name="dtoline2" sql-type="decimal" nullable="false" length="4" scale="2" has-default-value="true" ado-type="Decimal" />
+        <orm:column name="importel" sql-type="decimal" nullable="true" length="12" scale="2" has-default-value="true" ado-type="Decimal" />
+        <orm:column name="origpre" sql-type="char" nullable="false" length="1" scale="0" ado-type="Character" />
+        <orm:column name="precioiv" sql-type="decimal" nullable="true" length="12" scale="2" ado-type="Decimal" />
+        <orm:column name="preciomp" sql-type="decimal" nullable="true" length="10" scale="4" ado-type="Decimal" />
+        <orm:column name="preciost" sql-type="decimal" nullable="true" length="10" scale="4" ado-type="Decimal" />
+        <orm:column name="preciouc" sql-type="decimal" nullable="true" length="10" scale="4" ado-type="Decimal" />
+        <orm:column name="codproveX" sql-type="integer" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Int32" />
+        <orm:column name="numlote" sql-type="varchar" nullable="true" length="15" scale="0" ado-type="StringVariableLength" />
+        <orm:column name="codccost" sql-type="varchar" nullable="true" length="4" scale="0" ado-type="StringVariableLength" />
         <orm:index name="fk_almacen">
           <orm:columnMapping>
-            <orm:column nullable="false" length="16" name="codartic" scale="0" sql-type="varchar" ado-type="StringVariableLength" />
+            <orm:column name="codartic" sql-type="varchar" nullable="false" length="16" scale="0" ado-type="StringVariableLength" />
           </orm:columnMapping>
           <orm:columnMapping>
-            <orm:column has-default-value="true" nullable="false" length="0" name="codalmac" scale="0" sql-type="smallint unsigned" ado-type="Int16" />
+            <orm:column name="codalmac" sql-type="smallint unsigned" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Int16" />
           </orm:columnMapping>
         </orm:index>
         <orm:index name="fk_albFactura">
           <orm:columnMapping>
-            <orm:column has-default-value="true" nullable="false" primary-key="true" length="3" name="codtipom" scale="0" sql-type="char" ado-type="StringFixedLength" />
+            <orm:column name="codtipom" sql-type="char" nullable="false" length="3" scale="0" primary-key="true" has-default-value="true" ado-type="StringFixedLength" />
           </orm:columnMapping>
           <orm:columnMapping>
-            <orm:column has-default-value="true" nullable="false" primary-key="true" length="0" name="numfactu" scale="0" sql-type="mediumint unsigned" ado-type="Int32" />
+            <orm:column name="numfactu" sql-type="mediumint unsigned" nullable="false" length="0" scale="0" primary-key="true" has-default-value="true" ado-type="Int32" />
           </orm:columnMapping>
           <orm:columnMapping>
-            <orm:column has-default-value="true" nullable="false" primary-key="true" length="0" name="fecfactu" scale="0" sql-type="date" ado-type="Date" />
+            <orm:column name="fecfactu" sql-type="date" nullable="false" length="0" scale="0" primary-key="true" has-default-value="true" ado-type="Date" />
           </orm:columnMapping>
           <orm:columnMapping>
-            <orm:column nullable="false" primary-key="true" length="3" name="codtipoa" scale="0" sql-type="char" ado-type="StringFixedLength" />
+            <orm:column name="codtipoa" sql-type="char" nullable="false" length="3" scale="0" primary-key="true" ado-type="StringFixedLength" />
           </orm:columnMapping>
           <orm:columnMapping>
-            <orm:column has-default-value="true" nullable="false" primary-key="true" length="0" name="numalbar" scale="0" sql-type="mediumint unsigned" ado-type="Int32" />
+            <orm:column name="numalbar" sql-type="mediumint unsigned" nullable="false" length="0" scale="0" primary-key="true" has-default-value="true" ado-type="Int32" />
           </orm:columnMapping>
         </orm:index>
       </orm:table>
       <orm:table name="sartic">
-        <orm:column nullable="false" primary-key="true" length="16" name="codartic" scale="0" sql-type="varchar" ado-type="StringVariableLength" />
-        <orm:column nullable="false" length="40" name="nomartic" scale="0" sql-type="varchar" ado-type="StringVariableLength" />
-        <orm:column nullable="true" length="18" name="codtelem" scale="0" sql-type="varchar" ado-type="StringVariableLength" />
-        <orm:column has-default-value="true" nullable="false" length="0" name="codprove" scale="0" sql-type="integer unsigned" ado-type="Int32" />
-        <orm:column has-default-value="true" nullable="false" length="0" name="codfamia" scale="0" sql-type="smallint unsigned" ado-type="Int16" />
-        <orm:column has-default-value="true" nullable="false" length="0" name="codmarca" scale="0" sql-type="smallint unsigned" ado-type="Int16" />
-        <orm:column has-default-value="true" nullable="false" length="0" name="codunida" scale="0" sql-type="smallint unsigned" ado-type="Int16" />
-        <orm:column nullable="false" length="2" name="codtipar" scale="0" sql-type="char" ado-type="StringFixedLength" />
-        <orm:column has-default-value="true" nullable="false" length="0" name="codstatu" scale="0" sql-type="smallint unsigned" ado-type="Int16" />
-        <orm:column has-default-value="true" nullable="false" length="0" name="codigiva" scale="0" sql-type="tinyint unsigned" ado-type="Byte" />
-        <orm:column has-default-value="true" nullable="false" length="0" name="artvario" scale="0" sql-type="smallint unsigned" ado-type="Int16" />
-        <orm:column has-default-value="true" nullable="false" length="0" name="conjunto" scale="0" sql-type="tinyint unsigned" ado-type="Byte" />
-        <orm:column has-default-value="true" nullable="false" length="0" name="nseriesn" scale="0" sql-type="tinyint unsigned" ado-type="Byte" />
-        <orm:column has-default-value="true" nullable="false" length="0" name="garantia" scale="0" sql-type="smallint unsigned" ado-type="Int16" />
-        <orm:column nullable="true" length="10" name="preciomp" scale="4" sql-type="decimal" ado-type="Decimal" />
-        <orm:column nullable="true" length="10" name="precioma" scale="4" sql-type="decimal" ado-type="Decimal" />
-        <orm:column nullable="true" length="10" name="preciouc" scale="4" sql-type="decimal" ado-type="Decimal" />
-        <orm:column nullable="true" length="10" name="preciost" scale="4" sql-type="decimal" ado-type="Decimal" />
-        <orm:column has-default-value="true" nullable="false" length="10" name="preciove" scale="4" sql-type="decimal" ado-type="Decimal" />
-        <orm:column nullable="true" length="0" name="ultfecco" scale="0" sql-type="date" ado-type="Date" />
-        <orm:column nullable="true" length="0" name="ultfecpvp" scale="0" sql-type="date" ado-type="Date" />
-        <orm:column has-default-value="true" nullable="false" length="0" name="unicajas" scale="0" sql-type="smallint unsigned" ado-type="Int16" />
-        <orm:column has-default-value="true" nullable="false" length="0" name="fecaltas" scale="0" sql-type="date" ado-type="Date" />
-        <orm:column nullable="true" length="200" name="textoven" scale="0" sql-type="varchar" ado-type="StringVariableLength" />
-        <orm:column nullable="true" length="200" name="textocom" scale="0" sql-type="varchar" ado-type="StringVariableLength" />
-        <orm:column nullable="true" length="200" name="controli" scale="0" sql-type="varchar" ado-type="StringVariableLength" />
-        <orm:column has-default-value="true" nullable="false" length="0" name="ctrstock" scale="0" sql-type="tinyint unsigned" ado-type="Byte" />
-        <orm:column nullable="true" length="5" name="margecom" scale="2" sql-type="decimal" ado-type="Decimal" />
-        <orm:column nullable="true" length="8" name="preanuman" scale="2" sql-type="decimal" ado-type="Decimal" />
-        <orm:column nullable="true" length="60" name="txtauxdocumento" scale="0" sql-type="varchar" ado-type="StringVariableLength" />
-        <orm:column nullable="true" length="5" name="pesoarti" scale="2" sql-type="decimal" ado-type="Decimal" />
-        <orm:column has-default-value="true" nullable="false" length="0" name="mateprima" scale="0" sql-type="tinyint" ado-type="Byte" />
-        <orm:column has-default-value="true" nullable="false" length="0" name="numorden" scale="0" sql-type="integer" ado-type="Int32" />
+        <orm:column name="codartic" sql-type="varchar" nullable="false" length="16" scale="0" primary-key="true" ado-type="StringVariableLength" />
+        <orm:column name="nomartic" sql-type="varchar" nullable="false" length="40" scale="0" ado-type="StringVariableLength" />
+        <orm:column name="codtelem" sql-type="varchar" nullable="true" length="18" scale="0" ado-type="StringVariableLength" />
+        <orm:column name="codprove" sql-type="integer unsigned" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Int32" />
+        <orm:column name="codfamia" sql-type="smallint unsigned" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Int16" />
+        <orm:column name="codmarca" sql-type="smallint unsigned" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Int16" />
+        <orm:column name="codunida" sql-type="smallint unsigned" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Int16" />
+        <orm:column name="codtipar" sql-type="char" nullable="false" length="2" scale="0" ado-type="StringFixedLength" />
+        <orm:column name="codstatu" sql-type="smallint unsigned" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Int16" />
+        <orm:column name="codigiva" sql-type="tinyint unsigned" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Byte" />
+        <orm:column name="artvario" sql-type="smallint unsigned" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Int16" />
+        <orm:column name="conjunto" sql-type="tinyint unsigned" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Byte" />
+        <orm:column name="nseriesn" sql-type="tinyint unsigned" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Byte" />
+        <orm:column name="garantia" sql-type="smallint unsigned" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Int16" />
+        <orm:column name="preciomp" sql-type="decimal" nullable="true" length="10" scale="4" ado-type="Decimal" />
+        <orm:column name="precioma" sql-type="decimal" nullable="true" length="10" scale="4" ado-type="Decimal" />
+        <orm:column name="preciouc" sql-type="decimal" nullable="true" length="10" scale="4" ado-type="Decimal" />
+        <orm:column name="preciost" sql-type="decimal" nullable="true" length="10" scale="4" ado-type="Decimal" />
+        <orm:column name="preciove" sql-type="decimal" nullable="false" length="10" scale="4" has-default-value="true" ado-type="Decimal" />
+        <orm:column name="ultfecco" sql-type="date" nullable="true" length="0" scale="0" ado-type="Date" />
+        <orm:column name="ultfecpvp" sql-type="date" nullable="true" length="0" scale="0" ado-type="Date" />
+        <orm:column name="unicajas" sql-type="smallint unsigned" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Int16" />
+        <orm:column name="fecaltas" sql-type="date" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Date" />
+        <orm:column name="textoven" sql-type="varchar" nullable="true" length="200" scale="0" ado-type="StringVariableLength" />
+        <orm:column name="textocom" sql-type="varchar" nullable="true" length="200" scale="0" ado-type="StringVariableLength" />
+        <orm:column name="controli" sql-type="varchar" nullable="true" length="200" scale="0" ado-type="StringVariableLength" />
+        <orm:column name="ctrstock" sql-type="tinyint unsigned" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Byte" />
+        <orm:column name="margecom" sql-type="decimal" nullable="true" length="5" scale="2" ado-type="Decimal" />
+        <orm:column name="preanuman" sql-type="decimal" nullable="true" length="8" scale="2" ado-type="Decimal" />
+        <orm:column name="txtauxdocumento" sql-type="varchar" nullable="true" length="60" scale="0" ado-type="StringVariableLength" />
+        <orm:column name="pesoarti" sql-type="decimal" nullable="true" length="5" scale="2" ado-type="Decimal" />
+        <orm:column name="mateprima" sql-type="tinyint" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Byte" />
+        <orm:column name="numorden" sql-type="integer" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Int32" />
         <orm:index name="iartic1">
           <orm:columnMapping>
-            <orm:column nullable="false" length="40" name="nomartic" scale="0" sql-type="varchar" ado-type="StringVariableLength" />
+            <orm:column name="nomartic" sql-type="varchar" nullable="false" length="40" scale="0" ado-type="StringVariableLength" />
           </orm:columnMapping>
         </orm:index>
         <orm:index name="fkcodunida">
           <orm:columnMapping>
-            <orm:column has-default-value="true" nullable="false" length="0" name="codunida" scale="0" sql-type="smallint unsigned" ado-type="Int16" />
+            <orm:column name="codunida" sql-type="smallint unsigned" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Int16" />
           </orm:columnMapping>
         </orm:index>
         <orm:index name="fkcodtipar">
           <orm:columnMapping>
-            <orm:column nullable="false" length="2" name="codtipar" scale="0" sql-type="char" ado-type="StringFixedLength" />
+            <orm:column name="codtipar" sql-type="char" nullable="false" length="2" scale="0" ado-type="StringFixedLength" />
           </orm:columnMapping>
         </orm:index>
         <orm:index name="fkcodprove">
           <orm:columnMapping>
-            <orm:column has-default-value="true" nullable="false" length="0" name="codprove" scale="0" sql-type="integer unsigned" ado-type="Int32" />
+            <orm:column name="codprove" sql-type="integer unsigned" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Int32" />
           </orm:columnMapping>
         </orm:index>
         <orm:index name="fkcodmarca">
           <orm:columnMapping>
-            <orm:column has-default-value="true" nullable="false" length="0" name="codmarca" scale="0" sql-type="smallint unsigned" ado-type="Int16" />
+            <orm:column name="codmarca" sql-type="smallint unsigned" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Int16" />
           </orm:columnMapping>
         </orm:index>
         <orm:index name="fkcodfamia">
           <orm:columnMapping>
-            <orm:column has-default-value="true" nullable="false" length="0" name="codfamia" scale="0" sql-type="smallint unsigned" ado-type="Int16" />
+            <orm:column name="codfamia" sql-type="smallint unsigned" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Int16" />
           </orm:columnMapping>
         </orm:index>
       </orm:table>
+      <orm:table name="svencicli">
+        <orm:column name="codtipom" sql-type="char" nullable="false" length="3" scale="0" primary-key="true" ado-type="" />
+        <orm:column name="ordefect" sql-type="smallint" nullable="false" length="5" scale="0" ado-type="" />
+        <orm:column name="numfactu" sql-type="mediumint unsigned" nullable="false" length="6" scale="0" primary-key="true" ado-type="" />
+        <orm:column name="impefect" sql-type="decimal" nullable="false" length="12" scale="2" ado-type="" />
+        <orm:column name="fecfactu" sql-type="date" nullable="false" length="0" scale="0" primary-key="true" ado-type="" />
+        <orm:column name="fecefect" sql-type="date" nullable="false" length="0" scale="0" ado-type="" />
+      </orm:table>
     </orm:schema>
     <orm:relational-naming-settings>
-      <orm:remove-camel-case>False</orm:remove-camel-case>
+      <orm:remove-leading-underscore>False</orm:remove-leading-underscore>
       <orm:source-strategy>Property</orm:source-strategy>
+      <orm:remove-camel-case>False</orm:remove-camel-case>
     </orm:relational-naming-settings>
   </orm:orm>
   <ModelSettings xmlns="">
     <AppConfigConnectionPropertyName>AritaxiConnection</AppConfigConnectionPropertyName>
-    <AppConfigConnectionString>server=192.168.1.156;user id=root;password=aritel;database=aritaxi3</AppConfigConnectionString>
-    <InitialCatalog>aritaxi3</InitialCatalog>
+    <AppConfigConnectionString>server=localhost;user id=root;password=aritel;database=aritaxi</AppConfigConnectionString>
+    <InitialCatalog>aritaxi</InitialCatalog>
     <NamingSettings>
       <ClassRules>
         <CaseMode>PascalCase</CaseMode>
@@ -1573,15 +1620,21 @@
       <PropertyRules>
         <CaseMode>PascalCase</CaseMode>
       </PropertyRules>
+      <NavigationPropertyRules />
     </NamingSettings>
     <CodeGenerationSettings>
       <MappingDefinitionType>Xml</MappingDefinitionType>
     </CodeGenerationSettings>
-    <SchemaUpdateSettings />
+    <SchemaUpdateSettings>
+      <DeploymentProject>AriTaxiModel</DeploymentProject>
+    </SchemaUpdateSettings>
     <BackendConfigurationSettings>
       <BackendConfiguration>
         <Backend>MySql</Backend>
         <ProviderName>MySql.Data.MySqlClient</ProviderName>
+        <Logging>
+          <MetricStoreSnapshotInterval>0</MetricStoreSnapshotInterval>
+        </Logging>
       </BackendConfiguration>
     </BackendConfigurationSettings>
   </ModelSettings>
@@ -1812,6 +1865,9 @@
         <classHasNavigationalProperties Id="c5ed1c81-3100-4827-beb5-da14c0e51080">
           <NavigationalProperty Id="9e69551e-7346-4722-951a-cd12626d8483" name="Scliente" type="Scliente" label="Scliente : Scliente" nullable="true" kind="Persistent" fieldName="_scliente" isDependent="false" isManaged="false" />
         </classHasNavigationalProperties>
+        <classHasNavigationalProperties Id="f5ca425b-4be1-423a-8361-24478bf17a46">
+          <NavigationalProperty Id="49b46829-b04f-4dda-be02-6a6f4436fe1f" name="Svencicli" type="Svencicli" label="Svencicli : Svencicli" nullable="true" kind="Persistent" fieldName="_svencicli" isDependent="false" isManaged="true" />
+        </classHasNavigationalProperties>
       </navigationalProperties>
     </DomainClass>
     <DomainClass Id="bdeb29d5-a62c-484d-9086-d33f012eb4d1" name="StipomTaxi" namespace="AriTaxiModel" showPropertiesCompartment="true" concurrencyMode="Changed" showNavigationCompartment="true" showImplementationCompartment="true">
@@ -1955,6 +2011,34 @@
       <Property Id="c17a98be-71f0-4201-8b4d-8aac60342ffe" name="Ultfecpvp" type="DateTime" label="Ultfecpvp : DateTime" nullable="true" kind="Persistent" fieldName="_ultfecpvp" />
       <Property Id="3ae54e5b-4751-441c-97bb-f134adad1cce" name="Unicajas" type="UInt16" label="Unicajas : UInt16" kind="Persistent" fieldName="_unicajas" />
     </DomainClass>
+    <DomainClass Id="38819a2f-f7be-48d5-ac22-6b8d391beb31" name="Svencicli" namespace="AriTaxiModel" showPropertiesCompartment="true" showNavigationCompartment="true" showImplementationCompartment="true">
+      <Property Id="bd93829b-4f9b-4d23-9a3a-28e173d1b494" name="Codtipom" label="Codtipom : String" identity="true" fieldName="_codtipom" />
+      <Property Id="95d47f41-db31-4014-b89b-76b281a4dd04" name="Numfacu" type="UInt32" label="Numfacu : UInt32" identity="true" fieldName="_numfacu" />
+      <Property Id="3a066fd7-cf41-4e79-8db9-f1bad9ac0bd3" name="Fecfactu" type="DateTime" label="Fecfactu : DateTime" identity="true" fieldName="_fecfactu" />
+      <Property Id="3f2c0973-2d0d-4594-8129-178259154996" name="Ordefect" type="UInt16" label="Ordefect : UInt16" fieldName="_ordefect" />
+      <Property Id="b63834b0-8811-4295-b847-574b0ec903b4" name="Fecefect" type="DateTime" label="Fecefect : DateTime" fieldName="_fecefect" />
+      <Property Id="0fc18fae-406b-4bd3-92d6-3230eb6ba6b3" name="Impefect" type="Decimal" label="Impefect : Decimal" fieldName="_impefect" />
+      <AssociationTargets>
+        <Association Id="f9ad04b0-b670-4f28-a74d-b3b418990983" SourceMultiplicity="One" TargetMultiplicity="ZeroOne" name="VenciFacs">
+          <DomainClassMoniker name="/AriTaxiContext/Scafaccli" />
+          <targetNavigationalProperty>
+            <associationDefinesTargetProperty Id="920d3ca3-d9c5-4ee1-91de-d04af9b80201">
+              <NavigationalPropertyMoniker name="/AriTaxiContext/Scafaccli/Svencicli" />
+            </associationDefinesTargetProperty>
+          </targetNavigationalProperty>
+          <sourceNavigationalProperty>
+            <associationDefinesSourceProperty Id="9c357c39-b1ba-409d-bdac-76e1d68af461">
+              <NavigationalPropertyMoniker name="/AriTaxiContext/Svencicli/Scafaccli" />
+            </associationDefinesSourceProperty>
+          </sourceNavigationalProperty>
+        </Association>
+      </AssociationTargets>
+      <navigationalProperties>
+        <classHasNavigationalProperties Id="850cb536-f5c8-4298-9383-0c6da6cbb94e">
+          <NavigationalProperty Id="8a5a692d-8784-4350-95d4-ba73e2320464" name="Scafaccli" type="Scafaccli" label="Scafaccli : Scafaccli" nullable="true" kind="Persistent" fieldName="_scafaccli" isDependent="false" isManaged="true" />
+        </classHasNavigationalProperties>
+      </navigationalProperties>
+    </DomainClass>
   </Types>
   <domainContext>
     <domainModelHasDomainContext Id="20d10b95-2711-4337-b692-6cbc52181d7f">
@@ -1968,6 +2052,7 @@
         <entitySetProperty name="Scafacuotas" namespace="AriTaxiModel" type="Scafacuota" label="Scafacuotas : IQueryable&lt;AriTaxiModel.Scafacuota&gt;" />
         <entitySetProperty name="Slifacclis" namespace="AriTaxiModel" type="Slifaccli" label="Slifacclis : IQueryable&lt;AriTaxiModel.Slifaccli&gt;" />
         <entitySetProperty name="Sartics" namespace="AriTaxiModel" type="Sartic" label="Sartics : IQueryable&lt;AriTaxiModel.Sartic&gt;" />
+        <entitySetProperty name="Svenciclis" namespace="AriTaxiModel" type="Svencicli" label="Svenciclis : IQueryable&lt;AriTaxiModel.Svencicli&gt;" />
       </domainContainer>
     </domainModelHasDomainContext>
   </domainContext>

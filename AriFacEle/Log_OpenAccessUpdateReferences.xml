@@ -143,28 +143,5 @@
     <Event EventType="Success" Action="Analyze" SourceItem="C:\PROYECTOS\AriFacEle\AriFacEle\GdesModel\App.Config" Message="App.Config" />
     <Event EventType="Success" Action="Analyze" SourceItem="C:\PROYECTOS\AriFacEle\AriFacEle\GdesModel\GdesModel.csproj" Message="GdesModel" />
     <Event EventType="Success" Action="Analyze" SourceItem="C:\PROYECTOS\AriFacEle\AriFacEle\AriFacEle.sln" Message="AriFacEle" />
-    <Event EventType="Success" Action="Upgrade" SourceItem="C:\PROYECTOS\AriFacEle\AriFacEle\AriFacElec\AriFacElec.csproj" Message="Assembly References" />
-    <Event EventType="Success" Action="Upgrade" SourceItem="C:\PROYECTOS\AriFacEle\AriFacEle\AriFacElec\AriFacElec.csproj" Message="AriFacElec" />
-    <Event EventType="Success" Action="Upgrade" SourceItem="C:\PROYECTOS\AriFacEle\AriFacEle\FacElecLib\FacElecLib.csproj" Message="Assembly References" />
-    <Event EventType="Success" Action="Upgrade" SourceItem="C:\PROYECTOS\AriFacEle\AriFacEle\FacElecLib\FacElecLib.csproj" Message="FacElecLib" />
-    <Event EventType="Success" Action="Upgrade" SourceItem="C:\PROYECTOS\AriFacEle\AriFacEle\FacturaE\FacturaE.csproj" Message="Assembly References" />
-    <Event EventType="Success" Action="Upgrade" SourceItem="C:\PROYECTOS\AriFacEle\AriFacEle\FacturaE\FacturaE.csproj" Message="FacturaE" />
-    <Event EventType="Success" Action="Upgrade" SourceItem="C:\PROYECTOS\AriFacEle\AriFacEle\DatosFacturaLib\DatosFacturaLib.csproj" Message="Assembly References" />
-    <Event EventType="Success" Action="Upgrade" SourceItem="C:\PROYECTOS\AriFacEle\AriFacEle\DatosFacturaLib\DatosFacturaLib.csproj" Message="DatosFacturaLib" />
-    <Event EventType="Success" Action="Upgrade" SourceItem="C:\PROYECTOS\AriFacEle\AriFacEle\AriFacEleWiS\AriFacEleWiS.csproj" Message="Assembly References" />
-    <Event EventType="Success" Action="Upgrade" SourceItem="C:\PROYECTOS\AriFacEle\AriFacEle\AriFacEleWiS\AriFacEleWiS.csproj" Message="AriFacEleWiS" />
-    <Event EventType="Success" Action="Upgrade" SourceItem="C:\PROYECTOS\AriFacEle\AriFacEle\AriGasolModel\AriGasolModel.csproj" Message="Assembly References" />
-    <Event EventType="Success" Action="Upgrade" SourceItem="C:\PROYECTOS\AriFacEle\AriFacEle\AriGasolModel\AriGasolModel.csproj" Message="AriGasolModel" />
-    <Event EventType="Success" Action="Upgrade" SourceItem="C:\PROYECTOS\AriFacEle\AriFacEle\FacElecWeb\Bin\" Message="Binary References" />
-    <Event EventType="Success" Action="Upgrade" SourceItem="C:\PROYECTOS\AriFacEle\AriFacEle\FacElecWeb\web.config" Message="Assembly References" />
-    <Event EventType="Success" Action="Upgrade" SourceItem="C:\PROYECTOS\AriFacEle\AriFacEle\FacElecWeb\web.config" Message="web.config" />
-    <Event EventType="Success" Action="Upgrade" SourceItem="C:\PROYECTOS\AriFacEle\AriFacEle\FacElecWeb" Message="C:\...\FacElecWeb\" />
-    <Event EventType="Success" Action="Upgrade" SourceItem="C:\PROYECTOS\AriFacEle\AriFacEle\AriAgroModel\AriAgroModel.csproj" Message="Assembly References" />
-    <Event EventType="Success" Action="Upgrade" SourceItem="C:\PROYECTOS\AriFacEle\AriFacEle\AriAgroModel\AriAgroModel.csproj" Message="AriAgroModel" />
-    <Event EventType="Success" Action="Upgrade" SourceItem="C:\PROYECTOS\AriFacEle\AriFacEle\AriTaxiModel\AriTaxiModel.csproj" Message="Assembly References" />
-    <Event EventType="Success" Action="Upgrade" SourceItem="C:\PROYECTOS\AriFacEle\AriFacEle\AriTaxiModel\AriTaxiModel.csproj" Message="AriTaxiModel" />
-    <Event EventType="Success" Action="Upgrade" SourceItem="C:\PROYECTOS\AriFacEle\AriFacEle\GdesModel\GdesModel.csproj" Message="Assembly References" />
-    <Event EventType="Success" Action="Upgrade" SourceItem="C:\PROYECTOS\AriFacEle\AriFacEle\GdesModel\GdesModel.csproj" Message="GdesModel" />
-    <Event EventType="Success" Action="Upgrade" SourceItem="C:\PROYECTOS\AriFacEle\AriFacEle\AriFacEle.sln" Message="AriFacEle" />
   </Events>
 </UpgradeLog>

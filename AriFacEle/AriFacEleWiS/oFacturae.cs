@@ -121,7 +121,7 @@ namespace AriFacEleWiS
             return SinFirmar;
         }
 
-        public static string generarFacturaeAriTaxi(DateTime fecha, DatosFacturaLib.Firma firma, int numFactura, string letra, string letraFactura, string pathDest, AriTaxiContext ctx0, FacturaEntity ctx1)
+        public static string generarFacturaeAriTaxi(string iban, DateTime fecha, DatosFacturaLib.Firma firma, int numFactura, string letra, string letraFactura, string pathDest, AriTaxiContext ctx0, FacturaEntity ctx1)
         {
             //if (letra != "A" && letra != "B" && letra != "P") return ""; // solo procesamos de todos los tipos los de factura de cliente
             if (letraFactura != "F") return "";
@@ -133,7 +133,7 @@ namespace AriFacEleWiS
                              where f.Numfactu == nfac && f.Codtipom == codTipom && f.Fecfactu == fecha
                              select f).FirstOrDefault<Scafaccli>();
 
-            Facturae facturasE = cf.GenerarFacturaAriTaxi(fac, ctx0);
+            Facturae facturasE = cf.GenerarFacturaAriTaxi(fac, ctx0, iban);
 
             //Crear fichero FacturaE
             XmlSerializer serializer = new XmlSerializer(typeof(Facturae));

@@ -50,7 +50,7 @@ namespace FacturaE
 
         #region AriTAxi
         
-        public Facturae GenerarFacturaAriTaxi(Scafaccli factura, AriTaxiContext ctx0)
+        public Facturae GenerarFacturaAriTaxi(Scafaccli factura, AriTaxiContext ctx0, string numCuenta)
         {
             SparamTaxi empresa = (from emp in ctx0.SparamTaxis
                                   select emp).FirstOrDefault<SparamTaxi>();
@@ -58,7 +58,7 @@ namespace FacturaE
             Facturae facE = new Facturae();
             FileHeaderAriTaxi(facE, factura, ctx0);
             PartiesAriTaxi(facE, empresa, factura, ctx0);
-            InvoicesAriTaxi(facE, factura, ctx0);
+            InvoicesAriTaxi(facE, factura, numCuenta, ctx0);
             return facE;
         }
         
@@ -280,7 +280,7 @@ namespace FacturaE
             fcte.Parties.BuyerParty.Item = legalEntity;
         }
         
-        private void InvoicesAriTaxi(Facturae fcte, Scafaccli factura, AriTaxiContext ctx0)
+        private void InvoicesAriTaxi(Facturae fcte, Scafaccli factura, string numCuenta, AriTaxiContext ctx0)
         {
             fcte.Invoices = new InvoiceType[1]; // One invoice only
             InvoiceType inv = new InvoiceType();
@@ -424,6 +424,29 @@ namespace FacturaE
                 i++;
             }
             fcte.Invoices[0] = inv;
+
+            #region [Payments]
+
+            // Obtener la fecha de pago
+            if (numCuenta != "")
+            {
+                if (factura.Svencicli != null)
+                {
+                    inv.PaymentDetails = new InstallmentType[1];
+                    DateTime fechaPago = factura.Svencicli.Fecefect;
+                    InstallmentType paymentDetail = new InstallmentType();
+                    paymentDetail.InstallmentDueDate = fechaPago;
+                    paymentDetail.InstallmentAmount = new DoubleTwoDecimalType((double)factura.Svencicli.Impefect);
+                    // Se asume en todos los casos que el pago se hace por cuenta bancaria
+                    paymentDetail.PaymentMeans = PaymentMeansType.Item04;
+                    paymentDetail.AccountToBeCredited = new AccountType();
+                    paymentDetail.AccountToBeCredited.ItemElementName = ItemChoiceType.IBAN;
+                    paymentDetail.AccountToBeCredited.Item = numCuenta;
+                    inv.PaymentDetails[0] = paymentDetail;
+                }
+            }
+
+            #endregion
         }
                                             
         // son lineas para AriTaxi

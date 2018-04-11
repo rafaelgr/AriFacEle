@@ -700,6 +700,19 @@ namespace AriTaxiModel
 			}
 		}
 		
+		private Svencicli _svencicli;
+		public virtual Svencicli Svencicli
+		{
+			get
+			{
+				return this._svencicli;
+			}
+			set
+			{
+				this._svencicli = value;
+			}
+		}
+		
 	}
 }
 #pragma warning restore 1591

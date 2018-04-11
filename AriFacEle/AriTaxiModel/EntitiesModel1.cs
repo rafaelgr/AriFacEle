@@ -122,11 +122,20 @@ namespace AriTaxiModel
 			}
 		}
 		
+		public IQueryable<Svencicli> Svenciclis 
+		{
+			get
+			{
+				return this.GetAll<Svencicli>();
+			}
+		}
+		
 		public static BackendConfiguration GetBackendConfiguration()
 		{
 			BackendConfiguration backend = new BackendConfiguration();
 			backend.Backend = "MySql";
 			backend.ProviderName = "MySql.Data.MySqlClient";
+			backend.Logging.MetricStoreSnapshotInterval = 0;
 			return backend;
 		}
 	}
@@ -166,6 +175,10 @@ namespace AriTaxiModel
 			get;
 		}
 		IQueryable<Sartic> Sartics
+		{
+			get;
+		}
+		IQueryable<Svencicli> Svenciclis
 		{
 			get;
 		}
