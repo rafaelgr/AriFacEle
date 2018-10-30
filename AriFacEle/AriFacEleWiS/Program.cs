@@ -12,18 +12,18 @@ namespace AriFacEleWiS
     {
         /// <summary>
         /// Punto de entrada principal para la aplicación.
-        /// </summary>
+       /// </summary>
         static void Main()
         {
 
             //if (ComoServicio())
-            //StartAsAService();
+            StartAsAService();
             ////StartAsConsole(); //DEBUG
             //else
             //{
             //  StartAsConsole();
             //}
-            StartAsConsole();
+            //StartAsConsole();
         }
 
 

@@ -205,7 +205,8 @@ namespace DatosFacturaLib
 				this.oficinaContableCodigo = value;
 			}
 		}
-		
+
+
 		private int codclien_Arigasol;
 		public virtual int CodclienArigasol
 		{
@@ -307,6 +308,19 @@ namespace DatosFacturaLib
 			set
 			{
 				this.iban = value;
+			}
+		}
+		
+		private string organoProponente;
+		public virtual string OrganoProponente
+		{
+			get
+			{
+				return this.organoProponente;
+			}
+			set
+			{
+				this.organoProponente = value;
 			}
 		}
 		

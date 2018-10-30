@@ -18,25 +18,25 @@
           <orm:column name="cif" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="StringVariableLength" />
         </orm:field>
         <orm:field name="tomo" property="Tomo" behavior="readwrite" uniqueId="e85d4798-ff0e-4a07-bbf8-11db56ba562d" type="System.String">
-          <orm:column nullable="true" length="20" name="tomo" scale="0" sql-type="varchar" ado-type="StringVariableLength" />
+          <orm:column name="tomo" sql-type="varchar" nullable="true" length="20" scale="0" ado-type="StringVariableLength" />
         </orm:field>
         <orm:field name="seccion" property="Seccion" behavior="readwrite" uniqueId="b6f2e664-9344-4ee5-813f-57ac77ccdbdf" type="System.String">
-          <orm:column nullable="true" length="20" name="seccion" scale="0" sql-type="varchar" ado-type="StringVariableLength" />
+          <orm:column name="seccion" sql-type="varchar" nullable="true" length="20" scale="0" ado-type="StringVariableLength" />
         </orm:field>
         <orm:field name="registro" property="Registro" behavior="readwrite" uniqueId="d838761a-6ced-41a5-9b54-f779b12259c3" type="System.String">
-          <orm:column nullable="true" length="20" name="registro" scale="0" sql-type="varchar" ado-type="StringVariableLength" />
+          <orm:column name="registro" sql-type="varchar" nullable="true" length="20" scale="0" ado-type="StringVariableLength" />
         </orm:field>
         <orm:field name="regcomentarios" property="Regcomentarios" behavior="readwrite" uniqueId="7ce4a287-7f08-4788-a62e-0c583c75b479" type="System.String">
-          <orm:column nullable="true" length="20" name="regcomentarios" scale="0" sql-type="varchar" ado-type="StringVariableLength" />
+          <orm:column name="regcomentarios" sql-type="varchar" nullable="true" length="20" scale="0" ado-type="StringVariableLength" />
         </orm:field>
         <orm:field name="libro" property="Libro" behavior="readwrite" uniqueId="a052445f-ee4b-420d-b8cd-4f76f2e1c9b9" type="System.String">
-          <orm:column nullable="true" length="20" name="libro" scale="0" sql-type="varchar" ado-type="StringVariableLength" />
+          <orm:column name="libro" sql-type="varchar" nullable="true" length="20" scale="0" ado-type="StringVariableLength" />
         </orm:field>
         <orm:field name="hoja" property="Hoja" behavior="readwrite" uniqueId="24cc6ec3-7201-43ec-ab48-f2eabe87d63f" type="System.String">
-          <orm:column nullable="true" length="20" name="hoja" scale="0" sql-type="varchar" ado-type="StringVariableLength" />
+          <orm:column name="hoja" sql-type="varchar" nullable="true" length="20" scale="0" ado-type="StringVariableLength" />
         </orm:field>
         <orm:field name="folio" property="Folio" behavior="readwrite" uniqueId="3f167047-83e3-418f-ac9a-4cad28ae533b" type="System.String">
-          <orm:column nullable="true" length="20" name="folio" scale="0" sql-type="varchar" ado-type="StringVariableLength" />
+          <orm:column name="folio" sql-type="varchar" nullable="true" length="20" scale="0" ado-type="StringVariableLength" />
         </orm:field>
         <orm:field name="superusuarios" property="Superusuarios" null-value="none" uniqueId="38ec2cf3-2d8f-402c-98df-b62a0b2932f6" type="DatosFacturaLib.Superusuario">
           <orm:collection element-class="DatosFacturaLib.Superusuario" inverse-field="empresa" managed="true" order-by="" uniqueId="d89259b3-30ef-4408-99f9-24e783d2b0f3" />
@@ -103,14 +103,14 @@
         <orm:field name="impGastosAFo" property="ImpGastosAFo" uniqueId="45d50013-640f-444a-bb4a-5f2954daea12" type="System.Decimal" />
         <orm:field name="vCodtipom1" property="vCodtipom" uniqueId="a5d2c9d4-ba66-4537-99bc-3eaef9f13ad7" type="System.String" />
         <orm:field name="cliente" property="Cliente" null-value="none" uniqueId="2a38b7dd-895c-475c-9f5e-7da3eee85fec" type="DatosFacturaLib.Cliente">
-          <orm:reference uniqueId="e3c8c3c3-30e2-4dc9-b8b0-8b5867a5ec91">
+          <orm:reference uniqueId="e3c8c3c3-30e2-4dc9-b8b0-8b5867a5ec91" association-name="FacturaHasCliente">
             <orm:constraint name="FK_factura" destination-table="cliente">
               <orm:column name="id_cliente" sql-type="integer" nullable="true" length="0" scale="0" ado-type="Int32" target-class="DatosFacturaLib.Cliente" target-field="iD" />
             </orm:constraint>
           </orm:reference>
         </orm:field>
         <orm:field name="sistema" property="Sistema" behavior="readwrite" uniqueId="64b4b42d-6b6b-4142-b78f-be335b86bebc" type="DatosFacturaLib.Sistema">
-          <orm:reference uniqueId="4cf7e996-cc12-4d93-a9a1-ea9036e9351e">
+          <orm:reference uniqueId="4cf7e996-cc12-4d93-a9a1-ea9036e9351e" association-name="FacturaHasSistema">
             <orm:sharedfield name="sistema_id" target-class="DatosFacturaLib.Sistema" target-field="sistemaId" />
           </orm:reference>
         </orm:field>
@@ -251,8 +251,11 @@
         <orm:field name="iban" property="Iban" uniqueId="44e0b0e0-ef52-40b5-b4a9-b261f4ea9ed8" type="System.String">
           <orm:column name="iban" sql-type="varchar" nullable="true" length="50" scale="0" ado-type="" />
         </orm:field>
+        <orm:field name="organoProponente" property="OrganoProponente" uniqueId="4fe94791-85f0-42fc-a509-92689b155660" type="System.String">
+          <orm:column name="organoproponente" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="" />
+        </orm:field>
         <orm:field name="empresa" property="Empresa" behavior="readwrite" uniqueId="56ab5a17-5bba-4ce1-a610-4f5a8f280288" type="DatosFacturaLib.Empresa">
-          <orm:reference uniqueId="ee8a1400-0d60-4080-82c8-70f9cb3b4faa">
+          <orm:reference uniqueId="ee8a1400-0d60-4080-82c8-70f9cb3b4faa" association-name="ClienteHasEmpresa">
             <orm:sharedfield name="idEmpresa" target-class="DatosFacturaLib.Empresa" target-field="idEmpresa" />
           </orm:reference>
         </orm:field>
@@ -287,7 +290,7 @@
           <orm:column name="Id_empresa" sql-type="integer" nullable="true" length="0" scale="0" ado-type="Int32" />
         </orm:field>
         <orm:field name="empresa" property="Empresa" null-value="none" uniqueId="69e6a1e7-619f-4578-812d-4cc5a3683bd8" type="DatosFacturaLib.Empresa">
-          <orm:reference uniqueId="d89259b3-30ef-4408-99f9-24e783d2b0f3">
+          <orm:reference uniqueId="d89259b3-30ef-4408-99f9-24e783d2b0f3" association-name="SuperusuarioHasEmpresa">
             <orm:constraint name="ref_superusuario_empresa" destination-table="empresa">
               <orm:column name="Id_empresa" sql-type="integer" nullable="true" length="0" scale="0" ado-type="Int32" target-class="DatosFacturaLib.Empresa" target-field="idEmpresa" />
             </orm:constraint>
@@ -435,13 +438,13 @@
         <orm:column name="id_empresa" sql-type="integer" nullable="false" length="0" scale="0" primary-key="true" backend-calculated="true" ado-type="Int32" />
         <orm:column name="nombre" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="StringVariableLength" />
         <orm:column name="cif" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="StringVariableLength" />
-        <orm:column nullable="true" length="20" name="tomo" scale="0" sql-type="varchar" ado-type="StringVariableLength" />
-        <orm:column nullable="true" length="20" name="seccion" scale="0" sql-type="varchar" ado-type="StringVariableLength" />
-        <orm:column nullable="true" length="20" name="registro" scale="0" sql-type="varchar" ado-type="StringVariableLength" />
-        <orm:column nullable="true" length="20" name="regcomentarios" scale="0" sql-type="varchar" ado-type="StringVariableLength" />
-        <orm:column nullable="true" length="20" name="libro" scale="0" sql-type="varchar" ado-type="StringVariableLength" />
-        <orm:column nullable="true" length="20" name="hoja" scale="0" sql-type="varchar" ado-type="StringVariableLength" />
-        <orm:column nullable="true" length="20" name="folio" scale="0" sql-type="varchar" ado-type="StringVariableLength" />
+        <orm:column name="tomo" sql-type="varchar" nullable="true" length="20" scale="0" ado-type="StringVariableLength" />
+        <orm:column name="seccion" sql-type="varchar" nullable="true" length="20" scale="0" ado-type="StringVariableLength" />
+        <orm:column name="registro" sql-type="varchar" nullable="true" length="20" scale="0" ado-type="StringVariableLength" />
+        <orm:column name="regcomentarios" sql-type="varchar" nullable="true" length="20" scale="0" ado-type="StringVariableLength" />
+        <orm:column name="libro" sql-type="varchar" nullable="true" length="20" scale="0" ado-type="StringVariableLength" />
+        <orm:column name="hoja" sql-type="varchar" nullable="true" length="20" scale="0" ado-type="StringVariableLength" />
+        <orm:column name="folio" sql-type="varchar" nullable="true" length="20" scale="0" ado-type="StringVariableLength" />
       </orm:table>
       <orm:table name="factura">
         <orm:column name="id_factura" sql-type="integer" nullable="false" length="0" scale="0" primary-key="true" backend-calculated="true" ado-type="Int32" />
@@ -510,6 +513,7 @@
         <orm:column name="cod_clien_ariges2" sql-type="integer" nullable="false" length="0" scale="0" ado-type="Int32" />
         <orm:column name="cod_gdes" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="" />
         <orm:column name="iban" sql-type="varchar" nullable="true" length="50" scale="0" ado-type="" />
+        <orm:column name="organoproponente" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="" />
         <orm:index name="idx_cliente_id_empresa">
           <orm:columnMapping>
             <orm:column name="id_empresa" sql-type="integer" nullable="true" length="0" scale="0" ado-type="Int32" />
@@ -589,6 +593,7 @@
       <PropertyRules>
         <CaseMode>PascalCase</CaseMode>
       </PropertyRules>
+      <NavigationPropertyRules />
     </NamingSettings>
     <CodeGenerationSettings>
       <MappingDefinitionType>Xml</MappingDefinitionType>
@@ -680,7 +685,7 @@
       </AssociationTargets>
       <navigationalProperties>
         <classHasNavigationalProperties Id="3aecae51-a551-4e97-94d5-019dc986174b">
-          <NavigationalProperty Id="2a38b7dd-895c-475c-9f5e-7da3eee85fec" name="Cliente" type="Cliente" label="Cliente : Cliente" nullable="true" kind="Persistent" fieldName="cliente" isDependent="false" isManaged="false" />
+          <NavigationalProperty Id="2a38b7dd-895c-475c-9f5e-7da3eee85fec" name="Cliente" type="Cliente" label="Cliente : Cliente" nullable="true" kind="Persistent" fieldName="cliente" isDependent="false" isManaged="true" />
         </classHasNavigationalProperties>
         <classHasNavigationalProperties Id="0ce0ec7c-61e5-4d3c-be33-a2b23c0b49ac">
           <NavigationalProperty Id="64b4b42d-6b6b-4142-b78f-be335b86bebc" name="Sistema" type="Sistema" label="Sistema : Sistema" nullable="true" kind="Persistent" fieldName="sistema" isDependent="false" isManaged="false" />
@@ -729,6 +734,7 @@
       <Property Id="c083d872-f4e3-4619-b2c9-f0212044d020" name="OficinaContableCodigo" label="OficinaContableCodigo : String" kind="Persistent" fieldName="oficinaContableCodigo" />
       <Property Id="21014901-e49b-4947-bebe-70b8b497a697" name="CodGdes" label="CodGdes : String" fieldName="codGdes" />
       <Property Id="44e0b0e0-ef52-40b5-b4a9-b261f4ea9ed8" name="Iban" label="Iban : String" fieldName="iban" />
+      <Property Id="4fe94791-85f0-42fc-a509-92689b155660" name="OrganoProponente" label="OrganoProponente : String" fieldName="organoProponente" />
       <AssociationTargets>
         <Association Id="ee8a1400-0d60-4080-82c8-70f9cb3b4faa" SourceMultiplicity="ZeroOne" name="ClienteHasEmpresa">
           <DomainClassMoniker name="/FacturaEntity/Empresa" />
@@ -776,7 +782,7 @@
       </AssociationTargets>
       <navigationalProperties>
         <classHasNavigationalProperties Id="6b0441f7-c8bc-42f7-9fca-4939c734457d">
-          <NavigationalProperty Id="69e6a1e7-619f-4578-812d-4cc5a3683bd8" name="Empresa" type="Empresa" label="Empresa : Empresa" nullable="true" kind="Persistent" fieldName="empresa" isDependent="false" isManaged="false" />
+          <NavigationalProperty Id="69e6a1e7-619f-4578-812d-4cc5a3683bd8" name="Empresa" type="Empresa" label="Empresa : Empresa" nullable="true" kind="Persistent" fieldName="empresa" isDependent="false" isManaged="true" />
         </classHasNavigationalProperties>
       </navigationalProperties>
     </DomainClass>

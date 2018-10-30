@@ -808,6 +808,15 @@ namespace DatosFacturaLib
                 fac.Cliente.Empresa = empresa;
                 fac.Cliente.Nombre = ariFactura.Scliente.Nomclien ;
                 fac.Cliente.F_nueva = true;
+                //
+                fac.Cliente.OrganoGestorCodigo = ariFactura.Scliente.OrganoGestor;
+                fac.Cliente.UnidadTramitadoraCodigo = ariFactura.Scliente.UnidadTramitadora;
+                fac.Cliente.OficinaContableCodigo = ariFactura.Scliente.OficinaContable;
+                fac.Cliente.OrganoProponente = ariFactura.Scliente.OrganoProponente;
+                fac.Cliente.Email = ariFactura.Scliente.Maiclie1;
+                fac.Cliente.Iban = ariFactura.Scliente.Iban.ToString() + ariFactura.Scliente.Codbanco.ToString() + ariFactura.Scliente.Codsucur.ToString() + ariFactura.Scliente.Digcontr.ToString() + ariFactura.Scliente.Cuentaba.ToString();
+
+                // Nuevos campos a actualizar
                 fac.EsFraCliente = true;
                 fac.LetraIdFraProve = "F";  // Facturas normales de cliente en teletaxi
                 fac.ImpRetencion = 0; // por si acaso

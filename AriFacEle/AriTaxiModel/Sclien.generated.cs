@@ -401,6 +401,19 @@ namespace AriTaxiModel
 			}
 		}
 		
+		private string _iban;
+		public virtual string Iban
+		{
+			get
+			{
+				return this._iban;
+			}
+			set
+			{
+				this._iban = value;
+			}
+		}
+		
 		private IList<Sfactusoc> _sfactusocs = new List<Sfactusoc>();
 		public virtual IList<Sfactusoc> Sfactusocs
 		{

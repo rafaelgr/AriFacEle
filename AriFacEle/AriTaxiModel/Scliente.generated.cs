@@ -739,6 +739,123 @@ namespace AriTaxiModel
 			}
 		}
 		
+		private string _organoGestor;
+		public virtual string OrganoGestor
+		{
+			get
+			{
+				return this._organoGestor;
+			}
+			set
+			{
+				this._organoGestor = value;
+			}
+		}
+		
+		private string _unidadTramitadora;
+		public virtual string UnidadTramitadora
+		{
+			get
+			{
+				return this._unidadTramitadora;
+			}
+			set
+			{
+				this._unidadTramitadora = value;
+			}
+		}
+		
+		private string _oficinaContable;
+		public virtual string OficinaContable
+		{
+			get
+			{
+				return this._oficinaContable;
+			}
+			set
+			{
+				this._oficinaContable = value;
+			}
+		}
+		
+		private string _organoProponente;
+		public virtual string OrganoProponente
+		{
+			get
+			{
+				return this._organoProponente;
+			}
+			set
+			{
+				this._organoProponente = value;
+			}
+		}
+		
+		private string _organogestor;
+		public virtual string Organogestor
+		{
+			get
+			{
+				return this._organogestor;
+			}
+			set
+			{
+				this._organogestor = value;
+			}
+		}
+		
+		private string _unidadtramitadora;
+		public virtual string Unidadtramitadora
+		{
+			get
+			{
+				return this._unidadtramitadora;
+			}
+			set
+			{
+				this._unidadtramitadora = value;
+			}
+		}
+		
+		private string _oficinacontable;
+		public virtual string Oficinacontable
+		{
+			get
+			{
+				return this._oficinacontable;
+			}
+			set
+			{
+				this._oficinacontable = value;
+			}
+		}
+		
+		private string _orgproponente;
+		public virtual string Orgproponente
+		{
+			get
+			{
+				return this._orgproponente;
+			}
+			set
+			{
+				this._orgproponente = value;
+			}
+		}
+		
+		private string _iban;
+		public virtual string Iban
+		{
+			get
+			{
+				return this._iban;
+			}
+			set
+			{
+				this._iban = value;
+			}
+		}
+		
 		private IList<Scafaccli> _scafacclis = new List<Scafaccli>();
 		public virtual IList<Scafaccli> Scafacclis
 		{

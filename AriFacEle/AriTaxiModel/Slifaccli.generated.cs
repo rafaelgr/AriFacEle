@@ -335,6 +335,19 @@ namespace AriTaxiModel
 			}
 		}
 		
+		private string _nroExpediente;
+		public virtual string NroExpediente
+		{
+			get
+			{
+				return this._nroExpediente;
+			}
+			set
+			{
+				this._nroExpediente = value;
+			}
+		}
+		
 	}
 }
 #pragma warning restore 1591

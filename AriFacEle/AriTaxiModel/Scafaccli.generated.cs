@@ -687,6 +687,32 @@ namespace AriTaxiModel
 			}
 		}
 		
+		private DateTime _fecdesde;
+		public virtual DateTime Fecdesde
+		{
+			get
+			{
+				return this._fecdesde;
+			}
+			set
+			{
+				this._fecdesde = value;
+			}
+		}
+		
+		private DateTime _fechasta;
+		public virtual DateTime Fechasta
+		{
+			get
+			{
+				return this._fechasta;
+			}
+			set
+			{
+				this._fechasta = value;
+			}
+		}
+		
 		private Scliente _scliente;
 		public virtual Scliente Scliente
 		{

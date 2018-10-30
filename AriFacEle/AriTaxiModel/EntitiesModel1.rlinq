@@ -287,6 +287,23 @@
         <orm:field name="_observa1" property="Observa1" behavior="readwrite" uniqueId="16b30fd2-2bd2-459c-84b9-0b2b6037d5bb" type="System.String">
           <orm:column name="observa1" sql-type="varchar" nullable="true" length="80" scale="0" ado-type="StringVariableLength" />
         </orm:field>
+        <orm:field name="_organoGestor" property="OrganoGestor" uniqueId="709aa0dc-5c2d-4904-8a8c-32262c002e37" type="System.String">
+          <orm:column name="organogestor" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="" />
+        </orm:field>
+        <orm:field name="_unidadTramitadora" property="UnidadTramitadora" uniqueId="7f7380c8-bdf5-4cd2-b1e4-48ef0a042578" type="System.String">
+          <orm:column name="unidadtramitadora" sql-type="varchar" nullable="false" length="255" scale="0" ado-type="" />
+        </orm:field>
+        <orm:field name="_oficinaContable" property="OficinaContable" uniqueId="9487cb26-eca2-40ee-a1d9-519d35bebed9" type="System.String">
+          <orm:column name="oficinacontable" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="" />
+        </orm:field>
+        <orm:field name="_organoProponente" property="OrganoProponente" uniqueId="25cbfcf2-2e29-4a98-98d2-e3eb9b6ecaa6" type="System.String">
+          <orm:column name="orgproponente" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="" />
+        </orm:field>
+        <orm:field name="_organogestor" property="Organogestor" uniqueId="19073bdf-48ac-412e-ac52-e9b3755a3823" type="System.String" />
+        <orm:field name="_unidadtramitadora" property="Unidadtramitadora" uniqueId="d2186b37-9b20-40b4-b6ff-e91561fbc7d4" type="System.String" />
+        <orm:field name="_oficinacontable" property="Oficinacontable" uniqueId="5c29e99b-fcaa-4b8e-a6c8-4e9e59b46bd0" type="System.String" />
+        <orm:field name="_orgproponente" property="Orgproponente" uniqueId="4d357eba-fea1-4e69-8db8-0d7fbc24328b" type="System.String" />
+        <orm:field name="_iban" property="Iban" uniqueId="172905a5-0c5c-48ff-b463-4bc0072343ca" type="System.String" />
         <orm:field name="_scafacclis" property="Scafacclis" behavior="readwrite" uniqueId="bbc061ef-8b31-4867-bda5-94ab880fc5d1" type="AriTaxiModel.Scafaccli">
           <orm:collection element-class="AriTaxiModel.Scafaccli" inverse-field="_scliente" order-by="" uniqueId="3bc338c7-fedc-481f-a0b9-1665b73fcc5d" />
         </orm:field>
@@ -428,6 +445,9 @@
         </orm:field>
         <orm:field name="_escontado" property="Escontado" behavior="readwrite" uniqueId="b494cf51-4b00-4c02-bb48-b52388d8afd5" type="System.Byte">
           <orm:column name="escontado" sql-type="tinyint unsigned" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Byte" />
+        </orm:field>
+        <orm:field name="_iban" property="Iban" behavior="readwrite" uniqueId="bbdeae47-fcb1-4b55-8748-ddec9ab85b98" type="System.String">
+          <orm:column name="iban" sql-type="varchar" nullable="true" length="4" scale="0" ado-type="" />
         </orm:field>
         <orm:field name="_sfactusocs" property="Sfactusocs" behavior="readwrite" uniqueId="ab3dcca8-6954-4881-bddf-9a9f976c1c39" type="AriTaxiModel.Sfactusoc">
           <orm:collection element-class="AriTaxiModel.Sfactusoc" inverse-field="_sclien" order-by="" uniqueId="0380cf8b-d947-498b-b4f5-d3b6fe23fcb3" />
@@ -603,6 +623,12 @@
         </orm:field>
         <orm:field name="_exportada" property="Exportada" behavior="readwrite" uniqueId="3e75e68c-269c-402b-b7e8-a1e798440d1b" type="System.Byte">
           <orm:column name="exportada" sql-type="tinyint unsigned" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Byte" />
+        </orm:field>
+        <orm:field name="_fecdesde" property="Fecdesde" uniqueId="a9738667-fad4-4996-8197-146dd94e7d84" type="System.DateTime">
+          <orm:column name="fecdesde" sql-type="date" nullable="true" length="0" scale="0" ado-type="" />
+        </orm:field>
+        <orm:field name="_fechasta" property="Fechasta" uniqueId="37608b2a-1ad5-430f-bca6-d562f30e4d7e" type="System.DateTime">
+          <orm:column name="fechasta" sql-type="date" nullable="false" length="0" scale="0" ado-type="" />
         </orm:field>
         <orm:field name="_scliente" property="Scliente" behavior="readwrite" uniqueId="9e69551e-7346-4722-951a-cd12626d8483" type="AriTaxiModel.Scliente">
           <orm:reference uniqueId="3bc338c7-fedc-481f-a0b9-1665b73fcc5d" association-name="ScafaccliHasScliente">
@@ -937,6 +963,9 @@
         <orm:field name="_codccost" property="Codccost" behavior="readwrite" uniqueId="1ea7085f-d6cb-4818-93f5-3751e3ab9546" type="System.String">
           <orm:column name="codccost" sql-type="varchar" nullable="true" length="4" scale="0" ado-type="StringVariableLength" />
         </orm:field>
+        <orm:field name="_nroExpediente" property="NroExpediente" uniqueId="d0171fe0-5b18-48d5-9a7a-626b4d3483c9" type="System.String">
+          <orm:column name="nroexpediente" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="" />
+        </orm:field>
         <orm:index name="fk_almacen">
           <orm:columnMapping>
             <orm:column name="codartic" sql-type="varchar" nullable="false" length="16" scale="0" ado-type="StringVariableLength" />
@@ -1226,6 +1255,10 @@
         <orm:column name="enviocorreo" sql-type="tinyint" nullable="true" length="0" scale="0" has-default-value="true" ado-type="Byte" />
         <orm:column name="gasAdm" sql-type="decimal" nullable="true" length="6" scale="2" ado-type="Decimal" />
         <orm:column name="observa1" sql-type="varchar" nullable="true" length="80" scale="0" ado-type="StringVariableLength" />
+        <orm:column name="organogestor" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="" />
+        <orm:column name="unidadtramitadora" sql-type="varchar" nullable="false" length="255" scale="0" ado-type="" />
+        <orm:column name="oficinacontable" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="" />
+        <orm:column name="orgproponente" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="" />
         <orm:index name="fkClientesCodactiv">
           <orm:columnMapping>
             <orm:column name="codactiv" sql-type="smallint unsigned" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Int16" />
@@ -1302,6 +1335,11 @@
         <orm:column name="suplecuota" sql-type="decimal" nullable="true" length="8" scale="2" ado-type="Decimal" />
         <orm:column name="impacuenta" sql-type="decimal" nullable="true" length="8" scale="2" ado-type="Decimal" />
         <orm:column name="escontado" sql-type="tinyint unsigned" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Byte" />
+        <orm:column name="unidadtramitadora" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="" />
+        <orm:column name="orgproponente" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="" />
+        <orm:column name="organogestor" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="" />
+        <orm:column name="oficinacontable" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="" />
+        <orm:column name="iban" sql-type="varchar" nullable="true" length="4" scale="0" ado-type="" />
         <orm:index name="numeruve">
           <orm:columnMapping>
             <orm:column name="numeruve" sql-type="integer" nullable="true" length="0" scale="0" ado-type="Int32" />
@@ -1360,6 +1398,8 @@
         <orm:column name="numservi" sql-type="integer" nullable="true" length="0" scale="0" ado-type="Int32" />
         <orm:column name="suplidos" sql-type="decimal" nullable="true" length="8" scale="2" ado-type="Decimal" />
         <orm:column name="exportada" sql-type="tinyint unsigned" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Byte" />
+        <orm:column name="fechasta" sql-type="date" nullable="false" length="0" scale="0" ado-type="" />
+        <orm:column name="fecdesde" sql-type="date" nullable="true" length="0" scale="0" ado-type="" />
         <orm:index name="fk_codagent">
           <orm:columnMapping>
             <orm:column name="codagent" sql-type="smallint unsigned" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Int16" />
@@ -1498,6 +1538,7 @@
         <orm:column name="codproveX" sql-type="integer" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Int32" />
         <orm:column name="numlote" sql-type="varchar" nullable="true" length="15" scale="0" ado-type="StringVariableLength" />
         <orm:column name="codccost" sql-type="varchar" nullable="true" length="4" scale="0" ado-type="StringVariableLength" />
+        <orm:column name="nroexpediente" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="" />
         <orm:index name="fk_almacen">
           <orm:columnMapping>
             <orm:column name="codartic" sql-type="varchar" nullable="false" length="16" scale="0" ado-type="StringVariableLength" />
@@ -1749,6 +1790,15 @@
       <Property Id="78eeb1b8-937a-4abb-9f1c-999eb26145b5" name="Tipofact" type="Byte" label="Tipofact : Byte" kind="Persistent" fieldName="_tipofact" />
       <Property Id="f8b425ca-6b8a-4ff0-a566-bd94fddd40dd" name="Tipoiva" type="Byte" label="Tipoiva : Byte" kind="Persistent" fieldName="_tipoiva" />
       <Property Id="2efb8ba4-48a0-4e68-822e-277c72cd329f" name="Wwwclien" label="Wwwclien : String" kind="Persistent" fieldName="_wwwclien" />
+      <Property Id="709aa0dc-5c2d-4904-8a8c-32262c002e37" name="OrganoGestor" label="OrganoGestor : String" fieldName="_organoGestor" />
+      <Property Id="7f7380c8-bdf5-4cd2-b1e4-48ef0a042578" name="UnidadTramitadora" label="UnidadTramitadora : String" fieldName="_unidadTramitadora" />
+      <Property Id="9487cb26-eca2-40ee-a1d9-519d35bebed9" name="OficinaContable" label="OficinaContable : String" fieldName="_oficinaContable" />
+      <Property Id="25cbfcf2-2e29-4a98-98d2-e3eb9b6ecaa6" name="OrganoProponente" label="OrganoProponente : String" fieldName="_organoProponente" />
+      <Property Id="19073bdf-48ac-412e-ac52-e9b3755a3823" name="Organogestor" label="Organogestor : String" fieldName="_organogestor" />
+      <Property Id="d2186b37-9b20-40b4-b6ff-e91561fbc7d4" name="Unidadtramitadora" label="Unidadtramitadora : String" fieldName="_unidadtramitadora" />
+      <Property Id="5c29e99b-fcaa-4b8e-a6c8-4e9e59b46bd0" name="Oficinacontable" label="Oficinacontable : String" fieldName="_oficinacontable" />
+      <Property Id="4d357eba-fea1-4e69-8db8-0d7fbc24328b" name="Orgproponente" label="Orgproponente : String" fieldName="_orgproponente" />
+      <Property Id="172905a5-0c5c-48ff-b463-4bc0072343ca" name="Iban" label="Iban : String" fieldName="_iban" />
       <navigationalProperties>
         <classHasNavigationalProperties Id="38099ae1-6e1e-4e56-b693-399f17c645d5">
           <NavigationalProperty Id="bbc061ef-8b31-4867-bda5-94ab880fc5d1" name="Scafacclis" type="IList&lt;Scafaccli&gt;" label="Scafacclis : IList&lt;Scafaccli&gt;" nullable="true" kind="Persistent" fieldName="_scafacclis" isDependent="false" isManaged="false" />
@@ -1785,6 +1835,7 @@
       <Property Id="f56cdfcb-aff8-4b8c-a49a-4e2ed2f84f84" name="Proclien" label="Proclien : String" kind="Persistent" fieldName="_proclien" />
       <Property Id="76ff4e8c-9749-42c4-8554-f6ac1261e6cf" name="Suplecuota" type="Decimal" label="Suplecuota : Decimal" nullable="true" kind="Persistent" fieldName="_suplecuota" />
       <Property Id="12201224-df6b-4bfa-b1bc-2086bd7b77a1" name="Telclie1" label="Telclie1 : String" kind="Persistent" fieldName="_telclie1" />
+      <Property Id="bbdeae47-fcb1-4b55-8748-ddec9ab85b98" name="Iban" label="Iban : String" kind="Persistent" fieldName="_iban" />
       <navigationalProperties>
         <classHasNavigationalProperties Id="cfb9d93e-5351-4e3c-a8a7-b815be5ed225">
           <NavigationalProperty Id="ab3dcca8-6954-4881-bddf-9a9f976c1c39" name="Sfactusocs" type="IList&lt;Sfactusoc&gt;" label="Sfactusocs : IList&lt;Sfactusoc&gt;" nullable="true" kind="Persistent" fieldName="_sfactusocs" isDependent="false" isManaged="false" />
@@ -1846,6 +1897,8 @@
       <Property Id="2255baf0-af20-49f0-ab41-69be52f97fed" name="Suplidos" type="Decimal" label="Suplidos : Decimal" nullable="true" kind="Persistent" fieldName="_suplidos" />
       <Property Id="9c3fa38f-7404-47bf-b23f-24983faba681" name="Telclien" label="Telclien : String" kind="Persistent" fieldName="_telclien" />
       <Property Id="8fe1eb77-0306-4ef0-8b2b-4ac7a8bcda9b" name="Totalfac" type="Decimal" label="Totalfac : Decimal" kind="Persistent" fieldName="_totalfac" />
+      <Property Id="a9738667-fad4-4996-8197-146dd94e7d84" name="Fecdesde" type="DateTime" label="Fecdesde : DateTime" fieldName="_fecdesde" />
+      <Property Id="37608b2a-1ad5-430f-bca6-d562f30e4d7e" name="Fechasta" type="DateTime" label="Fechasta : DateTime" fieldName="_fechasta" />
       <AssociationTargets>
         <Association Id="3bc338c7-fedc-481f-a0b9-1665b73fcc5d" SourceMultiplicity="One" name="ScafaccliHasScliente">
           <DomainClassMoniker name="/AriTaxiContext/Scliente" />
@@ -1975,6 +2028,7 @@
       <Property Id="78f6f639-e011-40e6-b71f-3bb97df585bc" name="Preciomp" type="Decimal" label="Preciomp : Decimal" nullable="true" kind="Persistent" fieldName="_preciomp" />
       <Property Id="e5feda8c-84de-496b-81ef-3585557ab72b" name="Preciost" type="Decimal" label="Preciost : Decimal" nullable="true" kind="Persistent" fieldName="_preciost" />
       <Property Id="5e071028-b9cc-4260-b58e-8c25922ba149" name="Preciouc" type="Decimal" label="Preciouc : Decimal" nullable="true" kind="Persistent" fieldName="_preciouc" />
+      <Property Id="d0171fe0-5b18-48d5-9a7a-626b4d3483c9" name="NroExpediente" label="NroExpediente : String" fieldName="_nroExpediente" />
     </DomainClass>
     <DomainClass Id="e52e040c-348a-46c6-a09e-9a9fef34287e" name="Sartic" namespace="AriTaxiModel" showPropertiesCompartment="true" concurrencyMode="Changed" showNavigationCompartment="true" showImplementationCompartment="true">
       <Property Id="16f117ed-f617-4660-bbd4-eda85742625d" name="Codartic" label="Codartic : String" kind="Persistent" identity="true" fieldName="_codartic" />
