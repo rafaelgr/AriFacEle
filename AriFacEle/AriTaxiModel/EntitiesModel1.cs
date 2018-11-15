@@ -130,6 +130,14 @@ namespace AriTaxiModel
 			}
 		}
 		
+		public IQueryable<Sbanpr> Sbanprs 
+		{
+			get
+			{
+				return this.GetAll<Sbanpr>();
+			}
+		}
+		
 		public static BackendConfiguration GetBackendConfiguration()
 		{
 			BackendConfiguration backend = new BackendConfiguration();
@@ -179,6 +187,10 @@ namespace AriTaxiModel
 			get;
 		}
 		IQueryable<Svencicli> Svenciclis
+		{
+			get;
+		}
+		IQueryable<Sbanpr> Sbanprs
 		{
 			get;
 		}

@@ -791,6 +791,19 @@ namespace AriTaxiModel
 			}
 		}
 		
+		private short _codbanpr;
+		public virtual short Codbanpr
+		{
+			get
+			{
+				return this._codbanpr;
+			}
+			set
+			{
+				this._codbanpr = value;
+			}
+		}
+		
 		private string _organogestor;
 		public virtual string Organogestor
 		{
@@ -853,6 +866,19 @@ namespace AriTaxiModel
 			set
 			{
 				this._iban = value;
+			}
+		}
+		
+		private Sbanpr _sbanpr;
+		public virtual Sbanpr Sbanpr
+		{
+			get
+			{
+				return this._sbanpr;
+			}
+			set
+			{
+				this._sbanpr = value;
 			}
 		}
 		

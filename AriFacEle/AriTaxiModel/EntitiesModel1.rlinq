@@ -304,8 +304,16 @@
         <orm:field name="_oficinacontable" property="Oficinacontable" uniqueId="5c29e99b-fcaa-4b8e-a6c8-4e9e59b46bd0" type="System.String" />
         <orm:field name="_orgproponente" property="Orgproponente" uniqueId="4d357eba-fea1-4e69-8db8-0d7fbc24328b" type="System.String" />
         <orm:field name="_iban" property="Iban" uniqueId="172905a5-0c5c-48ff-b463-4bc0072343ca" type="System.String" />
+        <orm:field name="_codbanpr" property="Codbanpr" behavior="readwrite" uniqueId="17d4f679-5255-4c7d-b144-6390718d3fa1" type="System.Int16">
+          <orm:column name="codbanpr" sql-type="smallint" nullable="false" length="0" scale="0" ado-type="" />
+        </orm:field>
         <orm:field name="_scafacclis" property="Scafacclis" behavior="readwrite" uniqueId="bbc061ef-8b31-4867-bda5-94ab880fc5d1" type="AriTaxiModel.Scafaccli">
           <orm:collection element-class="AriTaxiModel.Scafaccli" inverse-field="_scliente" order-by="" uniqueId="3bc338c7-fedc-481f-a0b9-1665b73fcc5d" />
+        </orm:field>
+        <orm:field name="_sbanpr" property="Sbanpr" behavior="readwrite" uniqueId="20a4d817-4495-4bf3-ab77-82244717dc9e" type="AriTaxiModel.Sbanpr">
+          <orm:reference uniqueId="448e212c-1b0e-43a8-9b67-2418c4b9ab08" association-name="SclienteHasSbanpr">
+            <orm:sharedfield name="_codbanpr" target-class="AriTaxiModel.Sbanpr" target-field="_codbanpr" />
+          </orm:reference>
         </orm:field>
         <orm:index name="fkClientesCodactiv">
           <orm:columnMapping>
@@ -449,6 +457,7 @@
         <orm:field name="_iban" property="Iban" behavior="readwrite" uniqueId="bbdeae47-fcb1-4b55-8748-ddec9ab85b98" type="System.String">
           <orm:column name="iban" sql-type="varchar" nullable="true" length="4" scale="0" ado-type="" />
         </orm:field>
+        <orm:field name="_codbanpr" property="Codbanpr" behavior="readwrite" uniqueId="759a5f13-6cc3-42e7-b045-914b28ab74a9" type="System.Int32" />
         <orm:field name="_sfactusocs" property="Sfactusocs" behavior="readwrite" uniqueId="ab3dcca8-6954-4881-bddf-9a9f976c1c39" type="AriTaxiModel.Sfactusoc">
           <orm:collection element-class="AriTaxiModel.Sfactusoc" inverse-field="_sclien" order-by="" uniqueId="0380cf8b-d947-498b-b4f5-d3b6fe23fcb3" />
         </orm:field>
@@ -1163,6 +1172,33 @@
           </orm:reference>
         </orm:field>
       </orm:class>
+      <orm:class name="Sbanpr" uniqueId="4b4b6cc7-c0c4-4d98-a1f7-dd60cabd653a">
+        <orm:table name="sbanpr" />
+        <orm:identity>
+          <orm:single-field field-name="_codbanpr" />
+        </orm:identity>
+        <orm:field name="_codbanpr" property="Codbanpr" uniqueId="71b992fd-5ead-4a0f-9351-81dc1de05a27" type="System.Int16">
+          <orm:column name="codbanpr" sql-type="integer" nullable="false" length="0" scale="0" primary-key="true" ado-type="" />
+        </orm:field>
+        <orm:field name="_iban" property="Iban" uniqueId="4e94eac4-f16d-4091-8028-8eeefaca068c" type="System.String">
+          <orm:column name="iban" sql-type="varchar" nullable="false" length="4" scale="0" ado-type="" />
+        </orm:field>
+        <orm:field name="_codbanco" property="Codbanco" uniqueId="2af3a1fb-3219-4efc-871f-f79cd593940b" type="System.UInt16">
+          <orm:column name="codbanco" sql-type="smallint" nullable="false" length="0" scale="0" ado-type="" />
+        </orm:field>
+        <orm:field name="_codsucur" property="Codsucur" uniqueId="25d09357-8cc8-4629-bf50-ba4a65acfcff" type="System.UInt16">
+          <orm:column name="codsucur" sql-type="smallint" nullable="false" length="0" scale="0" ado-type="" />
+        </orm:field>
+        <orm:field name="_digcontr" property="Digcontr" uniqueId="9697087c-8d07-48de-b8b7-28006953e4b6" type="System.String">
+          <orm:column name="digcontr" sql-type="char" nullable="false" length="2" scale="0" ado-type="" />
+        </orm:field>
+        <orm:field name="_cuentaba" property="Cuentaba" uniqueId="6f8933da-284a-4750-a183-dd39794f1b6c" type="System.String">
+          <orm:column name="cuentaba" sql-type="varchar" nullable="false" length="10" scale="0" ado-type="" />
+        </orm:field>
+        <orm:field name="_sclientes" property="Sclientes" behavior="readwrite" uniqueId="d6716b92-9ea4-43cb-8179-0b843ef58d0e" type="AriTaxiModel.Scliente">
+          <orm:collection element-class="AriTaxiModel.Scliente" inverse-field="_sbanpr" order-by="" uniqueId="448e212c-1b0e-43a8-9b67-2418c4b9ab08" />
+        </orm:field>
+      </orm:class>
     </orm:namespace>
     <orm:schema schema="">
       <orm:table name="sparam">
@@ -1259,6 +1295,7 @@
         <orm:column name="unidadtramitadora" sql-type="varchar" nullable="false" length="255" scale="0" ado-type="" />
         <orm:column name="oficinacontable" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="" />
         <orm:column name="orgproponente" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="" />
+        <orm:column name="codbanpr" sql-type="smallint" nullable="false" length="0" scale="0" ado-type="" />
         <orm:index name="fkClientesCodactiv">
           <orm:columnMapping>
             <orm:column name="codactiv" sql-type="smallint unsigned" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Int16" />
@@ -1638,6 +1675,14 @@
         <orm:column name="fecfactu" sql-type="date" nullable="false" length="0" scale="0" primary-key="true" ado-type="" />
         <orm:column name="fecefect" sql-type="date" nullable="false" length="0" scale="0" ado-type="" />
       </orm:table>
+      <orm:table name="sbanpr">
+        <orm:column name="iban" sql-type="varchar" nullable="false" length="4" scale="0" ado-type="" />
+        <orm:column name="digcontr" sql-type="char" nullable="false" length="2" scale="0" ado-type="" />
+        <orm:column name="cuentaba" sql-type="varchar" nullable="false" length="10" scale="0" ado-type="" />
+        <orm:column name="codsucur" sql-type="smallint" nullable="false" length="0" scale="0" ado-type="" />
+        <orm:column name="codbanpr" sql-type="integer" nullable="false" length="0" scale="0" primary-key="true" ado-type="" />
+        <orm:column name="codbanco" sql-type="smallint" nullable="false" length="0" scale="0" ado-type="" />
+      </orm:table>
     </orm:schema>
     <orm:relational-naming-settings>
       <orm:remove-leading-underscore>False</orm:remove-leading-underscore>
@@ -1799,9 +1844,28 @@
       <Property Id="5c29e99b-fcaa-4b8e-a6c8-4e9e59b46bd0" name="Oficinacontable" label="Oficinacontable : String" fieldName="_oficinacontable" />
       <Property Id="4d357eba-fea1-4e69-8db8-0d7fbc24328b" name="Orgproponente" label="Orgproponente : String" fieldName="_orgproponente" />
       <Property Id="172905a5-0c5c-48ff-b463-4bc0072343ca" name="Iban" label="Iban : String" fieldName="_iban" />
+      <Property Id="17d4f679-5255-4c7d-b144-6390718d3fa1" name="Codbanpr" type="Int16" label="Codbanpr : Int16" kind="Persistent" fieldName="_codbanpr" />
+      <AssociationTargets>
+        <Association Id="448e212c-1b0e-43a8-9b67-2418c4b9ab08" SourceMultiplicity="ZeroOne" name="SclienteHasSbanpr">
+          <DomainClassMoniker name="/AriTaxiContext/Sbanpr" />
+          <targetNavigationalProperty>
+            <associationDefinesTargetProperty Id="c13fca95-68a5-4448-a81b-2fdc70f7f6d5">
+              <NavigationalPropertyMoniker name="/AriTaxiContext/Sbanpr/Sclientes" />
+            </associationDefinesTargetProperty>
+          </targetNavigationalProperty>
+          <sourceNavigationalProperty>
+            <associationDefinesSourceProperty Id="82f2bedc-10a1-43f9-8bc6-7c9bb49398b1">
+              <NavigationalPropertyMoniker name="/AriTaxiContext/Scliente/Sbanpr" />
+            </associationDefinesSourceProperty>
+          </sourceNavigationalProperty>
+        </Association>
+      </AssociationTargets>
       <navigationalProperties>
         <classHasNavigationalProperties Id="38099ae1-6e1e-4e56-b693-399f17c645d5">
           <NavigationalProperty Id="bbc061ef-8b31-4867-bda5-94ab880fc5d1" name="Scafacclis" type="IList&lt;Scafaccli&gt;" label="Scafacclis : IList&lt;Scafaccli&gt;" nullable="true" kind="Persistent" fieldName="_scafacclis" isDependent="false" isManaged="false" />
+        </classHasNavigationalProperties>
+        <classHasNavigationalProperties Id="5b4e4820-b89a-433b-b9df-ffa9480de08f">
+          <NavigationalProperty Id="20a4d817-4495-4bf3-ab77-82244717dc9e" name="Sbanpr" type="Sbanpr" label="Sbanpr : Sbanpr" nullable="true" kind="Persistent" fieldName="_sbanpr" isDependent="false" isManaged="false" />
         </classHasNavigationalProperties>
       </navigationalProperties>
     </DomainClass>
@@ -1836,6 +1900,7 @@
       <Property Id="76ff4e8c-9749-42c4-8554-f6ac1261e6cf" name="Suplecuota" type="Decimal" label="Suplecuota : Decimal" nullable="true" kind="Persistent" fieldName="_suplecuota" />
       <Property Id="12201224-df6b-4bfa-b1bc-2086bd7b77a1" name="Telclie1" label="Telclie1 : String" kind="Persistent" fieldName="_telclie1" />
       <Property Id="bbdeae47-fcb1-4b55-8748-ddec9ab85b98" name="Iban" label="Iban : String" kind="Persistent" fieldName="_iban" />
+      <Property Id="759a5f13-6cc3-42e7-b045-914b28ab74a9" name="Codbanpr" type="Int32" label="Codbanpr : Int32" kind="Persistent" fieldName="_codbanpr" />
       <navigationalProperties>
         <classHasNavigationalProperties Id="cfb9d93e-5351-4e3c-a8a7-b815be5ed225">
           <NavigationalProperty Id="ab3dcca8-6954-4881-bddf-9a9f976c1c39" name="Sfactusocs" type="IList&lt;Sfactusoc&gt;" label="Sfactusocs : IList&lt;Sfactusoc&gt;" nullable="true" kind="Persistent" fieldName="_sfactusocs" isDependent="false" isManaged="false" />
@@ -2093,6 +2158,19 @@
         </classHasNavigationalProperties>
       </navigationalProperties>
     </DomainClass>
+    <DomainClass Id="4b4b6cc7-c0c4-4d98-a1f7-dd60cabd653a" name="Sbanpr" namespace="AriTaxiModel" showPropertiesCompartment="true" showNavigationCompartment="true" showImplementationCompartment="true">
+      <Property Id="71b992fd-5ead-4a0f-9351-81dc1de05a27" name="Codbanpr" type="Int16" label="Codbanpr : Int16" identity="true" fieldName="_codbanpr" />
+      <Property Id="4e94eac4-f16d-4091-8028-8eeefaca068c" name="Iban" label="Iban : String" fieldName="_iban" />
+      <Property Id="2af3a1fb-3219-4efc-871f-f79cd593940b" name="Codbanco" type="UInt16" label="Codbanco : UInt16" fieldName="_codbanco" />
+      <Property Id="25d09357-8cc8-4629-bf50-ba4a65acfcff" name="Codsucur" type="UInt16" label="Codsucur : UInt16" fieldName="_codsucur" />
+      <Property Id="9697087c-8d07-48de-b8b7-28006953e4b6" name="Digcontr" label="Digcontr : String" fieldName="_digcontr" />
+      <Property Id="6f8933da-284a-4750-a183-dd39794f1b6c" name="Cuentaba" label="Cuentaba : String" fieldName="_cuentaba" />
+      <navigationalProperties>
+        <classHasNavigationalProperties Id="40cb042b-a050-4aaf-82c5-0a1630294702">
+          <NavigationalProperty Id="d6716b92-9ea4-43cb-8179-0b843ef58d0e" name="Sclientes" type="IList&lt;Scliente&gt;" label="Sclientes : IList&lt;Scliente&gt;" nullable="true" kind="Persistent" fieldName="_sclientes" isDependent="false" isManaged="false" />
+        </classHasNavigationalProperties>
+      </navigationalProperties>
+    </DomainClass>
   </Types>
   <domainContext>
     <domainModelHasDomainContext Id="20d10b95-2711-4337-b692-6cbc52181d7f">
@@ -2107,6 +2185,7 @@
         <entitySetProperty name="Slifacclis" namespace="AriTaxiModel" type="Slifaccli" label="Slifacclis : IQueryable&lt;AriTaxiModel.Slifaccli&gt;" />
         <entitySetProperty name="Sartics" namespace="AriTaxiModel" type="Sartic" label="Sartics : IQueryable&lt;AriTaxiModel.Sartic&gt;" />
         <entitySetProperty name="Svenciclis" namespace="AriTaxiModel" type="Svencicli" label="Svenciclis : IQueryable&lt;AriTaxiModel.Svencicli&gt;" />
+        <entitySetProperty name="Sbanprs" namespace="AriTaxiModel" type="Sbanpr" label="Sbanprs : IQueryable&lt;AriTaxiModel.Sbanpr&gt;" />
       </domainContainer>
     </domainModelHasDomainContext>
   </domainContext>

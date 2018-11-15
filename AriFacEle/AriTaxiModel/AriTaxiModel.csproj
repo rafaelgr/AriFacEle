@@ -55,6 +55,9 @@
     <Compile Include="Sartic.generated.cs">
       <DependentUpon>EntitiesModel1.rlinq</DependentUpon>
     </Compile>
+    <Compile Include="Sbanpr.generated.cs">
+      <DependentUpon>EntitiesModel1.rlinq</DependentUpon>
+    </Compile>
     <Compile Include="Scafaccli.generated.cs">
       <DependentUpon>EntitiesModel1.rlinq</DependentUpon>
     </Compile>

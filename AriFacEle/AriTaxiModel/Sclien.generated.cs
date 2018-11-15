@@ -414,6 +414,19 @@ namespace AriTaxiModel
 			}
 		}
 		
+		private int _codbanpr;
+		public virtual int Codbanpr
+		{
+			get
+			{
+				return this._codbanpr;
+			}
+			set
+			{
+				this._codbanpr = value;
+			}
+		}
+		
 		private IList<Sfactusoc> _sfactusocs = new List<Sfactusoc>();
 		public virtual IList<Sfactusoc> Sfactusocs
 		{

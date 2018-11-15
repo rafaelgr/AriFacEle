@@ -814,7 +814,16 @@ namespace DatosFacturaLib
                 fac.Cliente.OficinaContableCodigo = ariFactura.Scliente.OficinaContable;
                 fac.Cliente.OrganoProponente = ariFactura.Scliente.OrganoProponente;
                 fac.Cliente.Email = ariFactura.Scliente.Maiclie1;
-                fac.Cliente.Iban = ariFactura.Scliente.Iban.ToString() + ariFactura.Scliente.Codbanco.ToString() + ariFactura.Scliente.Codsucur.ToString() + ariFactura.Scliente.Digcontr.ToString() + ariFactura.Scliente.Cuentaba.ToString();
+                if (ariFactura.Scliente.Iban != null && ariFactura.Scliente.Codbanco != null && ariFactura.Scliente.Codsucur != null && ariFactura.Scliente.Digcontr != null && ariFactura.Scliente.Cuentaba != null)
+                {
+                    fac.Cliente.Iban = ariFactura.Scliente.Iban.ToString() + ariFactura.Scliente.Codbanco.ToString() + ariFactura.Scliente.Codsucur.ToString() + ariFactura.Scliente.Digcontr.ToString() + ariFactura.Scliente.Cuentaba.ToString();
+                }
+                if (ariFactura.Scliente.Sbanpr != null)
+                {
+                    string codb = String.Format("{0:0000}", ariFactura.Scliente.Sbanpr.Codbanco);
+                    string cods = String.Format("{0:0000}", ariFactura.Scliente.Sbanpr.Codsucur);
+                    fac.Cliente.Iban = ariFactura.Scliente.Sbanpr.Iban.ToString() + codb + cods + ariFactura.Scliente.Sbanpr.Digcontr.ToString() + ariFactura.Scliente.Sbanpr.Cuentaba.ToString();
+                }
 
                 // Nuevos campos a actualizar
                 fac.EsFraCliente = true;
