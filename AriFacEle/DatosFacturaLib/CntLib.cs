@@ -869,6 +869,7 @@ namespace DatosFacturaLib
         {
             Factura fac;
             Cliente cli;
+            
 
             string codtipom = getCodTipomTeletaxi(numSerie, ctxT);
 
@@ -883,14 +884,24 @@ namespace DatosFacturaLib
                        select f).FirstOrDefault<Factura>();
                 //abril 2013
                 // Linkara por nif y CODCLIEN teletaxi
+                
 
                 cli = (from c in ctx1.Clientes
                        where c.Cif == ariCuota.Sclien.Nifclien && c.CodSocioAritaxi == ariCuota.Sclien.Codclien
                        select c).FirstOrDefault<Cliente>();
 
+                //cli = (from c in ctx1.Clientes
+                //       where c.Cif == ariCuota.Nifclien && c.CodSocioAritaxi == ariCuota.Codclien
+                //       select c).FirstOrDefault<Cliente>();
+
+                //AriTaxiModel.Sclien sclien = (from c in ctxT.Scliens where c.Codclien == ariCuota.Codclien select c).FirstOrDefault<AriTaxiModel.Sclien>();
+                
                 // comprobaciones necesarias
                 VerificarNif(ariCuota.Sclien.Nifclien, ariCuota.Sclien.Nomclien, ctx1);
                 VerificarUsuario(ariCuota.Sclien.Nifclien, ctx1);
+
+                //VerificarNif(ariCuota.Nifclien, ariCuota.Nomclien, ctx1);
+                //VerificarUsuario(ariCuota.Nifclien, ctx1);
 
                 if (fac != null)
                 {
@@ -911,6 +922,10 @@ namespace DatosFacturaLib
                         fac.Cliente.Contraseña = ariCuota.Sclien.Nifclien;
                         fac.Cliente.Email = ariCuota.Sclien.Maiclie1;
                         fac.Cliente.Login = ariCuota.Sclien.Codclien.ToString();
+
+                        //fac.Cliente.Contraseña = ariCuota.Nifclien;
+                        //// fac.Cliente.Email = sclien.Maiclie1;
+                        //fac.Cliente.Login = ariCuota.Codclien.ToString();
                     }
                     else
                     {
@@ -920,8 +935,12 @@ namespace DatosFacturaLib
 
                 fac.Cliente.CodSocioAritaxi = (int)ariCuota.Sclien.Codclien;
                 fac.Cliente.Cif = ariCuota.Sclien.Nifclien;
-                fac.Cliente.Empresa = empresa;
                 fac.Cliente.Nombre = ariCuota.Sclien.Nomclien;
+
+                //fac.Cliente.CodSocioAritaxi = (int)ariCuota.Codclien;
+                //fac.Cliente.Cif = ariCuota.Nifclien;
+                //fac.Cliente.Nombre = ariCuota.Nomclien;
+                fac.Cliente.Empresa = empresa;
                 fac.Cliente.F_nueva = true;
                 fac.EsFraCliente = true;
                 fac.LetraIdFraProve = "C";  // Facturas de cuotas

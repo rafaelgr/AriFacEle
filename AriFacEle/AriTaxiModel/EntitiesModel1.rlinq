@@ -299,21 +299,21 @@
         <orm:field name="_organoProponente" property="OrganoProponente" uniqueId="25cbfcf2-2e29-4a98-98d2-e3eb9b6ecaa6" type="System.String">
           <orm:column name="orgproponente" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="" />
         </orm:field>
+        <orm:field name="_codbanpr" property="Codbanpr" behavior="readwrite" uniqueId="17d4f679-5255-4c7d-b144-6390718d3fa1" type="System.Int16">
+          <orm:column name="codbanpr" sql-type="smallint" nullable="false" length="0" scale="0" ado-type="" />
+        </orm:field>
         <orm:field name="_organogestor" property="Organogestor" uniqueId="19073bdf-48ac-412e-ac52-e9b3755a3823" type="System.String" />
         <orm:field name="_unidadtramitadora" property="Unidadtramitadora" uniqueId="d2186b37-9b20-40b4-b6ff-e91561fbc7d4" type="System.String" />
         <orm:field name="_oficinacontable" property="Oficinacontable" uniqueId="5c29e99b-fcaa-4b8e-a6c8-4e9e59b46bd0" type="System.String" />
         <orm:field name="_orgproponente" property="Orgproponente" uniqueId="4d357eba-fea1-4e69-8db8-0d7fbc24328b" type="System.String" />
         <orm:field name="_iban" property="Iban" uniqueId="172905a5-0c5c-48ff-b463-4bc0072343ca" type="System.String" />
-        <orm:field name="_codbanpr" property="Codbanpr" behavior="readwrite" uniqueId="17d4f679-5255-4c7d-b144-6390718d3fa1" type="System.Int16">
-          <orm:column name="codbanpr" sql-type="smallint" nullable="false" length="0" scale="0" ado-type="" />
-        </orm:field>
-        <orm:field name="_scafacclis" property="Scafacclis" behavior="readwrite" uniqueId="bbc061ef-8b31-4867-bda5-94ab880fc5d1" type="AriTaxiModel.Scafaccli">
-          <orm:collection element-class="AriTaxiModel.Scafaccli" inverse-field="_scliente" order-by="" uniqueId="3bc338c7-fedc-481f-a0b9-1665b73fcc5d" />
-        </orm:field>
         <orm:field name="_sbanpr" property="Sbanpr" behavior="readwrite" uniqueId="20a4d817-4495-4bf3-ab77-82244717dc9e" type="AriTaxiModel.Sbanpr">
           <orm:reference uniqueId="448e212c-1b0e-43a8-9b67-2418c4b9ab08" association-name="SclienteHasSbanpr">
             <orm:sharedfield name="_codbanpr" target-class="AriTaxiModel.Sbanpr" target-field="_codbanpr" />
           </orm:reference>
+        </orm:field>
+        <orm:field name="_scafacclis" property="Scafacclis" behavior="readwrite" uniqueId="bbc061ef-8b31-4867-bda5-94ab880fc5d1" type="AriTaxiModel.Scafaccli">
+          <orm:collection element-class="AriTaxiModel.Scafaccli" inverse-field="_scliente" order-by="" uniqueId="3bc338c7-fedc-481f-a0b9-1665b73fcc5d" />
         </orm:field>
         <orm:index name="fkClientesCodactiv">
           <orm:columnMapping>
@@ -457,7 +457,6 @@
         <orm:field name="_iban" property="Iban" behavior="readwrite" uniqueId="bbdeae47-fcb1-4b55-8748-ddec9ab85b98" type="System.String">
           <orm:column name="iban" sql-type="varchar" nullable="true" length="4" scale="0" ado-type="" />
         </orm:field>
-        <orm:field name="_codbanpr" property="Codbanpr" behavior="readwrite" uniqueId="759a5f13-6cc3-42e7-b045-914b28ab74a9" type="System.Int32" />
         <orm:field name="_sfactusocs" property="Sfactusocs" behavior="readwrite" uniqueId="ab3dcca8-6954-4881-bddf-9a9f976c1c39" type="AriTaxiModel.Sfactusoc">
           <orm:collection element-class="AriTaxiModel.Sfactusoc" inverse-field="_sclien" order-by="" uniqueId="0380cf8b-d947-498b-b4f5-d3b6fe23fcb3" />
         </orm:field>
@@ -858,9 +857,10 @@
           <orm:column name="exportada" sql-type="tinyint unsigned" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Byte" />
         </orm:field>
         <orm:field name="_sclien" property="Sclien" behavior="readwrite" uniqueId="a5c696a0-cd4a-49f3-b9e3-5f7f3c52a08a" type="AriTaxiModel.Sclien">
-          <orm:reference uniqueId="f0efeade-7c10-4abd-bcb4-bbd4c555c130" association-name="ScafacuotaHasSclien">
-            <orm:sharedfield name="_codclien" target-class="AriTaxiModel.Sclien" target-field="_codclien" />
-            <orm:constraint name="scafac_ibfk_1" destination-table="sclien" />
+          <orm:reference uniqueId="f0efeade-7c10-4abd-bcb4-bbd4c555c130" association-name="ScafacHasSclien">
+            <orm:constraint name="scafac_ibfk_1" destination-table="sclien">
+              <orm:column name="codclien" sql-type="integer unsigned" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Int32" target-table="'sclien'" target-column="codclien" />
+            </orm:constraint>
           </orm:reference>
         </orm:field>
         <orm:index name="fk_codforpa">
@@ -1372,10 +1372,6 @@
         <orm:column name="suplecuota" sql-type="decimal" nullable="true" length="8" scale="2" ado-type="Decimal" />
         <orm:column name="impacuenta" sql-type="decimal" nullable="true" length="8" scale="2" ado-type="Decimal" />
         <orm:column name="escontado" sql-type="tinyint unsigned" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Byte" />
-        <orm:column name="unidadtramitadora" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="" />
-        <orm:column name="orgproponente" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="" />
-        <orm:column name="organogestor" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="" />
-        <orm:column name="oficinacontable" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="" />
         <orm:column name="iban" sql-type="varchar" nullable="true" length="4" scale="0" ado-type="" />
         <orm:index name="numeruve">
           <orm:columnMapping>
@@ -1900,13 +1896,12 @@
       <Property Id="76ff4e8c-9749-42c4-8554-f6ac1261e6cf" name="Suplecuota" type="Decimal" label="Suplecuota : Decimal" nullable="true" kind="Persistent" fieldName="_suplecuota" />
       <Property Id="12201224-df6b-4bfa-b1bc-2086bd7b77a1" name="Telclie1" label="Telclie1 : String" kind="Persistent" fieldName="_telclie1" />
       <Property Id="bbdeae47-fcb1-4b55-8748-ddec9ab85b98" name="Iban" label="Iban : String" kind="Persistent" fieldName="_iban" />
-      <Property Id="759a5f13-6cc3-42e7-b045-914b28ab74a9" name="Codbanpr" type="Int32" label="Codbanpr : Int32" kind="Persistent" fieldName="_codbanpr" />
       <navigationalProperties>
         <classHasNavigationalProperties Id="cfb9d93e-5351-4e3c-a8a7-b815be5ed225">
           <NavigationalProperty Id="ab3dcca8-6954-4881-bddf-9a9f976c1c39" name="Sfactusocs" type="IList&lt;Sfactusoc&gt;" label="Sfactusocs : IList&lt;Sfactusoc&gt;" nullable="true" kind="Persistent" fieldName="_sfactusocs" isDependent="false" isManaged="false" />
         </classHasNavigationalProperties>
         <classHasNavigationalProperties Id="ea867448-6a3e-431f-a690-1c197bde9e9b">
-          <NavigationalProperty Id="80aeef7d-2001-49c8-8e37-764ddb53a5c5" name="Scafacs" type="IList&lt;Scafac&gt;" label="Scafacs : IList&lt;Scafac&gt;" nullable="true" kind="Persistent" fieldName="_scafacs" isDependent="false" isManaged="false" />
+          <NavigationalProperty Id="80aeef7d-2001-49c8-8e37-764ddb53a5c5" name="Scafacs" type="IList&lt;Scafacuota&gt;" label="Scafacs : IList&lt;Scafacuota&gt;" nullable="true" kind="Persistent" fieldName="_scafacs" isDependent="false" isManaged="false" />
         </classHasNavigationalProperties>
       </navigationalProperties>
     </DomainClass>
