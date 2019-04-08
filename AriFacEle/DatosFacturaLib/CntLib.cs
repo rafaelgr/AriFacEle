@@ -422,10 +422,22 @@ namespace DatosFacturaLib
                 }
 
                 // Nuevos campos de facturación electrónica
-                fac.Cliente.OrganoGestorCodigo = ariFactura.Sclien.OrganoGestor;
-                fac.Cliente.UnidadTramitadoraCodigo = ariFactura.Sclien.UnidadTramitadora;
-                fac.Cliente.OficinaContableCodigo = ariFactura.Sclien.OficinaContable;
-                fac.Cliente.OrganoProponente = ariFactura.Sclien.OrganoProponente;
+                 if (ariFactura.Sdirec != null)
+                 {
+                     fac.Cliente.OrganoGestorCodigo = ariFactura.Sdirec.OrganoGestor;
+                     fac.Cliente.UnidadTramitadoraCodigo = ariFactura.Sdirec.UnidadTramitadora;
+                     fac.Cliente.OficinaContableCodigo = ariFactura.Sdirec.OficinaContable;
+                     fac.Cliente.OrganoProponente = ariFactura.Sdirec.OrganoProponente;
+
+                 }
+                 else
+                 {
+                     fac.Cliente.OrganoGestorCodigo = ariFactura.Sclien.OrganoGestor;
+                     fac.Cliente.UnidadTramitadoraCodigo = ariFactura.Sclien.UnidadTramitadora;
+                     fac.Cliente.OficinaContableCodigo = ariFactura.Sclien.OficinaContable;
+                     fac.Cliente.OrganoProponente = ariFactura.Sclien.OrganoProponente;
+
+                 }
 
                 fac.Cliente.Cif = ariFactura.Sclien.Nifclien;
                 fac.Cliente.Empresa = empresa;

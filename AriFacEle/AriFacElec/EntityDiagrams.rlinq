@@ -20,7 +20,7 @@
         <orm:field name="fecfactu" property="Fecfactu" behavior="readwrite" null-value="none" uniqueId="fefa8073-5ae6-469a-9f7a-53e96b83d676" type="System.DateTime">
           <orm:column name="fecfactu" sql-type="date" nullable="false" scale="0" primary-key="true" ado-type="Date" />
         </orm:field>
-        <orm:field name="codclien" property="Codclien" behavior="readwrite" null-value="none" uniqueId="04c2d1d4-743f-403a-a005-7e4aa2d38372" type="System.Int32">
+        <orm:field name="codclien" property="Codclien" behavior="readwrite" null-value="none" uniqueId="04c2d1d4-743f-403a-a005-7e4aa2d38372" type="System.Int16">
           <orm:column name="codclien" sql-type="INTEGER unsigned" nullable="false" scale="0" ado-type="Int32" />
         </orm:field>
         <orm:field name="nomclien" property="Nomclien" behavior="readwrite" null-value="none" uniqueId="c4fb6bad-2c87-4ac3-9747-75281231be89" type="System.String">
@@ -167,6 +167,12 @@
             <orm:sharedfield name="codtipom" target-class="AriFacElec.Stipom" target-field="codtipom" />
           </orm:reference>
         </orm:field>
+        <orm:field name="sdirec" property="Sdirec" behavior="readwrite" uniqueId="8c2be690-e2db-41df-9e8c-aa5f41aa8730" type="AriFacElec.Sdirec">
+          <orm:reference uniqueId="a3109e0a-5f3d-48d5-bfd6-7d23cefb36fc" association-name="ScafacHasSdirec">
+            <orm:sharedfield name="codclien" target-class="AriFacElec.Sdirec" target-field="codclien" />
+            <orm:sharedfield name="coddirec" target-class="AriFacElec.Sdirec" target-field="coddirec" />
+          </orm:reference>
+        </orm:field>
         <orm:field name="slifacs" property="Slifacs" behavior="readwrite" null-value="none" uniqueId="cfde8ca3-de96-4916-ad4a-b0e82f494cc9" type="AriFacElec.Slifac">
           <orm:collection element-class="AriFacElec.Slifac" inverse-field="scafac" managed="true" order-by="" uniqueId="6c8ca28f-85f4-4469-a543-df2200344323" />
         </orm:field>
@@ -202,7 +208,7 @@
         <orm:identity>
           <orm:single-field field-name="codclien" />
         </orm:identity>
-        <orm:field name="codclien" property="Codclien" behavior="readwrite" null-value="none" uniqueId="411563db-82c9-4bcf-94da-10b0aca3233e" type="System.Int32">
+        <orm:field name="codclien" property="Codclien" behavior="readwrite" null-value="none" uniqueId="411563db-82c9-4bcf-94da-10b0aca3233e" type="System.Int16">
           <orm:column name="codclien" sql-type="integer unsigned" nullable="false" scale="0" primary-key="true" ado-type="Int32" />
         </orm:field>
         <orm:field name="nomclien" property="Nomclien" behavior="readwrite" null-value="none" uniqueId="d577ea8a-175b-4c27-921a-91f32279a91b" type="System.String">
@@ -1097,6 +1103,21 @@
         <orm:field name="iban" property="Iban" behavior="readwrite" uniqueId="08a27b7c-8dfc-45e3-a2b6-a7fb64974ce5" type="System.String">
           <orm:column name="iban" sql-type="varchar" nullable="true" length="4" scale="0" ado-type="StringVariableLength" />
         </orm:field>
+        <orm:field name="organoGestor" property="OrganoGestor" uniqueId="88b06f4d-c8a1-495f-bf5a-07c397cf23ac" type="System.String">
+          <orm:column name="organogestor" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="" />
+        </orm:field>
+        <orm:field name="unidadTramitadora" property="UnidadTramitadora" uniqueId="5e7eb16e-751d-401b-b9e0-fd85724d63e0" type="System.String">
+          <orm:column name="unidadtramitadora" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="" />
+        </orm:field>
+        <orm:field name="oficinaContable" property="OficinaContable" uniqueId="795e11d3-713c-4a41-a006-22e6e10251b6" type="System.String">
+          <orm:column name="oficinacontable" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="" />
+        </orm:field>
+        <orm:field name="organoProponente" property="OrganoProponente" uniqueId="d19ef3df-fd39-41b9-8987-3e0e38e8f8ba" type="System.String">
+          <orm:column name="orgproponente" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="" />
+        </orm:field>
+        <orm:field name="scafacs" property="Scafacs" behavior="readwrite" uniqueId="b7199f9d-8b77-403f-b8c0-1792c9bcb666" type="AriFacElec.Scafac">
+          <orm:collection element-class="AriFacElec.Scafac" inverse-field="sdirec" order-by="" uniqueId="a3109e0a-5f3d-48d5-bfd6-7d23cefb36fc" />
+        </orm:field>
         <orm:index name="fkDirecCodclient">
           <orm:columnMapping>
             <orm:column name="codclien" sql-type="integer unsigned" nullable="false" length="0" scale="0" primary-key="true" has-default-value="true" ado-type="Int32" />
@@ -1652,6 +1673,10 @@
         <orm:column name="cuentaba" sql-type="varchar" nullable="true" length="10" scale="0" ado-type="StringVariableLength" />
         <orm:column name="codzona" sql-type="smallint unsigned" nullable="true" length="0" scale="0" ado-type="Int16" />
         <orm:column name="iban" sql-type="varchar" nullable="true" length="4" scale="0" ado-type="StringVariableLength" />
+        <orm:column name="unidadtramitadora" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="" />
+        <orm:column name="orgproponente" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="" />
+        <orm:column name="organogestor" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="" />
+        <orm:column name="oficinacontable" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="" />
         <orm:index name="fkDirecCodclient">
           <orm:columnMapping>
             <orm:column name="codclien" sql-type="integer unsigned" nullable="false" length="0" scale="0" primary-key="true" has-default-value="true" ado-type="Int32" />
@@ -1731,7 +1756,7 @@
       <Property Id="0f040877-938b-498c-b7a1-ef2c2e10726e" name="Brutofac" type="Decimal" label="Brutofac : Decimal" kind="Persistent" fieldName="brutofac" />
       <Property Id="80b299da-28b5-411f-b4ba-b867e41e7a32" name="Codagent" type="Int16" label="Codagent : Int16" kind="Persistent" fieldName="codagent" />
       <Property Id="8b86de02-b3cf-4846-9953-87d65591cdad" name="Codbanco" type="Int16" label="Codbanco : Int16" nullable="true" kind="Persistent" fieldName="codbanco" />
-      <Property Id="04c2d1d4-743f-403a-a005-7e4aa2d38372" name="Codclien" type="Int32" label="Codclien : Int32" kind="Persistent" fieldName="codclien" />
+      <Property Id="04c2d1d4-743f-403a-a005-7e4aa2d38372" name="Codclien" type="Int16" label="Codclien : Int16" kind="Persistent" fieldName="codclien" />
       <Property Id="61140f9c-1a8d-436d-8eef-db416786d691" name="Coddirec" type="Int16" label="Coddirec : Int16" nullable="true" kind="Persistent" fieldName="coddirec" />
       <Property Id="2ed068a5-82f8-46a5-a0cd-69f7348a4b52" name="Codforpa" type="Int16" label="Codforpa : Int16" kind="Persistent" fieldName="codforpa" />
       <Property Id="bfbc4d6e-db8c-4b2a-9538-a29b39851902" name="Codigiv1" type="Byte" label="Codigiv1 : Byte" nullable="true" kind="Persistent" fieldName="codigiv1" />
@@ -1795,6 +1820,19 @@
             </associationDefinesSourceProperty>
           </sourceNavigationalProperty>
         </Association>
+        <Association Id="a3109e0a-5f3d-48d5-bfd6-7d23cefb36fc" SourceMultiplicity="ZeroOne" name="ScafacHasSdirec">
+          <DomainClassMoniker name="/ArigesContext/Sdirec" />
+          <targetNavigationalProperty>
+            <associationDefinesTargetProperty Id="528406a6-b614-44e4-a670-a4ef0a7529d4">
+              <NavigationalPropertyMoniker name="/ArigesContext/Sdirec/Scafacs" />
+            </associationDefinesTargetProperty>
+          </targetNavigationalProperty>
+          <sourceNavigationalProperty>
+            <associationDefinesSourceProperty Id="a8e44ad9-e83d-44bf-ac94-a6942e9b6d14">
+              <NavigationalPropertyMoniker name="/ArigesContext/Scafac/Sdirec" />
+            </associationDefinesSourceProperty>
+          </sourceNavigationalProperty>
+        </Association>
       </AssociationTargets>
       <navigationalProperties>
         <classHasNavigationalProperties Id="e3dc2eab-b0a8-4069-a17a-89d2b42b8b36">
@@ -1809,10 +1847,13 @@
         <classHasNavigationalProperties Id="9004f7a7-47fb-4ade-a7d8-90f0049fcfe5">
           <NavigationalProperty Id="eff2d667-863d-4bcd-b808-7fda21d59fab" name="Svencis" type="IList&lt;Svenci&gt;" label="Svencis : IList&lt;Svenci&gt;" nullable="true" kind="Persistent" fieldName="svencis" isDependent="false" isManaged="false" />
         </classHasNavigationalProperties>
+        <classHasNavigationalProperties Id="00e9d05b-ce55-4c33-92a9-d8b6e672530b">
+          <NavigationalProperty Id="8c2be690-e2db-41df-9e8c-aa5f41aa8730" name="Sdirec" type="Sdirec" label="Sdirec : Sdirec" nullable="true" kind="Persistent" fieldName="sdirec" isDependent="false" isManaged="false" />
+        </classHasNavigationalProperties>
       </navigationalProperties>
     </DomainClass>
     <DomainClass Id="5746d8d3-64ac-4249-82e4-2085184c1ac3" name="Sclien" namespace="AriFacElec" showPropertiesCompartment="true" showNavigationCompartment="true" showImplementationCompartment="true">
-      <Property Id="411563db-82c9-4bcf-94da-10b0aca3233e" name="Codclien" type="Int32" label="Codclien : Int32" kind="Persistent" identity="true" fieldName="codclien" />
+      <Property Id="411563db-82c9-4bcf-94da-10b0aca3233e" name="Codclien" type="Int16" label="Codclien : Int16" kind="Persistent" identity="true" fieldName="codclien" />
       <Property Id="772bf77b-22ed-4357-99ac-d9e3610b21d6" name="Albarcon" type="Byte" label="Albarcon : Byte" kind="Persistent" fieldName="albarcon" />
       <Property Id="53b06489-df27-43cb-bf01-d1cad50b5dde" name="Cliabono" type="Byte" label="Cliabono : Byte" kind="Persistent" fieldName="cliabono" />
       <Property Id="1fc2ac9e-f410-4bcd-9adb-1eb336e103ea" name="Clivario" type="Byte" label="Clivario : Byte" kind="Persistent" fieldName="clivario" />
@@ -2114,6 +2155,15 @@
       <Property Id="60784392-4836-4601-a02c-b9d0f745098f" name="Pobdirec" label="Pobdirec : String" kind="Persistent" fieldName="pobdirec" />
       <Property Id="eb2c8960-9571-4f52-94a3-e988d59acc43" name="Prodirec" label="Prodirec : String" kind="Persistent" fieldName="prodirec" />
       <Property Id="47f802b6-6923-4729-b311-31e2e7ceebdc" name="Teldirec" label="Teldirec : String" kind="Persistent" fieldName="teldirec" />
+      <Property Id="88b06f4d-c8a1-495f-bf5a-07c397cf23ac" name="OrganoGestor" label="OrganoGestor : String" fieldName="organoGestor" />
+      <Property Id="5e7eb16e-751d-401b-b9e0-fd85724d63e0" name="UnidadTramitadora" label="UnidadTramitadora : String" fieldName="unidadTramitadora" />
+      <Property Id="795e11d3-713c-4a41-a006-22e6e10251b6" name="OficinaContable" label="OficinaContable : String" fieldName="oficinaContable" />
+      <Property Id="d19ef3df-fd39-41b9-8987-3e0e38e8f8ba" name="OrganoProponente" label="OrganoProponente : String" fieldName="organoProponente" />
+      <navigationalProperties>
+        <classHasNavigationalProperties Id="8d49d8b2-6549-4e75-a700-c971d002e787">
+          <NavigationalProperty Id="b7199f9d-8b77-403f-b8c0-1792c9bcb666" name="Scafacs" type="IList&lt;Scafac&gt;" label="Scafacs : IList&lt;Scafac&gt;" nullable="true" kind="Persistent" fieldName="scafacs" isDependent="false" isManaged="false" />
+        </classHasNavigationalProperties>
+      </navigationalProperties>
     </DomainClass>
     <DomainClass Id="fbc934c3-0fd6-4360-a800-5c1da549a220" name="Svenci" namespace="AriFacElec" showPropertiesCompartment="true" concurrencyMode="Changed" showNavigationCompartment="true" showImplementationCompartment="true">
       <Property Id="4f9422da-44a5-4637-9ff5-10bd3c5ebad9" name="Codtipom" label="Codtipom : String" kind="Persistent" identity="true" fieldName="codtipom" />

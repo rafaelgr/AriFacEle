@@ -18,6 +18,7 @@ using Telerik.OpenAccess.Metadata;
 using Telerik.OpenAccess.Data.Common;
 using Telerik.OpenAccess.Metadata.Fluent;
 using Telerik.OpenAccess.Metadata.Fluent.Advanced;
+using AriFacElec;
 
 namespace AriFacElec	
 {
@@ -241,6 +242,67 @@ namespace AriFacElec
 			set
 			{
 				this.iban = value;
+			}
+		}
+		
+		private string organoGestor;
+		public virtual string OrganoGestor
+		{
+			get
+			{
+				return this.organoGestor;
+			}
+			set
+			{
+				this.organoGestor = value;
+			}
+		}
+		
+		private string unidadTramitadora;
+		public virtual string UnidadTramitadora
+		{
+			get
+			{
+				return this.unidadTramitadora;
+			}
+			set
+			{
+				this.unidadTramitadora = value;
+			}
+		}
+		
+		private string oficinaContable;
+		public virtual string OficinaContable
+		{
+			get
+			{
+				return this.oficinaContable;
+			}
+			set
+			{
+				this.oficinaContable = value;
+			}
+		}
+		
+		private string organoProponente;
+		public virtual string OrganoProponente
+		{
+			get
+			{
+				return this.organoProponente;
+			}
+			set
+			{
+				this.organoProponente = value;
+			}
+		}
+		
+		private IList<Scafac> scafacs = new List<Scafac>();
+		public virtual IList<Scafac> Scafacs
+		{
+			get
+			{
+				return this.scafacs;
 			}
 		}
 		

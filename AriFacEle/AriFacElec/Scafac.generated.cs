@@ -63,8 +63,8 @@ namespace AriFacElec
 			}
 		}
 		
-		private int codclien;
-		public virtual int Codclien
+		private short codclien;
+		public virtual short Codclien
 		{
 			get
 			{
@@ -671,6 +671,19 @@ namespace AriFacElec
 			set
 			{
 				this.stipom = value;
+			}
+		}
+		
+		private Sdirec sdirec;
+		public virtual Sdirec Sdirec
+		{
+			get
+			{
+				return this.sdirec;
+			}
+			set
+			{
+				this.sdirec = value;
 			}
 		}
 		

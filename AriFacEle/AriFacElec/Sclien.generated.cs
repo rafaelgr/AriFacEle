@@ -24,8 +24,8 @@ namespace AriFacElec
 {
 	public partial class Sclien
 	{
-		private int codclien;
-		public virtual int Codclien
+		private short codclien;
+		public virtual short Codclien
 		{
 			get
 			{
