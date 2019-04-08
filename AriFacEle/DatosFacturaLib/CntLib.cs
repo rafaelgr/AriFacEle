@@ -529,6 +529,17 @@ namespace DatosFacturaLib
                 fac.Cliente.Cif = ariFactura.Ssocio.Nifsocio;
                 fac.Cliente.Empresa = empresa;
                 fac.Cliente.Nombre = ariFactura.Ssocio.Nomsocio;
+
+                foreach (Slhfac lin in ariFactura.Slhfacs)
+                {
+                    if (lin.Starje != null)
+                    {
+                        fac.Cliente.OrganoGestorCodigo = lin.Starje.OrganoGestor;
+                        fac.Cliente.UnidadTramitadoraCodigo = lin.Starje.UnidadTramitadora;
+                        fac.Cliente.OficinaContableCodigo = lin.Starje.OficinaContable;
+                        fac.Cliente.OrganoProponente = lin.Starje.OrganoProponente;
+                    }
+                }
                 
                 fac.Cliente.F_nueva = true;
                 fac.EsFraCliente = true;

@@ -70,6 +70,9 @@
     <Compile Include="Ssocio.generated.cs">
       <DependentUpon>EntityDiagrams1.rlinq</DependentUpon>
     </Compile>
+    <Compile Include="Starje.generated.cs">
+      <DependentUpon>EntityDiagrams1.rlinq</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />

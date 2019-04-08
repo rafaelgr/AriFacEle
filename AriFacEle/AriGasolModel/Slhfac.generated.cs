@@ -245,6 +245,19 @@ namespace AriGasolModel
 			}
 		}
 		
+		private Starje _starje;
+		public virtual Starje Starje
+		{
+			get
+			{
+				return this._starje;
+			}
+			set
+			{
+				this._starje = value;
+			}
+		}
+		
 	}
 }
 #pragma warning restore 1591

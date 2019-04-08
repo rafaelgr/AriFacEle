@@ -481,7 +481,6 @@ namespace AriFacEleWiS
                 System.IO.File.Copy(destFile,  ficheroDest, true);
                 System.IO.File.Delete(destFile);
 
-                /* --OJO QUE NO IRA
                 //subimos los ficheros al servidor
                 UpLoadInvoice(ficheroDest, ftp);
 
@@ -489,7 +488,6 @@ namespace AriFacEleWiS
                     UpLoadInvoice(FicheroXml, ftp);
                 if (FicheroXSIG != "")
                     UpLoadInvoice(FicheroXSIG, ftp);
-                 */
             }
             else
             {

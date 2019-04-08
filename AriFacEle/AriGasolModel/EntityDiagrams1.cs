@@ -90,6 +90,14 @@ namespace AriGasolModel
 			}
 		}
 		
+		public IQueryable<Starje> Starjes 
+		{
+			get
+			{
+				return this.GetAll<Starje>();
+			}
+		}
+		
 		public static BackendConfiguration GetBackendConfiguration()
 		{
 			BackendConfiguration backend = new BackendConfiguration();
@@ -118,6 +126,10 @@ namespace AriGasolModel
 			get;
 		}
 		IQueryable<Slhfac> Slhfacs
+		{
+			get;
+		}
+		IQueryable<Starje> Starjes
 		{
 			get;
 		}

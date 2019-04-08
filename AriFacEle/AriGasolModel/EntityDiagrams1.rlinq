@@ -262,7 +262,7 @@
           <orm:column name="precsigaus" sql-type="decimal" nullable="true" length="8" scale="4" ado-type="Decimal" />
         </orm:field>
         <orm:field name="_sartic1" property="Sartic1" behavior="readwrite" uniqueId="f11ded27-268c-4377-aa74-cfcc589849da" type="AriGasolModel.Sartic">
-          <orm:reference uniqueId="90a7fbc1-9e04-417d-a843-3d04057a9efa">
+          <orm:reference uniqueId="90a7fbc1-9e04-417d-a843-3d04057a9efa" association-name="SarticHasSartic">
             <orm:sharedfield name="_artdto" target-class="AriGasolModel.Sartic" target-field="_codartic" />
             <orm:constraint name="sartic_ibfk_1" destination-table="sartic" />
           </orm:reference>
@@ -364,7 +364,7 @@
           <orm:column name="impuesigaus" sql-type="decimal" nullable="true" length="10" scale="2" ado-type="Decimal" />
         </orm:field>
         <orm:field name="_ssocio" property="Ssocio" behavior="readwrite" uniqueId="bf39ec4b-c821-4603-8991-0de5497f3516" type="AriGasolModel.Ssocio">
-          <orm:reference uniqueId="7a50a1cf-42c0-4225-b57b-0f145c30ec1e">
+          <orm:reference uniqueId="7a50a1cf-42c0-4225-b57b-0f145c30ec1e" association-name="SchfacHasSsocio">
             <orm:sharedfield name="_codsocio" target-class="AriGasolModel.Ssocio" target-field="_codsocio" />
             <orm:constraint name="schfac_ibfk_1" destination-table="ssocio" />
           </orm:reference>
@@ -445,17 +445,22 @@
           <orm:column name="precioinicial" sql-type="decimal" nullable="true" length="10" scale="5" ado-type="Decimal" />
         </orm:field>
         <orm:field name="_sartic" property="Sartic" behavior="readwrite" uniqueId="24009535-a0cc-47f2-807f-41747fdc17b0" type="AriGasolModel.Sartic">
-          <orm:reference uniqueId="efce6843-c0c9-4955-85d1-9ca0d395a2bf">
+          <orm:reference uniqueId="efce6843-c0c9-4955-85d1-9ca0d395a2bf" association-name="SlhfacHasSartic">
             <orm:sharedfield name="_codartic" target-class="AriGasolModel.Sartic" target-field="_codartic" />
             <orm:constraint name="slhfac_ibfk_2" destination-table="sartic" />
           </orm:reference>
         </orm:field>
         <orm:field name="_schfac" property="Schfac" behavior="readwrite" uniqueId="5f297c3a-d26f-4c3c-ae04-6a55e6fbe5a5" type="AriGasolModel.Schfac">
-          <orm:reference uniqueId="775594af-6112-4cd7-b1a6-ddb225ea2709">
+          <orm:reference uniqueId="775594af-6112-4cd7-b1a6-ddb225ea2709" association-name="SlhfacHasSchfac">
             <orm:sharedfield name="_letraser" target-class="AriGasolModel.Schfac" target-field="_letraser" />
             <orm:sharedfield name="_numfactu" target-class="AriGasolModel.Schfac" target-field="_numfactu" />
             <orm:sharedfield name="_fecfactu" target-class="AriGasolModel.Schfac" target-field="_fecfactu" />
             <orm:constraint name="slhfac_ibfk_3" destination-table="schfac" />
+          </orm:reference>
+        </orm:field>
+        <orm:field name="_starje" property="Starje" behavior="readwrite" uniqueId="883ac06d-e6bd-4593-b2a2-a241582dd3b2" type="AriGasolModel.Starje">
+          <orm:reference uniqueId="9279b2ad-b840-4a19-8c36-81931d57e134" association-name="SlhfacHasStarje">
+            <orm:sharedfield name="_numtarje" target-class="AriGasolModel.Starje" target-field="_numtarje" />
           </orm:reference>
         </orm:field>
         <orm:index name="FK_slhfac">
@@ -463,6 +468,36 @@
             <orm:column name="codartic" sql-type="integer" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Int32" />
           </orm:columnMapping>
         </orm:index>
+      </orm:class>
+      <orm:class name="Starje" uniqueId="fcd23a87-ee5c-471d-bc79-225d6835078c">
+        <orm:table name="starje" />
+        <orm:identity>
+          <orm:single-field field-name="_numtarje" />
+        </orm:identity>
+        <orm:field name="_codsocio" property="Codsocio" uniqueId="d7c4b000-8762-41f2-bf47-dca98260aba3" type="System.Int32">
+          <orm:column name="codsocio" sql-type="integer" nullable="false" length="0" scale="0" ado-type="" />
+        </orm:field>
+        <orm:field name="_numlinea" property="Numlinea" uniqueId="f4ed13f8-c4e8-4ca9-adbb-6e7607618651" type="System.Int32">
+          <orm:column name="numlinea" sql-type="integer" nullable="false" length="0" scale="0" ado-type="" />
+        </orm:field>
+        <orm:field name="_numtarje" property="Numtarje" uniqueId="f1f2942c-471d-48d8-8e63-b96077d94124" type="System.Int32">
+          <orm:column name="numtarje" sql-type="integer" nullable="false" length="0" scale="0" primary-key="true" ado-type="" />
+        </orm:field>
+        <orm:field name="_organoGestor" property="OrganoGestor" uniqueId="306b7a15-1a6b-4cef-bab7-a9c5db5ac899" type="System.String">
+          <orm:column name="organogestor" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="" />
+        </orm:field>
+        <orm:field name="_unidadTramitadora" property="UnidadTramitadora" uniqueId="988f7813-2e52-40fb-8f8a-3b7583ec3ca0" type="System.String">
+          <orm:column name="unidadtramitadora" sql-type="varchar" nullable="true" length="0" scale="0" ado-type="" />
+        </orm:field>
+        <orm:field name="_oficinaContable" property="OficinaContable" uniqueId="112f1b49-7525-4d60-bca9-de41eb6aad1b" type="System.String">
+          <orm:column name="oficinacontable" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="" />
+        </orm:field>
+        <orm:field name="_organoProponente" property="OrganoProponente" uniqueId="29ab2346-9ae5-40ef-98cc-0c7422b0f342" type="System.String">
+          <orm:column name="orgproponente" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="" />
+        </orm:field>
+        <orm:field name="_slhfacs" property="Slhfacs" behavior="readwrite" uniqueId="2fe47c61-6047-43be-ba2d-8f1391d0756e" type="AriGasolModel.Slhfac">
+          <orm:collection element-class="AriGasolModel.Slhfac" inverse-field="_starje" order-by="" uniqueId="9279b2ad-b840-4a19-8c36-81931d57e134" />
+        </orm:field>
       </orm:class>
     </orm:namespace>
     <orm:schema schema="">
@@ -662,6 +697,15 @@
           </orm:columnMapping>
         </orm:index>
       </orm:table>
+      <orm:table name="starje">
+        <orm:column name="codsocio" sql-type="integer" nullable="false" length="0" scale="0" ado-type="" />
+        <orm:column name="numlinea" sql-type="integer" nullable="false" length="0" scale="0" ado-type="" />
+        <orm:column name="numtarje" sql-type="integer" nullable="false" length="0" scale="0" primary-key="true" ado-type="" />
+        <orm:column name="organogestor" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="" />
+        <orm:column name="unidadtramitadora" sql-type="varchar" nullable="true" length="0" scale="0" ado-type="" />
+        <orm:column name="oficinacontable" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="" />
+        <orm:column name="orgproponente" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="" />
+      </orm:table>
     </orm:schema>
   </orm:orm>
   <ModelSettings xmlns="">
@@ -679,6 +723,7 @@
       <PropertyRules>
         <CaseMode>PascalCase</CaseMode>
       </PropertyRules>
+      <NavigationPropertyRules />
     </NamingSettings>
     <CodeGenerationSettings>
       <MappingDefinitionType>Xml</MappingDefinitionType>
@@ -791,7 +836,7 @@
       </AssociationTargets>
       <navigationalProperties>
         <classHasNavigationalProperties Id="a56a962a-e256-4a2e-8141-d1da8936242e">
-          <NavigationalProperty Id="f11ded27-268c-4377-aa74-cfcc589849da" name="Sartic1" type="Sartic" label="Sartic1 : Sartic" nullable="true" kind="Persistent" fieldName="_sartic1" isDependent="false" isManaged="false" />
+          <NavigationalProperty Id="f11ded27-268c-4377-aa74-cfcc589849da" name="Sartic1" type="Sartic" label="Sartic1 : Sartic" nullable="true" kind="Persistent" fieldName="_sartic1" isDependent="false" isManaged="true" />
         </classHasNavigationalProperties>
         <classHasNavigationalProperties Id="dec4ac48-c7b1-4c11-a8e5-bae02abf16f5">
           <NavigationalProperty Id="6a1d728a-4a48-412e-aa0e-a2130474bcc0" name="Sartics" type="IList&lt;Sartic&gt;" label="Sartics : IList&lt;Sartic&gt;" nullable="true" kind="Persistent" fieldName="_sartics" isDependent="false" isManaged="true" />
@@ -892,6 +937,19 @@
             </associationDefinesSourceProperty>
           </sourceNavigationalProperty>
         </Association>
+        <Association Id="9279b2ad-b840-4a19-8c36-81931d57e134" SourceMultiplicity="ZeroOne" name="SlhfacHasStarje">
+          <DomainClassMoniker name="/AriGasolContext/Starje" />
+          <targetNavigationalProperty>
+            <associationDefinesTargetProperty Id="e9e8e779-b3e3-4328-8340-d0d7403695d3">
+              <NavigationalPropertyMoniker name="/AriGasolContext/Starje/Slhfacs" />
+            </associationDefinesTargetProperty>
+          </targetNavigationalProperty>
+          <sourceNavigationalProperty>
+            <associationDefinesSourceProperty Id="dad55073-76f7-4a9c-a842-2642814c4c58">
+              <NavigationalPropertyMoniker name="/AriGasolContext/Slhfac/Starje" />
+            </associationDefinesSourceProperty>
+          </sourceNavigationalProperty>
+        </Association>
       </AssociationTargets>
       <navigationalProperties>
         <classHasNavigationalProperties Id="55c553e3-c1a3-4533-8aab-db2f84862772">
@@ -899,6 +957,23 @@
         </classHasNavigationalProperties>
         <classHasNavigationalProperties Id="7d93c151-d69b-49b8-97d3-07afa5744710">
           <NavigationalProperty Id="5f297c3a-d26f-4c3c-ae04-6a55e6fbe5a5" name="Schfac" type="Schfac" label="Schfac : Schfac" nullable="true" kind="Persistent" fieldName="_schfac" isDependent="false" isManaged="false" />
+        </classHasNavigationalProperties>
+        <classHasNavigationalProperties Id="cb16b5e5-0d3c-4c30-91a2-9a22c4d8e753">
+          <NavigationalProperty Id="883ac06d-e6bd-4593-b2a2-a241582dd3b2" name="Starje" type="Starje" label="Starje : Starje" nullable="true" kind="Persistent" fieldName="_starje" isDependent="false" isManaged="false" />
+        </classHasNavigationalProperties>
+      </navigationalProperties>
+    </DomainClass>
+    <DomainClass Id="fcd23a87-ee5c-471d-bc79-225d6835078c" name="Starje" namespace="AriGasolModel" showPropertiesCompartment="true" showNavigationCompartment="true" showImplementationCompartment="true">
+      <Property Id="d7c4b000-8762-41f2-bf47-dca98260aba3" name="Codsocio" type="Int32" label="Codsocio : Int32" fieldName="_codsocio" />
+      <Property Id="f4ed13f8-c4e8-4ca9-adbb-6e7607618651" name="Numlinea" type="Int32" label="Numlinea : Int32" fieldName="_numlinea" />
+      <Property Id="f1f2942c-471d-48d8-8e63-b96077d94124" name="Numtarje" type="Int32" label="Numtarje : Int32" identity="true" fieldName="_numtarje" />
+      <Property Id="306b7a15-1a6b-4cef-bab7-a9c5db5ac899" name="OrganoGestor" label="OrganoGestor : String" fieldName="_organoGestor" />
+      <Property Id="988f7813-2e52-40fb-8f8a-3b7583ec3ca0" name="UnidadTramitadora" label="UnidadTramitadora : String" fieldName="_unidadTramitadora" />
+      <Property Id="112f1b49-7525-4d60-bca9-de41eb6aad1b" name="OficinaContable" label="OficinaContable : String" fieldName="_oficinaContable" />
+      <Property Id="29ab2346-9ae5-40ef-98cc-0c7422b0f342" name="OrganoProponente" label="OrganoProponente : String" fieldName="_organoProponente" />
+      <navigationalProperties>
+        <classHasNavigationalProperties Id="8b4e5bf4-8a62-4a8e-b654-af2e10e24464">
+          <NavigationalProperty Id="2fe47c61-6047-43be-ba2d-8f1391d0756e" name="Slhfacs" type="IList&lt;Slhfac&gt;" label="Slhfacs : IList&lt;Slhfac&gt;" nullable="true" kind="Persistent" fieldName="_slhfacs" isDependent="false" isManaged="false" />
         </classHasNavigationalProperties>
       </navigationalProperties>
     </DomainClass>
@@ -911,6 +986,7 @@
         <entitySetProperty name="Sartics" namespace="AriGasolModel" type="Sartic" label="Sartics : IQueryable&lt;AriGasolModel.Sartic&gt;" />
         <entitySetProperty name="Schfacs" namespace="AriGasolModel" type="Schfac" label="Schfacs : IQueryable&lt;AriGasolModel.Schfac&gt;" />
         <entitySetProperty name="Slhfacs" namespace="AriGasolModel" type="Slhfac" label="Slhfacs : IQueryable&lt;AriGasolModel.Slhfac&gt;" />
+        <entitySetProperty name="Starjes" namespace="AriGasolModel" type="Starje" label="Starjes : IQueryable&lt;AriGasolModel.Starje&gt;" />
       </domainContainer>
     </domainModelHasDomainContext>
   </domainContext>
