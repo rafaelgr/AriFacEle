@@ -315,6 +315,11 @@
         <orm:field name="_scafacclis" property="Scafacclis" behavior="readwrite" uniqueId="bbc061ef-8b31-4867-bda5-94ab880fc5d1" type="AriTaxiModel.Scafaccli">
           <orm:collection element-class="AriTaxiModel.Scafaccli" inverse-field="_scliente" order-by="" uniqueId="3bc338c7-fedc-481f-a0b9-1665b73fcc5d" />
         </orm:field>
+        <orm:field name="_sforpa" property="Sforpa" behavior="readwrite" uniqueId="f5138ade-b3e5-4570-bce5-1a6b141a412e" type="AriTaxiModel.Sforpa">
+          <orm:reference uniqueId="437bbe03-08ad-4751-b0d1-3132cffb759a" association-name="SclienteHasSforpa">
+            <orm:sharedfield name="_codforpa" target-class="AriTaxiModel.Sforpa" target-field="_codforpa" />
+          </orm:reference>
+        </orm:field>
         <orm:index name="fkClientesCodactiv">
           <orm:columnMapping>
             <orm:column name="codactiv" sql-type="smallint unsigned" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Int16" />
@@ -1199,6 +1204,25 @@
           <orm:collection element-class="AriTaxiModel.Scliente" inverse-field="_sbanpr" order-by="" uniqueId="448e212c-1b0e-43a8-9b67-2418c4b9ab08" />
         </orm:field>
       </orm:class>
+      <orm:class name="Sforpa" uniqueId="99602677-d269-4056-a08b-54613e1563d7">
+        <orm:table name="sforpa" />
+        <orm:identity>
+          <orm:single-field field-name="_codforpa" />
+        </orm:identity>
+        <orm:concurrency strategy="changed" />
+        <orm:field name="_codforpa" property="Codforpa" behavior="readwrite" uniqueId="21d9ea73-b3cc-4a8c-9260-e505d5fdec57" type="System.UInt16">
+          <orm:column name="codforpa" sql-type="smallint" nullable="false" length="3" scale="0" primary-key="true" ado-type="" />
+        </orm:field>
+        <orm:field name="_nomforpa" property="Nomforpa" behavior="readwrite" uniqueId="a99c4e91-3bfe-46a2-842b-6fb7c44959b1" type="System.String">
+          <orm:column name="nomforpa" sql-type="varchar" nullable="false" length="30" scale="0" ado-type="" />
+        </orm:field>
+        <orm:field name="_tipforpa" property="Tipforpa" behavior="readwrite" uniqueId="e27ad06b-c401-4f96-92ae-fbee7f7688bf" type="System.UInt16">
+          <orm:column name="tipforpa" sql-type="smallint" nullable="false" length="5" scale="0" ado-type="" />
+        </orm:field>
+        <orm:field name="_sclientes" property="Sclientes" behavior="readwrite" uniqueId="aa20ce18-2b4e-4431-a26e-5429ba9a20a2" type="AriTaxiModel.Scliente">
+          <orm:collection element-class="AriTaxiModel.Scliente" inverse-field="_sforpa" order-by="" uniqueId="437bbe03-08ad-4751-b0d1-3132cffb759a" />
+        </orm:field>
+      </orm:class>
     </orm:namespace>
     <orm:schema schema="">
       <orm:table name="sparam">
@@ -1679,6 +1703,11 @@
         <orm:column name="codbanpr" sql-type="integer" nullable="false" length="0" scale="0" primary-key="true" ado-type="" />
         <orm:column name="codbanco" sql-type="smallint" nullable="false" length="0" scale="0" ado-type="" />
       </orm:table>
+      <orm:table name="sforpa">
+        <orm:column name="codforpa" sql-type="smallint" nullable="false" length="3" scale="0" primary-key="true" ado-type="" />
+        <orm:column name="nomforpa" sql-type="varchar" nullable="false" length="30" scale="0" ado-type="" />
+        <orm:column name="tipforpa" sql-type="smallint" nullable="false" length="5" scale="0" ado-type="" />
+      </orm:table>
     </orm:schema>
     <orm:relational-naming-settings>
       <orm:remove-leading-underscore>False</orm:remove-leading-underscore>
@@ -1855,6 +1884,19 @@
             </associationDefinesSourceProperty>
           </sourceNavigationalProperty>
         </Association>
+        <Association Id="437bbe03-08ad-4751-b0d1-3132cffb759a" SourceMultiplicity="ZeroOne" name="SclienteHasSforpa">
+          <DomainClassMoniker name="/AriTaxiContext/Sforpa" />
+          <targetNavigationalProperty>
+            <associationDefinesTargetProperty Id="fb53239a-56ad-4003-84fb-3a0dabd77126">
+              <NavigationalPropertyMoniker name="/AriTaxiContext/Sforpa/Sclientes" />
+            </associationDefinesTargetProperty>
+          </targetNavigationalProperty>
+          <sourceNavigationalProperty>
+            <associationDefinesSourceProperty Id="b4d81afe-3758-4c05-b121-30fc218b2ba1">
+              <NavigationalPropertyMoniker name="/AriTaxiContext/Scliente/Sforpa" />
+            </associationDefinesSourceProperty>
+          </sourceNavigationalProperty>
+        </Association>
       </AssociationTargets>
       <navigationalProperties>
         <classHasNavigationalProperties Id="38099ae1-6e1e-4e56-b693-399f17c645d5">
@@ -1862,6 +1904,9 @@
         </classHasNavigationalProperties>
         <classHasNavigationalProperties Id="5b4e4820-b89a-433b-b9df-ffa9480de08f">
           <NavigationalProperty Id="20a4d817-4495-4bf3-ab77-82244717dc9e" name="Sbanpr" type="Sbanpr" label="Sbanpr : Sbanpr" nullable="true" kind="Persistent" fieldName="_sbanpr" isDependent="false" isManaged="false" />
+        </classHasNavigationalProperties>
+        <classHasNavigationalProperties Id="2d817c58-1f64-465e-92e1-3f05840e7914">
+          <NavigationalProperty Id="f5138ade-b3e5-4570-bce5-1a6b141a412e" name="Sforpa" type="Sforpa" label="Sforpa : Sforpa" nullable="true" kind="Persistent" fieldName="_sforpa" isDependent="false" isManaged="false" />
         </classHasNavigationalProperties>
       </navigationalProperties>
     </DomainClass>
@@ -2166,6 +2211,16 @@
         </classHasNavigationalProperties>
       </navigationalProperties>
     </DomainClass>
+    <DomainClass Id="99602677-d269-4056-a08b-54613e1563d7" name="Sforpa" namespace="AriTaxiModel" showPropertiesCompartment="true" concurrencyMode="Changed" showNavigationCompartment="true" showImplementationCompartment="true">
+      <Property Id="21d9ea73-b3cc-4a8c-9260-e505d5fdec57" name="Codforpa" type="UInt16" label="Codforpa : UInt16" kind="Persistent" identity="true" fieldName="_codforpa" />
+      <Property Id="a99c4e91-3bfe-46a2-842b-6fb7c44959b1" name="Nomforpa" label="Nomforpa : String" kind="Persistent" fieldName="_nomforpa" />
+      <Property Id="e27ad06b-c401-4f96-92ae-fbee7f7688bf" name="Tipforpa" type="UInt16" label="Tipforpa : UInt16" kind="Persistent" fieldName="_tipforpa" />
+      <navigationalProperties>
+        <classHasNavigationalProperties Id="bee97d2c-351d-4250-ae14-d00209b5aeb1">
+          <NavigationalProperty Id="aa20ce18-2b4e-4431-a26e-5429ba9a20a2" name="Sclientes" type="IList&lt;Scliente&gt;" label="Sclientes : IList&lt;Scliente&gt;" nullable="true" kind="Persistent" fieldName="_sclientes" isDependent="false" isManaged="false" />
+        </classHasNavigationalProperties>
+      </navigationalProperties>
+    </DomainClass>
   </Types>
   <domainContext>
     <domainModelHasDomainContext Id="20d10b95-2711-4337-b692-6cbc52181d7f">
@@ -2181,6 +2236,7 @@
         <entitySetProperty name="Sartics" namespace="AriTaxiModel" type="Sartic" label="Sartics : IQueryable&lt;AriTaxiModel.Sartic&gt;" />
         <entitySetProperty name="Svenciclis" namespace="AriTaxiModel" type="Svencicli" label="Svenciclis : IQueryable&lt;AriTaxiModel.Svencicli&gt;" />
         <entitySetProperty name="Sbanprs" namespace="AriTaxiModel" type="Sbanpr" label="Sbanprs : IQueryable&lt;AriTaxiModel.Sbanpr&gt;" />
+        <entitySetProperty name="Sforpas" namespace="AriTaxiModel" type="Sforpa" label="Sforpas : IQueryable&lt;AriTaxiModel.Sforpa&gt;" />
       </domainContainer>
     </domainModelHasDomainContext>
   </domainContext>

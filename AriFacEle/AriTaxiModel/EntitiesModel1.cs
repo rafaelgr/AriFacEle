@@ -138,6 +138,14 @@ namespace AriTaxiModel
 			}
 		}
 		
+		public IQueryable<Sforpa> Sforpas 
+		{
+			get
+			{
+				return this.GetAll<Sforpa>();
+			}
+		}
+		
 		public static BackendConfiguration GetBackendConfiguration()
 		{
 			BackendConfiguration backend = new BackendConfiguration();
@@ -191,6 +199,10 @@ namespace AriTaxiModel
 			get;
 		}
 		IQueryable<Sbanpr> Sbanprs
+		{
+			get;
+		}
+		IQueryable<Sforpa> Sforpas
 		{
 			get;
 		}

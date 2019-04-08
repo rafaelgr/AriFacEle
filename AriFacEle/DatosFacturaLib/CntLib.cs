@@ -420,6 +420,13 @@ namespace DatosFacturaLib
                     fac.Cliente.CodclienAriges = 0;
                     fac.Cliente.CodClienAriges2 = ariFactura.Sclien.Codclien;
                 }
+
+                // Nuevos campos de facturación electrónica
+                fac.Cliente.OrganoGestorCodigo = ariFactura.Sclien.OrganoGestor;
+                fac.Cliente.UnidadTramitadoraCodigo = ariFactura.Sclien.UnidadTramitadora;
+                fac.Cliente.OficinaContableCodigo = ariFactura.Sclien.OficinaContable;
+                fac.Cliente.OrganoProponente = ariFactura.Sclien.OrganoProponente;
+
                 fac.Cliente.Cif = ariFactura.Sclien.Nifclien;
                 fac.Cliente.Empresa = empresa;
                 fac.Cliente.Nombre = ariFactura.Sclien.Nomclien;

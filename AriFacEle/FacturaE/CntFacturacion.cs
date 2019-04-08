@@ -283,7 +283,8 @@ namespace FacturaE
             
             inv.InvoiceIssueData = new InvoiceIssueDataType();
             inv.InvoiceIssueData.IssueDate = factura.Fecfactu;
-            if (factura.Fecdesde != null && factura.Fechasta != null)
+            DateTime fechaNula = new DateTime(1, 1, 1);
+            if (factura.Fecdesde != fechaNula && factura.Fechasta != fechaNula)
             {
                 inv.InvoiceIssueData.InvoicingPeriod = new PeriodDates();
                 inv.InvoiceIssueData.InvoicingPeriod.StartDate = factura.Fecdesde;
@@ -429,7 +430,7 @@ namespace FacturaE
             // Obtener la fecha de pago
             if (numCuenta != "")
             {
-                if (factura.Svencicli != null)
+                if (factura.Svencicli != null && factura.Scliente.Sforpa.Tipforpa == 1)
                 {
                     inv.PaymentDetails = new InstallmentType[1];
                     DateTime fechaPago = factura.Svencicli.Fecefect;
@@ -815,7 +816,7 @@ namespace FacturaE
                     address.Province = cliente.Proclien;
                     address.CountryCode = CountryType.ESP;
                     
-                    if (uAdm != null)
+                    if (uAdm == null)
                     {
                         // Ahora montamos las diferentes unidades administrativas (3)
                         fcte.Parties.BuyerParty.AdministrativeCentres = new AdministrativeCentreType[3];

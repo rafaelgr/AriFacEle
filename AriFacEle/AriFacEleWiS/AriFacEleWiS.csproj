@@ -262,6 +262,9 @@
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="CopiaAlzira de App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="CopiaAriadna de App.config">
       <SubType>Designer</SubType>
     </None>

@@ -73,6 +73,9 @@
     <Compile Include="Sfactusoc.generated.cs">
       <DependentUpon>EntitiesModel1.rlinq</DependentUpon>
     </Compile>
+    <Compile Include="Sforpa.generated.cs">
+      <DependentUpon>EntitiesModel1.rlinq</DependentUpon>
+    </Compile>
     <Compile Include="Slifaccli.generated.cs">
       <DependentUpon>EntitiesModel1.rlinq</DependentUpon>
     </Compile>

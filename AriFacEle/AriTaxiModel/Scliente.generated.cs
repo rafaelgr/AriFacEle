@@ -882,6 +882,19 @@ namespace AriTaxiModel
 			}
 		}
 		
+		private Sforpa _sforpa;
+		public virtual Sforpa Sforpa
+		{
+			get
+			{
+				return this._sforpa;
+			}
+			set
+			{
+				this._sforpa = value;
+			}
+		}
+		
 		private IList<Scafaccli> _scafacclis = new List<Scafaccli>();
 		public virtual IList<Scafaccli> Scafacclis
 		{

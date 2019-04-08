@@ -2,7 +2,7 @@
 <DomainModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="2.0.0.0" name="ArigesContext" namespace="AriFacElec" showPropertiesCompartment="true" xmlns="http://www.telerik.com/ORM">
   <orm:orm name="ArigesContext" backend="mssql" xmlns:orm="http://tempuri.org/ORM">
     <orm:namespace name="AriFacElec" default="true">
-      <orm:class name="Scafac" class-id="317432822" behavior="readwrite" uniqueId="c1891ad2-7afb-407c-98db-d5f6ef60f557">
+      <orm:class name="Scafac" behavior="readwrite" class-id="317432822" uniqueId="c1891ad2-7afb-407c-98db-d5f6ef60f557">
         <orm:table name="scafac" />
         <orm:identity>
           <orm:multiple-field>
@@ -156,14 +156,14 @@
           <orm:column name="portes" sql-type="decimal" nullable="true" length="8" scale="2" ado-type="Decimal" />
         </orm:field>
         <orm:field name="sclien" property="Sclien" behavior="readwrite" null-value="none" uniqueId="3f2a99f8-374c-4515-b81c-ff00c9d60d3b" type="AriFacElec.Sclien">
-          <orm:reference uniqueId="1121f413-f9f3-4b54-8e2a-d2dbffb3823b">
+          <orm:reference uniqueId="1121f413-f9f3-4b54-8e2a-d2dbffb3823b" association-name="ScafacHasSclien">
             <orm:constraint name="scafac_ibfk_1" destination-table="sclien">
               <orm:column name="codclien" sql-type="INTEGER unsigned" nullable="false" scale="0" ado-type="Int32" target-class="AriFacElec.Sclien" target-field="codclien" />
             </orm:constraint>
           </orm:reference>
         </orm:field>
         <orm:field name="stipom" property="Stipom" behavior="readwrite" null-value="none" uniqueId="4549dad6-b778-4324-ba67-729b14d4ad40" type="AriFacElec.Stipom">
-          <orm:reference uniqueId="348361ee-6046-4b49-938f-4e75ee3cf259">
+          <orm:reference uniqueId="348361ee-6046-4b49-938f-4e75ee3cf259" association-name="ScafacHasStipom">
             <orm:sharedfield name="codtipom" target-class="AriFacElec.Stipom" target-field="codtipom" />
           </orm:reference>
         </orm:field>
@@ -197,13 +197,13 @@
           </orm:columnMapping>
         </orm:index>
       </orm:class>
-      <orm:class name="Sclien" class-id="498048482" behavior="readwrite" uniqueId="5746d8d3-64ac-4249-82e4-2085184c1ac3">
+      <orm:class name="Sclien" behavior="readwrite" class-id="498048482" uniqueId="5746d8d3-64ac-4249-82e4-2085184c1ac3">
         <orm:table name="sclien" />
         <orm:identity>
           <orm:single-field field-name="codclien" />
         </orm:identity>
         <orm:field name="codclien" property="Codclien" behavior="readwrite" null-value="none" uniqueId="411563db-82c9-4bcf-94da-10b0aca3233e" type="System.Int32">
-          <orm:column name="codclien" sql-type="INTEGER unsigned" nullable="false" scale="0" primary-key="true" ado-type="Int32" />
+          <orm:column name="codclien" sql-type="integer unsigned" nullable="false" scale="0" primary-key="true" ado-type="Int32" />
         </orm:field>
         <orm:field name="nomclien" property="Nomclien" behavior="readwrite" null-value="none" uniqueId="d577ea8a-175b-4c27-921a-91f32279a91b" type="System.String">
           <orm:column name="nomclien" sql-type="varchar" nullable="false" length="40" scale="0" ado-type="Varchar" />
@@ -311,7 +311,7 @@
           <orm:column name="tipofact" sql-type="tinyint unsigned" nullable="false" scale="0" ado-type="Byte" />
         </orm:field>
         <orm:field name="albarcon" property="Albarcon" behavior="readwrite" null-value="none" uniqueId="772bf77b-22ed-4357-99ac-d9e3610b21d6" type="System.Byte">
-          <orm:column name="albarcon" sql-type="tinyint unsigned" nullable="false" scale="0" ado-type="Byte" />
+          <orm:column name="albarcon" sql-type="tinyint unsigned" nullable="false" length="0" scale="0" ado-type="Byte" />
         </orm:field>
         <orm:field name="periodof" property="Periodof" behavior="readwrite" null-value="none" uniqueId="15dd911e-2a7e-448f-b39d-a907370661a0" type="System.Byte">
           <orm:column name="periodof" sql-type="tinyint" nullable="false" scale="0" ado-type="Byte" />
@@ -366,6 +366,18 @@
         </orm:field>
         <orm:field name="enviocorreo" property="Enviocorreo" behavior="readwrite" null-value="none" uniqueId="8e219316-2e5d-4020-a36d-0c94c7420f0d" type="System.Nullable`1[[System.Byte, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
           <orm:column name="enviocorreo" sql-type="tinyint" nullable="true" scale="0" ado-type="Byte" />
+        </orm:field>
+        <orm:field name="organoGestor" property="OrganoGestor" uniqueId="08a200be-440e-4adb-bb74-68f491ae79ff" type="System.String">
+          <orm:column name="organogestor" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="" />
+        </orm:field>
+        <orm:field name="unidadTramitadora" property="UnidadTramitadora" uniqueId="f714cb3f-b6e0-4895-a69b-9bd57e0f7062" type="System.String">
+          <orm:column name="unidadtramitadora" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="" />
+        </orm:field>
+        <orm:field name="oficinaContable" property="OficinaContable" uniqueId="f067620e-43d4-4fd8-8558-df8f15075668" type="System.String">
+          <orm:column name="oficinacontable" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="" />
+        </orm:field>
+        <orm:field name="organoProponente" property="OrganoProponente" uniqueId="f425a019-2fa1-45d3-8e5e-765696a8ca8b" type="System.String">
+          <orm:column name="orgproponente" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="" />
         </orm:field>
         <orm:field name="scafacs" property="Scafacs" behavior="readwrite" null-value="none" uniqueId="77a60163-b3ac-46de-a069-5bf0a911e7fb" type="AriFacElec.Scafac">
           <orm:collection element-class="AriFacElec.Scafac" inverse-field="sclien" managed="true" order-by="" uniqueId="1121f413-f9f3-4b54-8e2a-d2dbffb3823b" />
@@ -426,7 +438,7 @@
           </orm:columnMapping>
         </orm:index>
       </orm:class>
-      <orm:class name="Sparam" class-id="1911568661" behavior="readwrite" uniqueId="0f2fca1e-6296-41e5-a6f1-ebed0647cac5">
+      <orm:class name="Sparam" behavior="readwrite" class-id="1911568661" uniqueId="0f2fca1e-6296-41e5-a6f1-ebed0647cac5">
         <orm:table name="sparam" />
         <orm:identity>
           <orm:single-field field-name="codigo" />
@@ -465,7 +477,7 @@
           <orm:column name="maiempre" sql-type="varchar" nullable="true" length="40" scale="0" ado-type="Varchar" />
         </orm:field>
       </orm:class>
-      <orm:class name="Stipom" class-id="339419820" behavior="readwrite" uniqueId="854652eb-06aa-4c5c-a72e-94112d9be754">
+      <orm:class name="Stipom" behavior="readwrite" class-id="339419820" uniqueId="854652eb-06aa-4c5c-a72e-94112d9be754">
         <orm:table name="stipom" />
         <orm:identity>
           <orm:single-field field-name="codtipom" />
@@ -492,7 +504,7 @@
           <orm:collection element-class="AriFacElec.Scafac" inverse-field="stipom" managed="true" order-by="" uniqueId="348361ee-6046-4b49-938f-4e75ee3cf259" />
         </orm:field>
       </orm:class>
-      <orm:class name="Slifac" class-id="2056907058" behavior="readwrite" uniqueId="5a7d5593-8d4a-4a82-9efa-9df981befe86">
+      <orm:class name="Slifac" behavior="readwrite" class-id="2056907058" uniqueId="5a7d5593-8d4a-4a82-9efa-9df981befe86">
         <orm:table name="slifac" />
         <orm:identity>
           <orm:multiple-field>
@@ -577,14 +589,14 @@
           <orm:column name="ampliaci" sql-type="varchar" nullable="true" length="60" scale="0" ado-type="Varchar" />
         </orm:field>
         <orm:field name="scafac" property="Scafac" behavior="readwrite" null-value="none" uniqueId="5a9c8cf0-ba36-47db-a8c4-484e1afc0872" type="AriFacElec.Scafac">
-          <orm:reference uniqueId="6c8ca28f-85f4-4469-a543-df2200344323">
+          <orm:reference uniqueId="6c8ca28f-85f4-4469-a543-df2200344323" association-name="SlifacHasScafac">
             <orm:sharedfield name="numfactu" target-class="AriFacElec.Scafac" target-field="numfactu" />
             <orm:sharedfield name="fecfactu" target-class="AriFacElec.Scafac" target-field="fecfactu" />
             <orm:sharedfield name="codtipom" target-class="AriFacElec.Scafac" target-field="codtipom" />
           </orm:reference>
         </orm:field>
         <orm:field name="sartic" property="Sartic" behavior="readwrite" null-value="none" uniqueId="94b4e09b-297a-43e4-9bc6-34e57bed0583" type="AriFacElec.Sartic">
-          <orm:reference uniqueId="8fe75d4b-807c-455d-b45d-e37e89c5417b">
+          <orm:reference uniqueId="8fe75d4b-807c-455d-b45d-e37e89c5417b" association-name="SlifacHasSartic">
             <orm:sharedfield name="codartic" target-class="AriFacElec.Sartic" target-field="codartic" />
           </orm:reference>
         </orm:field>
@@ -614,7 +626,7 @@
           </orm:columnMapping>
         </orm:index>
       </orm:class>
-      <orm:class name="Sartic" class-id="227887741" behavior="readwrite" uniqueId="d71d2542-1c1d-41d5-b89b-eba9d5f45462">
+      <orm:class name="Sartic" behavior="readwrite" class-id="227887741" uniqueId="d71d2542-1c1d-41d5-b89b-eba9d5f45462">
         <orm:table name="sartic" />
         <orm:identity>
           <orm:single-field field-name="codartic" />
@@ -764,7 +776,7 @@
           </orm:columnMapping>
         </orm:index>
       </orm:class>
-      <orm:class name="Spara1" class-id="789076179" behavior="readwrite" uniqueId="79e50a0f-6662-4401-9c99-96996152fd78">
+      <orm:class name="Spara1" behavior="readwrite" class-id="789076179" uniqueId="79e50a0f-6662-4401-9c99-96996152fd78">
         <orm:table name="spara1" />
         <orm:identity>
           <orm:single-field field-name="codigo" />
@@ -1121,7 +1133,7 @@
           <orm:column name="impefect" sql-type="decimal" nullable="false" length="12" scale="2" has-default-value="true" ado-type="Decimal" />
         </orm:field>
         <orm:field name="scafac" property="Scafac" behavior="readwrite" uniqueId="4404ae31-9ef5-4c3b-84aa-f35c57571ad4" type="AriFacElec.Scafac">
-          <orm:reference uniqueId="9831f172-e1a9-4dcb-9169-c43e077a0215">
+          <orm:reference uniqueId="9831f172-e1a9-4dcb-9169-c43e077a0215" association-name="SvenciHasScafac">
             <orm:sharedfield name="codtipom" target-class="AriFacElec.Scafac" target-field="codtipom" />
             <orm:sharedfield name="fecfactu" target-class="AriFacElec.Scafac" target-field="fecfactu" />
             <orm:sharedfield name="numfactu" target-class="AriFacElec.Scafac" target-field="numfactu" />
@@ -1229,7 +1241,7 @@
         </orm:constraint>
       </orm:table>
       <orm:table name="sclien">
-        <orm:column name="codclien" sql-type="INTEGER unsigned" nullable="false" scale="0" primary-key="true" ado-type="Int32" />
+        <orm:column name="codclien" sql-type="integer unsigned" nullable="false" scale="0" primary-key="true" ado-type="Int32" />
         <orm:column name="nomclien" sql-type="varchar" nullable="false" length="40" scale="0" ado-type="Varchar" />
         <orm:column name="nomcomer" sql-type="varchar" nullable="false" length="30" scale="0" ado-type="Varchar" />
         <orm:column name="domclien" sql-type="varchar" nullable="false" length="35" scale="0" ado-type="Varchar" />
@@ -1265,7 +1277,7 @@
         <orm:column name="clivario" sql-type="tinyint unsigned" nullable="false" scale="0" ado-type="Byte" />
         <orm:column name="tipoiva" sql-type="tinyint unsigned" nullable="false" scale="0" ado-type="Byte" />
         <orm:column name="tipofact" sql-type="tinyint unsigned" nullable="false" scale="0" ado-type="Byte" />
-        <orm:column name="albarcon" sql-type="tinyint unsigned" nullable="false" scale="0" ado-type="Byte" />
+        <orm:column name="albarcon" sql-type="tinyint unsigned" nullable="false" length="0" scale="0" ado-type="Byte" />
         <orm:column name="periodof" sql-type="tinyint" nullable="false" scale="0" ado-type="Byte" />
         <orm:column name="numrepet" sql-type="tinyint unsigned" nullable="true" scale="0" ado-type="Byte" />
         <orm:column name="mesnogir" sql-type="tinyint unsigned" nullable="true" scale="0" ado-type="Byte" />
@@ -1284,6 +1296,10 @@
         <orm:column name="observac" sql-type="text" nullable="true" scale="0" ado-type="LongVarchar" />
         <orm:column name="tasareciclado" sql-type="tinyint" nullable="false" scale="0" ado-type="Byte" />
         <orm:column name="enviocorreo" sql-type="tinyint" nullable="true" scale="0" ado-type="Byte" />
+        <orm:column name="organogestor" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="" />
+        <orm:column name="unidadtramitadora" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="" />
+        <orm:column name="oficinacontable" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="" />
+        <orm:column name="orgproponente" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="" />
         <orm:index name="fkClientesCodactiv">
           <orm:columnMapping>
             <orm:column name="codactiv" sql-type="smallint unsigned" nullable="false" scale="0" ado-type="Int16" />
@@ -1686,6 +1702,7 @@
       <PropertyRules>
         <CaseMode>PascalCase</CaseMode>
       </PropertyRules>
+      <NavigationPropertyRules />
     </NamingSettings>
     <CodeGenerationSettings>
       <MappingDefinitionType>Xml</MappingDefinitionType>
@@ -1781,10 +1798,10 @@
       </AssociationTargets>
       <navigationalProperties>
         <classHasNavigationalProperties Id="e3dc2eab-b0a8-4069-a17a-89d2b42b8b36">
-          <NavigationalProperty Id="3f2a99f8-374c-4515-b81c-ff00c9d60d3b" name="Sclien" type="Sclien" label="Sclien : Sclien" nullable="true" kind="Persistent" fieldName="sclien" isDependent="false" isManaged="false" />
+          <NavigationalProperty Id="3f2a99f8-374c-4515-b81c-ff00c9d60d3b" name="Sclien" type="Sclien" label="Sclien : Sclien" nullable="true" kind="Persistent" fieldName="sclien" isDependent="false" isManaged="true" />
         </classHasNavigationalProperties>
         <classHasNavigationalProperties Id="b1a4b237-6b4c-4435-9c7e-9b34b92fc15f">
-          <NavigationalProperty Id="4549dad6-b778-4324-ba67-729b14d4ad40" name="Stipom" type="Stipom" label="Stipom : Stipom" nullable="true" kind="Persistent" fieldName="stipom" isDependent="false" isManaged="false" />
+          <NavigationalProperty Id="4549dad6-b778-4324-ba67-729b14d4ad40" name="Stipom" type="Stipom" label="Stipom : Stipom" nullable="true" kind="Persistent" fieldName="stipom" isDependent="false" isManaged="true" />
         </classHasNavigationalProperties>
         <classHasNavigationalProperties Id="c436c02c-5bc0-4e96-af19-4f53d925c02d">
           <NavigationalProperty Id="cfde8ca3-de96-4916-ad4a-b0e82f494cc9" name="Slifacs" type="IList&lt;Slifac&gt;" label="Slifacs : IList&lt;Slifac&gt;" nullable="true" kind="Persistent" fieldName="slifacs" isDependent="false" isManaged="true" />
@@ -1850,6 +1867,10 @@
       <Property Id="783ec18a-4671-4013-bbe5-179c1cff9dd8" name="Tipofact" type="Byte" label="Tipofact : Byte" kind="Persistent" fieldName="tipofact" />
       <Property Id="ce7a969c-dd66-4b32-95c4-8fa150886770" name="Tipoiva" type="Byte" label="Tipoiva : Byte" kind="Persistent" fieldName="tipoiva" />
       <Property Id="4dcd630c-a7aa-45e0-9c2c-f7976d083b1d" name="Wwwclien" label="Wwwclien : String" kind="Persistent" fieldName="wwwclien" />
+      <Property Id="08a200be-440e-4adb-bb74-68f491ae79ff" name="OrganoGestor" label="OrganoGestor : String" fieldName="organoGestor" />
+      <Property Id="f714cb3f-b6e0-4895-a69b-9bd57e0f7062" name="UnidadTramitadora" label="UnidadTramitadora : String" fieldName="unidadTramitadora" />
+      <Property Id="f067620e-43d4-4fd8-8558-df8f15075668" name="OficinaContable" label="OficinaContable : String" fieldName="oficinaContable" />
+      <Property Id="f425a019-2fa1-45d3-8e5e-765696a8ca8b" name="OrganoProponente" label="OrganoProponente : String" fieldName="organoProponente" />
       <navigationalProperties>
         <classHasNavigationalProperties Id="73f906a8-8220-44a6-a4f0-cd2fb7058ffa">
           <NavigationalProperty Id="77a60163-b3ac-46de-a069-5bf0a911e7fb" name="Scafacs" type="IList&lt;Scafac&gt;" label="Scafacs : IList&lt;Scafac&gt;" nullable="true" kind="Persistent" fieldName="scafacs" isDependent="false" isManaged="true" />
@@ -1937,10 +1958,10 @@
       </AssociationTargets>
       <navigationalProperties>
         <classHasNavigationalProperties Id="d5b56aa1-cfc6-4e15-8abb-c9f094651351">
-          <NavigationalProperty Id="5a9c8cf0-ba36-47db-a8c4-484e1afc0872" name="Scafac" type="Scafac" label="Scafac : Scafac" nullable="true" kind="Persistent" fieldName="scafac" isDependent="false" isManaged="false" />
+          <NavigationalProperty Id="5a9c8cf0-ba36-47db-a8c4-484e1afc0872" name="Scafac" type="Scafac" label="Scafac : Scafac" nullable="true" kind="Persistent" fieldName="scafac" isDependent="false" isManaged="true" />
         </classHasNavigationalProperties>
         <classHasNavigationalProperties Id="a8ac17f5-7af0-4fd6-bb00-3f6a66c16dd0">
-          <NavigationalProperty Id="94b4e09b-297a-43e4-9bc6-34e57bed0583" name="Sartic" type="Sartic" label="Sartic : Sartic" nullable="true" kind="Persistent" fieldName="sartic" isDependent="false" isManaged="false" />
+          <NavigationalProperty Id="94b4e09b-297a-43e4-9bc6-34e57bed0583" name="Sartic" type="Sartic" label="Sartic : Sartic" nullable="true" kind="Persistent" fieldName="sartic" isDependent="false" isManaged="true" />
         </classHasNavigationalProperties>
       </navigationalProperties>
     </DomainClass>
