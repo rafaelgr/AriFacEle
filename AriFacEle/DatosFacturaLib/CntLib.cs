@@ -471,6 +471,11 @@ namespace DatosFacturaLib
 
             ctx1.SaveChanges();
 
+            VerificarUsuarioEmail(fac.Cliente.Cif, fac.Cliente.Email, fac.Cliente.ID, ctx1);
+            int codAriges = fac.Cliente.CodclienAriges;
+            if (fac.Cliente.CodClienAriges2 != 0) codAriges = fac.Cliente.CodClienAriges2;
+            VerificarUsuarioCodigo(fac.Cliente.Cif, codAriges.ToString(), fac.Cliente.ID, ctx1);
+
             return fac.Id_factura;
         }
 
@@ -570,6 +575,10 @@ namespace DatosFacturaLib
 
             ctx1.SaveChanges();
 
+            VerificarUsuarioEmail(fac.Cliente.Cif, fac.Cliente.Email, fac.Cliente.ID, ctx1);
+            int codigo = fac.Cliente.CodclienArigasol;
+            VerificarUsuarioCodigo(fac.Cliente.Cif, codigo.ToString(), fac.Cliente.ID, ctx1);
+
             return fac.Id_factura;
         }
 
@@ -628,6 +637,7 @@ namespace DatosFacturaLib
                     else
                     {
                         fac.Cliente = cli;
+                        fac.Cliente.Email = ariFactura.Cliente.Maiclie1;
                     }
                     fac.vCodtipom = elCodtipom;
                 }
@@ -672,6 +682,10 @@ namespace DatosFacturaLib
                 throw new Exception("No existe ninguna factura con número" + numfactura);
 
             ctx1.SaveChanges();
+
+            VerificarUsuarioEmail(fac.Cliente.Cif, fac.Cliente.Email, fac.Cliente.ID, ctx1);
+            int codigo = fac.Cliente.CodclienAriagro;
+            VerificarUsuarioCodigo(fac.Cliente.Cif, codigo.ToString(), fac.Cliente.ID, ctx1);
 
             return fac.Id_factura;
         }
@@ -730,6 +744,7 @@ namespace DatosFacturaLib
                     else
                     {
                         fac.Cliente = cli;
+                        fac.Cliente.Email = ariFactura.Rsocio.Maisocio;
                     }
                     fac.vCodtipom = elCodTipom;
                 }
@@ -772,6 +787,10 @@ namespace DatosFacturaLib
                 throw new Exception("No existe ninguna factura con número" + numfactura);
 
             ctx1.SaveChanges();
+
+            VerificarUsuarioEmail(fac.Cliente.Cif, fac.Cliente.Email, fac.Cliente.ID, ctx1);
+            int codigo = fac.Cliente.CodSocioAriagro;
+            VerificarUsuarioCodigo(fac.Cliente.Cif, codigo.ToString(), fac.Cliente.ID, ctx1);
 
             return fac.Id_factura;
         }
@@ -892,6 +911,10 @@ namespace DatosFacturaLib
 
             ctx1.SaveChanges();
 
+            VerificarUsuarioEmail(fac.Cliente.Cif, fac.Cliente.Email, fac.Cliente.ID, ctx1);
+            int codigo = fac.Cliente.CodTeletaxi;
+            VerificarUsuarioCodigo(fac.Cliente.Cif, codigo.ToString(), fac.Cliente.ID, ctx1);
+
             return fac.Id_factura;
         }
 
@@ -960,6 +983,7 @@ namespace DatosFacturaLib
                     else
                     {
                         fac.Cliente = cli;
+                        fac.Cliente.Email = ariCuota.Sclien.Maiclie1;
                     }
                 }
 
@@ -1007,6 +1031,10 @@ namespace DatosFacturaLib
                 throw new Exception("No existe ninguna factura con número" + numfactura);
 
             ctx1.SaveChanges();
+
+            VerificarUsuarioEmail(fac.Cliente.Cif, fac.Cliente.Email, fac.Cliente.ID, ctx1);
+            int codigo = fac.Cliente.CodSocioAritaxi;
+            VerificarUsuarioCodigo(fac.Cliente.Cif, codigo.ToString(), fac.Cliente.ID, ctx1);
 
             return fac.Id_factura;
         }
@@ -1066,6 +1094,10 @@ namespace DatosFacturaLib
                     ctx1.Add(cli);
                     ctx1.SaveChanges();
                 }
+                else
+                {
+                    cli.Email = ariFactura.Sclien.Maiclie1;
+                }
                 
                 
                 /*
@@ -1124,6 +1156,7 @@ namespace DatosFacturaLib
                     else
                     {
                         fac.Cliente = cli;
+                        fac.Cliente.Email = ariFactura.Sclien.Maiclie1;
                     }
                 }
 
@@ -1167,6 +1200,10 @@ namespace DatosFacturaLib
                 throw new Exception("No existe ninguna factura con número" + numfactura);
 
             ctx1.SaveChanges();
+
+            VerificarUsuarioEmail(fac.Cliente.Cif, fac.Cliente.Email, fac.Cliente.ID, ctx1);
+            int codigo = fac.Cliente.CodSocioAritaxi;
+            VerificarUsuarioCodigo(fac.Cliente.Cif, codigo.ToString(), fac.Cliente.ID, ctx1);
 
             return fac.Id_factura;
         }
@@ -1294,6 +1331,48 @@ namespace DatosFacturaLib
                 u.Password = nif;
                 // si se crea por defecto es de la empresa raiz
                 u.ClienteId = 0;
+                u.DepartamentoId = 0;
+                ctx.Add(u);
+                ctx.SaveChanges();
+            }
+        }
+
+        public static void VerificarUsuarioEmail(string nif, string email, int clienteId, FacturaEntity ctx)
+        {
+            // comprobar si existe alguno así
+            Usuario usu = (from u in ctx.Usuarios
+                           where u.Login == email
+                           select u).FirstOrDefault<Usuario>();
+            if (usu == null)
+            {
+                Usuario u = new Usuario();
+                u.Nif = nif;
+                u.Nombre = String.Format("USU {0}", email);
+                u.Login = email;
+                u.Password = nif;
+                // si se crea por defecto es de la empresa raiz
+                u.ClienteId = clienteId;
+                u.DepartamentoId = 0;
+                ctx.Add(u);
+                ctx.SaveChanges();
+            }
+        }
+
+        public static void VerificarUsuarioCodigo(string nif, string codigo, int clienteId, FacturaEntity ctx)
+        {
+            // comprobar si existe alguno así
+            Usuario usu = (from u in ctx.Usuarios
+                           where u.Login == codigo
+                           select u).FirstOrDefault<Usuario>();
+            if (usu == null)
+            {
+                Usuario u = new Usuario();
+                u.Nif = nif;
+                u.Nombre = String.Format("USU {0}", "COD" + codigo);
+                u.Login = codigo;
+                u.Password = nif;
+                // si se crea por defecto es de la empresa raiz
+                u.ClienteId = clienteId;
                 u.DepartamentoId = 0;
                 ctx.Add(u);
                 ctx.SaveChanges();
