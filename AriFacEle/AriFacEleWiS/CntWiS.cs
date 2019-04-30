@@ -300,7 +300,7 @@ namespace AriFacEleWiS
 
             //Ahora solo tiene la carpeta
             string xmlDestino = ctx1.Repositorios.FirstOrDefault<Repositorio>().Path;   //por si NO hace FTP, que hara un file copy sobre el repositorio
-            xmlDestino = "C:\\FicherosFacElectronicas";
+            //xmlDestino = "C:\\FicherosFacElectronicas";
             
 
 
@@ -424,12 +424,12 @@ namespace AriFacEleWiS
             if (iban == null) iban = "";
             string ficheroDest = System.IO.Path.Combine(System.IO.Path.GetDirectoryName(destFile), nombreficherodestino);
             string ficheroDestCopy = ctx1.Repositorios.FirstOrDefault<Repositorio>().Path;   //por si NO hace FTP, que haga un file copy sobre el repositorio
-            ficheroDestCopy = "C:\\FicherosFacElectronicas";
+            //ficheroDestCopy = "C:\\FicherosFacElectronicas";
             ficheroDestCopy = System.IO.Path.Combine(ficheroDestCopy, nombreficherodestino);
 
             string firmar = ConfigurationSettings.AppSettings["Firmar"];   //Esta firma es meter el bmp en el pdf
             if (firmar.ToUpper().Equals("S"))
-                firmarFactura(sourceFile, destFile, sistemaGdes);
+                firmarFactura(sourceFile, destFile, sistemaGdes, empresa);
             else
                 System.IO.File.Copy(sourceFile, destFile, true);
             if (firmar.ToUpper().Equals("S")) hayFirma = true;
@@ -516,10 +516,13 @@ namespace AriFacEleWiS
             }
         }
 
-        public static void firmarFactura(string sourceFile, string destFile, string sistemaGdes)
+        public static void firmarFactura(string sourceFile, string destFile, string sistemaGdes, DatosFacturaLib.Empresa empresa)
         {
             firma = new Firma();
 
+            string _certificado;
+            string _passcert;
+            string _pathimagen;
             FirmaPDF.FirmaPDF f = new FirmaPDF.FirmaPDF();
             if (sistemaGdes != "")
             {
@@ -528,6 +531,11 @@ namespace AriFacEleWiS
             else
             {
                 f.certificado = ConfigurationSettings.AppSettings["Certificado_path"];
+                _certificado = ConfigurationSettings.AppSettings[empresa.Cif + "_path"];
+                if (_certificado != null)
+                {
+                    f.certificado = _certificado;
+                }
             }
             firma.Certificado_path = f.certificado;
             if (sistemaGdes != "")
@@ -537,6 +545,11 @@ namespace AriFacEleWiS
             else
             {
                 f.passCert = ConfigurationSettings.AppSettings["Certificado_pass"];
+                _passcert = ConfigurationSettings.AppSettings[empresa.Cif + "_pass"];
+                if (_passcert != null)
+                {
+                    f.passCert = _passcert;
+                }
             }
             firma.Certificado_pass = f.passCert;
 
@@ -545,6 +558,7 @@ namespace AriFacEleWiS
 
             f.location = ConfigurationSettings.AppSettings["Lugar"];
             f.pathImagen = ConfigurationSettings.AppSettings["Logo_path"];
+            _pathimagen = ConfigurationSettings.AppSettings[empresa.Cif + "_Logo_path"];
             f.reason = ConfigurationSettings.AppSettings["Motivo"];
             f.posicion = new Rectangle(int.Parse(ConfigurationSettings.AppSettings["Posicion_x0"]), int.Parse(ConfigurationSettings.AppSettings["Posicion_y0"]), int.Parse(ConfigurationSettings.AppSettings["Posicion_x_x"]), int.Parse(ConfigurationSettings.AppSettings["Posicion_y_y"]));
             f.visualizarFirma = true;
