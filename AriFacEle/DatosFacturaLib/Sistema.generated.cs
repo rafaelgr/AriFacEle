@@ -63,6 +63,19 @@ namespace DatosFacturaLib
 			}
 		}
 		
+		private string nif;
+		public virtual string Nif
+		{
+			get
+			{
+				return this.nif;
+			}
+			set
+			{
+				this.nif = value;
+			}
+		}
+		
 		private string descripcion;
 		public virtual string Descripcion
 		{

@@ -1385,7 +1385,7 @@ namespace FacturaE
                                    select u).FirstOrDefault<Unidad>();
                     // controlamos los descriptores 
                     string nomOrganoGestor = buyer.Nomsocio;
-                    string codOrganoGestor = cFacturae.OficinaContableCodigo;
+                    string codOrganoGestor = cFacturae.OrganoGestorCodigo;
                     string nomUnidadTramitadora = buyer.Nomsocio;
                     string codUnidadTramitadora = cFacturae.UnidadTramitadoraCodigo;
                     string nomOficinaContable = buyer.Nomsocio;

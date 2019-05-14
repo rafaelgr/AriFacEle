@@ -205,8 +205,7 @@ namespace DatosFacturaLib
 				this.oficinaContableCodigo = value;
 			}
 		}
-
-
+		
 		private int codclien_Arigasol;
 		public virtual int CodclienArigasol
 		{

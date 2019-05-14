@@ -318,6 +318,9 @@
           <orm:column name="base_datos" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="StringVariableLength" />
         </orm:field>
         <orm:field name="descripcion" property="Descripcion" uniqueId="cd9506f8-ee73-456a-a430-831e6796dfd8" type="System.String" />
+        <orm:field name="nif" property="Nif" uniqueId="55c83640-14a3-493e-8646-656a28e00f06" type="System.String">
+          <orm:column name="nif" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="" />
+        </orm:field>
         <orm:field name="facturas" property="Facturas" behavior="readwrite" uniqueId="e9414436-9c07-4f92-ad7f-a2f948d3f715" type="DatosFacturaLib.Factura">
           <orm:collection element-class="DatosFacturaLib.Factura" inverse-field="sistema" order-by="" uniqueId="4cf7e996-cc12-4d93-a9a1-ea9036e9351e" />
         </orm:field>
@@ -542,6 +545,7 @@
         <orm:column name="sistema_id" sql-type="integer" nullable="false" length="0" scale="0" primary-key="true" backend-calculated="true" ado-type="Int32" />
         <orm:column name="nombre" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="StringVariableLength" />
         <orm:column name="base_datos" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="StringVariableLength" />
+        <orm:column name="nif" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="" />
       </orm:table>
       <orm:table name="plantilla">
         <orm:column name="contenido" sql-type="text" nullable="true" length="0" scale="0" ado-type="StringInfiniteLength" />
@@ -791,6 +795,7 @@
       <Property Id="de6e5504-0952-4c87-a0f7-201814746a18" name="Nombre" label="Nombre : String" fieldName="property1" />
       <Property Id="278ac84c-8b51-4e2f-8c5b-d91af513fb57" name="BaseDatos" label="BaseDatos : String" fieldName="property1" />
       <Property Id="cd9506f8-ee73-456a-a430-831e6796dfd8" name="Descripcion" label="Descripcion : String" fieldName="descripcion" />
+      <Property Id="55c83640-14a3-493e-8646-656a28e00f06" name="Nif" label="Nif : String" fieldName="nif" />
       <navigationalProperties>
         <classHasNavigationalProperties Id="6f40919e-e636-47ed-898a-fa392bf5915d">
           <NavigationalProperty Id="e9414436-9c07-4f92-ad7f-a2f948d3f715" name="Facturas" type="IList&lt;Factura&gt;" label="Facturas : IList&lt;Factura&gt;" nullable="true" kind="Persistent" fieldName="facturas" isDependent="false" isManaged="false" />
