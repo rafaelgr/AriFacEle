@@ -832,7 +832,8 @@ namespace DatosFacturaLib
 
                 // comprobaciones necesarias
                 VerificarNif(ariFactura.Scliente.Nifclien, ariFactura.Scliente.Nomclien, ctx1);
-                VerificarUsuario(ariFactura.Scliente.Nifclien, ctx1);
+                // VRS 2019.2.2.3 (El cliente no tiene NIF // NIFF como posiblidad de acceso)
+                // VerificarUsuario(ariFactura.Scliente.Nifclien, ctx1);
 
                 if (fac == null)
                 {
