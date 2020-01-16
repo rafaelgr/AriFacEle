@@ -1202,6 +1202,10 @@ namespace DatosFacturaLib
 
             ctx1.SaveChanges();
 
+            // comprobaciones necesarias
+            VerificarNif(fac.Cliente.Cif, fac.Cliente.Nombre, ctx1);
+            VerificarUsuario(fac.Cliente.Cif, ctx1);
+
             VerificarUsuarioEmail(fac.Cliente.Cif, fac.Cliente.Email, fac.Cliente.ID, ctx1);
             int codigo = fac.Cliente.CodSocioAritaxi;
             VerificarUsuarioCodigo(fac.Cliente.Cif, codigo.ToString(), fac.Cliente.ID, ctx1);
@@ -1327,7 +1331,7 @@ namespace DatosFacturaLib
             {
                 Usuario u = new Usuario();
                 u.Nif = nif;
-                u.Nombre = String.Format("USU {0}",u.Nif);
+                u.Nombre = String.Format("USU {0}", u.Nif);
                 u.Login = nif;
                 u.Password = nif;
                 // si se crea por defecto es de la empresa raiz
@@ -1335,6 +1339,15 @@ namespace DatosFacturaLib
                 u.DepartamentoId = 0;
                 ctx.Add(u);
                 ctx.SaveChanges();
+            }
+            else
+            {
+                if (usu.Login == usu.Nif) 
+                {
+                    usu.ClienteId = 0;
+                    usu.DepartamentoId = 0;
+                    ctx.SaveChanges();
+                }         
             }
         }
 
