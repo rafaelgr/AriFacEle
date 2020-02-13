@@ -20,7 +20,7 @@
         <orm:field name="fecfactu" property="Fecfactu" behavior="readwrite" null-value="none" uniqueId="fefa8073-5ae6-469a-9f7a-53e96b83d676" type="System.DateTime">
           <orm:column name="fecfactu" sql-type="date" nullable="false" scale="0" primary-key="true" ado-type="Date" />
         </orm:field>
-        <orm:field name="codclien" property="Codclien" behavior="readwrite" null-value="none" uniqueId="04c2d1d4-743f-403a-a005-7e4aa2d38372" type="System.Int16">
+        <orm:field name="codclien" property="Codclien" behavior="readwrite" null-value="none" uniqueId="04c2d1d4-743f-403a-a005-7e4aa2d38372" type="System.Int32">
           <orm:column name="codclien" sql-type="INTEGER unsigned" nullable="false" scale="0" ado-type="Int32" />
         </orm:field>
         <orm:field name="nomclien" property="Nomclien" behavior="readwrite" null-value="none" uniqueId="c4fb6bad-2c87-4ac3-9747-75281231be89" type="System.String">
@@ -208,7 +208,7 @@
         <orm:identity>
           <orm:single-field field-name="codclien" />
         </orm:identity>
-        <orm:field name="codclien" property="Codclien" behavior="readwrite" null-value="none" uniqueId="411563db-82c9-4bcf-94da-10b0aca3233e" type="System.Int16">
+        <orm:field name="codclien" property="Codclien" behavior="readwrite" null-value="none" uniqueId="411563db-82c9-4bcf-94da-10b0aca3233e" type="System.Int32">
           <orm:column name="codclien" sql-type="integer unsigned" nullable="false" scale="0" primary-key="true" ado-type="Int32" />
         </orm:field>
         <orm:field name="nomclien" property="Nomclien" behavior="readwrite" null-value="none" uniqueId="d577ea8a-175b-4c27-921a-91f32279a91b" type="System.String">
@@ -1052,7 +1052,7 @@
           </orm:multiple-field>
         </orm:identity>
         <orm:concurrency strategy="changed" />
-        <orm:field name="codclien" property="Codclien" behavior="readwrite" uniqueId="9eaeb716-e98a-4afd-b7bc-5bf3b929fa97" type="System.Int16">
+        <orm:field name="codclien" property="Codclien" behavior="readwrite" uniqueId="9eaeb716-e98a-4afd-b7bc-5bf3b929fa97" type="System.Int32">
           <orm:column name="codclien" sql-type="integer unsigned" nullable="false" length="0" scale="0" primary-key="true" has-default-value="true" ado-type="Int32" />
         </orm:field>
         <orm:field name="coddirec" property="Coddirec" behavior="readwrite" uniqueId="77d242ee-3c53-488a-870f-8d9188add6fd" type="System.Int16">
@@ -1756,7 +1756,7 @@
       <Property Id="0f040877-938b-498c-b7a1-ef2c2e10726e" name="Brutofac" type="Decimal" label="Brutofac : Decimal" kind="Persistent" fieldName="brutofac" />
       <Property Id="80b299da-28b5-411f-b4ba-b867e41e7a32" name="Codagent" type="Int16" label="Codagent : Int16" kind="Persistent" fieldName="codagent" />
       <Property Id="8b86de02-b3cf-4846-9953-87d65591cdad" name="Codbanco" type="Int16" label="Codbanco : Int16" nullable="true" kind="Persistent" fieldName="codbanco" />
-      <Property Id="04c2d1d4-743f-403a-a005-7e4aa2d38372" name="Codclien" type="Int16" label="Codclien : Int16" kind="Persistent" fieldName="codclien" />
+      <Property Id="04c2d1d4-743f-403a-a005-7e4aa2d38372" name="Codclien" type="Int32" label="Codclien : Int32" kind="Persistent" fieldName="codclien" />
       <Property Id="61140f9c-1a8d-436d-8eef-db416786d691" name="Coddirec" type="Int16" label="Coddirec : Int16" nullable="true" kind="Persistent" fieldName="coddirec" />
       <Property Id="2ed068a5-82f8-46a5-a0cd-69f7348a4b52" name="Codforpa" type="Int16" label="Codforpa : Int16" kind="Persistent" fieldName="codforpa" />
       <Property Id="bfbc4d6e-db8c-4b2a-9538-a29b39851902" name="Codigiv1" type="Byte" label="Codigiv1 : Byte" nullable="true" kind="Persistent" fieldName="codigiv1" />
@@ -1853,7 +1853,7 @@
       </navigationalProperties>
     </DomainClass>
     <DomainClass Id="5746d8d3-64ac-4249-82e4-2085184c1ac3" name="Sclien" namespace="AriFacElec" showPropertiesCompartment="true" showNavigationCompartment="true" showImplementationCompartment="true">
-      <Property Id="411563db-82c9-4bcf-94da-10b0aca3233e" name="Codclien" type="Int16" label="Codclien : Int16" kind="Persistent" identity="true" fieldName="codclien" />
+      <Property Id="411563db-82c9-4bcf-94da-10b0aca3233e" name="Codclien" type="Int32" label="Codclien : Int32" kind="Persistent" identity="true" fieldName="codclien" />
       <Property Id="772bf77b-22ed-4357-99ac-d9e3610b21d6" name="Albarcon" type="Byte" label="Albarcon : Byte" kind="Persistent" fieldName="albarcon" />
       <Property Id="53b06489-df27-43cb-bf01-d1cad50b5dde" name="Cliabono" type="Byte" label="Cliabono : Byte" kind="Persistent" fieldName="cliabono" />
       <Property Id="1fc2ac9e-f410-4bcd-9adb-1eb336e103ea" name="Clivario" type="Byte" label="Clivario : Byte" kind="Persistent" fieldName="clivario" />
@@ -2138,7 +2138,7 @@
       <Property Id="c2cd6eb8-bc12-4a77-82df-9d781eba3a16" name="Webversion" label="Webversion : String" kind="Persistent" fieldName="webversion" />
     </DomainClass>
     <DomainClass Id="be52bc11-5b78-4ae1-84ac-f6db630ed615" name="Sdirec" namespace="AriFacElec" showPropertiesCompartment="true" concurrencyMode="Changed" showNavigationCompartment="true" showImplementationCompartment="true">
-      <Property Id="9eaeb716-e98a-4afd-b7bc-5bf3b929fa97" name="Codclien" type="Int16" label="Codclien : Int16" kind="Persistent" identity="true" fieldName="codclien" />
+      <Property Id="9eaeb716-e98a-4afd-b7bc-5bf3b929fa97" name="Codclien" type="Int32" label="Codclien : Int32" kind="Persistent" identity="true" fieldName="codclien" />
       <Property Id="77d242ee-3c53-488a-870f-8d9188add6fd" name="Coddirec" type="Int16" label="Coddirec : Int16" kind="Persistent" identity="true" fieldName="coddirec" />
       <Property Id="83b65354-dc93-4930-bce5-b491d95b95cc" name="Codbanco" type="Int16" label="Codbanco : Int16" kind="Persistent" fieldName="codbanco" />
       <Property Id="041a333c-1e32-4ba0-8f47-dbcf0cd22579" name="Codpobla" label="Codpobla : String" kind="Persistent" fieldName="codpobla" />
