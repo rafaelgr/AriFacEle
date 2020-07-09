@@ -323,6 +323,19 @@ namespace DatosFacturaLib
 			}
 		}
 		
+		private int codClienArigestion;
+		public virtual int CodClienArigestion
+		{
+			get
+			{
+				return this.codClienArigestion;
+			}
+			set
+			{
+				this.codClienArigestion = value;
+			}
+		}
+		
 		private Empresa empresa;
 		public virtual Empresa Empresa
 		{

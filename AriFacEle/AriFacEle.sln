@@ -35,7 +35,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "FacElecWeb", "FacElecWeb\",
 		Release.AspNetCompiler.ForceOverwrite = "true"
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
-		VWDPort = "62727"
+		VWDPort = "64837"
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AriAgroModel", "AriAgroModel\AriAgroModel.csproj", "{1065FF41-D215-4A01-A709-6A352958461C}"

@@ -254,6 +254,9 @@
         <orm:field name="organoProponente" property="OrganoProponente" uniqueId="4fe94791-85f0-42fc-a509-92689b155660" type="System.String">
           <orm:column name="organoproponente" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="" />
         </orm:field>
+        <orm:field name="codClienArigestion" property="CodClienArigestion" uniqueId="7a7e1526-a841-4e10-bc2b-dab1aae70302" type="System.Int32">
+          <orm:column name="codclien_arigestion" sql-type="integer" nullable="true" length="0" scale="0" ado-type="" />
+        </orm:field>
         <orm:field name="empresa" property="Empresa" behavior="readwrite" uniqueId="56ab5a17-5bba-4ce1-a610-4f5a8f280288" type="DatosFacturaLib.Empresa">
           <orm:reference uniqueId="ee8a1400-0d60-4080-82c8-70f9cb3b4faa" association-name="ClienteHasEmpresa">
             <orm:sharedfield name="idEmpresa" target-class="DatosFacturaLib.Empresa" target-field="idEmpresa" />
@@ -317,10 +320,10 @@
         <orm:field name="baseDatos" property="BaseDatos" uniqueId="278ac84c-8b51-4e2f-8c5b-d91af513fb57" type="System.String">
           <orm:column name="base_datos" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="StringVariableLength" />
         </orm:field>
-        <orm:field name="descripcion" property="Descripcion" uniqueId="cd9506f8-ee73-456a-a430-831e6796dfd8" type="System.String" />
         <orm:field name="nif" property="Nif" uniqueId="55c83640-14a3-493e-8646-656a28e00f06" type="System.String">
           <orm:column name="nif" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="" />
         </orm:field>
+        <orm:field name="descripcion" property="Descripcion" uniqueId="cd9506f8-ee73-456a-a430-831e6796dfd8" type="System.String" />
         <orm:field name="facturas" property="Facturas" behavior="readwrite" uniqueId="e9414436-9c07-4f92-ad7f-a2f948d3f715" type="DatosFacturaLib.Factura">
           <orm:collection element-class="DatosFacturaLib.Factura" inverse-field="sistema" order-by="" uniqueId="4cf7e996-cc12-4d93-a9a1-ea9036e9351e" />
         </orm:field>
@@ -517,6 +520,7 @@
         <orm:column name="cod_gdes" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="" />
         <orm:column name="iban" sql-type="varchar" nullable="true" length="50" scale="0" ado-type="" />
         <orm:column name="organoproponente" sql-type="varchar" nullable="true" length="255" scale="0" ado-type="" />
+        <orm:column name="codclien_arigestion" sql-type="integer" nullable="true" length="0" scale="0" ado-type="" />
         <orm:index name="idx_cliente_id_empresa">
           <orm:columnMapping>
             <orm:column name="id_empresa" sql-type="integer" nullable="true" length="0" scale="0" ado-type="Int32" />
@@ -739,6 +743,7 @@
       <Property Id="21014901-e49b-4947-bebe-70b8b497a697" name="CodGdes" label="CodGdes : String" fieldName="codGdes" />
       <Property Id="44e0b0e0-ef52-40b5-b4a9-b261f4ea9ed8" name="Iban" label="Iban : String" fieldName="iban" />
       <Property Id="4fe94791-85f0-42fc-a509-92689b155660" name="OrganoProponente" label="OrganoProponente : String" fieldName="organoProponente" />
+      <Property Id="7a7e1526-a841-4e10-bc2b-dab1aae70302" name="CodClienArigestion" type="Int32" label="CodClienArigestion : Int32" fieldName="codClienArigestion" />
       <AssociationTargets>
         <Association Id="ee8a1400-0d60-4080-82c8-70f9cb3b4faa" SourceMultiplicity="ZeroOne" name="ClienteHasEmpresa">
           <DomainClassMoniker name="/FacturaEntity/Empresa" />

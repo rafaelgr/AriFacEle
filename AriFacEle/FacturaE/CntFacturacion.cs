@@ -24,6 +24,20 @@ namespace FacturaE
             return facE;
         }
 
+        public Facturae GenerarFacturaAriGestion(FacturaG factura, string numCuenta, FacturaEntity ctx1)
+        {
+            EmpresaG empresa = CntGremial.GetEmpresa();
+            Empresa emp2 = (from e in ctx1.Empresas
+                            where e.Cif == empresa.Cifempre
+                            select e).FirstOrDefault<Empresa>();
+
+            Facturae facE = new Facturae();
+            FileHeaderAriGestion(facE, factura);
+            PartiesAriGestion(facE, empresa, factura, emp2);
+            InvoicesAriGestion(facE, factura, numCuenta);
+            return facE;
+        }
+
         public Facturae GenerarFacturaAriGes(Scafac factura, ArigesContext ctx0, string numCuenta, FacturaEntity ctx1)
         {
             Sparam empresa = (from emp in ctx0.Sparams
@@ -521,7 +535,74 @@ namespace FacturaE
             il.TaxesOutputs[0] = lTax;
             return il;
         }
-        
+
+
+        private InvoiceLineType InvoiceLineArigestion(FacLineaG line)
+        {
+
+            InvoiceLineType il = new InvoiceLineType();
+            il.ItemDescription = line.Nomconce;
+            if (line.Ampliaci != null)
+                il.ItemDescription = il.ItemDescription + " " + line.Ampliaci;
+            il.Quantity = (double)line.Cantidad;
+            il.UnitOfMeasure = UnitOfMeasureType.Item01; // TODO: Change for de correct unit type.
+            double grossAmount = (double)line.Importe * (1.0 + ((double)line.Porciva / 100.0));
+            double unitPrice = (double)line.Precio;
+            //--
+            //grossAmount = unitPrice * (double)line.Cantidad;
+            double taxAmount = grossAmount - (double)line.Importe;
+            il.UnitPriceWithoutTax = new DoubleSixDecimalType(unitPrice);
+            unitPrice = Double.Parse(String.Format("{0:0.000000}", unitPrice));
+            //grossAmount = unitPrice * (double)line.Cantidad;
+            grossAmount = unitPrice * 1; // en AriTaxi la cantidad siempre es uno
+            il.TotalCost = new DoubleSixDecimalType(grossAmount);
+
+            double totalLineDiscounts = 0.0;
+            DiscountType discountType;
+
+            //if (line.Dtoline1 != (decimal)0.0)
+            //{
+            //    il.DiscountsAndRebates = new DiscountType[2];
+
+            //    discountType = new DiscountType();
+            //    discountType.DiscountRate = new DoubleFourDecimalType((double)line.Dtoline1);
+            //    //discountType.DiscountAmount = new DoubleSixDecimalType((double)line.Cantidad * (double)line.Precioar * ((double)line.Dtoline1 / 100));
+            //    discountType.DiscountAmount = new DoubleSixDecimalType((double)line.Precioar * ((double)line.Dtoline1 / 100)); // En AriTaxi la cantidad es uno
+            //    discountType.DiscountReason = "Descuento 1.";
+            //    discountType.DiscountRateSpecified = true;
+            //    il.DiscountsAndRebates[0] = discountType;
+            //    totalLineDiscounts += discountType.DiscountAmount;
+            //    // alparecer no se usan descuentos en AriTaxi
+            //    //if (line.Dtoline2 != (decimal)0.0)
+            //    //{
+            //    //    discountType = new DiscountType();
+            //    //    discountType.DiscountRate = new DoubleFourDecimalType((double)line.Dtoline2);
+            //    //    if (param1.Ordendto == 0)
+            //    //        discountType.DiscountAmount = new DoubleSixDecimalType((double)line.Cantidad * (double)line.Precioar * ((double)line.Dtoline2 / 100));
+            //    //    else
+            //    //        discountType.DiscountAmount = new DoubleSixDecimalType(((double)line.Cantidad * (double)line.Precioar - il.DiscountsAndRebates[0].DiscountAmount) * ((double)line.Dtoline2 / 100));
+            //    //    discountType.DiscountReason = "Descuento 2.";
+            //    //    discountType.DiscountRateSpecified = true;
+            //    //    il.DiscountsAndRebates[1] = discountType;
+            //    //    totalLineDiscounts += discountType.DiscountAmount;
+            //    //}
+            //}
+
+            il.GrossAmount = new DoubleSixDecimalType(grossAmount - totalLineDiscounts);
+            il.TaxesOutputs = new InvoiceLineTypeTax[1]; // only one tax per line
+            InvoiceLineTypeTax lTax = new InvoiceLineTypeTax();
+            lTax.TaxTypeCode = TaxTypeCodeType.Item01; // always VAT
+            lTax.TaxRate = new DoubleTwoDecimalType((double)line.Porciva);
+            lTax.TaxableBase = new AmountType();
+            lTax.TaxableBase.TotalAmount = new DoubleTwoDecimalType(grossAmount);
+            lTax.TaxAmount = new AmountType();
+            lTax.TaxAmount.TotalAmount = new DoubleTwoDecimalType(taxAmount);
+            il.TaxesOutputs[0] = lTax;
+            return il;
+        }
+
+
+
         public static string getCodtipom(string numSerie, AriTaxiContext ctx0)
         {
             string codTipom = (from s in ctx0.StipomTaxis
@@ -609,6 +690,37 @@ namespace FacturaE
             fcte.FileHeader.Batch.TotalOutstandingAmount.TotalAmount = new DoubleTwoDecimalType((double)factura.Totalfac);
             fcte.FileHeader.Batch.TotalExecutableAmount = new AmountType();
             fcte.FileHeader.Batch.TotalExecutableAmount.TotalAmount = new DoubleTwoDecimalType((double)factura.Totalfac);
+            fcte.FileHeader.Batch.InvoiceCurrencyCode = CurrencyCodeType.EUR; // invoices is in euros
+        }
+
+        private void FileHeaderAriGestion(Facturae fcte, FacturaG factura)
+        {
+            // File Header.
+            fcte.FileHeader = new FileHeaderType();
+            fcte.FileHeader.SchemaVersion = SchemaVersionType.Item32; // 3.1 Version
+            fcte.FileHeader.Modality = ModalityType.I; // Individual
+            fcte.FileHeader.InvoiceIssuerType = InvoiceIssuerTypeType.EM; // Issuer is "EMISOR"
+
+            ClienteG cli = CntGremial.GetCliente(factura.Codclien);
+
+            // Constructing batch identifier = Issuer nif + invoice serial + invoice number + invoice date
+            string letrafac = factura.Numserie;
+            string batchIdentifier = String.Format("{0}{1}{2:0000000}{3:yyyMMdd}",
+                cli.Nifclien,
+                letrafac,
+                factura.Numfactu,
+                factura.Fecfactu);
+            fcte.FileHeader.Batch = new BatchType();
+            fcte.FileHeader.Batch.BatchIdentifier = batchIdentifier;
+            fcte.FileHeader.Batch.InvoicesCount = 1; // Modality is individual 1 invoice per file
+
+            // all amounts have the same value
+            fcte.FileHeader.Batch.TotalInvoicesAmount = new AmountType();
+            fcte.FileHeader.Batch.TotalInvoicesAmount.TotalAmount = new DoubleTwoDecimalType((double)factura.Totfaccl);
+            fcte.FileHeader.Batch.TotalOutstandingAmount = new AmountType();
+            fcte.FileHeader.Batch.TotalOutstandingAmount.TotalAmount = new DoubleTwoDecimalType((double)factura.Totfaccl);
+            fcte.FileHeader.Batch.TotalExecutableAmount = new AmountType();
+            fcte.FileHeader.Batch.TotalExecutableAmount.TotalAmount = new DoubleTwoDecimalType((double)factura.Totfaccl);
             fcte.FileHeader.Batch.InvoiceCurrencyCode = CurrencyCodeType.EUR; // invoices is in euros
         }
         
@@ -884,6 +996,153 @@ namespace FacturaE
             address = new AddressType();
             address.Address = cliente.Domclien;
             address.PostCode = cliente.Codpobla;
+            address.Town = cliente.Pobclien;
+            address.Province = cliente.Proclien;
+            address.CountryCode = CountryType.ESP;
+            legalEntity.Item = address;
+            fcte.Parties.BuyerParty.Item = legalEntity;
+        }
+
+        private void PartiesAriGestion(Facturae fcte, EmpresaG empresa, FacturaG factura, Empresa emp2)
+        {
+            // TODO: Person type code must be obtained from NIF
+            fcte.Parties = new PartiesType();
+            fcte.Parties.SellerParty = new BusinessType();
+            fcte.Parties.SellerParty.TaxIdentification = new TaxIdentificationType();
+            fcte.Parties.SellerParty.TaxIdentification.PersonTypeCode = PersonTypeCodeType.J;
+            fcte.Parties.SellerParty.TaxIdentification.ResidenceTypeCode = ResidenceTypeCodeType.R;
+            fcte.Parties.SellerParty.TaxIdentification.TaxIdentificationNumber = empresa.Cifempre;
+
+            //Ciudade ciu = (from c in ctx1.Ciudades
+            //               where c.Codposta == empresa.Codposta
+            //               select c).FirstOrDefault<Ciudade>();
+            LegalEntityType legalEntity = new LegalEntityType();
+            legalEntity.CorporateName = empresa.Nomempre;
+            AddressType address = new AddressType();
+            address.Address = empresa.Domempre;
+            address.PostCode = empresa.Codpobla;
+            address.Town = empresa.Pobempre;
+            address.Province = empresa.Proempre;
+            address.CountryCode = CountryType.ESP;
+            legalEntity.Item = address;
+            if (emp2 != null)
+            {
+                RegistrationDataType registro = new RegistrationDataType();
+                registro.AdditionalRegistrationData = emp2.Regcomentarios;
+                registro.Book = emp2.Libro;
+                registro.Folio = emp2.Folio;
+                registro.RegisterOfCompaniesLocation = emp2.Registro;
+                registro.Section = emp2.Seccion;
+                registro.Sheet = emp2.Hoja;
+                registro.Volume = emp2.Tomo;
+                legalEntity.RegistrationData = registro;
+            }
+
+            fcte.Parties.SellerParty.Item = legalEntity;
+
+            ClienteG cliente = CntGremial.GetCliente(factura.Codclien);
+
+            fcte.Parties.BuyerParty = new BusinessType();
+            fcte.Parties.BuyerParty.TaxIdentification = new TaxIdentificationType();
+            fcte.Parties.BuyerParty.TaxIdentification.PersonTypeCode = PersonTypeCodeType.J;
+            fcte.Parties.BuyerParty.TaxIdentification.ResidenceTypeCode = ResidenceTypeCodeType.R;
+            fcte.Parties.BuyerParty.TaxIdentification.TaxIdentificationNumber = cliente.Nifclien;
+            // comprobacion de las unidades FACE
+            // Hay que controlar en el caso de clientes de administración pública
+            // montar la información de oficina contable, organo gestor y unidad tramitadora.
+            // buscamos el cliente en FActuraE para ver si contiene las columnas
+            FacturaEntity ctx4 = new FacturaEntity("FacturaEntity");
+            Cliente cFacturae = (from c in ctx4.Clientes
+                                 where c.CodclienAriges == cliente.Codclien
+                                 select c).FirstOrDefault<Cliente>();
+            if (cFacturae != null)
+            {
+                // Comprobamos que tiene los códigos para operar en Adm. Pública
+                if (cFacturae.OrganoGestorCodigo != null && cFacturae.OrganoGestorCodigo != "")
+                {
+                    // Ahora hay que leer la unidad para conocer sus códigos
+                    Unidad uAdm = (from u in ctx4.Unidads
+                                   where u.OficinaContableCodigo == cFacturae.OficinaContableCodigo &&
+                                         u.OrganoGestorCodigo == cFacturae.OrganoGestorCodigo &&
+                                         u.UnidadTramitadoraCodigo == cFacturae.UnidadTramitadoraCodigo
+                                   select u).FirstOrDefault<Unidad>();
+
+                    // De momento montamos todas las direcciones como comunes
+                    address = new AddressType();
+                    address.Address = cliente.Domclien;
+                    address.PostCode = cliente.Codposta;
+                    address.Town = cliente.Pobclien;
+                    address.Province = cliente.Proclien;
+                    address.CountryCode = CountryType.ESP;
+
+                    if (uAdm == null)
+                    {
+                        // Ahora montamos las diferentes unidades administrativas (3)
+                        fcte.Parties.BuyerParty.AdministrativeCentres = new AdministrativeCentreType[3];
+                        AdministrativeCentreType admCenter = new AdministrativeCentreType();
+                        // Organo gestor
+                        admCenter.CentreCode = cFacturae.OrganoGestorCodigo;
+                        admCenter.RoleTypeCode = RoleTypeCodeType.Item02;
+                        admCenter.RoleTypeCodeSpecified = true;
+                        admCenter.Item = address;
+                        admCenter.CentreDescription = cliente.Nomclien;
+                        fcte.Parties.BuyerParty.AdministrativeCentres[0] = admCenter;
+                        // Unidad tramitadora
+                        admCenter = new AdministrativeCentreType();
+                        admCenter.CentreCode = cFacturae.UnidadTramitadoraCodigo;
+                        admCenter.RoleTypeCode = RoleTypeCodeType.Item03;
+                        admCenter.RoleTypeCodeSpecified = true;
+                        admCenter.Item = address;
+                        admCenter.CentreDescription = cliente.Nomclien;
+                        fcte.Parties.BuyerParty.AdministrativeCentres[1] = admCenter;
+                        // oficina contable
+                        admCenter = new AdministrativeCentreType();
+                        admCenter.CentreCode = cFacturae.OficinaContableCodigo;
+                        admCenter.RoleTypeCode = RoleTypeCodeType.Item01;
+                        admCenter.RoleTypeCodeSpecified = true;
+                        admCenter.Item = address;
+                        admCenter.CentreDescription = cliente.Nomclien;
+                        fcte.Parties.BuyerParty.AdministrativeCentres[2] = admCenter;
+                    }
+                    else
+                    {
+                        // Ahora montamos las diferentes unidades administrativas (3)
+                        fcte.Parties.BuyerParty.AdministrativeCentres = new AdministrativeCentreType[3];
+                        AdministrativeCentreType admCenter = new AdministrativeCentreType();
+                        // Organo gestor
+                        admCenter.CentreCode = uAdm.OrganoGestorCodigo;
+                        admCenter.RoleTypeCode = RoleTypeCodeType.Item02;
+                        admCenter.RoleTypeCodeSpecified = true;
+                        admCenter.Item = address;
+                        admCenter.CentreDescription = uAdm.OrganoGestorNombre;
+                        fcte.Parties.BuyerParty.AdministrativeCentres[0] = admCenter;
+                        // Unidad tramitadora
+                        admCenter = new AdministrativeCentreType();
+                        admCenter.CentreCode = uAdm.UnidadTramitadoraCodigo;
+                        admCenter.RoleTypeCode = RoleTypeCodeType.Item03;
+                        admCenter.RoleTypeCodeSpecified = true;
+                        admCenter.Item = address;
+                        admCenter.CentreDescription = uAdm.UnidadTramitadoraNombre;
+                        fcte.Parties.BuyerParty.AdministrativeCentres[1] = admCenter;
+                        // oficina contable
+                        admCenter = new AdministrativeCentreType();
+                        admCenter.CentreCode = uAdm.OficinaContableCodigo;
+                        admCenter.RoleTypeCode = RoleTypeCodeType.Item01;
+                        admCenter.RoleTypeCodeSpecified = true;
+                        admCenter.Item = address;
+                        admCenter.CentreDescription = uAdm.OficinaContableNombre;
+                        fcte.Parties.BuyerParty.AdministrativeCentres[2] = admCenter;
+                    }
+                }
+            }
+            //ciu = (from c in ctx1.Ciudades
+            //       where c.Codposta == cliente.Codposfs
+            //       select c).FirstOrDefault<Ciudade>();
+            legalEntity = new LegalEntityType();
+            legalEntity.CorporateName = cliente.Nomclien;
+            address = new AddressType();
+            address.Address = cliente.Domclien;
+            address.PostCode = cliente.Codposta;
             address.Town = cliente.Pobclien;
             address.Province = cliente.Proclien;
             address.CountryCode = CountryType.ESP;
@@ -1274,6 +1533,149 @@ namespace FacturaE
                 }
             }
         
+            #endregion
+        }
+
+        private void InvoicesAriGestion(Facturae fcte, FacturaG factura, string numCuenta)
+        {
+            fcte.Invoices = new InvoiceType[1]; // One invoice only
+            InvoiceType inv = new InvoiceType();
+            inv.InvoiceHeader = new InvoiceHeaderType();
+            inv.InvoiceHeader.InvoiceNumber = factura.Numfactu.ToString();
+            inv.InvoiceHeader.InvoiceSeriesCode = factura.Numserie.ToString();
+            inv.InvoiceHeader.InvoiceClass = InvoiceClassType.OO; // TODO: We are fixing invoice class value (perhaps incorrect)
+
+            inv.InvoiceIssueData = new InvoiceIssueDataType();
+            inv.InvoiceIssueData.IssueDate = factura.Fecfactu;
+            inv.InvoiceIssueData.InvoiceCurrencyCode = CurrencyCodeType.EUR; // fixed euros
+            inv.InvoiceIssueData.TaxCurrencyCode = CurrencyCodeType.EUR; // taxes in euros too.
+            inv.InvoiceIssueData.LanguageName = LanguageCodeType.es; // always in Spanish
+
+            inv.TaxesOutputs = new TaxOutputType[3];
+            int i = 0; // index of TaxesOutputs (begins cero)
+            double grossAmount = 0;
+            double totalTaxOutputs = 0;
+            TaxOutputType taxOutput; // each tax output
+            // AriGes invoice could have 3 diferent fixed taxes
+
+            #region[IVA]
+
+            IList<FacIvaG> lfi = CntGremial.GetFacIva(factura.Numserie, factura.Numfactu, factura.Fecfactu);
+            foreach (FacIvaG fi in lfi)
+            {
+                try
+                {
+                    taxOutput = new TaxOutputType();
+                    taxOutput.TaxTypeCode = TaxTypeCodeType.Item01;
+                    taxOutput.TaxRate = new DoubleTwoDecimalType((double)fi.Porciva);
+                    taxOutput.TaxableBase = new AmountType();
+                    taxOutput.TaxableBase.TotalAmount = new DoubleTwoDecimalType((double)fi.Baseimp);
+                    grossAmount += (double)fi.Baseimp;
+                    taxOutput.TaxAmount = new AmountType();
+                    taxOutput.TaxAmount.TotalAmount = new DoubleTwoDecimalType((double)fi.Imporiv);
+                    totalTaxOutputs += (double)fi.Imporiv;
+                    inv.TaxesOutputs[i] = taxOutput;
+                    i++;
+                }
+                catch (InvalidOperationException ioe)
+                {
+                }
+            }
+
+            #endregion
+
+            inv.InvoiceTotals = new InvoiceTotalsType();
+            //-- Discounts for this invoice
+
+            #region[Discounts]
+
+            double totalGeneralDiscounts = 0.0;
+
+            //if (factura.Dtognral != (decimal)0.0)
+            //{
+            //    inv.InvoiceTotals.GeneralDiscounts = new DiscountType[2];
+            //    DiscountType discountType;
+
+            //    discountType = new DiscountType();
+            //    discountType.DiscountRate = new DoubleFourDecimalType((double)factura.Dtognral);
+            //    discountType.DiscountAmount = new DoubleSixDecimalType((double)(factura.Impdtogr));
+            //    discountType.DiscountReason = "Descuento general.";
+            //    discountType.DiscountRateSpecified = true;
+            //    inv.InvoiceTotals.GeneralDiscounts[0] = discountType;
+            //    totalGeneralDiscounts += discountType.DiscountAmount;
+
+            //    if (factura.Dtoppago != (decimal)0.0)
+            //    {
+            //        discountType = new DiscountType();
+            //        discountType.DiscountRate = new DoubleFourDecimalType((double)factura.Dtoppago);
+            //        discountType.DiscountAmount = new DoubleSixDecimalType((double)(factura.Impdtopp));
+            //        discountType.DiscountReason = "Descuento pronto pago.";
+            //        discountType.DiscountRateSpecified = true;
+            //        inv.InvoiceTotals.GeneralDiscounts[1] = discountType;
+            //        totalGeneralDiscounts += discountType.DiscountAmount;
+            //    }
+            //}
+
+            #endregion
+
+            ContaContext ctx2;
+
+            //-- Totals for this invoice
+            inv.InvoiceTotals.TotalGrossAmount = new DoubleTwoDecimalType((double)factura.Totbases);
+            inv.InvoiceTotals.TotalGeneralDiscounts = new DoubleTwoDecimalType(totalGeneralDiscounts);
+            inv.InvoiceTotals.TotalGeneralDiscountsSpecified = true;
+            inv.InvoiceTotals.TotalGeneralSurcharges = new DoubleTwoDecimalType(0.0);
+
+            inv.InvoiceTotals.TotalGrossAmountBeforeTaxes = new DoubleTwoDecimalType((double)factura.Totbases - totalGeneralDiscounts) + inv.InvoiceTotals.TotalGeneralSurcharges;
+            inv.InvoiceTotals.TotalTaxOutputs = new DoubleTwoDecimalType(totalTaxOutputs);
+            inv.InvoiceTotals.TotalTaxesWithheld = new DoubleTwoDecimalType(0);
+
+            inv.InvoiceTotals.InvoiceTotal = new DoubleTwoDecimalType((double)factura.Totfaccl);
+            inv.InvoiceTotals.TotalOutstandingAmount = new DoubleTwoDecimalType((double)factura.Totfaccl);
+            inv.InvoiceTotals.TotalExecutableAmount = new DoubleTwoDecimalType((double)factura.Totfaccl);
+
+            //-- Invoice lines
+            IList<FacLineaG> lineas = CntGremial.GetFacLinea(factura.Numserie, factura.Numfactu, factura.Fecfactu);
+
+            i = 0;
+            inv.Items = new InvoiceLineType[lineas.Count]; // dimension = number of lines
+            foreach (FacLineaG ln in lineas)
+            {
+                inv.Items[i] = InvoiceLineArigestion(ln);
+                i++;
+            }
+            fcte.Invoices[0] = inv;
+
+            // Payments
+
+            #region [Payments]
+
+            IList<FacVtoG> vencimientos = CntGremial.GetFacVto(factura.Numserie, factura.Numfactu, factura.Fecfactu);
+
+            // Obtener la fecha de pago
+            if (numCuenta != "")
+            {
+                if (vencimientos.Count > 0)
+                {
+                    inv.PaymentDetails = new InstallmentType[vencimientos.Count];
+                    int payNum = 0;
+                    foreach (FacVtoG svenci in vencimientos)
+                    {
+                        DateTime fechaPago = svenci.Fecefect;
+                        InstallmentType paymentDetail = new InstallmentType();
+                        paymentDetail.InstallmentDueDate = fechaPago;
+                        paymentDetail.InstallmentAmount = new DoubleTwoDecimalType((double)svenci.Impefect);
+                        // Se asume en todos los casos que el pago se hace por cuenta bancaria
+                        paymentDetail.PaymentMeans = PaymentMeansType.Item04;
+                        paymentDetail.AccountToBeCredited = new AccountType();
+                        paymentDetail.AccountToBeCredited.ItemElementName = ItemChoiceType.IBAN;
+                        paymentDetail.AccountToBeCredited.Item = numCuenta;
+                        inv.PaymentDetails[payNum] = paymentDetail;
+                        payNum++;
+                    }
+                }
+            }
+
             #endregion
         }
         

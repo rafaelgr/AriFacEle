@@ -82,6 +82,40 @@ namespace AriFacEleWiS
             return SinFirmar;
         }
 
+        public static string generarFacturaeAriGestion(string iban, DateTime fecha, DatosFacturaLib.Firma firma, int numFactura, string letra, string pathDest, FacturaEntity ctx1)
+        {
+            CntFacturacion cf = new CntFacturacion();
+
+            FacturaG fac = CntGremial.GetFactura(letra, numFactura, fecha);
+
+            // REGMERCANTIL: Ahora hay que obtener los datos de registro mercantil, le 
+            // pasamos un nuevo contexto para que se extraiga la información
+
+            Facturae facturasE = cf.GenerarFacturaAriGestion(fac, iban, ctx1);
+
+            //Crear fichero FacturaE
+            XmlSerializer serializer = new XmlSerializer(typeof(Facturae));
+            FileStream fs = new FileStream(ficheroXML, FileMode.Create);
+            serializer.Serialize(fs, facturasE);
+            fs.Close();
+
+            SinFirmar = String.Format(@"{0}\xml\{1}{2}_{3:00}{4:0000}.xml", pathDest, letra, numFactura, fac.Fecfactu.Month, fac.Fecfactu.Year);
+            Firmado = String.Format(@"{0}\xml\{1}{2}_{3:00}{4:0000}.xsig", pathDest, letra, numFactura, fac.Fecfactu.Month, fac.Fecfactu.Year);
+
+            System.IO.File.Copy(ficheroXML, SinFirmar, true);
+
+            string firmar = ConfigurationSettings.AppSettings["Firmar"];
+            if (firmar.ToUpper().Equals("S"))
+            {
+                //Firmar fichero
+                certificado = new Certificado();
+                certificado.PathCertificado = firma.Certificado_path;
+                certificado.Pass = firma.Certificado_pass;
+                FirmarConEPES();
+            }
+
+            return SinFirmar;
+        }
 
         public static string generarFacturaeAriGes(string iban, DateTime fecha, DatosFacturaLib.Firma firma, int numFactura, string letra, string pathDest, ArigesContext ctx0, FacturaEntity ctx1)
         {

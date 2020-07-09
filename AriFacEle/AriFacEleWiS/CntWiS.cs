@@ -82,8 +82,7 @@ namespace AriFacEleWiS
                 if (tieneAriges == null) tieneAriges = "S";
                 if (tieneAriges == "S")
                     ctx0 = new ArigesContext("arigesEntity");
-
-
+                
 
                 string tieneGdes = ConfigurationSettings.AppSettings["TieneGdes"];
                 if (tieneGdes == null) tieneGdes = "N";
@@ -249,7 +248,7 @@ namespace AriFacEleWiS
                 
 
                 //Abril 2013 ,El dia de mi cumpleaños ;)
-                //Ademas ded la letra envia tb eL codtipom
+                //Ademas ded la letra envia tb eL codtipomF
                 if (datos[4].Length > 1) codtipomParaAriagroTaxi = datos[4].Substring(1,3);   //codtipom len=3
 
 
@@ -266,6 +265,9 @@ namespace AriFacEleWiS
 
             switch (sistema.Nombre)
             {
+                case "Arigestion":
+                    empresa = CntLib.getEmpresaArigestionByDB(ctx1);
+                    break;
                 case "AriGes":
                     empresa = CntLib.getEmpresaArigesByDB(ctx0, ctx1);
                     break;
@@ -300,7 +302,7 @@ namespace AriFacEleWiS
 
             //Ahora solo tiene la carpeta
             string xmlDestino = ctx1.Repositorios.FirstOrDefault<Repositorio>().Path;   //por si NO hace FTP, que hara un file copy sobre el repositorio
-            xmlDestino = "C:\\FicherosFacElectronicas";
+            //xmlDestino = "C:\\FicherosFacElectronicas";
             
 
 
@@ -311,6 +313,9 @@ namespace AriFacEleWiS
             int idSocio = 0;   //para las facturas de "proveedor".  El nombre lo genera con el codigo de socio
             switch (sistema.Nombre)
             {
+                case "Arigestion":
+                    idFactura = CntLib.GuardarFacturaAriGestion(true, numSerie, numfact, fecha, empresa, ctx1, sistema);
+                    break;
                 case "AriGes":
                     idFactura = CntLib.GuardarFacturaAriGes(true,numSerie, numfact, fecha, empresa, ctx0, ctx1, sistema);
                     break;
@@ -424,7 +429,7 @@ namespace AriFacEleWiS
             if (iban == null) iban = "";
             string ficheroDest = System.IO.Path.Combine(System.IO.Path.GetDirectoryName(destFile), nombreficherodestino);
             string ficheroDestCopy = ctx1.Repositorios.FirstOrDefault<Repositorio>().Path;   //por si NO hace FTP, que haga un file copy sobre el repositorio
-            ficheroDestCopy = "C:\\FicherosFacElectronicas";
+            // ficheroDestCopy = "C:\\FicherosFacElectronicas";
             ficheroDestCopy = System.IO.Path.Combine(ficheroDestCopy, nombreficherodestino);
 
             string firmar = ConfigurationSettings.AppSettings["Firmar"];   //Esta firma es meter el bmp en el pdf
@@ -444,6 +449,10 @@ namespace AriFacEleWiS
             string FicheroXSIG = "";
             switch (sistema.Nombre)
             {
+                case "Arigestion":
+                    FicheroXml = oFacturae.generarFacturaeAriGestion(iban, fecha, firma, numfact, numSerie, String.Format(@"{0}\{1}", repositorioLocal, empresa.Cif), ctx1);
+                    if (firmar.ToUpper().Equals("S")) FicheroXSIG = FicheroXml.Replace(".xml", ".xsig");
+                    break;
                 case "AriGes":
                     FicheroXml = oFacturae.generarFacturaeAriGes(iban, fecha, firma, numfact, numSerie, String.Format(@"{0}\{1}", repositorioLocal, empresa.Cif), ctx0, ctx1);
                     if (firmar.ToUpper().Equals("S")) FicheroXSIG = FicheroXml.Replace(".xml", ".xsig");

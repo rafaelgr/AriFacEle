@@ -10,11 +10,39 @@ using AriTaxiModel;
 using MySql.Data.MySqlClient;
 
 
-
 namespace DatosFacturaLib
 {
     public static class CntLib
     {
+
+        public static Empresa getEmpresaArigestionByDB(FacturaEntity ctx1)
+        {
+
+            Empresa e;
+            EmpresaG eg = CntGremial.GetEmpresa();
+
+            if (eg != null && !eg.Cifempre.Equals(""))
+            {
+
+                e = (from emp in ctx1.Empresas
+                     where emp.Cif == eg.Cifempre
+                     select emp).FirstOrDefault<Empresa>();
+                if (e == null)
+                {
+                    e = new Empresa();
+                }
+                e.Nombre = eg.Nomempre;
+                e.Cif = eg.Cifempre;
+                ctx1.Add(e);
+            }
+            else
+                throw new Exception("No existe ninguna empresa");
+
+            ctx1.SaveChanges();
+
+            return e;
+        }
+
         public static Empresa getEmpresaArigesByDB(ArigesContext Ctx0, FacturaEntity ctx1)
         {
 
@@ -254,6 +282,88 @@ namespace DatosFacturaLib
 
         }
 
+        public static int GuardarFacturaAriGestion(bool EsAriges1, string numSerie, int numfactura, DateTime fecha, Empresa empresa, FacturaEntity ctx1, Sistema s)
+        {
+            Factura fac;
+            Cliente cli;
+            bool usaDepartamentos = false;
+            bool yaEstaba = false;
+            FacturaG arigFactura = CntGremial.GetFactura(numSerie, numfactura, fecha);
+            ClienteG clig;
+
+            if (arigFactura != null)
+            {
+                clig = CntGremial.GetCliente(arigFactura.Codclien);
+                //Linka por sistemId tb
+                fac = (from f in ctx1.Facturas
+                       where f.Num_factura == arigFactura.Numfactu && f.Num_serie == numSerie.ToString() && f.Sistema.SistemaId == s.SistemaId && f.Fecha == arigFactura.Fecfactu
+                       select f).FirstOrDefault<Factura>();
+                if (fac != null)
+                {
+                    ctx1.Delete(fac);
+                    ctx1.SaveChanges();
+                }
+                fac = null;
+
+                cli = (from c in ctx1.Clientes
+                       where c.Cif == clig.Nifclien
+                       //&& c.coddirec_ariges == ariFactura.Coddirec
+                       select c).FirstOrDefault<Cliente>();
+
+                // comprobaciones necesarias
+                VerificarNif(clig.Nifclien, clig.Nomclien, ctx1);
+                VerificarUsuario(clig.Nifclien, ctx1);
+
+                if (fac == null)
+                {
+                    fac = new Factura();
+
+                    if (cli == null)
+                    {
+                        fac.Cliente = new Cliente();
+                        fac.Cliente.Contraseña = clig.Nifclien;
+                        fac.Cliente.Email = clig.Maiclien;
+                        fac.Cliente.Login = clig.Nifclien;
+                        fac.Cliente.CodClienArigestion = clig.Codclien;
+                    }
+                    else
+                    {
+                        fac.Cliente = cli;
+                    }
+                }
+
+                fac.Cliente.Cif = clig.Nifclien;
+                fac.Cliente.Email = clig.Maiclien;
+                fac.Cliente.Empresa = empresa;
+                fac.Cliente.Nombre = clig.Nomclien;
+                fac.Cliente.F_nueva = true;
+                fac.Sistema = s;
+                fac.EsFraCliente = true;
+                fac.LetraIdFraProve = "";  // Esto solo para ariagro
+                fac.ImpRetencion = 0; // por si acaso
+
+                fac.Nueva = true;
+                fac.Base_total = arigFactura.Totbases;
+                fac.Cuota_total = arigFactura.Totivas;
+                fac.Fecha = arigFactura.Fecfactu;
+                fac.Num_factura = arigFactura.Numfactu;
+                fac.Num_serie = numSerie.ToString();
+                fac.Ttal = arigFactura.Totfaccl;
+                ctx1.Add(fac);
+            }
+            else
+                throw new Exception("No existe ninguna factura con número" + numfactura);
+
+            ctx1.SaveChanges();
+
+            VerificarUsuarioEmail(fac.Cliente.Cif, fac.Cliente.Email, fac.Cliente.ID, ctx1);
+            int codAriges = fac.Cliente.CodClienArigestion;
+            if (fac.Cliente.CodClienAriges2 != 0) codAriges = fac.Cliente.CodClienAriges2;
+            VerificarUsuarioCodigo(fac.Cliente.Cif, codAriges.ToString(), fac.Cliente.ID, ctx1);
+
+            return fac.Id_factura;
+        }
+
         public static int GuardarFacturaGdes(string numSerie, Empresa empresa, GdesModelo ctxGdes, FacturaEntity ctx1, Sistema s)
         {
             Factura fac;
@@ -373,7 +483,7 @@ namespace DatosFacturaLib
                 }
                 fac = null;
                 cli = (from c in ctx1.Clientes
-                       where c.Cif == ariFactura.Sclien.Nifclien
+                       where c.CodclienAriges == ariFactura.Sclien.Codclien
                        //&& c.coddirec_ariges == ariFactura.Coddirec
                        select c).FirstOrDefault<Cliente>();
 
@@ -478,6 +588,7 @@ namespace DatosFacturaLib
 
             return fac.Id_factura;
         }
+
 
         public static int GuardarFacturaAriGasol(string numSerie, int numfactura, DateTime fecha, Empresa empresa, AriGasolContext ctx2, FacturaEntity ctx1, Sistema s)
         {

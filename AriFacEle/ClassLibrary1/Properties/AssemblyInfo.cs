@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // La información general sobre un ensamblado se controla mediante el siguiente 
 // conjunto de atributos. Cambie estos atributos para modificar la información
 // asociada con un ensamblado.
-[assembly: AssemblyTitle("AriFacEleWiS")]
-[assembly: AssemblyDescription("Servicio de facturación electrónica")]
+[assembly: AssemblyTitle("ClassLibrary1")]
+[assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Arianda Software S.L.")]
-[assembly: AssemblyProduct("AriFacEleWiS")]
-[assembly: AssemblyCopyright("Copyright ©  2019")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("ClassLibrary1")]
+[assembly: AssemblyCopyright("Copyright ©  2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // El siguiente GUID sirve como identificador de typelib si este proyecto se expone a COM
-[assembly: Guid("6d0a7b26-bd4c-43ce-96ee-40071cc51ae5")]
+[assembly: Guid("c3f124ac-206d-43b7-bb76-c980af658a05")]
 
 // La información de versión de un ensamblado consta de los cuatro valores siguientes:
 //
@@ -29,8 +29,8 @@ using System.Runtime.InteropServices;
 //      Número de compilación
 //      Revisión
 //
-// Puede especificar todos los valores o establecer como predeterminados los números de versión de compilación y de revisión 
-// mediante el asterisco ('*'), como se muestra a continuación:
+// Puede especificar todos los valores o establecer como predeterminados los números de compilación y de revisión 
+// mediante el carácter '*', como se muestra a continuación:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("2020.1.1.4")]
-[assembly: AssemblyFileVersion("2020.1.1.4")]
+[assembly: AssemblyVersion("1.0.0.0")]
+[assembly: AssemblyFileVersion("1.0.0.0")]

@@ -1,0 +1,202 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="DatosFacturaLib.CntGremial" Collapsed="true">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>JAgAAAAAAAAAAACACAAAEAAAAAEAAAAAAAABAEEAIAA=</HashCode>
+      <FileName>CntGremial.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DatosFacturaLib.CntLib" Collapsed="true">
+    <Position X="0.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAggAAAAAYABYANBYTABIAEBAABJAAQCBAAgAAEAAgg=</HashCode>
+      <FileName>CntLib.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DatosFacturaLib.EmpresaG">
+    <Position X="12.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QQABAAAAAQAAQAAACEAACAgAAAgAAAAAABAAAEEQAAA=</HashCode>
+      <FileName>EmpresaG.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DatosFacturaLib.Cau_FIN_FACEInvoiceHeader" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>SEAiR0DAHmrxhGCAA0JsEAAARAQhCABICAaKAhIAtIE=</HashCode>
+      <FileName>Cau_FIN_FACEInvoiceHeader.generated.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DatosFacturaLib.Cau_FIN_FACEInvoiceLine" Collapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgACBAgBYEQAAAQQiAAQAABAAgAAAAAA=</HashCode>
+      <FileName>Cau_FIN_FACEInvoiceLine.generated.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DatosFacturaLib.Cau_FIN_FACEInvoiceTax" Collapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAEAgAiAAgBAEAAAAAAAAABAAFAAAAAAAAA=</HashCode>
+      <FileName>Cau_FIN_FACEInvoiceTax.generated.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DatosFacturaLib.GdesModelo" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="5.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAACBAQAAAAAAAAAAAAAAAAAAAEAAoAAAAAAA=</HashCode>
+      <FileName>EntitiesModel1.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DatosFacturaLib.Cliente" Collapsed="true">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CFgAkAAQgCCEgIKgBIACgCAAQiAgSEIAAQAQA4FAEAE=</HashCode>
+      <FileName>Cliente.generated.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DatosFacturaLib.Departamento" Collapsed="true">
+    <Position X="2.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAKAAAAAggAAAAMAAAABAAAAAAAAAgA=</HashCode>
+      <FileName>Departamento.generated.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DatosFacturaLib.Empresa" Collapsed="true">
+    <Position X="4" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAADAQGEAgGBBgAAgAIAQEAAQEBAAABAIAAAQCA=</HashCode>
+      <FileName>Empresa.generated.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DatosFacturaLib.FacturaEntity" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABQCACBgQAAAgAAAAAAAAACAAAgAAABIAAGAAgA=</HashCode>
+      <FileName>EntityDiagrams.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DatosFacturaLib.Factura" Collapsed="true">
+    <Position X="7.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EEwEQBABBUCAADVAAoCxAABAgQMAXgIFAAIQQgBEIMA=</HashCode>
+      <FileName>Factura.generated.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DatosFacturaLib.Firma" Collapsed="true">
+    <Position X="4" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>DAAQACBgEAABAAIgACABAGxgAAEAUAAAAAAQAAAAAgA=</HashCode>
+      <FileName>Firma.generated.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DatosFacturaLib.Nifbase" Collapsed="true">
+    <Position X="7.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAACAgAAAgAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Nifbase.generated.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DatosFacturaLib.Plantilla" Collapsed="true">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAAAACAAAAAgABAAAAAQAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Plantilla.generated.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DatosFacturaLib.Repositorio" Collapsed="true">
+    <Position X="2.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAIAAIAGAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Repositorio.generated.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DatosFacturaLib.Sistema" Collapsed="true">
+    <Position X="4" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACCAACAggEAgAABACAAAAAgAQAAAAEAAAA=</HashCode>
+      <FileName>Sistema.generated.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DatosFacturaLib.Superusuario" Collapsed="true">
+    <Position X="5.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABACAAAQACCAAAIgAAACAAAAAAAAQAAAAAAQAAAAEgA=</HashCode>
+      <FileName>Superusuario.generated.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DatosFacturaLib.Unidad" Collapsed="true">
+    <Position X="7.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAACAAAIAAIAAEAAAAABACAIAQIAAEgAAAAA=</HashCode>
+      <FileName>Unidad.generated.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DatosFacturaLib.Usuario" Collapsed="true">
+    <Position X="0.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACCAEAKggBAAgAAAAIAAAAACAAAQAgAAEgA=</HashCode>
+      <FileName>Usuario.generated.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DatosFacturaLib.ficherosLib" Collapsed="true">
+    <Position X="2.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgEAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAA=</HashCode>
+      <FileName>ficherosLib.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DatosFacturaLib.FacturaG">
+    <Position X="9.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAACAAAAAgAAAAACAEAAAyBAACEgAACgAA=</HashCode>
+      <FileName>FacturaG.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DatosFacturaLib.ClienteG">
+    <Position X="11" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAIAAAQQBAACEAQAAgAAAAAAAEAAAABIAACACAACgA=</HashCode>
+      <FileName>ClienteG.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DatosFacturaLib.FacIvaG">
+    <Position X="14.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAQAAIAAAACAAAAAAAAAIAAAACAAAAAAAAA=</HashCode>
+      <FileName>FacIvaG.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DatosFacturaLib.FacLineaG">
+    <Position X="16.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAABAEAAAQAIQAAgCEAAIAQAAAAEAAAAAAgBAAAIAQ=</HashCode>
+      <FileName>FacLineaG.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DatosFacturaLib.FacVtoG">
+    <Position X="6.75" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAQgAAAEIAAAAAAAAAABAAAAAQ=</HashCode>
+      <FileName>FactVtoG.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="DatosFacturaLib.IGdesModeloUnitOfWork" Collapsed="true">
+    <Position X="2.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAgAAAAAAA=</HashCode>
+      <FileName>EntitiesModel1.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DatosFacturaLib.IFacturaEntityUnitOfWork" Collapsed="true">
+    <Position X="0.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABQCAAAgAAAAgAAAAAAAAACAAAgAAABAAAGAAgA=</HashCode>
+      <FileName>EntityDiagrams.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

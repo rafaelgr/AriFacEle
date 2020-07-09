@@ -37,6 +37,7 @@
       <SpecificVersion>False</SpecificVersion>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -63,9 +64,11 @@
     <Compile Include="Cau_FIN_FACEInvoiceTax.generated.cs">
       <DependentUpon>EntitiesModel1.rlinq</DependentUpon>
     </Compile>
+    <Compile Include="ClienteG.cs" />
     <Compile Include="Cliente.generated.cs">
       <DependentUpon>EntityDiagrams.rlinq</DependentUpon>
     </Compile>
+    <Compile Include="CntGremial.cs" />
     <Compile Include="CntLib.cs" />
     <Compile Include="Departamento.generated.cs">
       <DependentUpon>EntityDiagrams.rlinq</DependentUpon>
@@ -73,6 +76,7 @@
     <Compile Include="Empresa.generated.cs">
       <DependentUpon>EntityDiagrams.rlinq</DependentUpon>
     </Compile>
+    <Compile Include="EmpresaG.cs" />
     <Compile Include="EntitiesModel1.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -83,9 +87,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>EntityDiagrams.rlinq</DependentUpon>
     </Compile>
+    <Compile Include="FacIvaG.cs" />
+    <Compile Include="FacLineaG.cs" />
     <Compile Include="Factura.generated.cs">
       <DependentUpon>EntityDiagrams.rlinq</DependentUpon>
     </Compile>
+    <Compile Include="FacturaG.cs" />
+    <Compile Include="FacVtoG.cs" />
     <Compile Include="ficherosLib.cs" />
     <Compile Include="Firma.generated.cs">
       <DependentUpon>EntityDiagrams.rlinq</DependentUpon>
@@ -117,6 +125,7 @@
     <None Include="App.Config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="ClassDiagram1.cd" />
     <None Include="EntitiesModel1.rlinq.diagram">
       <DependentUpon>EntitiesModel1.rlinq</DependentUpon>
     </None>
