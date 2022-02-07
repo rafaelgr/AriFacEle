@@ -265,6 +265,9 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="ClassDiagram1.cd" />
+    <None Include="CopiaTest.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="CopiaAlzira de App.config">
       <SubType>Designer</SubType>
     </None>

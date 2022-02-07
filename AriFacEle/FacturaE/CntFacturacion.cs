@@ -1299,7 +1299,7 @@ namespace FacturaE
             return il;
         }
         
-        // -- TEINSA -- Control de descuentos
+        // -- ARIGES -- Control de descuentos
         private InvoiceLineType InvoiceLine(Slifac line, ContaContext ctx2, ArigesContext ctx0)
         {
             byte codigIva = line.Sartic.Codigiva;
@@ -1353,7 +1353,7 @@ namespace FacturaE
             
             //il.GrossAmount = new DoubleSixDecimalType(grossAmount - totalLineDiscounts);
             il.GrossAmount = new DoubleSixDecimalType((double)line.Importel);
-            //il.TotalCost = il.GrossAmount;
+            // il.TotalCost = il.GrossAmount; // 2021.1.0.1 (Taxco problema con dos decimales. Estaba comentado)
             il.TaxesOutputs = new InvoiceLineTypeTax[1]; // only one tax per line
             InvoiceLineTypeTax lTax = new InvoiceLineTypeTax();
             lTax.TaxTypeCode = TaxTypeCodeType.Item01; // always VAT
