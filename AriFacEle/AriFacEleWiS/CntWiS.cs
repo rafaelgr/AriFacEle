@@ -431,12 +431,14 @@ namespace AriFacEleWiS
             string ficheroDestCopy = ctx1.Repositorios.FirstOrDefault<Repositorio>().Path;   //por si NO hace FTP, que haga un file copy sobre el repositorio
             // ficheroDestCopy = "C:\\FicherosFacElectronicas";
             ficheroDestCopy = System.IO.Path.Combine(ficheroDestCopy, nombreficherodestino);
-
+            // 2022.1.1.1 Copiar el pdf para que exista para firmar
+            System.IO.File.Copy(sourceFile, destFile, true);
+            
             string firmar = ConfigurationSettings.AppSettings["Firmar"];   //Esta firma es meter el bmp en el pdf
             if (firmar.ToUpper().Equals("S"))
                 firmarFactura(sourceFile, destFile, sistemaGdes, empresa);
-            else
-                System.IO.File.Copy(sourceFile, destFile, true);
+            
+                
             if (firmar.ToUpper().Equals("S")) hayFirma = true;
 
             // obtener la factura a partir de su identificador
@@ -581,7 +583,7 @@ namespace AriFacEleWiS
                 f.Firma();
             }
             catch (Exception e)
-            { throw new Exception("Error al firmar:" + destFile + "\n\n" + e.StackTrace); }
+            { throw new Exception("Error al firmar:" + destFile + "\n\n" + e.Message + "\n\n" + e.StackTrace); }
         }
 
         public static void MarkAsConsole()

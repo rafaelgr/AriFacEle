@@ -532,7 +532,7 @@ namespace DatosFacturaLib
                 }
 
                 // Nuevos campos de facturación electrónica
-                 if (ariFactura.Sdirec != null)
+/*                 if (ariFactura.Sdirec != null)
                  {
                      fac.Cliente.OrganoGestorCodigo = ariFactura.Sdirec.OrganoGestor;
                      fac.Cliente.UnidadTramitadoraCodigo = ariFactura.Sdirec.UnidadTramitadora;
@@ -547,7 +547,13 @@ namespace DatosFacturaLib
                      fac.Cliente.OficinaContableCodigo = ariFactura.Sclien.OficinaContable;
                      fac.Cliente.OrganoProponente = ariFactura.Sclien.OrganoProponente;
 
-                 }
+                 }*/
+
+                // VRS 2022.1.1.0 Forzamos a que los datos sean de la raiz del cliente
+                fac.Cliente.OrganoGestorCodigo = ariFactura.Sclien.OrganoGestor;
+                fac.Cliente.UnidadTramitadoraCodigo = ariFactura.Sclien.UnidadTramitadora;
+                fac.Cliente.OficinaContableCodigo = ariFactura.Sclien.OficinaContable;
+                fac.Cliente.OrganoProponente = ariFactura.Sclien.OrganoProponente;
 
                 fac.Cliente.Cif = ariFactura.Sclien.Nifclien;
                 fac.Cliente.Empresa = empresa;
