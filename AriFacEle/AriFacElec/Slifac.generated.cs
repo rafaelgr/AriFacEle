@@ -362,6 +362,19 @@ namespace AriFacElec
 			}
 		}
 		
+		private Scafac1 scafac1;
+		public virtual Scafac1 Scafac1
+		{
+			get
+			{
+				return this.scafac1;
+			}
+			set
+			{
+				this.scafac1 = value;
+			}
+		}
+		
 	}
 }
 #pragma warning restore 1591

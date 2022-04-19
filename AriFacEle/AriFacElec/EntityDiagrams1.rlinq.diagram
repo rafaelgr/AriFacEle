@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <EntityDiagrams>
-  <entityDiagramsDiagram dslVersion="2.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="EntityDiagrams1" fillColor="62, 62, 65" isDefault="true">
+  <entityDiagramsDiagram dslVersion="2.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="EntityDiagrams1" isDefault="true">
     <DomainModelMoniker name="/ContaContext" />
     <nestedChildShapes>
       <classShape Id="9de8f629-f016-47d6-99c8-6d6fb8b509ad" absoluteBounds="0.5, 1.5, 1.5, 3.301183268229166" fillColor="225, 249, 128, 67" outlineColor="213, 71, 0" textColor="White">

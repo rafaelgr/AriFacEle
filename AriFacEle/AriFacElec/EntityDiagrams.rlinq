@@ -606,6 +606,15 @@
             <orm:sharedfield name="codartic" target-class="AriFacElec.Sartic" target-field="codartic" />
           </orm:reference>
         </orm:field>
+        <orm:field name="scafac1" property="Scafac1" behavior="readwrite" uniqueId="6d64ae69-5ae2-493e-829c-3b266289623d" type="AriFacElec.Scafac1">
+          <orm:reference uniqueId="7b38907b-fa32-4c85-8682-f3fc1d11c2c0" association-name="SlifacHasScafac1">
+            <orm:sharedfield name="codtipom" target-class="AriFacElec.Scafac1" target-field="codtipom" />
+            <orm:sharedfield name="numfactu" target-class="AriFacElec.Scafac1" target-field="numfactu" />
+            <orm:sharedfield name="fecfactu" target-class="AriFacElec.Scafac1" target-field="fecfactu" />
+            <orm:sharedfield name="codtipoa" target-class="AriFacElec.Scafac1" target-field="codtipoa" />
+            <orm:sharedfield name="numalbar" target-class="AriFacElec.Scafac1" target-field="numalbar" />
+          </orm:reference>
+        </orm:field>
         <orm:index name="fk_almacen">
           <orm:columnMapping>
             <orm:column name="codalmac" sql-type="smallint unsigned" nullable="false" scale="0" ado-type="Int16" />
@@ -638,7 +647,7 @@
           <orm:single-field field-name="codartic" />
         </orm:identity>
         <orm:field name="unicajas" property="Unicajas" behavior="readwrite" null-value="none" uniqueId="a339844b-cd32-43c2-9e99-2a6bed577f76" type="System.Int16">
-          <orm:column name="unicajas" sql-type="smallint unsigned" nullable="false" scale="0" ado-type="Int16" />
+          <orm:column name="unicajas" sql-type="smallint unsigned" nullable="false" length="0" scale="0" ado-type="Int16" />
         </orm:field>
         <orm:field name="ultfecpvp" property="Ultfecpvp" behavior="readwrite" null-value="none" uniqueId="cab1a402-48bd-410e-a324-7b015d1368b2" type="System.Nullable`1[[System.DateTime, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
           <orm:column name="ultfecpvp" sql-type="date" nullable="true" scale="0" ado-type="Date" />
@@ -680,7 +689,7 @@
           <orm:column name="numserie" sql-type="varchar" nullable="true" length="15" scale="0" ado-type="Varchar" />
         </orm:field>
         <orm:field name="numorden" property="Numorden" behavior="readwrite" null-value="none" uniqueId="7869a40e-8cf9-49df-8296-576795d3359e" type="System.Int32">
-          <orm:column name="numorden" sql-type="INTEGER" nullable="false" scale="0" ado-type="Int32" />
+          <orm:column name="numorden" sql-type="integer" nullable="false" scale="0" ado-type="Int32" />
         </orm:field>
         <orm:field name="nseriesn" property="Nseriesn" behavior="readwrite" null-value="none" uniqueId="ae8d982b-0ec6-43c3-beb3-681f27b00c76" type="System.Byte">
           <orm:column name="nseriesn" sql-type="tinyint unsigned" nullable="false" scale="0" ado-type="Byte" />
@@ -725,7 +734,7 @@
           <orm:column name="codstatu" sql-type="smallint unsigned" nullable="false" scale="0" ado-type="Int16" />
         </orm:field>
         <orm:field name="codprove" property="Codprove" behavior="readwrite" null-value="none" uniqueId="07c1da1d-9639-4b9f-a6c8-24becab951bc" type="System.Int32">
-          <orm:column name="codprove" sql-type="INTEGER unsigned" nullable="false" scale="0" ado-type="Int32" />
+          <orm:column name="codprove" sql-type="integer unsigned" nullable="false" scale="0" ado-type="Int32" />
         </orm:field>
         <orm:field name="codmarca" property="Codmarca" behavior="readwrite" null-value="none" uniqueId="8ec9831e-226b-415d-856a-377fff9dd9d2" type="System.Int16">
           <orm:column name="codmarca" sql-type="smallint unsigned" nullable="false" scale="0" ado-type="Int16" />
@@ -768,7 +777,7 @@
         </orm:index>
         <orm:index name="fkcodprove">
           <orm:columnMapping>
-            <orm:column name="codprove" sql-type="INTEGER unsigned" nullable="false" scale="0" ado-type="Int32" />
+            <orm:column name="codprove" sql-type="integer unsigned" nullable="false" scale="0" ado-type="Int32" />
           </orm:columnMapping>
         </orm:index>
         <orm:index name="fkcodmarca">
@@ -1173,6 +1182,46 @@
           </orm:columnMapping>
         </orm:index>
       </orm:class>
+      <orm:class name="Scafac1" uniqueId="558362b1-1e53-42cf-8a0f-a283ae47e5a0">
+        <orm:table name="scafac1" />
+        <orm:identity>
+          <orm:multiple-field>
+            <orm:single-field field-name="codtipom" />
+            <orm:single-field field-name="numfactu" />
+            <orm:single-field field-name="fecfactu" />
+            <orm:single-field field-name="codtipoa" />
+            <orm:single-field field-name="numalbar" />
+          </orm:multiple-field>
+        </orm:identity>
+        <orm:concurrency strategy="changed" />
+        <orm:field name="codtipom" property="Codtipom" behavior="readwrite" uniqueId="0c218ca2-fb2c-4730-86f1-9211c7563564" type="System.String">
+          <orm:column name="codtipom" sql-type="char" nullable="false" length="3" scale="0" primary-key="true" ado-type="" />
+        </orm:field>
+        <orm:field name="numfactu" property="Numfactu" behavior="readwrite" uniqueId="37abda73-e50f-406d-9780-3f09c9070858" type="System.Int32">
+          <orm:column name="numfactu" sql-type="int" nullable="false" length="7" scale="0" primary-key="true" ado-type="" />
+        </orm:field>
+        <orm:field name="fecfactu" property="Fecfactu" behavior="readwrite" uniqueId="9439aebb-5036-407c-bbc8-657ff970a577" type="System.DateTime">
+          <orm:column name="fecfactu" sql-type="date" nullable="false" length="0" scale="0" primary-key="true" ado-type="" />
+        </orm:field>
+        <orm:field name="codtipoa" property="Codtipoa" behavior="readwrite" uniqueId="66340042-4970-4e62-836f-02e21294e5b4" type="System.String">
+          <orm:column name="codtipoa" sql-type="char" nullable="false" length="3" scale="0" primary-key="true" ado-type="" />
+        </orm:field>
+        <orm:field name="numalbar" property="Numalbar" behavior="readwrite" uniqueId="0ee796a3-2828-45ad-9230-1f98bf39256b" type="System.Int32">
+          <orm:column name="numalbar" sql-type="int" nullable="false" length="5" scale="0" primary-key="true" ado-type="" />
+        </orm:field>
+        <orm:field name="referenc" property="Referenc" behavior="readwrite" uniqueId="fe7569d3-31ed-4c80-a0ad-bf60a3df7154" type="System.String">
+          <orm:column name="referenc" sql-type="varchar" nullable="false" length="255" scale="0" ado-type="" />
+        </orm:field>
+        <orm:field name="refpedido" property="Refpedido" behavior="readwrite" uniqueId="fbf52426-d5d9-4f4f-9094-7e5cbf9b864d" type="System.String">
+          <orm:column name="refpedido" sql-type="varchar" nullable="false" length="255" scale="0" ado-type="" />
+        </orm:field>
+        <orm:field name="refcontrato" property="Refcontrato" behavior="readwrite" uniqueId="46051c4b-2bab-410e-abbc-43d7e26d342f" type="System.String">
+          <orm:column name="refcontrato" sql-type="varchar" nullable="false" length="255" scale="0" ado-type="" />
+        </orm:field>
+        <orm:field name="slifacs" property="Slifacs" behavior="readwrite" uniqueId="87704a83-e1a1-4daf-8949-0abafb00bc99" type="AriFacElec.Slifac">
+          <orm:collection element-class="AriFacElec.Slifac" inverse-field="scafac1" order-by="" uniqueId="7b38907b-fa32-4c85-8682-f3fc1d11c2c0" />
+        </orm:field>
+      </orm:class>
     </orm:namespace>
     <orm:schema schema="">
       <orm:table name="scafac">
@@ -1485,7 +1534,7 @@
         </orm:constraint>
       </orm:table>
       <orm:table name="sartic">
-        <orm:column name="unicajas" sql-type="smallint unsigned" nullable="false" scale="0" ado-type="Int16" />
+        <orm:column name="unicajas" sql-type="smallint unsigned" nullable="false" length="0" scale="0" ado-type="Int16" />
         <orm:column name="ultfecpvp" sql-type="date" nullable="true" scale="0" ado-type="Date" />
         <orm:column name="ultfecco" sql-type="date" nullable="true" scale="0" ado-type="Date" />
         <orm:column name="txtauxdocumento" sql-type="varchar" nullable="true" length="60" scale="0" ado-type="Varchar" />
@@ -1499,7 +1548,7 @@
         <orm:column name="preanuman" sql-type="decimal" nullable="true" length="8" scale="2" ado-type="Decimal" />
         <orm:column name="pesoarti" sql-type="decimal" nullable="true" length="5" scale="2" ado-type="Decimal" />
         <orm:column name="numserie" sql-type="varchar" nullable="true" length="15" scale="0" ado-type="Varchar" />
-        <orm:column name="numorden" sql-type="INTEGER" nullable="false" scale="0" ado-type="Int32" />
+        <orm:column name="numorden" sql-type="integer" nullable="false" scale="0" ado-type="Int32" />
         <orm:column name="nseriesn" sql-type="tinyint unsigned" nullable="false" scale="0" ado-type="Byte" />
         <orm:column name="nomartic" sql-type="varchar" nullable="false" length="40" scale="0" ado-type="Varchar" />
         <orm:column name="mateprima" sql-type="tinyint" nullable="false" scale="0" ado-type="Byte" />
@@ -1514,7 +1563,7 @@
         <orm:column name="codtipar" sql-type="char" nullable="false" length="2" scale="0" ado-type="Character" />
         <orm:column name="codtelem" sql-type="varchar" nullable="true" length="18" scale="0" ado-type="Varchar" />
         <orm:column name="codstatu" sql-type="smallint unsigned" nullable="false" scale="0" ado-type="Int16" />
-        <orm:column name="codprove" sql-type="INTEGER unsigned" nullable="false" scale="0" ado-type="Int32" />
+        <orm:column name="codprove" sql-type="integer unsigned" nullable="false" scale="0" ado-type="Int32" />
         <orm:column name="codmarca" sql-type="smallint unsigned" nullable="false" scale="0" ado-type="Int16" />
         <orm:column name="codigiva" sql-type="tinyint unsigned" nullable="false" scale="0" ado-type="Byte" />
         <orm:column name="codfamia" sql-type="smallint unsigned" nullable="false" scale="0" ado-type="Int16" />
@@ -1539,7 +1588,7 @@
         </orm:index>
         <orm:index name="fkcodprove">
           <orm:columnMapping>
-            <orm:column name="codprove" sql-type="INTEGER unsigned" nullable="false" scale="0" ado-type="Int32" />
+            <orm:column name="codprove" sql-type="integer unsigned" nullable="false" scale="0" ado-type="Int32" />
           </orm:columnMapping>
         </orm:index>
         <orm:index name="fkcodmarca">
@@ -1565,7 +1614,7 @@
           <orm:column name="codfamia" sql-type="smallint unsigned" nullable="false" scale="0" ado-type="Int16" />
         </orm:constraint>
         <orm:constraint name="sartic_ibfk_1">
-          <orm:column name="codprove" sql-type="INTEGER unsigned" nullable="false" scale="0" ado-type="Int32" />
+          <orm:column name="codprove" sql-type="integer unsigned" nullable="false" scale="0" ado-type="Int32" />
         </orm:constraint>
       </orm:table>
       <orm:table name="spara1">
@@ -1709,6 +1758,16 @@
           <orm:column name="fecfactu" sql-type="date" nullable="false" length="0" scale="0" primary-key="true" has-default-value="true" ado-type="Date" />
           <orm:column name="numfactu" sql-type="mediumint unsigned" nullable="false" length="0" scale="0" primary-key="true" has-default-value="true" ado-type="Int32" />
         </orm:constraint>
+      </orm:table>
+      <orm:table name="scafac1">
+        <orm:column name="codtipom" sql-type="char" nullable="false" length="3" scale="0" primary-key="true" ado-type="" />
+        <orm:column name="numfactu" sql-type="int" nullable="false" length="7" scale="0" primary-key="true" ado-type="" />
+        <orm:column name="fecfactu" sql-type="date" nullable="false" length="0" scale="0" primary-key="true" ado-type="" />
+        <orm:column name="codtipoa" sql-type="char" nullable="false" length="3" scale="0" primary-key="true" ado-type="" />
+        <orm:column name="numalbar" sql-type="int" nullable="false" length="5" scale="0" primary-key="true" ado-type="" />
+        <orm:column name="referenc" sql-type="varchar" nullable="false" length="255" scale="0" ado-type="" />
+        <orm:column name="refpedido" sql-type="varchar" nullable="false" length="255" scale="0" ado-type="" />
+        <orm:column name="refcontrato" sql-type="varchar" nullable="false" length="255" scale="0" ado-type="" />
       </orm:table>
     </orm:schema>
   </orm:orm>
@@ -1996,6 +2055,19 @@
             </associationDefinesSourceProperty>
           </sourceNavigationalProperty>
         </Association>
+        <Association Id="7b38907b-fa32-4c85-8682-f3fc1d11c2c0" SourceMultiplicity="ZeroOne" name="SlifacHasScafac1">
+          <DomainClassMoniker name="/ArigesContext/Scafac1" />
+          <targetNavigationalProperty>
+            <associationDefinesTargetProperty Id="7f4d5eed-2da7-40d6-abbc-2f3e355ff5fe">
+              <NavigationalPropertyMoniker name="/ArigesContext/Scafac1/Slifacs" />
+            </associationDefinesTargetProperty>
+          </targetNavigationalProperty>
+          <sourceNavigationalProperty>
+            <associationDefinesSourceProperty Id="4fd4cfcd-f625-4798-a096-cabb06e1a8e6">
+              <NavigationalPropertyMoniker name="/ArigesContext/Slifac/Scafac1" />
+            </associationDefinesSourceProperty>
+          </sourceNavigationalProperty>
+        </Association>
       </AssociationTargets>
       <navigationalProperties>
         <classHasNavigationalProperties Id="d5b56aa1-cfc6-4e15-8abb-c9f094651351">
@@ -2003,6 +2075,9 @@
         </classHasNavigationalProperties>
         <classHasNavigationalProperties Id="a8ac17f5-7af0-4fd6-bb00-3f6a66c16dd0">
           <NavigationalProperty Id="94b4e09b-297a-43e4-9bc6-34e57bed0583" name="Sartic" type="Sartic" label="Sartic : Sartic" nullable="true" kind="Persistent" fieldName="sartic" isDependent="false" isManaged="true" />
+        </classHasNavigationalProperties>
+        <classHasNavigationalProperties Id="092f4d10-876e-4a9d-b8a3-02f530f7f177">
+          <NavigationalProperty Id="6d64ae69-5ae2-493e-829c-3b266289623d" name="Scafac1" type="Scafac1" label="Scafac1 : Scafac1" nullable="true" kind="Persistent" fieldName="scafac1" isDependent="false" isManaged="false" />
         </classHasNavigationalProperties>
       </navigationalProperties>
     </DomainClass>
@@ -2193,6 +2268,21 @@
         </classHasNavigationalProperties>
       </navigationalProperties>
     </DomainClass>
+    <DomainClass Id="558362b1-1e53-42cf-8a0f-a283ae47e5a0" name="Scafac1" namespace="AriFacElec" showPropertiesCompartment="true" concurrencyMode="Changed" showNavigationCompartment="true" showImplementationCompartment="true">
+      <Property Id="66340042-4970-4e62-836f-02e21294e5b4" name="Codtipoa" label="Codtipoa : String" kind="Persistent" identity="true" fieldName="codtipoa" />
+      <Property Id="0c218ca2-fb2c-4730-86f1-9211c7563564" name="Codtipom" label="Codtipom : String" kind="Persistent" identity="true" fieldName="codtipom" />
+      <Property Id="9439aebb-5036-407c-bbc8-657ff970a577" name="Fecfactu" type="DateTime" label="Fecfactu : DateTime" kind="Persistent" identity="true" fieldName="fecfactu" />
+      <Property Id="0ee796a3-2828-45ad-9230-1f98bf39256b" name="Numalbar" type="Int32" label="Numalbar : Int32" kind="Persistent" identity="true" fieldName="numalbar" />
+      <Property Id="37abda73-e50f-406d-9780-3f09c9070858" name="Numfactu" type="Int32" label="Numfactu : Int32" kind="Persistent" identity="true" fieldName="numfactu" />
+      <Property Id="46051c4b-2bab-410e-abbc-43d7e26d342f" name="Refcontrato" label="Refcontrato : String" kind="Persistent" fieldName="refcontrato" />
+      <Property Id="fe7569d3-31ed-4c80-a0ad-bf60a3df7154" name="Referenc" label="Referenc : String" kind="Persistent" fieldName="referenc" />
+      <Property Id="fbf52426-d5d9-4f4f-9094-7e5cbf9b864d" name="Refpedido" label="Refpedido : String" kind="Persistent" fieldName="refpedido" />
+      <navigationalProperties>
+        <classHasNavigationalProperties Id="0c1ab224-5a47-458b-ab2f-a1dfd7fb228f">
+          <NavigationalProperty Id="87704a83-e1a1-4daf-8949-0abafb00bc99" name="Slifacs" type="IList&lt;Slifac&gt;" label="Slifacs : IList&lt;Slifac&gt;" nullable="true" kind="Persistent" fieldName="slifacs" isDependent="false" isManaged="false" />
+        </classHasNavigationalProperties>
+      </navigationalProperties>
+    </DomainClass>
   </Types>
   <domainContext>
     <domainModelHasDomainContext Id="fdee3798-3f99-40f6-aba1-31733f6edff6">
@@ -2206,6 +2296,7 @@
         <entitySetProperty name="Spara1" namespace="AriFacElec" type="Spara1" label="Spara1 : IQueryable&lt;AriFacElec.Spara1&gt;" />
         <entitySetProperty name="Sdirecs" namespace="AriFacElec" type="Sdirec" label="Sdirecs : IQueryable&lt;AriFacElec.Sdirec&gt;" />
         <entitySetProperty name="Svencis" namespace="AriFacElec" type="Svenci" label="Svencis : IQueryable&lt;AriFacElec.Svenci&gt;" />
+        <entitySetProperty name="Scafac1" namespace="AriFacElec" type="Scafac1" label="Scafac1 : IQueryable&lt;AriFacElec.Scafac1&gt;" />
       </domainContainer>
     </domainModelHasDomainContext>
   </domainContext>

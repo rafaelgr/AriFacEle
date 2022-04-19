@@ -1320,7 +1320,20 @@ namespace FacturaE
             unitPrice = Double.Parse(String.Format("{0:0.000000}", unitPrice));
             grossAmount = unitPrice * (double)line.Cantidad;
             il.TotalCost = new DoubleSixDecimalType(il.Quantity * unitPrice);
-            
+            // VRS 2022.2.1.0 (Incluir referencias en la linea de factura
+            if (line.Scafac1.Refcontrato != null)
+            {
+                il.ReceiverContractReference = line.Scafac1.Refcontrato;
+            }
+            if (line.Scafac1.Refpedido != null)
+            {
+                il.ReceiverTransactionReference = line.Scafac1.Refpedido;
+            }
+            if (line.Scafac1.Referenc != null)
+            {
+                il.FileReference = line.Scafac1.Referenc;
+            }
+
             double totalLineDiscounts = 0.0;
             DiscountType discountType;
             

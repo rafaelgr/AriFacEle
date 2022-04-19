@@ -122,6 +122,14 @@ namespace AriFacElec
 			}
 		}
 		
+		public IQueryable<Scafac1> Scafac1 
+		{
+			get
+			{
+				return this.GetAll<Scafac1>();
+			}
+		}
+		
 		public static BackendConfiguration GetBackendConfiguration()
 		{
 			BackendConfiguration backend = new BackendConfiguration();
@@ -166,6 +174,10 @@ namespace AriFacElec
 			get;
 		}
 		IQueryable<Svenci> Svencis
+		{
+			get;
+		}
+		IQueryable<Scafac1> Scafac1
 		{
 			get;
 		}
