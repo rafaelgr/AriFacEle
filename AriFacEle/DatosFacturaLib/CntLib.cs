@@ -370,8 +370,12 @@ namespace DatosFacturaLib
             Cliente cli;
             bool usaDepartamentos = false;
             // Obtener la cabecera de la factura del sistema GDES
+            //Cau_FIN_FACEInvoiceHeader gdesHeader = (from h in ctxGdes.Cau_FIN_FACEInvoiceHeaders
+            //                                        where h.ID == numSerie
+            //                                        select h).FirstOrDefault<Cau_FIN_FACEInvoiceHeader>();
+
             Cau_FIN_FACEInvoiceHeader gdesHeader = (from h in ctxGdes.Cau_FIN_FACEInvoiceHeaders
-                                                    where h.ID == numSerie
+                                                    where h.ID == "A33"
                                                     select h).FirstOrDefault<Cau_FIN_FACEInvoiceHeader>();
 
             if (gdesHeader != null)

@@ -148,6 +148,7 @@
         <orm:field name="_cODIGOOFICINACONTABLE" property="CODIGOOFICINACONTABLE" behavior="readwrite" uniqueId="47a23016-f0cf-4de7-88ce-fc69b2666894" type="System.String">
           <orm:column name="CODIGOOFICINACONTABLE" sql-type="nvarchar" nullable="false" length="20" scale="0" ado-type="UnicodeStringVariableLength" />
         </orm:field>
+        <orm:field name="_property1" property="Property1" uniqueId="427dfb34-3aa4-4bef-a70d-c9eee2b5aa22" type="System.String" />
       </orm:class>
     </orm:namespace>
     <orm:schema schema="">
@@ -203,8 +204,8 @@
       </orm:table>
     </orm:schema>
     <orm:relational-naming-settings>
-      <orm:remove-camel-case>False</orm:remove-camel-case>
       <orm:source-strategy>Property</orm:source-strategy>
+      <orm:remove-camel-case>False</orm:remove-camel-case>
     </orm:relational-naming-settings>
   </orm:orm>
   <ModelSettings xmlns="">
@@ -223,6 +224,7 @@
       <PropertyRules>
         <CaseMode>PascalCase</CaseMode>
       </PropertyRules>
+      <NavigationPropertyRules />
     </NamingSettings>
     <CodeGenerationSettings>
       <MappingDefinitionType>Xml</MappingDefinitionType>
@@ -285,6 +287,7 @@
       <Property Id="314623cc-018d-4d60-8ad0-8aeaef18e9cb" name="TotalGrossAmountBeforeTaxes" type="Decimal" label="TotalGrossAmountBeforeTaxes : Decimal" kind="Persistent" fieldName="_totalGrossAmountBeforeTaxes" />
       <Property Id="f779cc59-5e4b-4ac4-b39d-7056bc14cbd0" name="TotalOutstandingAmount" type="Decimal" label="TotalOutstandingAmount : Decimal" kind="Persistent" fieldName="_totalOutstandingAmount" />
       <Property Id="a0535905-3889-4f07-88f4-42c48d02dfc4" name="TotalTaxOutputs" type="Decimal" label="TotalTaxOutputs : Decimal" kind="Persistent" fieldName="_totalTaxOutputs" />
+      <Property Id="427dfb34-3aa4-4bef-a70d-c9eee2b5aa22" name="Property1" label="Property1 : String" fieldName="_property1" />
     </DomainClass>
   </Types>
   <domainContext>

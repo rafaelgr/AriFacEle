@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <EntityDiagrams>
-  <entityDiagramsDiagram dslVersion="2.0.0.0" absoluteBounds="0, 0, 13.125, 8.5" name="GdesModelo" fillColor="62, 62, 65" isDefault="true">
+  <entityDiagramsDiagram dslVersion="2.0.0.0" absoluteBounds="0, 0, 13.125, 8.5" name="GdesModelo" isDefault="true">
     <DomainModelMoniker name="/GdesModelo" />
     <nestedChildShapes>
       <classShape Id="d0649194-4269-4d00-b329-837d04436800" absoluteBounds="3.5, 0.75, 2.375, 2.3396761067708329" fillColor="225, 249, 128, 67" outlineColor="213, 71, 0" textColor="White">
@@ -19,12 +19,12 @@
           <elementListCompartment Id="c37f2f26-44e8-4668-96c3-633cfc096907" absoluteBounds="6.6400000000000006, 3.5094921874999994, 2.3449999999999998, 0.2493896484375" name="NavigationCompartment" titleTextColor="Black" itemTextColor="Black" />
         </nestedChildShapes>
       </classShape>
-      <classShape Id="e5cb1215-2020-4361-b237-5535e30d23e1" absoluteBounds="9.375, 0.75, 3.5, 7.147211914062499" fillColor="225, 249, 128, 67" outlineColor="213, 71, 0" textColor="White">
+      <classShape Id="e5cb1215-2020-4361-b237-5535e30d23e1" absoluteBounds="9.375, 0.75, 3.5, 7.3395133463541651" fillColor="225, 249, 128, 67" outlineColor="213, 71, 0" textColor="White">
         <DomainClassMoniker name="/GdesModelo/Cau_FIN_FACEInvoiceHeader" />
         <nestedChildShapes>
-          <elementListCompartment Id="16b9f537-1d0e-4154-82a6-1344122cc8d3" absoluteBounds="9.39, 1.26, 3.4699999999999998, 6.0184326171875" name="AttributesCompartment" titleTextColor="Black" itemTextColor="Black" />
-          <elementListCompartment Id="03083fb0-69e1-40ab-ae47-24c39d472075" absoluteBounds="9.39, 7.2884326171875, 3.4699999999999998, 0.2493896484375" name="ImplementationsCompartment" titleTextColor="Black" itemTextColor="Black" />
-          <elementListCompartment Id="1e467572-9c3f-4341-80a7-a6714ae25570" absoluteBounds="9.39, 7.5478222656249994, 3.4699999999999998, 0.2493896484375" name="NavigationCompartment" titleTextColor="Black" itemTextColor="Black" />
+          <elementListCompartment Id="16b9f537-1d0e-4154-82a6-1344122cc8d3" absoluteBounds="9.39, 1.26, 3.4699999999999998, 6.2107340494791661" name="AttributesCompartment" titleTextColor="Black" itemTextColor="Black" />
+          <elementListCompartment Id="03083fb0-69e1-40ab-ae47-24c39d472075" absoluteBounds="9.39, 7.4807340494791656, 3.4699999999999998, 0.2493896484375" name="ImplementationsCompartment" titleTextColor="Black" itemTextColor="Black" />
+          <elementListCompartment Id="1e467572-9c3f-4341-80a7-a6714ae25570" absoluteBounds="9.39, 7.7401236979166654, 3.4699999999999998, 0.2493896484375" name="NavigationCompartment" titleTextColor="Black" itemTextColor="Black" />
         </nestedChildShapes>
       </classShape>
     </nestedChildShapes>

@@ -413,6 +413,19 @@ namespace GdesModel
 			}
 		}
 		
+		private string _property1;
+		public virtual string Property1
+		{
+			get
+			{
+				return this._property1;
+			}
+			set
+			{
+				this._property1 = value;
+			}
+		}
+		
 	}
 }
 #pragma warning restore 1591
